@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2D8E3E46-7C12-4290-9850-BBCB05A3961C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0719080E-D63F-4946-9B57-1F9C76A04FBF}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CurrencyExplorer", "src\CurrencyExplorer\CurrencyExplorer.xproj", "{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312} = {2D8E3E46-7C12-4290-9850-BBCB05A3961C}
+	EndGlobalSection
+EndGlobal
