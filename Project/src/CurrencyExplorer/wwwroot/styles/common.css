@@ -1,13 +1,112 @@
-﻿body {
+﻿@font-face {
+    font-family: "BEBAS";
+    src: url("fonts/BEBAS.ttf");
+}
+
+body {
     margin: 0;
+
+    font-family: "Segoe UI";
 }
 
 header {
-    height: 160px;
+    height: 158px;
+    text-align: center;
+
+    color: white;
 
     background-color: #4f85ce;
 }
 
-h1 {
-    margin: 0;
+    h1 {
+        margin: 0;
+        padding-top: 25px;
+        padding-bottom: 5px;
+
+        font-family: "BEBAS";
+        font-size: 50px;
+    }
+
+    h2 {
+        margin: 0;
+
+        font-weight: normal;
+    }
+
+hr.no-style {
+    height: 2px;
+    width: 510px;
+    border: 0;
 }
+
+    hr.title-hr {
+        background-color: white;
+    }
+
+    hr.today-hr {
+        background-color: rgb(228, 228, 228);
+
+        margin-top: 20px;
+    }
+
+div#today {
+    font-size: 20px;
+
+    text-align: center;
+
+    margin: 25px 0px;
+    padding: 0px;
+}
+
+    div#today span {
+        font-size: 30px;
+
+        color: #4f85ce;
+    }
+
+div#about {
+    height: 300px;
+    background-color: #60bc4e;
+}
+
+    div#about-title, div#help-title {
+        font-size: 25px;
+
+        font-weight: lighter;
+
+        padding: 8px 0 10px;
+
+    }
+
+div#help {
+    height: 300px;
+}
+
+    div#about-title {
+        color: white;
+    }
+
+footer {
+    text-align: center;
+
+    background-color: #4f85ce;
+}
+
+    #footer-title {
+        font-family: "BEBAS";
+        font-size: 50px;
+
+        padding: 7px 0 0px;
+
+        color: rgba(255, 255, 255, 0.9);
+
+        text-shadow: 2px 2px 1px #4f85ce, 0 0 0 black, -2px 2px 1px #4f85ce;
+    }
+
+    footer #copyright {
+        color: white;
+
+        padding-bottom: 7px;
+
+        font-size: 13px;
+    }

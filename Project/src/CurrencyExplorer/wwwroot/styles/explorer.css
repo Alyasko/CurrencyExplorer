@@ -1,0 +1,9 @@
+﻿div#explorer #chart {
+    background-color: rgb(240, 240, 240);
+
+    text-align: center;
+}
+
+div#information {
+    margin: 15px 0 40px 50px;
+}
