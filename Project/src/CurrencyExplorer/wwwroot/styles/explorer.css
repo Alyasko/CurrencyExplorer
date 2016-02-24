@@ -1,9 +1,49 @@
-﻿div#explorer #chart {
+﻿#navigation {
+    position: relative;
+}
+
+    #navigation #left {
+        height: 100px;
+        width: 40px;
+
+        top: 200px;
+        left: 20px;
+
+        position: absolute;
+    }
+
+    #navigation #right {
+        /*background-color: #4f85ce;*/
+
+        height: 100px;
+        width: 40px;
+
+        top: 200px;
+        right: 20px;
+
+        position: absolute;
+    }
+
+    .nav-normal {
+        fill: #c3c3c3;
+    }
+
+        .nav-normal:hover {
+            fill: #4f85ce;
+        }
+
+        .nav-normal:active {
+            fill: #6f9edd;
+        }
+
+div#explorer #chart {
     background-color: rgb(240, 240, 240);
 
     text-align: center;
 }
 
+
 div#information {
     margin: 15px 0 40px 50px;
 }
+

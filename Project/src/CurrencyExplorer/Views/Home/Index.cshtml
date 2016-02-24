@@ -9,51 +9,64 @@
     <meta http-equiv="content-type" content="text/html" charset="utf-8" />
     <title>Currency Explorer</title>
 
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="~/js/common.js"></script>
+    <script type="text/javascript" src="~/js/explorer.js"></script>
+
     <link rel="stylesheet" href="~/styles/common.css" />
     <link rel="stylesheet" href="~/styles/main-menu.css"/>
     <link rel="stylesheet" href="~/styles/explorer.css"/>
     <link rel="stylesheet" href="~/styles/chart.css"/>
 </head>
 <body>
-    <header>
-        <div id="page-title">
-            <h1>Currency Explorer</h1>
-            <hr class="no-style title-hr"/>
-            <h2>BE AWARE OF NECESSITY</h2>
-        </div>
+<header>
+    <div id="page-title">
+        <h1>Currency Explorer</h1>
+        <hr class="no-style title-hr"/>
+        <h2>BE AWARE OF NECESSITY</h2>
+    </div>
 
-    </header>
-    <nav id="main-menu" class="shadowed-line">
-        <ul>
-            <li>
-                <a href="#" class="no-style text-color-gray">Settings</a>
-            </li>
-            <li>
-                <a href="#" class="no-style text-color-gray">Explore</a>
-            </li>
-            <li>
-                <a href="#" class="no-style text-color-gray">Help</a>
-            </li>  
-            <li>   
-                <a href="#" class="no-style text-color-gray">About</a>
-            </li>
-        </ul>
-    </nav>
+</header>
+    <div id="main-menu-wrapper">
+        <nav id="main-menu" class="shadowed-line">
+            <ul>
+                <li>
+                    <a href="#" class="no-style text-color-gray">Settings</a>
+                </li>
+                <li>
+                    <a href="#" class="no-style text-color-gray">Explore</a>
+                </li>
+                <li>
+                    <a href="#" class="no-style text-color-gray">Help</a>
+                </li>
+                <li>
+                    <a href="#" class="no-style text-color-gray">About</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <main>
         <div id="explorer">
             <div id="today" class="text-color-gray">
                 Today <span>1 USD</span> costs <span>27.50 UAH</span>
                 <hr class="no-style today-hr"/>
             </div>
+            <div id="navigation">
+                <div id="left">
+                    <svg id="btn-nav-left" width="40" height="100">
+                        <polygon points="25,0 0,50, 25,100 40,100 15,50 40,0 25,0" class="nav-normal"></polygon>
+                    </svg>
+                </div>
+                <div id="right">
+                    <svg id="btn-nav-right" width="40" height="100">
+                        <polygon points="25,0 0,50, 25,100 40,100 15,50 40,0 25,0" class="nav-normal"  transform="rotate(180 20 50)"></polygon>
+                    </svg>
+                </div>
+            </div>
             <div id="chart">
-                <svg>
+                <svg width="800" height="500">
                     <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"/>
                     <rect width="400" height="300" class="rect" x="100" y="200"></rect>
-                </svg>
-            </div>
-            <div id="navigation">
-                <svg width="40" height="100">
-                    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
                 </svg>
             </div>
             <div id="timeline">

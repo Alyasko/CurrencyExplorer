@@ -1,12 +1,22 @@
 ﻿nav#main-menu {
     margin: 0;
-
+    z-index: 10;
+    width: 100%;
     background-color: white;
+}
+
+nav.main-menu-floating {
+    position: fixed;
+    top: 0px;
 }
 
 .shadowed-line {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 18px;
     text-align: center;
+}
+
+#main-menu-wrapper {
+    height: 35px;
 }
 
 #main-menu ul {

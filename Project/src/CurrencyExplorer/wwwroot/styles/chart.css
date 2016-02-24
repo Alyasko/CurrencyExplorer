@@ -1,7 +1,8 @@
 ﻿div#chart svg {
-    width: 800;
-    height: 500;
+
 }
+
+
 
 .rect {
     fill: red;
