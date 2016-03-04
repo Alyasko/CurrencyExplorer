@@ -1,6 +1,6 @@
 ﻿nav#main-menu {
     margin: 0;
-    z-index: 10;
+    z-index: 30;
     width: 100%;
     background-color: white;
 }
@@ -16,7 +16,9 @@ nav.main-menu-floating {
 }
 
 #main-menu-wrapper {
-    height: 35px;
+    height: 34px;
+
+    position: relative;
 }
 
 #main-menu ul {
@@ -29,20 +31,44 @@ nav.main-menu-floating {
 #main-menu ul li {
     display: inline-block;
 
+    color: #898989;
+
+    transition: background-color 0.1s ease-in-out;
+
     padding: 5px 15px 6px;
 }
 
-a.no-style {
-    text-decoration: none;
+    #main-menu ul li:active {
+        background-color: #6f9edd;
+    }
+
+    .menu-item-hover {
+        background-color: #4f85ce;
+        cursor: pointer;
+    }
+
+    .menu-item-hover>a {
+        color: white;
+        transition: color 0.1s ease-in-out;
+    }
+
+
+
+a {
+    outline: 0;
 }
 
-    a.no-style:hover {
+    a.no-style {
         text-decoration: none;
     }
 
-    a.no-style:visited {
-        color: #898989;
-    }
+        a.no-style:hover {
+            text-decoration: none;
+        }
+
+        a.no-style:visited {
+        
+        }
 
 .text-color-gray {
     color: #898989;

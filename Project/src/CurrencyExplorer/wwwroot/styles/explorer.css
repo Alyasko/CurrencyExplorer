@@ -44,6 +44,46 @@ div#explorer #chart {
 
 
 div#information {
-    margin: 15px 0 40px 50px;
+    margin: 15px 15px 20px 15px;
 }
+    
+    #dates {
+        float: left;
+    }
+
+    #export-to {
+        float: right;
+
+    }
+
+    #export-to .export-button {
+        font-family: "Segoe UI";
+
+        background-color: transparent;
+
+        border: 1px solid #4f85ce;
+        border-radius: 5px;
+        color: #376db6;
+
+        width: 200px;
+
+        margin: 0 0 5px 0;
+        padding: 5px;
+    }
+
+    #export-to .export-button:focus {
+        outline: none;
+    }
+
+    #export-to .export-button:hover {
+        background-color: #4f85ce;
+        color: white;
+
+        cursor: pointer;
+    }
+
+    #export-to .export-button:active {
+        background-color: #6192d4;
+        color: white;
+    }
 

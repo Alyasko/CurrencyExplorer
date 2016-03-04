@@ -49,6 +49,185 @@ hr.no-style {
         margin-top: 20px;
     }
 
+
+#settings {
+    position: absolute;
+
+    display: block;
+
+    z-index: 20;
+
+    width: 200px;
+    height: 100vh;
+
+    transition: left 0.5s ease-in-out;
+
+    color: white;
+    font-family: "Segoe UI";
+
+    background-color: rgba(111, 117, 125, 0.95);
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+    #settings select {
+        background-color: white;
+        border: none;
+
+        width: 100px;
+        height: 25px;
+
+        color: rgba(111, 117, 125, 0.95);
+
+        text-align: right;
+
+        font-weight: bold;
+        font-size: 15px;
+        
+        direction: rtl;
+    }
+
+    #settings input[type="submit"] {
+        margin: 15px 4px 10px 0px;
+        padding: 4px 0 6px 0;
+        width: 98%;
+
+        font-size: 14px;
+        font-family: "Segoe UI";
+
+        color: white;
+        background-color: transparent;
+
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+
+        cursor: pointer;
+    }
+
+        #settings input[type="submit"]::-moz-focus-inner {
+            border: none;
+        }
+
+        #settings input[type="submit"]:focus {
+            outline: none;
+        }
+
+        #settings input[type="submit"]:hover {
+            background-color: #6193d7;
+        }
+
+        #settings input[type="submit"]:active {
+            background-color: #73a0dd;
+        }
+
+
+    #settings-wrapper {
+        margin: 4px 4px 4px 4px;
+    }
+
+    #settings hr {
+        border: none;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    #settings-head {
+        font-family: "Segoe UI";
+        font-size: 20px;
+    }
+
+    #settings-title {
+        float: left;
+    }
+
+    a#settings-close {
+        display: inline-block;
+
+        float: right;
+
+        width: 27px;
+        height: 29px;
+
+        background-image: url(/img/close-settings.png);
+        background-repeat: no-repeat;
+        background-position: right 4px top 6px;
+    }
+
+        a#settings-close:hover {
+            background-color: rgba(255, 255, 255, 0.09);
+        }
+
+        a#settings-close:active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+    #settings-body {
+        margin-top: 10px;
+    }
+
+#lang-selector {
+    text-align: center;
+
+    margin-top: 10px;
+}
+
+        .lang {
+            display: inline-block;
+            margin: 0 2px 0 2px;
+
+            cursor: pointer;
+
+            border: 3px solid transparent;
+        }
+
+        .lang img {
+            width: 35px;
+
+            opacity: 0.4;
+            padding: 4px;
+
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .lang img:hover {
+            opacity: 1;
+        }
+
+        .lang-selected {
+            border: 3px solid #60bc4e;
+            border-radius: 5px;
+        }
+
+        .lang-selected img {
+            opacity: 1;
+        }
+
+    #convert-from div:first-child, #convert-to div:first-child {
+        float: left;
+    }
+
+    #convert-from div:last-child, #convert-to div:last-child{
+        float: right;
+
+        margin-right: 6px;
+
+        font-weight: bold;
+    }
+    
+    #convert-from div:last-child {
+        margin-right: 7px;
+    }
+
+    #convert-to {
+        margin-top: 10px;
+    }
+
+.clear-after:after {
+    content: "";
+    display: block;
+    position: static;
+    clear: both;
+}
+
 div#today {
     font-size: 20px;
 
@@ -80,6 +259,8 @@ div#about {
 
 div#help {
     height: 300px;
+
+    background-color: white;
 }
 
     div#about-title {
@@ -88,6 +269,9 @@ div#help {
 
 footer {
     text-align: center;
+    position: relative;
+
+    z-index: 1000;
 
     background-color: #4f85ce;
 }
