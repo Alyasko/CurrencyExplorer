@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 14.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Medium" Text="ModelingProject's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingProject::CurrencyExplorer' -  (Class), 'ModelingProject::DataProcessor' -  (Class), 'ModelingProject::DataPresenter' -  (Class) " />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Medium" Text="'ModelingProject::CurrencyExplorer' -  (Class) : success (file replaced) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\CurrencyExplorer.cs" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Medium" Text="'ModelingProject::DataProcessor' -  (Class) : success (file replaced) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\DataProcessor.cs" />
+  <Message Timestamp="2016-03-04T12:34:17" Importance="Medium" Text="'ModelingProject::DataPresenter' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\DataPresenter.cs" />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Medium" Text="ModelingProject's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingProject::CurrencyExplorer' -  (Class), 'ModelingProject::DataProcessor' -  (Class), 'ModelingProject::DataPresenter' -  (Class) " />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="'ModelingProject::CurrencyExplorer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="'ModelingProject::DataProcessor' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="'ModelingProject::DataPresenter' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="The selection included 1 elements which were not bound to a template." />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-04T12:34:18" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
