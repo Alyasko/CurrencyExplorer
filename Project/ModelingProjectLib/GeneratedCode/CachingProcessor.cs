@@ -9,9 +9,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DataProcessor
+/// <remarks>In general CachingProcessor might not use CurrencyProvider</remarks>
+public class CachingProcessor : ICachingProcessor
 {
-	public virtual ICachingProcessor ICachingProcessor
+	public virtual ICurrencyProvider ICurrencyProvider
+	{
+		get;
+		set;
+	}
+
+	public virtual ICurrencyRepository ICurrencyRepository
 	{
 		get;
 		set;

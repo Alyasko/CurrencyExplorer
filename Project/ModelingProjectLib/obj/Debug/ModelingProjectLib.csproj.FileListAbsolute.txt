@@ -1,0 +1,5 @@
+D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\bin\Debug\ModelingProjectLib.dll
+D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\bin\Debug\ModelingProjectLib.pdb
+D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\obj\Debug\ModelingProjectLib.csprojResolveAssemblyReference.cache
+D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\obj\Debug\ModelingProjectLib.dll
+D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\obj\Debug\ModelingProjectLib.pdb

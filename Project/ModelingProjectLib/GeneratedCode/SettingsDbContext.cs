@@ -9,13 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DataProcessor
+public class SettingsDbContext
 {
-	public virtual ICachingProcessor ICachingProcessor
-	{
-		get;
-		set;
-	}
-
 }
 

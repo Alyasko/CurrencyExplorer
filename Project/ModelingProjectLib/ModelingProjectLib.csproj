@@ -40,6 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneratedCode\AbstractCurrencyDataConverter.cs" />
+    <Compile Include="GeneratedCode\CachingProcessor.cs" />
+    <Compile Include="GeneratedCode\CsvDataConverter.cs" />
+    <Compile Include="GeneratedCode\CurrencyDbContext.cs" />
+    <Compile Include="GeneratedCode\CurrencyExplorer.cs" />
+    <Compile Include="GeneratedCode\CurrencyRepository.cs" />
+    <Compile Include="GeneratedCode\DataPresenter.cs" />
+    <Compile Include="GeneratedCode\DataProcessor.cs" />
+    <Compile Include="GeneratedCode\ICachingProcessor.cs" />
+    <Compile Include="GeneratedCode\ICurrencyDataConverter.cs" />
+    <Compile Include="GeneratedCode\ICurrencyProvider.cs" />
+    <Compile Include="GeneratedCode\ICurrencyRepository.cs" />
+    <Compile Include="GeneratedCode\ISettingsHolder.cs" />
+    <Compile Include="GeneratedCode\ISettingsRepository.cs" />
+    <Compile Include="GeneratedCode\JpegDataConverter.cs" />
+    <Compile Include="GeneratedCode\JsonDataConverter.cs" />
+    <Compile Include="GeneratedCode\NationalBankCurrencyProvider.cs" />
+    <Compile Include="GeneratedCode\SettingsDbContext.cs" />
+    <Compile Include="GeneratedCode\SettingsHolder.cs" />
+    <Compile Include="GeneratedCode\SettingsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

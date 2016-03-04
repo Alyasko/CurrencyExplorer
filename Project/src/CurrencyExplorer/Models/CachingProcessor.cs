@@ -8,14 +8,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CurrencyExplorer.Models.Contracts;
 
-public class DataProcessor
+namespace CurrencyExplorer.Models
 {
-	public virtual ICachingProcessor ICachingProcessor
-	{
-		get;
-		set;
-	}
+    /// <remarks>In general CachingProcessor might not use CurrencyProvider</remarks>
+    public class CachingProcessor : ICachingProcessor
+    {
+        public virtual ICurrencyProvider ICurrencyProvider { get; set; }
+
+        public virtual ICurrencyRepository ICurrencyRepository { get; set; }
+
+    }
 
 }
-

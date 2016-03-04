@@ -9,13 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DataProcessor
+namespace CurrencyExplorer.Models.Contracts
 {
-	public virtual ICachingProcessor ICachingProcessor
-	{
-		get;
-		set;
-	}
-
+    public interface ICurrencyDataConverter
+    {
+    }
 }
-

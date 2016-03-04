@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DataProcessor
+public class SettingsHolder : ISettingsHolder
 {
-	public virtual ICachingProcessor ICachingProcessor
+	public virtual ISettingsRepository ISettingsRepository
 	{
 		get;
 		set;

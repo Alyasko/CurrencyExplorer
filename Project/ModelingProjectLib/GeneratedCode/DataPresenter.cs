@@ -11,5 +11,11 @@ using System.Text;
 
 public class DataPresenter
 {
+	public virtual IEnumerable<ICurrencyDataConverter> ICurrencyDataConverter
+	{
+		get;
+		set;
+	}
+
 }
 

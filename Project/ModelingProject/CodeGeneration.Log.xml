@@ -6,30 +6,85 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="High" Text="Code generation or text transformation started." />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="Name = ClassTemplate" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Medium" Text="ModelingProject's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingProject::CurrencyExplorer' -  (Class), 'ModelingProject::DataProcessor' -  (Class), 'ModelingProject::DataPresenter' -  (Class) " />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Medium" Text="'ModelingProject::CurrencyExplorer' -  (Class) : success (file replaced) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\CurrencyExplorer.cs" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Medium" Text="'ModelingProject::DataProcessor' -  (Class) : success (file replaced) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\DataProcessor.cs" />
-  <Message Timestamp="2016-03-04T12:34:17" Importance="Medium" Text="'ModelingProject::DataPresenter' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\DataPresenter.cs" />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="Name = StructTemplate" />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Medium" Text="ModelingProject's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingProject::CurrencyExplorer' -  (Class), 'ModelingProject::DataProcessor' -  (Class), 'ModelingProject::DataPresenter' -  (Class) " />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="'ModelingProject::CurrencyExplorer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="'ModelingProject::DataProcessor' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="'ModelingProject::DataPresenter' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="The selection included 1 elements which were not bound to a template." />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
-  <Message Timestamp="2016-03-04T12:34:18" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-04T13:11:19" Importance="Medium" Text="ModelingProject's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingProject::CurrencyExplorer' -  (Class), 'ModelingProject::DataProcessor' -  (Class), 'ModelingProject::DataPresenter' -  (Class), 'ModelingProject::SettingsHolder' -  (Class), 'ModelingProject::SettingsRepository' -  (Class), 'ModelingProject::SettingsDbContext' -  (Class), 'ModelingProject::CachingProcessor' -  (Class), 'ModelingProject::NationalBankCurrencyProvider' -  (Class), 'ModelingProject::CurrencyRepository' -  (Class), 'ModelingProject::CurrencyDbContext' -  (Class), 'ModelingProject::AbstractCurrencyDataConverter' -  (Class), 'ModelingProject::JpegDataConverter' -  (Class), 'ModelingProject::CsvDataConverter' -  (Class), 'ModelingProject::JsonDataConverter' -  (Class) " />
+  <Message Timestamp="2016-03-04T13:11:20" Importance="Medium" Text="'ModelingProject::CurrencyExplorer' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\CurrencyExplorer.cs" />
+  <Message Timestamp="2016-03-04T13:11:20" Importance="Medium" Text="'ModelingProject::DataProcessor' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\DataProcessor.cs" />
+  <Message Timestamp="2016-03-04T13:11:20" Importance="Medium" Text="'ModelingProject::DataPresenter' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\DataPresenter.cs" />
+  <Message Timestamp="2016-03-04T13:11:20" Importance="Medium" Text="'ModelingProject::SettingsHolder' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\SettingsHolder.cs" />
+  <Message Timestamp="2016-03-04T13:11:21" Importance="Medium" Text="'ModelingProject::SettingsRepository' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\SettingsRepository.cs" />
+  <Message Timestamp="2016-03-04T13:11:21" Importance="Medium" Text="'ModelingProject::SettingsDbContext' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\SettingsDbContext.cs" />
+  <Message Timestamp="2016-03-04T13:11:21" Importance="Medium" Text="'ModelingProject::CachingProcessor' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\CachingProcessor.cs" />
+  <Message Timestamp="2016-03-04T13:11:21" Importance="Medium" Text="'ModelingProject::NationalBankCurrencyProvider' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\NationalBankCurrencyProvider.cs" />
+  <Message Timestamp="2016-03-04T13:11:21" Importance="Medium" Text="'ModelingProject::CurrencyRepository' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\CurrencyRepository.cs" />
+  <Message Timestamp="2016-03-04T13:11:22" Importance="Medium" Text="'ModelingProject::CurrencyDbContext' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\CurrencyDbContext.cs" />
+  <Message Timestamp="2016-03-04T13:11:22" Importance="Medium" Text="'ModelingProject::AbstractCurrencyDataConverter' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\AbstractCurrencyDataConverter.cs" />
+  <Message Timestamp="2016-03-04T13:11:22" Importance="Medium" Text="'ModelingProject::JpegDataConverter' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\JpegDataConverter.cs" />
+  <Message Timestamp="2016-03-04T13:11:22" Importance="Medium" Text="'ModelingProject::CsvDataConverter' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\CsvDataConverter.cs" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Medium" Text="'ModelingProject::JsonDataConverter' -  (Class) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\JsonDataConverter.cs" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Diagnostic" Text="Name = InterfaceTemplate" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Medium" Text="ModelingProject's Text Template Binding: 'InterfaceTemplate' will apply InterfaceTemplate.t4 to: 'ModelingProject::ISettingsHolder' -  (Interface), 'ModelingProject::ISettingsRepository' -  (Interface), 'ModelingProject::ICachingProcessor' -  (Interface), 'ModelingProject::ICurrencyProvider' -  (Interface), 'ModelingProject::ICurrencyRepository' -  (Interface), 'ModelingProject::ICurrencyDataConverter' -  (Interface) " />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Medium" Text="'ModelingProject::ISettingsHolder' -  (Interface) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\ISettingsHolder.cs" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Medium" Text="'ModelingProject::ISettingsRepository' -  (Interface) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\ISettingsRepository.cs" />
+  <Message Timestamp="2016-03-04T13:11:23" Importance="Medium" Text="'ModelingProject::ICachingProcessor' -  (Interface) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\ICachingProcessor.cs" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Medium" Text="'ModelingProject::ICurrencyProvider' -  (Interface) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\ICurrencyProvider.cs" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Medium" Text="'ModelingProject::ICurrencyRepository' -  (Interface) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\ICurrencyRepository.cs" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Medium" Text="'ModelingProject::ICurrencyDataConverter' -  (Interface) : success (file created) - D:\Projects\WEB\CurrencyExplorer\Project\ModelingProjectLib\GeneratedCode\ICurrencyDataConverter.cs" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Medium" Text="ModelingProject's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingProject::CurrencyExplorer' -  (Class), 'ModelingProject::DataProcessor' -  (Class), 'ModelingProject::DataPresenter' -  (Class), 'ModelingProject::SettingsHolder' -  (Class), 'ModelingProject::SettingsRepository' -  (Class), 'ModelingProject::SettingsDbContext' -  (Class), 'ModelingProject::CachingProcessor' -  (Class), 'ModelingProject::NationalBankCurrencyProvider' -  (Class), 'ModelingProject::CurrencyRepository' -  (Class), 'ModelingProject::CurrencyDbContext' -  (Class), 'ModelingProject::AbstractCurrencyDataConverter' -  (Class), 'ModelingProject::JpegDataConverter' -  (Class), 'ModelingProject::CsvDataConverter' -  (Class), 'ModelingProject::JsonDataConverter' -  (Class) " />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::CurrencyExplorer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::DataProcessor' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::DataPresenter' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::SettingsHolder' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::SettingsRepository' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::SettingsDbContext' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::CachingProcessor' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::NationalBankCurrencyProvider' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::CurrencyRepository' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:24" Importance="Diagnostic" Text="'ModelingProject::CurrencyDbContext' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::AbstractCurrencyDataConverter' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::JpegDataConverter' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::CsvDataConverter' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::JsonDataConverter' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="The selection included 20 elements which were not bound to a template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'202ec09d-5227-4de0-992d-3a28792b8bb8' -  (Comment): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'ModelingProject::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'f9905c21-df71-4360-9792-567dca3783a6' -  (Generalization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'f7206bd8-67dd-41c6-b388-8a1c3f2826b3' -  (Generalization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="Diagnostic" Text="'577c265c-cce7-4049-b8b2-855403c436df' -  (Generalization): no bound template." />
+  <Message Timestamp="2016-03-04T13:11:25" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
 </Log>

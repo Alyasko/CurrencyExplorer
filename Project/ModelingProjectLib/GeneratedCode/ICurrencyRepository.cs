@@ -9,13 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DataProcessor
+public interface ICurrencyRepository 
 {
-	public virtual ICachingProcessor ICachingProcessor
-	{
-		get;
-		set;
-	}
-
 }
 

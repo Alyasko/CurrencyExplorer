@@ -8,14 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CurrencyExplorer.Models.Contracts;
 
-public class DataProcessor
+namespace CurrencyExplorer.Models.Database
 {
-	public virtual ICachingProcessor ICachingProcessor
-	{
-		get;
-		set;
-	}
-
+    public class CurrencyRepository : ICurrencyRepository
+    {
+    }
 }
-

@@ -11,13 +11,7 @@ using System.Text;
 
 public class CurrencyExplorer
 {
-	private DataProcessor _dataProcessor
-	{
-		get;
-		set;
-	}
-
-	private DataPresenter _dataPresenter
+	public virtual ISettingsHolder ISettingsHolder
 	{
 		get;
 		set;
