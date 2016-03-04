@@ -36,7 +36,7 @@
     </comment>
     <comment
       Id="baa256ae-86d9-49f4-8d24-4de1ada98e4b">
-      <body>Contains all user specific settings</body>
+      <body>Contains all user specific settings. Is to be stored in bowser cookies</body>
       <annotatedElements>
         <componentMoniker
           Id="cfcf3271-84f4-47fb-abd3-2d56b2dfc1cf"
@@ -71,6 +71,46 @@
         <componentMoniker
           Id="7bbe8e82-c2bf-41e6-bb98-bfa2f968adc0"
           LastKnownName="Caching Processor"
+          LastKnownLocation="ModelingProject.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="b0f17a21-a10d-400e-92a5-d9fd6964a3f2">
+      <body>Presents the data either in JSON to the View or in other formats (e.g. JPG or CSV)</body>
+      <annotatedElements>
+        <componentMoniker
+          Id="a859dd37-ad21-4d11-ba8a-a4f1c0415b01"
+          LastKnownName="Data Presenter"
+          LastKnownLocation="ModelingProject.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="4988ae8d-2255-4bea-91dd-7dbb356eaeeb">
+      <body>Converter can be either JPG, CSV, JSON</body>
+      <annotatedElements>
+        <componentMoniker
+          Id="d767ea0a-1300-4061-b4e7-36306e5ec056"
+          LastKnownName="Concrete Converter"
+          LastKnownLocation="ModelingProject.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="68508ba4-72d5-4a61-b157-51c41820f721">
+      <body>Uses EntityFramework</body>
+      <annotatedElements>
+        <componentMoniker
+          Id="8d648963-4f7d-4b2e-a3b9-348fa342747b"
+          LastKnownName="Settings DB Context"
+          LastKnownLocation="ModelingProject.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="a5622c66-0189-4450-890c-615ab2b58a9c">
+      <body>Provides access to the user settings data</body>
+      <annotatedElements>
+        <componentMoniker
+          Id="fc1060be-a07d-4ea8-8693-4cf532b18f03"
+          LastKnownName="Settings Repository"
           LastKnownLocation="ModelingProject.uml" />
       </annotatedElements>
     </comment>
@@ -263,6 +303,22 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="030cf593-ad54-40dd-a25e-c3055f2b352e">
+            <componentMoniker
+              Id="0aa39370-2963-4ae0-a956-7e209ee6ef89"
+              LastKnownName="Data Processor"
+              LastKnownLocation="ModelingProject.uml" />
+          </dependency>
+          <dependency
+            Id="dea85b0c-688c-4809-aa2c-536a52c01d3d">
+            <componentMoniker
+              Id="a859dd37-ad21-4d11-ba8a-a4f1c0415b01"
+              LastKnownName="Data Presenter"
+              LastKnownLocation="ModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
         <ownedAttributesInternal>
           <requiredInterface
             Id="87eb8170-f099-4ec2-b3df-d9eaf393e2f5"
@@ -289,25 +345,6 @@
               <interfaceMoniker
                 Id="9fdb790c-6bd2-4399-93dd-06b3bc420f09"
                 LastKnownName="Settings Holder"
-                LastKnownLocation="ModelingProject.uml" />
-            </type_NamedElement>
-          </requiredInterface>
-          <requiredInterface
-            Id="276e01af-5e63-4f9a-874a-08ac2077dc1d"
-            name="Port2"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false"
-            isService="false"
-            isBehavior="false">
-            <type_NamedElement>
-              <interfaceMoniker
-                Id="4a5034ed-598e-461f-9404-48a08bcc2655"
-                LastKnownName="Data Processor"
                 LastKnownLocation="ModelingProject.uml" />
             </type_NamedElement>
           </requiredInterface>
@@ -341,6 +378,34 @@
                 LastKnownLocation="ModelingProject.uml" />
             </type_NamedElement>
           </providedInterface>
+          <requiredInterface
+            Id="f7ec5499-c6fa-4359-9574-e781c4aa41c0"
+            name="Port2"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <suppliersInternal>
+              <dependency
+                Id="51f52b05-8de7-442e-be06-c1e5ca2b2416">
+                <providedInterfaceMoniker
+                  Id="b3a14da0-b1c5-4614-aeee-0ea5aac43b06"
+                  LastKnownName="Port1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </dependency>
+            </suppliersInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="88342f99-25c5-4d84-abaf-323d25ac91b3"
+                LastKnownName="Settings Repository"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </requiredInterface>
         </ownedAttributesInternal>
       </component>
     </packageHasNamedElement>
@@ -387,25 +452,6 @@
                 LastKnownLocation="ModelingProject.uml" />
             </type_NamedElement>
           </requiredInterface>
-          <providedInterface
-            Id="06b94dd2-3059-47f9-ab07-f3b363e914ff"
-            name="Port2"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false"
-            isService="false"
-            isBehavior="false">
-            <type_NamedElement>
-              <interfaceMoniker
-                Id="1fab64d8-ce6d-47a8-8d56-199515c53b54"
-                LastKnownName="Data Processor"
-                LastKnownLocation="ModelingProject.uml" />
-            </type_NamedElement>
-          </providedInterface>
         </ownedAttributesInternal>
       </component>
     </packageHasNamedElement>
@@ -541,6 +587,157 @@
       <Interface
         Id="1fab64d8-ce6d-47a8-8d56-199515c53b54"
         name="Data Processor"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="a859dd37-ad21-4d11-ba8a-a4f1c0415b01"
+        name="Data Presenter"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <requiredInterface
+            Id="1c8981ca-2827-48f0-9e60-c726ecc5afc2"
+            name="Port1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <suppliersInternal>
+              <dependency
+                Id="4e509cdc-c025-42d1-8f21-24047279c9e2">
+                <providedInterfaceMoniker
+                  Id="8d1916ae-54b5-40a7-8275-24d094c218cc"
+                  LastKnownName="Port1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </dependency>
+            </suppliersInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="8aedbc5b-f295-4037-ba6a-2f06ba44396a"
+                LastKnownName="Converter"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </requiredInterface>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="47f27680-37d6-49c4-a67d-691cf61aabdd"
+        name="Data Presenter"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="d767ea0a-1300-4061-b4e7-36306e5ec056"
+        name="Concrete Converter"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <providedInterface
+            Id="8d1916ae-54b5-40a7-8275-24d094c218cc"
+            name="Port1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="c398e9ed-3b43-4ba3-94ec-46b844a96493"
+                LastKnownName="Data Converter"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="c398e9ed-3b43-4ba3-94ec-46b844a96493"
+        name="Data Converter"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="8aedbc5b-f295-4037-ba6a-2f06ba44396a"
+        name="Converter"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="fc1060be-a07d-4ea8-8693-4cf532b18f03"
+        name="Settings Repository"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="0ae0a379-0e38-4af7-aa27-c031753075d0">
+            <componentMoniker
+              Id="8d648963-4f7d-4b2e-a3b9-348fa342747b"
+              LastKnownName="Settings DB Context"
+              LastKnownLocation="ModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <providedInterface
+            Id="b3a14da0-b1c5-4614-aeee-0ea5aac43b06"
+            name="Port1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="97513013-574b-42c4-b0cf-d32c3618dc8c"
+                LastKnownName="Settings Repository"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="8d648963-4f7d-4b2e-a3b9-348fa342747b"
+        name="Settings DB Context"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="97513013-574b-42c4-b0cf-d32c3618dc8c"
+        name="Settings Repository"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="88342f99-25c5-4d84-abaf-323d25ac91b3"
+        name="Settings Repository"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
