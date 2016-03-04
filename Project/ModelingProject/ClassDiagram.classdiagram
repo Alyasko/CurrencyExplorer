@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="935ec9a0-e512-48df-b935-4742f8621e2f" name="ClassDiagram" linkedPackageId="9c60b789-4efd-4d4e-8c9d-bf29cedbc87c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="8b6e9275-00d5-43ba-bbe5-91119240c860">
+      <profileInstance Id="bc0b0cca-7e45-405f-bd9f-38002d5c1321" name="TextTemplateBindings">
+        <elementDefinition Id="e3683026-cea5-4d7d-9978-53ccfcdf27df" />
+      </profileInstance>
+      <elementDefinition Id="4a624a9f-6cb2-40b0-90c8-b011c3327ac8" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="516b6b98-dceb-4032-b828-c0e695dcfef6" name="Models">
+        <elementDefinition Id="bf9602f3-9a3d-4bb7-bda3-234eb6a5f0dd" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="6cf68be6-8701-4afd-b4c0-c7873669fd16" name="Views">
+        <elementDefinition Id="28d474b5-79e1-4830-b91e-25f04e6ada59" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="f0e01f38-3441-4756-9556-34cf86d99cd4" name="Controllers">
+        <elementDefinition Id="ca89ddeb-fe3c-44e5-a1ab-f286950739cc" />
+        <suppliersInternal>
+          <dependency Id="d56dac70-0ed1-40bf-8782-3b6689b31af9">
+            <packageMoniker Id="6cf68be6-8701-4afd-b4c0-c7873669fd16" LastKnownName="Views" />
+            <elementDefinition Id="d3fe10e7-49cd-42c7-9025-6f81c4d34057" />
+          </dependency>
+          <dependency Id="d9b275fe-1a69-49ee-90e3-d5670ba95255">
+            <packageMoniker Id="516b6b98-dceb-4032-b828-c0e695dcfef6" LastKnownName="Models" />
+            <elementDefinition Id="9fb5ae06-1958-49f4-af12-607fdd7b0b53" />
+          </dependency>
+        </suppliersInternal>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="9c60b789-4efd-4d4e-8c9d-bf29cedbc87c" name="ModelingProject">
+    <elementDefinition Id="2be56d21-9d94-4330-8393-bf83727e89b5" />
+    <profileInstances>
+      <packageHasProfileInstances Id="e6340419-e89d-4ba6-b77a-b2fc2508a1f4">
+        <profileInstance Id="24a4d816-b4af-484b-9723-97fb3bc25016" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="56d095ce-03da-4fe8-aaeb-5a0605ed8d79">
+        <profileInstance Id="7f6ebde8-bb9b-4587-9245-c626520dc41b" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

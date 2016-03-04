@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CurrencyExplorer", "src\CurrencyExplorer\CurrencyExplorer.xproj", "{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject", "ModelingProject\ModelingProject.modelproj", "{91358286-0DE0-4CBF-B792-AE142B9CA975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AEC0F6F-8D2C-434E-9085-76A3DB8BF312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91358286-0DE0-4CBF-B792-AE142B9CA975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91358286-0DE0-4CBF-B792-AE142B9CA975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91358286-0DE0-4CBF-B792-AE142B9CA975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91358286-0DE0-4CBF-B792-AE142B9CA975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
