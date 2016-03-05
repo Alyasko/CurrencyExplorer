@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="5c57e3e0-652e-4f6a-ba1b-ac6464394c99" name="UseCaseDiagram" linkedPackageId="84c29e9f-4d2c-40e3-a1bf-29e113c2773d" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="359186f4-8d4c-4e7c-831a-82f2799a17d3" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="324348bf-2271-4842-88b9-bac42c544ae6" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="ddb7d071-9ba7-4694-84dd-02fe2eccdaac">
+          <propertyInstance Id="f1b16275-ca1c-4227-bce3-671db077fef2" name="BaseName">
+            <elementDefinition Id="4d941a2e-7bfa-466f-acfd-a7b05b6f0883" />
+          </propertyInstance>
+          <elementDefinition Id="48971383-07eb-4d47-8df4-f71697f19f95" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="546626a2-8ddd-4e6e-ae48-e2ac42b26588">
+          <propertyInstance Id="132747dd-93c3-43f0-b076-672c4fd341ec" name="ClrAttributes">
+            <elementDefinition Id="5940923e-d83d-45b1-9716-f065d9c24547" />
+          </propertyInstance>
+          <elementDefinition Id="d9b78d12-6b21-4064-a7d1-c0fc1231efde" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="9c4734d7-3638-4742-8419-a9cdebccdd7b">
+          <propertyInstance Id="05d5e1b8-0b23-4c4e-99a3-37f45235019c" name="Usings">
+            <elementDefinition Id="7f16d219-0156-4b49-bbd6-95f0139741ae" />
+          </propertyInstance>
+          <elementDefinition Id="4f94ebf9-116b-4500-99f0-ec50a9c58bf7" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="af31c0b5-e761-4d78-a553-a3a62c2cde9b" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="44c6fec6-05b7-4f39-81d9-d006e68fc32f" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="41459692-8df9-492c-b0e7-28656703db5c">
+          <propertyInstance Id="8bec4bf8-1de1-4a54-83cd-95b5663f5b83" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="e05093f8-6a58-4d32-83aa-58f8ca68eb25" />
+          </propertyInstance>
+          <elementDefinition Id="a469c929-5dd1-4caa-8f12-13b4ec680b98" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="333af649-4005-419a-a8fd-0b596883bfa1">
+          <propertyInstance Id="c56e9d8b-9b23-44f8-a8a3-ce4226f23512" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="8b4ad44f-0c31-4828-84cd-f56d740da4cc" />
+          </propertyInstance>
+          <elementDefinition Id="ff0ca674-9273-4f1b-a5f4-cb7046011a59" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="7e3dead5-c1bb-4eab-a34f-0713b40f1774">
+          <propertyInstance Id="4ee27994-d8fe-4330-8e2a-bee058b66287" name="ProjectPath" value="ClassTemplate=..\ModelingProjectLib\ModelingProjectLib.csproj|EnumTemplate=..\ModelingProjectLib\ModelingProjectLib.csproj|InterfaceTemplate=..\ModelingProjectLib\ModelingProjectLib.csproj|StructTemplate=..\ModelingProjectLib\ModelingProjectLib.csproj">
+            <elementDefinition Id="661ad3f0-d378-4b96-aa8d-9b656765dbe4" />
+          </propertyInstance>
+          <elementDefinition Id="519ffbf9-edc5-403e-9db7-5a4b9fa8fd9b" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c341384d-8a8e-4de6-9875-b7d1816eb19c">
+          <propertyInstance Id="63980e8d-02a8-446c-9b4c-1140a5b13ae5" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="4d51d278-bb99-4813-a589-734ac2dd2916" />
+          </propertyInstance>
+          <elementDefinition Id="358df54b-e655-4e4e-810e-5af3d0ab4fa1" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="02062c06-bb09-4a7f-91a6-8c4ccd48d33d">
+          <propertyInstance Id="4fe4fb4e-bf9f-47a1-8f3d-ab06d0e13ca7" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="42a13412-3fc0-41ef-afba-cd16d62de469" />
+          </propertyInstance>
+          <elementDefinition Id="fa136007-3325-4f7d-a76b-f417bc7c28fb" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="8aa337d0-a380-41ea-b9f1-7b241dfaa452">
+          <propertyInstance Id="23f3bcc9-89f2-475b-b902-830e62ae34d1" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="52802f24-af44-457f-bb08-cc082cd96f26" />
+          </propertyInstance>
+          <elementDefinition Id="3f23caf5-af8d-4900-9ba6-6a9ae077cc42" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="30dd1eb3-5e51-4a4f-a936-e1a55c9dbaaf">
+          <propertyInstance Id="200f392a-61f0-4d07-a013-d88e23bbeac7" name="Parameters">
+            <elementDefinition Id="07b03143-3b38-4019-8181-3860fef6dede" />
+          </propertyInstance>
+          <elementDefinition Id="6149efe8-609d-4af7-b468-87a2e5ae3799" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="4bfd695c-ccb9-4731-ab5e-a80fc29f3c2c">
+      <profileInstance Id="0e262714-5ffe-48b4-9457-8590a3cfb88c" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7bd624ce-3060-4dd5-bef1-fb5eccdd6e38">
+      <profileInstance Id="faaa7e7a-3fec-456e-a97b-f0cb5f72b8a8" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="4b9d9d05-f1a7-471d-979c-3df12a0b8ac9">
+      <profileInstance Id="3033e018-78d0-43ef-bdff-3ff41fe2f5a5" name="TextTemplateBindings">
+        <elementDefinition Id="e3683026-cea5-4d7d-9978-53ccfcdf27df" />
+      </profileInstance>
+      <elementDefinition Id="4a624a9f-6cb2-40b0-90c8-b011c3327ac8" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="39c0058e-6bb9-4fe1-aa75-4581fc71ae72">
+      <profileInstance Id="9369f185-490f-4e02-9fdf-7ff6912474e0" name="CSharpProfile">
+        <elementDefinition Id="815875e9-99cf-4b7c-854e-b398ff483e8e" />
+      </profileInstance>
+      <elementDefinition Id="d6a0b1d9-34d3-499a-917b-30a3ebaae74f" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="c66267aa-61c6-4788-b968-95976e5fcaef" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1accf036-12d8-4d04-aead-884e8adf85db" />
+        <targetEnds>
+          <association Id="28142e6b-4b8e-4557-84a1-cc705f55c670" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Visit CurrencyExplorer" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8518c103-87af-44fd-9533-54657e570457" LastKnownName="Visit CurrencyExplorer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="82fed097-7b58-4e86-80eb-8f70424cb904" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="aecf3962-44c6-4e4d-aa6f-b9c6aea93670" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="416b19f2-488b-438e-85a0-09cb6400d509" name="Visit CurrencyExplorer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4b63d4ad-4c04-410c-b63f-00ef41cb5b82" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4440ff9d-ecb3-44dd-ad2e-dd3d2289e5af" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="1c473733-8e6b-468f-9245-625983308750" name="Configure Explorer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9b27a423-b08a-4f29-94da-0e21fe09d63a" />
+        <extendedCases>
+          <extend Id="74f824d7-b5e5-4ce4-bf47-dbe7ab6ee56b">
+            <useCaseMoniker Id="4d461520-ba39-4842-928d-928c1b439fde" LastKnownName="Set currency" />
+            <elementDefinition Id="e8404f78-3e2f-4e40-87d9-c35ff8cb6154" />
+          </extend>
+          <extend Id="851a51fe-3b5a-4df1-b4be-0202d8459365">
+            <useCaseMoniker Id="26078aff-3768-4a46-92e1-eb858fcbfcfd" LastKnownName="Set time period" />
+            <elementDefinition Id="afc0f5ff-bdc3-482c-85c7-6cd44610f95b" />
+          </extend>
+          <extend Id="eb254eeb-e7de-4806-bae1-c3898236d374">
+            <useCaseMoniker Id="91300a51-e23b-4d46-8cb2-22c71b79de8a" LastKnownName="Set language" />
+            <elementDefinition Id="ef6ea591-f586-4c8b-a31c-8e6921f1e220" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="b7923968-d7ef-41ab-b404-61e670791deb" name="Export currency data" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1" />
+        <extendedCases>
+          <extend Id="5473f445-4a08-499c-8b94-338c897b3a95">
+            <useCaseMoniker Id="88f1f0b2-afd3-4096-8471-f5fe9cf078ab" LastKnownName="Export as image" />
+            <elementDefinition Id="a674828a-2f40-4fe2-a90c-b53dcc46a752" />
+          </extend>
+          <extend Id="d99f0db2-25f2-4e3f-b7c4-a5e814362853">
+            <useCaseMoniker Id="41daa902-657e-43d6-a0b6-aa7d9a14c604" LastKnownName="Export as table" />
+            <elementDefinition Id="93874b78-5ecb-4264-b44a-655e53623a6a" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="4d461520-ba39-4842-928d-928c1b439fde" name="Set currency" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="173222d9-3a74-44aa-8885-9c7f07e0476c" />
+        <additions>
+          <include Id="69d92149-4952-4751-a483-638e5210cdb2">
+            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save settings" />
+            <elementDefinition Id="f646298b-bd45-4a75-98d0-ebf64707a30d" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="26078aff-3768-4a46-92e1-eb858fcbfcfd" name="Set time period" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="909ebef5-c531-4372-a7c0-600ffc2ad2a6" />
+        <additions>
+          <include Id="517859e5-03dd-481c-bb95-bedb088b8dc9">
+            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save settings" />
+            <elementDefinition Id="66c9afdc-9b9c-44d4-b9a5-83e9f5dee7f6" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="91300a51-e23b-4d46-8cb2-22c71b79de8a" name="Set language" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3c7e1c23-00ff-4cf6-9ebb-03dbb8fac00c" />
+        <additions>
+          <include Id="bf279c55-859d-4b0d-99d0-bc93eabe0bd1">
+            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save settings" />
+            <elementDefinition Id="cdfe39f9-a944-4328-af5f-81f1ed2d7508" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="88f1f0b2-afd3-4096-8471-f5fe9cf078ab" name="Export as image" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="52de480c-4c5e-4a2f-b85c-2283c17ff330" />
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="41daa902-657e-43d6-a0b6-aa7d9a14c604" name="Export as table" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c7845afa-8699-4272-9779-a68b570ab6c0" />
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="24d6315d-665a-4170-a6e5-462f30902bdf" name="Explore currency chart" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b" />
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="7ea221a4-3b64-4ed6-a9af-464fd0a25b9e" name="Database Server" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0d2cb481-f18b-4868-b8a7-00c1e254db37" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="34cd3254-ad43-4b1f-ade3-c0e9da8521b1" name="Web-server" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d556baf2-090c-4362-89bb-ba9618f334df" />
+        <targetEnds>
+          <association Id="2b4ca870-3501-4b61-b1cb-778ba4595bdd" isDerived="false" sourceEndRoleName="Web-server" targetEndRoleName="Save settings to Database" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="87c9acf5-318f-48e7-a60b-c8a44806315c" LastKnownName="Save settings to Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8f299e90-d632-4e51-b416-e6a5bf1a44bd" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="14813704-0878-400d-aefa-e607f0c920e4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="19a41a31-6798-486e-b291-7d77f6edec47" name="Save settings to Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2da6e033-f0ca-4687-81c2-bf5192298832" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="19a74e2a-bdcf-4e04-b1ce-5b60f17de4ab" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fbbefda3-5362-4914-a8e7-54b67522e37a" name="Save settings" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4f662c0b-444f-44d5-88f9-05ebce8585a1" />
+        <targetEnds>
+          <association Id="6da57e9e-3858-42d6-8680-f885d0955146" isDerived="false" sourceEndRoleName="Save settings" targetEndRoleName="Web-server" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="34cd3254-ad43-4b1f-ade3-c0e9da8521b1" LastKnownName="Web-server" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="822cc812-e7dd-438d-8307-f9b2e7cd0add" name="Save settings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="148649f5-c3a9-43d5-be91-64cb90e3bd2f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4ab3f312-0ca2-4f85-982f-790d5a91f8f6" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="27360ec4-b824-4992-bda9-9b3e556057bb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cfcd2fc0-03b8-4c54-b205-686ab1a51b8b" />
+          </association>
+        </targetEnds>
+        <additions>
+          <include Id="7121eb9f-c7f6-4c0b-8c9d-94bf8bfc7e25">
+            <useCaseMoniker Id="5e173ec0-4c9a-4fb8-95ac-61ae92881252" LastKnownName="Set Cookies" />
+            <elementDefinition Id="7d5c0cf2-e9e3-4ac1-b3e4-62cdccd26d92" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5e173ec0-4c9a-4fb8-95ac-61ae92881252" name="Set Cookies" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ac63d6c5-c03c-4276-a1f2-0ead787506bc" />
+        <targetEnds>
+          <association Id="c6a8cc36-d1cd-459c-925d-231d93c34436" isDerived="false" sourceEndRoleName="Set Cookies" targetEndRoleName="Web-browser" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="735e123b-e5fb-427f-b2fe-7cd3b7c27088" LastKnownName="Web-browser" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d0472fa5-a458-486b-81f0-b2492327bf4d" name="Set Cookies" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="08201613-b4de-4603-afe7-d54544ac7ea0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="54421c58-89de-4281-ae4f-92c2cac333de" name="Web-browser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="77af6317-ddf2-4935-9cd1-05274d7ed801" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e6c4ac61-2930-43d4-83a4-23b074a28cf2" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="735e123b-e5fb-427f-b2fe-7cd3b7c27088" name="Web-browser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5834937d-438a-40e7-95c1-e2deea6594c9" />
+        <targetEnds>
+          <association Id="114ac63f-3e12-4a87-b903-ab519d9a22fa" isDerived="false" sourceEndRoleName="Web-browser" targetEndRoleName="Visit CurrencyExplorer" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8518c103-87af-44fd-9533-54657e570457" LastKnownName="Visit CurrencyExplorer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="60d4a0d5-06d7-4cea-b29d-641bdf939ab0" name="Web-browser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e17c2054-7300-439c-bab3-651e72548a25" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4115b380-b869-4d58-9fa9-e7c6d8248d15" name="Visit CurrencyExplorer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c7f92317-dd1c-48e8-88bb-48cb343812ce" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="aa811494-e964-4a0f-ad42-d113fb2fbaf6" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8518c103-87af-44fd-9533-54657e570457" name="Visit CurrencyExplorer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13" />
+        <extendedCases>
+          <extend Id="c4bd2d20-04aa-45fd-81c2-bb5ff56ba2e1">
+            <useCaseMoniker Id="1c473733-8e6b-468f-9245-625983308750" LastKnownName="Configure Explorer" />
+            <elementDefinition Id="11b72994-24c3-4fa9-9962-b994f493987a" />
+          </extend>
+          <extend Id="35b6db9c-b479-4384-a69e-d1ab244662e2">
+            <useCaseMoniker Id="b7923968-d7ef-41ab-b404-61e670791deb" LastKnownName="Export currency data" />
+            <elementDefinition Id="5b018ea3-533e-4261-aaa8-e4bc05e72a18" />
+          </extend>
+          <extend Id="ebe881fb-87bd-49bd-8797-26385adfb52f">
+            <useCaseMoniker Id="24d6315d-665a-4170-a6e5-462f30902bdf" LastKnownName="Explore currency chart" />
+            <elementDefinition Id="348f3edd-95f5-4e19-8087-a2e565bd5da5" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="87c9acf5-318f-48e7-a60b-c8a44806315c" name="Save settings to Database" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="24f06d5a-58b4-447f-a12d-94087a208669" />
+        <targetEnds>
+          <association Id="da6b5041-48fb-42d9-87f1-d4e8983836f3" isDerived="false" sourceEndRoleName="Save settings to Database" targetEndRoleName="Database Server" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="7ea221a4-3b64-4ed6-a9af-464fd0a25b9e" LastKnownName="Database Server" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="55f7af5e-3940-4a12-9ec4-ca79d19480f5" name="Save settings to Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="de4d8b24-e329-465f-9e1e-26f20ed3fa13" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d37ba154-058e-4163-abb5-ba3bd35eca32" name="Database Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c049b5c4-5509-42bc-85f4-ccbcbd97c912" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bfd4be7a-1601-4cd4-b0c8-1d0bab544bc5" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="30492196-caa8-4c38-ab79-b1378a52c6d5" name="Load settings from Database" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bf9c26b1-97e0-43ff-89c4-8b7e0548f0ef" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="84c29e9f-4d2c-40e3-a1bf-29e113c2773d" name="ModelingProject">
+    <elementDefinition Id="2be56d21-9d94-4330-8393-bf83727e89b5" />
+  </package>
+</useCaseModelRoot>

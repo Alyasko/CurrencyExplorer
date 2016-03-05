@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="2be56d21-9d94-4330-8393-bf83727e89b5"
   name="ModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -11,26 +11,6 @@
         <componentMoniker
           Id="3d4f09db-c534-4b2e-9552-32527c6e46e7"
           LastKnownName="Currency API"
-          LastKnownLocation="ModelingProject.uml" />
-      </annotatedElements>
-    </comment>
-    <comment
-      Id="485c2803-29d0-4d64-8609-decb8ac280d5">
-      <body>Provides access to the data</body>
-      <annotatedElements>
-        <componentMoniker
-          Id="240a5f5e-ef65-42d0-9922-bc83b9dbafe7"
-          LastKnownName="Currency Repository"
-          LastKnownLocation="ModelingProject.uml" />
-      </annotatedElements>
-    </comment>
-    <comment
-      Id="b8ba69ce-ef0f-40c1-a644-76520f7d390d">
-      <body>Uses EntityFramework</body>
-      <annotatedElements>
-        <componentMoniker
-          Id="db3dfa8c-94b7-4c75-8144-f3b3e88acded"
-          LastKnownName="Currency DB Context"
           LastKnownLocation="ModelingProject.uml" />
       </annotatedElements>
     </comment>
@@ -90,27 +70,7 @@
       <annotatedElements>
         <componentMoniker
           Id="d767ea0a-1300-4061-b4e7-36306e5ec056"
-          LastKnownName="Concrete Converter"
-          LastKnownLocation="ModelingProject.uml" />
-      </annotatedElements>
-    </comment>
-    <comment
-      Id="68508ba4-72d5-4a61-b157-51c41820f721">
-      <body>Uses EntityFramework</body>
-      <annotatedElements>
-        <componentMoniker
-          Id="8d648963-4f7d-4b2e-a3b9-348fa342747b"
-          LastKnownName="Settings DB Context"
-          LastKnownLocation="ModelingProject.uml" />
-      </annotatedElements>
-    </comment>
-    <comment
-      Id="a5622c66-0189-4450-890c-615ab2b58a9c">
-      <body>Provides access to the user settings data</body>
-      <annotatedElements>
-        <componentMoniker
-          Id="fc1060be-a07d-4ea8-8693-4cf532b18f03"
-          LastKnownName="Settings Repository"
+          LastKnownName="Converter"
           LastKnownLocation="ModelingProject.uml" />
       </annotatedElements>
     </comment>
@@ -490,9 +450,9 @@
             isBehavior="false">
             <suppliersInternal>
               <dependency
-                Id="51f52b05-8de7-442e-be06-c1e5ca2b2416">
+                Id="93acb4e6-acf8-417f-8899-a9cd6d73fbea">
                 <providedInterfaceMoniker
-                  Id="b3a14da0-b1c5-4614-aeee-0ea5aac43b06"
+                  Id="fcfc6a9c-77d3-4dc2-a45a-9702314e68a0"
                   LastKnownName="Port1"
                   LastKnownLocation="ModelingProject.uml" />
               </dependency>
@@ -603,10 +563,10 @@
             isBehavior="false">
             <suppliersInternal>
               <dependency
-                Id="05677f26-7302-4c3d-9de0-6a02078f4dbd">
+                Id="fc6d1e62-50d1-4a97-bc4f-735611b5fb14">
                 <providedInterfaceMoniker
-                  Id="222c312b-4073-4c60-9f71-22e7f42ef0de"
-                  LastKnownName="Port2"
+                  Id="fcfc6a9c-77d3-4dc2-a45a-9702314e68a0"
+                  LastKnownName="Port1"
                   LastKnownLocation="ModelingProject.uml" />
               </dependency>
             </suppliersInternal>
@@ -737,7 +697,7 @@
     <packageHasNamedElement>
       <component
         Id="d767ea0a-1300-4061-b4e7-36306e5ec056"
-        name="Concrete Converter"
+        name="Converter"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -2201,6 +2161,550 @@
           </generalization>
         </generalsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="598e6ecb-63c1-43a2-a563-3e990f5c12e3"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="1accf036-12d8-4d04-aead-884e8adf85db"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="4440ff9d-ecb3-44dd-ad2e-dd3d2289e5af"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Visit CurrencyExplorer"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13"
+              LastKnownName="Visit CurrencyExplorer"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aecf3962-44c6-4e4d-aa6f-b9c6aea93670"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4b63d4ad-4c04-410c-b63f-00ef41cb5b82"
+                  name="Visit CurrencyExplorer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="c4ad8e66-a89e-430f-98ee-860ce3ec4f9c"
+        name="Currency Explorer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9b27a423-b08a-4f29-94da-0e21fe09d63a"
+        name="Configure Explorer"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="e8404f78-3e2f-4e40-87d9-c35ff8cb6154">
+            <useCaseMoniker
+              Id="173222d9-3a74-44aa-8885-9c7f07e0476c"
+              LastKnownName="Set currency"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="afc0f5ff-bdc3-482c-85c7-6cd44610f95b">
+            <useCaseMoniker
+              Id="909ebef5-c531-4372-a7c0-600ffc2ad2a6"
+              LastKnownName="Set time period"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="ef6ea591-f586-4c8b-a31c-8e6921f1e220">
+            <useCaseMoniker
+              Id="3c7e1c23-00ff-4cf6-9ebb-03dbb8fac00c"
+              LastKnownName="Set language"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1"
+        name="Export currency data"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="a674828a-2f40-4fe2-a90c-b53dcc46a752">
+            <useCaseMoniker
+              Id="52de480c-4c5e-4a2f-b85c-2283c17ff330"
+              LastKnownName="Export as image"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="93874b78-5ecb-4264-b44a-655e53623a6a">
+            <useCaseMoniker
+              Id="c7845afa-8699-4272-9779-a68b570ab6c0"
+              LastKnownName="Export as table"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="173222d9-3a74-44aa-8885-9c7f07e0476c"
+        name="Set currency"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="f646298b-bd45-4a75-98d0-ebf64707a30d">
+            <useCaseMoniker
+              Id="4f662c0b-444f-44d5-88f9-05ebce8585a1"
+              LastKnownName="Save settings"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="909ebef5-c531-4372-a7c0-600ffc2ad2a6"
+        name="Set time period"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="66c9afdc-9b9c-44d4-b9a5-83e9f5dee7f6">
+            <useCaseMoniker
+              Id="4f662c0b-444f-44d5-88f9-05ebce8585a1"
+              LastKnownName="Save settings"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3c7e1c23-00ff-4cf6-9ebb-03dbb8fac00c"
+        name="Set language"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="cdfe39f9-a944-4328-af5f-81f1ed2d7508">
+            <useCaseMoniker
+              Id="4f662c0b-444f-44d5-88f9-05ebce8585a1"
+              LastKnownName="Save settings"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="52de480c-4c5e-4a2f-b85c-2283c17ff330"
+        name="Export as image"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c7845afa-8699-4272-9779-a68b570ab6c0"
+        name="Export as table"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b"
+        name="Explore currency chart"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="0d2cb481-f18b-4868-b8a7-00c1e254db37"
+        name="Database Server"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="d556baf2-090c-4362-89bb-ba9618f334df"
+        name="Web-server"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="19a74e2a-bdcf-4e04-b1ce-5b60f17de4ab"
+            isDerived="false"
+            sourceEndRoleName="Web-server"
+            targetEndRoleName="Save settings to Database"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="24f06d5a-58b4-447f-a12d-94087a208669"
+              LastKnownName="Save settings to Database"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14813704-0878-400d-aefa-e607f0c920e4"
+                  name="Web-server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2da6e033-f0ca-4687-81c2-bf5192298832"
+                  name="Save settings to Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4f662c0b-444f-44d5-88f9-05ebce8585a1"
+        name="Save settings"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="cfcd2fc0-03b8-4c54-b205-686ab1a51b8b"
+            isDerived="false"
+            sourceEndRoleName="Save settings"
+            targetEndRoleName="Web-server"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="d556baf2-090c-4362-89bb-ba9618f334df"
+              LastKnownName="Web-server"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="148649f5-c3a9-43d5-be91-64cb90e3bd2f"
+                  name="Save settings"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="27360ec4-b824-4992-bda9-9b3e556057bb"
+                  name="Web-server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <additions>
+          <include
+            Id="7d5c0cf2-e9e3-4ac1-b3e4-62cdccd26d92">
+            <useCaseMoniker
+              Id="ac63d6c5-c03c-4276-a1f2-0ead787506bc"
+              LastKnownName="Set Cookies"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ac63d6c5-c03c-4276-a1f2-0ead787506bc"
+        name="Set Cookies"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e6c4ac61-2930-43d4-83a4-23b074a28cf2"
+            isDerived="false"
+            sourceEndRoleName="Set Cookies"
+            targetEndRoleName="Web-browser"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="5834937d-438a-40e7-95c1-e2deea6594c9"
+              LastKnownName="Web-browser"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="08201613-b4de-4603-afe7-d54544ac7ea0"
+                  name="Set Cookies"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="77af6317-ddf2-4935-9cd1-05274d7ed801"
+                  name="Web-browser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="5834937d-438a-40e7-95c1-e2deea6594c9"
+        name="Web-browser"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="aa811494-e964-4a0f-ad42-d113fb2fbaf6"
+            isDerived="false"
+            sourceEndRoleName="Web-browser"
+            targetEndRoleName="Visit CurrencyExplorer"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13"
+              LastKnownName="Visit CurrencyExplorer"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e17c2054-7300-439c-bab3-651e72548a25"
+                  name="Web-browser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c7f92317-dd1c-48e8-88bb-48cb343812ce"
+                  name="Visit CurrencyExplorer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13"
+        name="Visit CurrencyExplorer"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="11b72994-24c3-4fa9-9962-b994f493987a">
+            <useCaseMoniker
+              Id="9b27a423-b08a-4f29-94da-0e21fe09d63a"
+              LastKnownName="Configure Explorer"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="5b018ea3-533e-4261-aaa8-e4bc05e72a18">
+            <useCaseMoniker
+              Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1"
+              LastKnownName="Export currency data"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="348f3edd-95f5-4e19-8087-a2e565bd5da5">
+            <useCaseMoniker
+              Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b"
+              LastKnownName="Explore currency chart"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="24f06d5a-58b4-447f-a12d-94087a208669"
+        name="Save settings to Database"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="bfd4be7a-1601-4cd4-b0c8-1d0bab544bc5"
+            isDerived="false"
+            sourceEndRoleName="Save settings to Database"
+            targetEndRoleName="Database Server"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="0d2cb481-f18b-4868-b8a7-00c1e254db37"
+              LastKnownName="Database Server"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="de4d8b24-e329-465f-9e1e-26f20ed3fa13"
+                  name="Save settings to Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c049b5c4-5509-42bc-85f4-ccbcbd97c912"
+                  name="Database Server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bf9c26b1-97e0-43ff-89c4-8b7e0548f0ef"
+        name="Load settings from Database"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="8a4e7eb5-1c49-46fa-bdd7-26cf35c32431"
+        name="CurrencyExplorer Repository"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="099c96e1-ef13-4de0-964b-d4a0c8be9a7e">
+            <componentMoniker
+              Id="ecabb4cb-83cb-4809-a9c0-c86e10ca1ea3"
+              LastKnownName="CurrencyExplorer DB Context"
+              LastKnownLocation="ModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <providedInterface
+            Id="fcfc6a9c-77d3-4dc2-a45a-9702314e68a0"
+            name="Port1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="b4e28915-34bb-4599-b028-363ae36eb418"
+                LastKnownName="Repository"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="ecabb4cb-83cb-4809-a9c0-c86e10ca1ea3"
+        name="CurrencyExplorer DB Context"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="b4e28915-34bb-4599-b028-363ae36eb418"
+        name="Repository"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

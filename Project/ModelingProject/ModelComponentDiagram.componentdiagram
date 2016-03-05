@@ -1,25 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="1629fb43-9973-4297-8b0b-454cb76ad1f0" name="ComponentDiagram" linkedPackageId="0695bf24-f343-4d2a-82b5-d4bb079d0b8e" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="1629fb43-9973-4297-8b0b-454cb76ad1f0" name="ComponentDiagram" linkedPackageId="0695bf24-f343-4d2a-82b5-d4bb079d0b8e" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
   <ownedCommentsInternal>
     <comment Id="91914aea-1a41-4b45-a176-19790ab016fa">
       <elementDefinition Id="b2b78b75-cbcb-4a90-bf13-685b5e1ad123" />
       <body>Imports data from web-site API</body>
       <annotatedElements>
         <componentMoniker Id="18e4468a-9b9a-4796-b472-50704e436b0a" LastKnownName="Currency API" />
-      </annotatedElements>
-    </comment>
-    <comment Id="b591fe61-9956-45fb-97c6-3251aa7cdb5f">
-      <elementDefinition Id="485c2803-29d0-4d64-8609-decb8ac280d5" />
-      <body>Provides access to the data</body>
-      <annotatedElements>
-        <componentMoniker Id="c442692b-20e8-4818-b995-87f229c7fcc2" LastKnownName="Currency Repository" />
-      </annotatedElements>
-    </comment>
-    <comment Id="1ab48bef-ee0c-4707-ac8a-a22268a1c0d4">
-      <elementDefinition Id="b8ba69ce-ef0f-40c1-a644-76520f7d390d" />
-      <body>Uses EntityFramework</body>
-      <annotatedElements>
-        <componentMoniker Id="d55f444c-95ac-4d9d-b73a-98707e27990b" LastKnownName="Currency DB Context" />
       </annotatedElements>
     </comment>
     <comment Id="c0b32690-97dc-4b9c-b92e-c6cabc37721d">
@@ -61,21 +47,7 @@
       <elementDefinition Id="4988ae8d-2255-4bea-91dd-7dbb356eaeeb" />
       <body>Converter can be either JPG, CSV, JSON</body>
       <annotatedElements>
-        <componentMoniker Id="4d3ca486-d907-4f7f-aa99-a5994d9ece71" LastKnownName="Concrete Converter" />
-      </annotatedElements>
-    </comment>
-    <comment Id="ad60b73b-6ca7-4bce-8a2d-a1555ab0e4e6">
-      <elementDefinition Id="68508ba4-72d5-4a61-b157-51c41820f721" />
-      <body>Uses EntityFramework</body>
-      <annotatedElements>
-        <componentMoniker Id="08385c8c-3ab2-4cf8-9e88-b181ad5aa098" LastKnownName="Settings DB Context" />
-      </annotatedElements>
-    </comment>
-    <comment Id="3df8061e-89fc-4425-9cf4-dca909d66993">
-      <elementDefinition Id="a5622c66-0189-4450-890c-615ab2b58a9c" />
-      <body>Provides access to the user settings data</body>
-      <annotatedElements>
-        <componentMoniker Id="6d65e57e-cb7b-4d4b-b111-db9377429d7d" LastKnownName="Settings Repository" />
+        <componentMoniker Id="4d3ca486-d907-4f7f-aa99-a5994d9ece71" LastKnownName="Converter" />
       </annotatedElements>
     </comment>
   </ownedCommentsInternal>
@@ -151,26 +123,6 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="3125df5b-fa49-4f9e-b89c-58cdbf43a3ca">
-      <profileInstance Id="d9906d40-08ea-4fb5-9153-a002859fb1d0" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="bec26901-8e3e-4fee-a0f8-d37d4e856a81">
-      <profileInstance Id="3af49217-f215-431d-bf29-b43fc5cb1a20" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="48eb29d8-8290-4f2d-9702-ac3f09252fe1">
-      <profileInstance Id="db690cdd-6786-4606-a3b1-1030eb321f25" name="CSharpProfile">
-        <elementDefinition Id="815875e9-99cf-4b7c-854e-b398ff483e8e" />
-      </profileInstance>
-      <elementDefinition Id="d6a0b1d9-34d3-499a-917b-30a3ebaae74f" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <componentModelHasComponents>
       <component Id="18e4468a-9b9a-4796-b472-50704e436b0a" name="Currency API" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -188,35 +140,6 @@
     <modelContainsNamedElements>
       <Interface Id="9d28853b-f970-4c00-948b-dbc30d97d349" name="Currency Importer" isAbstract="false" isLeaf="false">
         <elementDefinition Id="148ba79c-da05-4114-97c5-b29c2fca6acd" />
-      </Interface>
-    </modelContainsNamedElements>
-    <componentModelHasComponents>
-      <component Id="c442692b-20e8-4818-b995-87f229c7fcc2" name="Currency Repository" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="240a5f5e-ef65-42d0-9922-bc83b9dbafe7" />
-        <suppliersInternal>
-          <dependency Id="c2839c3a-fa80-4a1e-94e6-c4c28878533e">
-            <componentMoniker Id="d55f444c-95ac-4d9d-b73a-98707e27990b" LastKnownName="Currency DB Context" />
-            <elementDefinition Id="2af156e5-89b5-4a23-8ce1-6a7b36ad4194" />
-          </dependency>
-        </suppliersInternal>
-        <ownedAttributesInternal>
-          <providedInterface Id="0e402587-08e6-4503-a7ae-630f72022568" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
-            <elementDefinition Id="222c312b-4073-4c60-9f71-22e7f42ef0de" />
-            <type_NamedElement>
-              <interfaceMoniker Id="48b4e7d8-3dbe-4728-bf70-1903509e225c" LastKnownName="Currency Repository" />
-            </type_NamedElement>
-          </providedInterface>
-        </ownedAttributesInternal>
-      </component>
-    </componentModelHasComponents>
-    <componentModelHasComponents>
-      <component Id="d55f444c-95ac-4d9d-b73a-98707e27990b" name="Currency DB Context" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="db3dfa8c-94b7-4c75-8144-f3b3e88acded" />
-      </component>
-    </componentModelHasComponents>
-    <modelContainsNamedElements>
-      <Interface Id="48b4e7d8-3dbe-4728-bf70-1903509e225c" name="Currency Repository" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="02625223-c5e8-40b3-b380-799974b0507d" />
       </Interface>
     </modelContainsNamedElements>
     <componentModelHasComponents>
@@ -261,9 +184,9 @@
           <requiredInterface Id="4bdaf928-8e0f-4b1d-a08f-c1027c4a9bb3" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
             <elementDefinition Id="f7ec5499-c6fa-4359-9574-e781c4aa41c0" />
             <suppliersInternal>
-              <dependency Id="a60629b4-c946-4886-a29c-a7a0e4b8c2be">
-                <providedInterfaceMoniker Id="9b610693-87ca-474a-b868-718c56839159" LastKnownName="Port1" />
-                <elementDefinition Id="51f52b05-8de7-442e-be06-c1e5ca2b2416" />
+              <dependency Id="10e3b4a5-0c97-458a-8808-e4e178f25345">
+                <providedInterfaceMoniker Id="16251853-4cf1-42ac-b50b-4056ca1c7d30" LastKnownName="Port1" />
+                <elementDefinition Id="93acb4e6-acf8-417f-8899-a9cd6d73fbea" />
               </dependency>
             </suppliersInternal>
             <type_NamedElement>
@@ -316,9 +239,9 @@
           <requiredInterface Id="86ead2a9-2f08-4c71-83e0-88dd5b076402" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
             <elementDefinition Id="ad6da1da-c9ec-400d-9856-9c6049abceb3" />
             <suppliersInternal>
-              <dependency Id="7f8dcffe-65a1-4e84-9704-173d306acc3d">
-                <providedInterfaceMoniker Id="0e402587-08e6-4503-a7ae-630f72022568" LastKnownName="Port2" />
-                <elementDefinition Id="05677f26-7302-4c3d-9de0-6a02078f4dbd" />
+              <dependency Id="786ef0a6-66d4-46e0-979c-6f40afd3a8fd">
+                <providedInterfaceMoniker Id="16251853-4cf1-42ac-b50b-4056ca1c7d30" LastKnownName="Port1" />
+                <elementDefinition Id="fc6d1e62-50d1-4a97-bc4f-735611b5fb14" />
               </dependency>
             </suppliersInternal>
             <type_NamedElement>
@@ -379,7 +302,7 @@
       </component>
     </componentModelHasComponents>
     <componentModelHasComponents>
-      <component Id="4d3ca486-d907-4f7f-aa99-a5994d9ece71" name="Concrete Converter" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <component Id="4d3ca486-d907-4f7f-aa99-a5994d9ece71" name="Converter" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="d767ea0a-1300-4061-b4e7-36306e5ec056" />
         <ownedAttributesInternal>
           <providedInterface Id="2307c714-af16-49fa-ae67-894b43b50671" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
@@ -401,38 +324,38 @@
         <elementDefinition Id="8aedbc5b-f295-4037-ba6a-2f06ba44396a" />
       </Interface>
     </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="ccd455b8-d3de-4d7b-bf28-af1377a4a2cb" name="Settings Repository" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="88342f99-25c5-4d84-abaf-323d25ac91b3" />
+      </Interface>
+    </modelContainsNamedElements>
     <componentModelHasComponents>
-      <component Id="6d65e57e-cb7b-4d4b-b111-db9377429d7d" name="Settings Repository" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="fc1060be-a07d-4ea8-8693-4cf532b18f03" />
+      <component Id="aa996494-73bd-4f44-beac-ca335828166d" name="CurrencyExplorer Repository" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8a4e7eb5-1c49-46fa-bdd7-26cf35c32431" />
         <suppliersInternal>
-          <dependency Id="c3dedf60-71e5-454d-8140-290b82eb5cb4">
-            <componentMoniker Id="08385c8c-3ab2-4cf8-9e88-b181ad5aa098" LastKnownName="Settings DB Context" />
-            <elementDefinition Id="0ae0a379-0e38-4af7-aa27-c031753075d0" />
+          <dependency Id="b1b0451e-e9de-4fd9-9b54-1b7eaae91ebf">
+            <componentMoniker Id="5aa14b10-23ba-4d27-97d1-d4efaa77a3c5" LastKnownName="CurrencyExplorer DB Context" />
+            <elementDefinition Id="099c96e1-ef13-4de0-964b-d4a0c8be9a7e" />
           </dependency>
         </suppliersInternal>
         <ownedAttributesInternal>
-          <providedInterface Id="9b610693-87ca-474a-b868-718c56839159" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
-            <elementDefinition Id="b3a14da0-b1c5-4614-aeee-0ea5aac43b06" />
+          <providedInterface Id="16251853-4cf1-42ac-b50b-4056ca1c7d30" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="fcfc6a9c-77d3-4dc2-a45a-9702314e68a0" />
             <type_NamedElement>
-              <interfaceMoniker Id="5c9d8692-40a7-4f26-bd79-d35e04f9ce71" LastKnownName="Settings Repository" />
+              <interfaceMoniker Id="b6d6ac06-b129-44dc-b0d7-0275a96ac29c" LastKnownName="Repository" />
             </type_NamedElement>
           </providedInterface>
         </ownedAttributesInternal>
       </component>
     </componentModelHasComponents>
     <componentModelHasComponents>
-      <component Id="08385c8c-3ab2-4cf8-9e88-b181ad5aa098" name="Settings DB Context" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="8d648963-4f7d-4b2e-a3b9-348fa342747b" />
+      <component Id="5aa14b10-23ba-4d27-97d1-d4efaa77a3c5" name="CurrencyExplorer DB Context" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ecabb4cb-83cb-4809-a9c0-c86e10ca1ea3" />
       </component>
     </componentModelHasComponents>
     <modelContainsNamedElements>
-      <Interface Id="5c9d8692-40a7-4f26-bd79-d35e04f9ce71" name="Settings Repository" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="97513013-574b-42c4-b0cf-d32c3618dc8c" />
-      </Interface>
-    </modelContainsNamedElements>
-    <modelContainsNamedElements>
-      <Interface Id="ccd455b8-d3de-4d7b-bf28-af1377a4a2cb" name="Settings Repository" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="88342f99-25c5-4d84-abaf-323d25ac91b3" />
+      <Interface Id="b6d6ac06-b129-44dc-b0d7-0275a96ac29c" name="Repository" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b4e28915-34bb-4599-b028-363ae36eb418" />
       </Interface>
     </modelContainsNamedElements>
   </packagedElements>
@@ -444,6 +367,24 @@
           <elementDefinition Id="e3683026-cea5-4d7d-9978-53ccfcdf27df" />
         </profileInstance>
         <elementDefinition Id="4a624a9f-6cb2-40b0-90c8-b011c3327ac8" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="3125df5b-fa49-4f9e-b89c-58cdbf43a3ca">
+        <profileInstance Id="d9906d40-08ea-4fb5-9153-a002859fb1d0" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="bec26901-8e3e-4fee-a0f8-d37d4e856a81">
+        <profileInstance Id="3af49217-f215-431d-bf29-b43fc5cb1a20" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="48eb29d8-8290-4f2d-9702-ac3f09252fe1">
+        <profileInstance Id="db690cdd-6786-4606-a3b1-1030eb321f25" name="CSharpProfile">
+          <elementDefinition Id="815875e9-99cf-4b7c-854e-b398ff483e8e" />
+        </profileInstance>
+        <elementDefinition Id="d6a0b1d9-34d3-499a-917b-30a3ebaae74f" />
       </packageHasProfileInstances>
     </profileInstances>
   </package>
