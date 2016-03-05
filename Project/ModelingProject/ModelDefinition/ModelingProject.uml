@@ -20,7 +20,7 @@
       <annotatedElements>
         <componentMoniker
           Id="cfcf3271-84f4-47fb-abd3-2d56b2dfc1cf"
-          LastKnownName="Settings Holder"
+          LastKnownName="User Settings Holder"
           LastKnownLocation="ModelingProject.uml" />
       </annotatedElements>
     </comment>
@@ -81,6 +81,16 @@
         <classMoniker
           Id="ac441b75-5a57-4798-94fe-4e98a85bc54f"
           LastKnownName="CachingProcessor"
+          LastKnownLocation="ModelingProject.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="5ad8045a-b129-48cb-afbe-377bd0a2529b">
+      <body>Allows accesing the database</body>
+      <annotatedElements>
+        <componentMoniker
+          Id="eeaf7af6-2d96-43e7-a981-14af3d91c1c4"
+          LastKnownName="Data Holder"
           LastKnownLocation="ModelingProject.uml" />
       </annotatedElements>
     </comment>
@@ -376,43 +386,20 @@
               LastKnownName="Data Presenter"
               LastKnownLocation="ModelingProject.uml" />
           </dependency>
+          <dependency
+            Id="7e8d8795-1401-499b-b5a8-eaa2ab479a29">
+            <componentMoniker
+              Id="eeaf7af6-2d96-43e7-a981-14af3d91c1c4"
+              LastKnownName="Data Holder"
+              LastKnownLocation="ModelingProject.uml" />
+          </dependency>
         </suppliersInternal>
-        <ownedAttributesInternal>
-          <requiredInterface
-            Id="87eb8170-f099-4ec2-b3df-d9eaf393e2f5"
-            name="Port1"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false"
-            isService="false"
-            isBehavior="false">
-            <suppliersInternal>
-              <dependency
-                Id="e5191f68-9149-4005-b20e-c73d5fd113d5">
-                <providedInterfaceMoniker
-                  Id="d6a8b6a0-37b9-46eb-bf56-eb042f8f8eb7"
-                  LastKnownName="Port1"
-                  LastKnownLocation="ModelingProject.uml" />
-              </dependency>
-            </suppliersInternal>
-            <type_NamedElement>
-              <interfaceMoniker
-                Id="9fdb790c-6bd2-4399-93dd-06b3bc420f09"
-                LastKnownName="Settings Holder"
-                LastKnownLocation="ModelingProject.uml" />
-            </type_NamedElement>
-          </requiredInterface>
-        </ownedAttributesInternal>
       </component>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <component
         Id="cfcf3271-84f4-47fb-abd3-2d56b2dfc1cf"
-        name="Settings Holder"
+        name="User Settings Holder"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -432,7 +419,7 @@
             <type_NamedElement>
               <interfaceMoniker
                 Id="09a92afa-cf9f-434e-b0a2-dcb67c4fc721"
-                LastKnownName="Settings Holder"
+                LastKnownName="User Settings"
                 LastKnownLocation="ModelingProject.uml" />
             </type_NamedElement>
           </providedInterface>
@@ -470,7 +457,7 @@
     <packageHasNamedElement>
       <Interface
         Id="09a92afa-cf9f-434e-b0a2-dcb67c4fc721"
-        name="Settings Holder"
+        name="User Settings"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
@@ -851,61 +838,27 @@
         </appliedStereotypesInternal>
         <suppliersInternal>
           <dependency
-            Id="cffa1847-7c19-43d5-b406-dbb84a43ec74">
-            <classMoniker
-              Id="be45faf4-3d01-490a-ae53-cc7280ae8d02"
-              LastKnownName="DataProcessor"
-              LastKnownLocation="ModelingProject.uml" />
-          </dependency>
-          <dependency
             Id="dece5820-8ca3-4bb0-b7a2-34b01900de4c">
             <classMoniker
               Id="5bfaa6b3-2f3a-4e4c-8880-19a7d108bb45"
               LastKnownName="DataPresenter"
               LastKnownLocation="ModelingProject.uml" />
           </dependency>
-        </suppliersInternal>
-        <targetEnds>
-          <association
-            Id="f634974a-0694-4979-92f0-45b316d464ce"
-            isDerived="false"
-            sourceEndRoleName="CurrencyExplorer"
-            targetEndRoleName="ISettingsHolder"
-            isLeaf="false"
-            isAbstract="false">
-            <interfaceMoniker
-              Id="c96c64b4-a45c-4614-8545-289b445da90d"
-              LastKnownName="ISettingsHolder"
+          <dependency
+            Id="14c4a6e3-a527-4c72-bed2-161b19c59256">
+            <classMoniker
+              Id="be45faf4-3d01-490a-ae53-cc7280ae8d02"
+              LastKnownName="DataProcessor"
               LastKnownLocation="ModelingProject.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="2c225231-1d39-4ece-b225-fffc28039c4c"
-                  name="CurrencyExplorer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Composite"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="fb59c271-b0c3-4ccb-b310-c09c2358d118"
-                  name="ISettingsHolder"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="true" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
+          </dependency>
+          <dependency
+            Id="35e09e85-8a9f-41c0-ad27-595bc71b1394">
+            <classMoniker
+              Id="61d9a09e-f6bf-4243-a26b-93f820c5558c"
+              LastKnownName="DataHolder"
+              LastKnownLocation="ModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1110,7 +1063,7 @@
     <packageHasNamedElement>
       <Interface
         Id="c96c64b4-a45c-4614-8545-289b445da90d"
-        name="ISettingsHolder"
+        name="IUserSettingsHolder"
         isAbstract="false"
         isLeaf="false">
         <appliedStereotypesInternal>
@@ -1198,7 +1151,7 @@
     <packageHasNamedElement>
       <class
         Id="30c4ad23-0408-4712-be3d-f007a727fef8"
-        name="SettingsHolder"
+        name="UserSettingsHolder"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1250,7 +1203,7 @@
             Id="ce9a0afb-c3b6-4244-b404-44954c4f0777">
             <interfaceMoniker
               Id="c96c64b4-a45c-4614-8545-289b445da90d"
-              LastKnownName="ISettingsHolder"
+              LastKnownName="IUserSettingsHolder"
               LastKnownLocation="ModelingProject.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -1291,6 +1244,45 @@
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="fb5cc0ef-7b19-4fc9-bd4f-0236ea5bb5ba"
+            isDerived="false"
+            sourceEndRoleName="SettingsHolder"
+            targetEndRoleName="ICurrencyExplorerRepository"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="97c03a2f-045e-42ef-8c0b-f3ff5cbbce84"
+              LastKnownName="ICurrencyExplorerRepository"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="988af0d8-e34c-484e-9ef6-4ff16f4def9e"
+                  name="SettingsHolder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="45ec03cb-19cc-48c7-aebf-f01837fee61b"
+                  name="ICurrencyExplorerRepository"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -1599,6 +1591,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="e08325a4-e6a8-43e8-865a-adcba46e8d29"
+            isDerived="false"
+            sourceEndRoleName="CachingProcessor"
+            targetEndRoleName="ICurrencyExplorerRepository"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="97c03a2f-045e-42ef-8c0b-f3ff5cbbce84"
+              LastKnownName="ICurrencyExplorerRepository"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="84162e05-72bd-45d2-a91b-e453ee3fd464"
+                  name="CachingProcessor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="36e34a46-1132-4689-978d-58d37b512240"
+                  name="ICurrencyExplorerRepository"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </class>
     </packageHasNamedElement>
@@ -1705,6 +1736,47 @@
               LastKnownLocation="ModelingProject.uml" />
           </interfaceRealization>
         </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="066df2f2-d7d4-4d87-952e-1f40f119b31a"
+            isDerived="false"
+            sourceEndRoleName="NationalBankCurrencyProvider"
+            targetEndRoleName="ICurrencyImporter"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="e169c544-a843-48c3-a1a1-d3d71a4abedb"
+              LastKnownName="ICurrencyImporter"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3a53d2f4-f24e-47d1-ba16-fb3b11ecb048"
+                  name="NationalBankCurrencyProvider"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="57c55432-65d4-4b22-aca8-1b726f583b94"
+                  name="ICurrencyImporter"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2292,7 +2364,7 @@
             Id="f646298b-bd45-4a75-98d0-ebf64707a30d">
             <useCaseMoniker
               Id="4f662c0b-444f-44d5-88f9-05ebce8585a1"
-              LastKnownName="Save settings"
+              LastKnownName="Save user settings"
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
@@ -2309,7 +2381,7 @@
             Id="66c9afdc-9b9c-44d4-b9a5-83e9f5dee7f6">
             <useCaseMoniker
               Id="4f662c0b-444f-44d5-88f9-05ebce8585a1"
-              LastKnownName="Save settings"
+              LastKnownName="Save user settings"
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
@@ -2326,7 +2398,7 @@
             Id="cdfe39f9-a944-4328-af5f-81f1ed2d7508">
             <useCaseMoniker
               Id="4f662c0b-444f-44d5-88f9-05ebce8585a1"
-              LastKnownName="Save settings"
+              LastKnownName="Save user settings"
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
@@ -2351,7 +2423,17 @@
         Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b"
         name="Explore currency chart"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <additions>
+          <include
+            Id="c1238006-09cd-4a19-a642-653402b890d6">
+            <useCaseMoniker
+              Id="8e2a2f83-027f-479f-bd1c-a4d3803fc35d"
+              LastKnownName="Provide data"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <actor
@@ -2406,13 +2488,208 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="46775e5e-d68e-4215-adc2-83a251dc1320"
+            isDerived="false"
+            sourceEndRoleName="Web-server"
+            targetEndRoleName="Load settings from Database"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bf9c26b1-97e0-43ff-89c4-8b7e0548f0ef"
+              LastKnownName="Load settings from Database"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5415b7e2-396b-4404-8e47-36d36425d261"
+                  name="Web-server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="99543110-2b01-4055-8b60-4472bab62448"
+                  name="Load settings from Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a63d74d9-be66-4410-ad9e-aaa7b438579c"
+            isDerived="false"
+            sourceEndRoleName="Web-server"
+            targetEndRoleName="Check user IP"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a6402489-b81c-41a8-9b19-238f92010c72"
+              LastKnownName="Check user IP"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a2503626-8cda-413f-bf7b-11e65214dc4f"
+                  name="Web-server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4a8bd78f-efa3-4ee8-86b8-1a5d4cb3cb87"
+                  name="Check user IP"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5afb10c3-53bf-478f-9089-b7f3f501e35c"
+            isDerived="false"
+            sourceEndRoleName="Web-server"
+            targetEndRoleName="Export as image"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="52de480c-4c5e-4a2f-b85c-2283c17ff330"
+              LastKnownName="Export as image"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="897bd930-363e-46d2-b2f9-d91d3425e12e"
+                  name="Web-server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4e887864-f60b-49e0-94c8-4ea7ac7ce1f6"
+                  name="Export as image"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0f5f8a88-55e7-4c05-a38d-a8df688e4478"
+            isDerived="false"
+            sourceEndRoleName="Web-server"
+            targetEndRoleName="Export as table"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c7845afa-8699-4272-9779-a68b570ab6c0"
+              LastKnownName="Export as table"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d2d3e39f-f5a6-4e28-9f22-df3e1ded6eb0"
+                  name="Web-server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7e0d8f7f-1b03-409b-8b5e-23028fc47c70"
+                  name="Export as table"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="56c75407-7d56-4787-bc3e-2d9e415ccc59"
+            isDerived="false"
+            sourceEndRoleName="Web-server"
+            targetEndRoleName="Provide data"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8e2a2f83-027f-479f-bd1c-a4d3803fc35d"
+              LastKnownName="Provide data"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cd347abb-b926-4eec-a28f-7c456b2f24ef"
+                  name="Web-server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3a3c1237-3202-433d-a61d-541264cb98a0"
+                  name="Provide data"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="4f662c0b-444f-44d5-88f9-05ebce8585a1"
-        name="Save settings"
+        name="Save user settings"
         isAbstract="false"
         isLeaf="false">
         <targetEnds>
@@ -2571,6 +2848,47 @@
         name="Visit CurrencyExplorer"
         isAbstract="false"
         isLeaf="false">
+        <targetEnds>
+          <association
+            Id="4621f087-9f61-4b52-a6dc-f27990fd9966"
+            isDerived="false"
+            sourceEndRoleName="Visit CurrencyExplorer"
+            targetEndRoleName="Login"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fbb05361-2280-4af7-adc0-da0675b2049b"
+              LastKnownName="Login"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5ab2f164-f70d-40a1-a875-32252586c735"
+                  name="Visit CurrencyExplorer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5b5aeb5e-6142-4283-ad61-f0ed6b0cfc0a"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <extendedCases>
           <extend
             Id="11b72994-24c3-4fa9-9962-b994f493987a">
@@ -2594,6 +2912,15 @@
               LastKnownLocation="ModelingProject.uml" />
           </extend>
         </extendedCases>
+        <additions>
+          <include
+            Id="2199b2d7-317f-4f68-9a74-9435752ad166">
+            <useCaseMoniker
+              Id="a6402489-b81c-41a8-9b19-238f92010c72"
+              LastKnownName="Check user IP"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2650,7 +2977,49 @@
         Id="bf9c26b1-97e0-43ff-89c4-8b7e0548f0ef"
         name="Load settings from Database"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c3f08e2d-9771-47fd-82c6-2e9e1b1fefd0"
+            isDerived="false"
+            sourceEndRoleName="Load settings from Database"
+            targetEndRoleName="Database Server"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="0d2cb481-f18b-4868-b8a7-00c1e254db37"
+              LastKnownName="Database Server"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e1d4ffdd-56bf-4a8c-847a-d8d5e52381ee"
+                  name="Load settings from Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6fdfa2d1-be06-48b6-8843-f2284ca84b97"
+                  name="Database Server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <component
@@ -2705,6 +3074,568 @@
         name="Repository"
         isAbstract="false"
         isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="97c03a2f-045e-42ef-8c0b-f3ff5cbbce84"
+        name="ICurrencyExplorerRepository"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bc355d35-8ad5-42c6-a5f2-0ba90052c256"
+        name="CurrencyExplorerRepository"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="1b36819a-ba36-44bb-94c2-ea4cd4a56456">
+            <interfaceMoniker
+              Id="97c03a2f-045e-42ef-8c0b-f3ff5cbbce84"
+              LastKnownName="ICurrencyExplorerRepository"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="e169c544-a843-48c3-a1a1-d3d71a4abedb"
+        name="ICurrencyImporter"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6cfab3f5-d590-4f30-832a-53e767fa9b94"
+        name="JsonCurrencyImporter"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="b586fa01-eef1-491f-a023-c23895496479"
+            isSubstitutable="false">
+            <classMoniker
+              Id="193d7e44-8610-4bde-b32a-1bd93c7521df"
+              LastKnownName="AbstractCurrencyImporter"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="849091b8-c7bb-45b2-8f23-29853fb44600"
+        name="XmlCurrencyImporter"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="ec185f43-79d1-4bd5-9f69-90a2bfa72208"
+            isSubstitutable="false">
+            <classMoniker
+              Id="193d7e44-8610-4bde-b32a-1bd93c7521df"
+              LastKnownName="AbstractCurrencyImporter"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="193d7e44-8610-4bde-b32a-1bd93c7521df"
+        name="AbstractCurrencyImporter"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="bf0c5b5e-285d-4e7d-852c-177d17c90f31">
+            <interfaceMoniker
+              Id="e169c544-a843-48c3-a1a1-d3d71a4abedb"
+              LastKnownName="ICurrencyImporter"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="61d9a09e-f6bf-4243-a26b-93f820c5558c"
+        name="DataHolder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="0e169cde-ed9e-4232-918a-69705bc4004d"
+            isDerived="false"
+            sourceEndRoleName="DataHolder"
+            targetEndRoleName="ISettingsHolder"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="c96c64b4-a45c-4614-8545-289b445da90d"
+              LastKnownName="IUserSettingsHolder"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c1941c9a-1483-43e5-862d-bf8c21f01f5c"
+                  name="DataHolder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="521715c8-0b94-46f4-bd49-dcc407e04a12"
+                  name="ISettingsHolder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="35166441-bcf8-4b6d-bdbc-e2e9867a9dbf"
+            isDerived="false"
+            sourceEndRoleName="DataHolder"
+            targetEndRoleName="IProgramSettingsHolder"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="bd63bffc-ccb5-4f5f-a4fe-9bd9cc225176"
+              LastKnownName="IProgramSettingsHolder"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9c3334f9-12a8-4d11-beaa-82e6218dbde9"
+                  name="DataHolder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8e0ff43d-8fd8-407b-93f1-ff81e6e558db"
+                  name="IProgramSettingsHolder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="eeaf7af6-2d96-43e7-a981-14af3d91c1c4"
+        name="Data Holder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <requiredInterface
+            Id="f51d3377-0cfa-4037-ac11-df90f7f7ff0c"
+            name="Port1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <suppliersInternal>
+              <dependency
+                Id="9e48dbd7-3c15-4b9e-b14e-21643995248b">
+                <providedInterfaceMoniker
+                  Id="d6a8b6a0-37b9-46eb-bf56-eb042f8f8eb7"
+                  LastKnownName="Port1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </dependency>
+            </suppliersInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="af4c1041-6255-4444-8080-f90dbda0520f"
+                LastKnownName="User Settings"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </requiredInterface>
+          <requiredInterface
+            Id="f15130d9-24f6-4d55-acee-1379b80f93ec"
+            name="Port2"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <suppliersInternal>
+              <dependency
+                Id="9856d6b5-5a5d-480c-b28c-412abf98581c">
+                <providedInterfaceMoniker
+                  Id="64bf20f5-f689-45ab-94d3-b7d5afc60186"
+                  LastKnownName="Port1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </dependency>
+            </suppliersInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="bf6c1c5f-2101-475f-88bb-4c14228b22ca"
+                LastKnownName="Program Settings"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </requiredInterface>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="af4c1041-6255-4444-8080-f90dbda0520f"
+        name="User Settings"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fbb05361-2280-4af7-adc0-da0675b2049b"
+        name="Login"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="2ebc2c1f-09d6-497a-8a12-d005f282de52">
+            <useCaseMoniker
+              Id="54c6653d-23bf-4b9d-9c83-157e7d424489"
+              LastKnownName="Set source data type"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="1de974cd-1c1d-484c-b4a5-c4941cd90181">
+            <useCaseMoniker
+              Id="9b27a423-b08a-4f29-94da-0e21fe09d63a"
+              LastKnownName="Configure Explorer"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="0369cd37-de1b-40c7-8d0c-e5dc560cb88b">
+            <useCaseMoniker
+              Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1"
+              LastKnownName="Export currency data"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="a59d3e44-3348-4dd5-8817-7d7ad0c5ad97">
+            <useCaseMoniker
+              Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b"
+              LastKnownName="Explore currency chart"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="e5d3d818-2b06-412c-af41-796fdac99376">
+            <useCaseMoniker
+              Id="fe9e962d-625f-48da-bb61-9632397f8b7b"
+              LastKnownName="View users settings"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+          <extend
+            Id="264352eb-5453-4730-a559-d5b74be64838">
+            <useCaseMoniker
+              Id="61140ca6-56b3-421a-b225-f0deb5aedb08"
+              LastKnownName="View caching statistics"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="54c6653d-23bf-4b9d-9c83-157e7d424489"
+        name="Set source data type"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="25381be1-3df5-40dd-9720-eed6cf98959d">
+            <useCaseMoniker
+              Id="aa741e26-81d1-4b61-a372-27bed1a4394b"
+              LastKnownName="Save server settings"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fe9e962d-625f-48da-bb61-9632397f8b7b"
+        name="View users settings"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="be1613a6-4c4c-4156-9b79-511eef0ca60f">
+            <useCaseMoniker
+              Id="8e2a2f83-027f-479f-bd1c-a4d3803fc35d"
+              LastKnownName="Provide data"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="61140ca6-56b3-421a-b225-f0deb5aedb08"
+        name="View caching statistics"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="311eba12-fe04-45fa-8a50-df0f5252d55d">
+            <useCaseMoniker
+              Id="8e2a2f83-027f-479f-bd1c-a4d3803fc35d"
+              LastKnownName="Provide data"
+              LastKnownLocation="ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a6402489-b81c-41a8-9b19-238f92010c72"
+        name="Check user IP"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8e2a2f83-027f-479f-bd1c-a4d3803fc35d"
+        name="Provide data"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="aa741e26-81d1-4b61-a372-27bed1a4394b"
+        name="Save server settings"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c06ab2e8-1c9a-43a0-8191-063b60954ea4"
+            isDerived="false"
+            sourceEndRoleName="Save server settings"
+            targetEndRoleName="Web-server"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="d556baf2-090c-4362-89bb-ba9618f334df"
+              LastKnownName="Web-server"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2a1f9b18-079e-485d-bb21-d6da0a61839b"
+                  name="Save server settings"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2279bbf8-1812-4580-bb75-84e64047d99b"
+                  name="Web-server"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="b63f5e22-a441-42f3-b4c5-c101a6adc602"
+        name="Program Settings Holder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <providedInterface
+            Id="64bf20f5-f689-45ab-94d3-b7d5afc60186"
+            name="Port1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="61f4a4f8-c26e-40c6-83da-ea1838d035a3"
+                LastKnownName="Program Settings"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </providedInterface>
+          <requiredInterface
+            Id="190e5419-2905-4806-9f33-37b1b07f2d44"
+            name="Port2"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false"
+            isService="false"
+            isBehavior="false">
+            <suppliersInternal>
+              <dependency
+                Id="72a514b8-58d8-49c0-b895-09478b09b1a5">
+                <providedInterfaceMoniker
+                  Id="fcfc6a9c-77d3-4dc2-a45a-9702314e68a0"
+                  LastKnownName="Port1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </dependency>
+            </suppliersInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="cc9a364b-c52c-4e28-9139-204c03df35b7"
+                LastKnownName="Interface1"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </requiredInterface>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="61f4a4f8-c26e-40c6-83da-ea1838d035a3"
+        name="Program Settings"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="bf6c1c5f-2101-475f-88bb-4c14228b22ca"
+        name="Program Settings"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="cc9a364b-c52c-4e28-9139-204c03df35b7"
+        name="Interface1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="bd63bffc-ccb5-4f5f-a4fe-9bd9cc225176"
+        name="IProgramSettingsHolder"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ce90c200-5aec-4216-ae0f-b7dae4a8fa96"
+        name="UserSettingsHolder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="45937abd-9dee-4c44-b159-46ed041f774d">
+            <interfaceMoniker
+              Id="bd63bffc-ccb5-4f5f-a4fe-9bd9cc225176"
+              LastKnownName="IProgramSettingsHolder"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="8e837997-f41a-4fd6-8a72-c264a3b55bbe"
+            isDerived="false"
+            sourceEndRoleName="UserSettingsHolder"
+            targetEndRoleName="ICurrencyExplorerRepository"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="97c03a2f-045e-42ef-8c0b-f3ff5cbbce84"
+              LastKnownName="ICurrencyExplorerRepository"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14fdee60-dbb8-45ce-8c4a-72ba2aec9c5a"
+                  name="UserSettingsHolder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0e517073-7043-4d26-be1a-2768e7b27b0a"
+                  name="ICurrencyExplorerRepository"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

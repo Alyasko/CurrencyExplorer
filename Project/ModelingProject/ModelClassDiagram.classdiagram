@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="83bdedf8-f886-489e-9414-8bada2161de1" name="ModelClassDiagram" linkedPackageId="1df6b79f-8b63-4dcd-94d4-c229962e1807" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="83bdedf8-f886-489e-9414-8bada2161de1" name="ModelClassDiagram" linkedPackageId="1df6b79f-8b63-4dcd-94d4-c229962e1807" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="4fe34007-0821-4f8d-bd89-0a29a9e70496">
       <elementDefinition Id="202ec09d-5227-4de0-992d-3a28792b8bb8" />
@@ -81,32 +81,6 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="cf69d831-e374-4201-a622-bdb19caaa656">
-      <profileInstance Id="81202ec1-856c-447b-9528-7d87a4daa296" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="e64af7a5-e62b-43e8-8006-df6f41a23bf1">
-      <profileInstance Id="17d81cd0-1fe8-4270-9626-8074d57abd9a" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="127252e6-494e-4d78-933a-673a57ffb0d6">
-      <profileInstance Id="7bc9fe38-0a05-49db-a937-88c3ce3203ec" name="TextTemplateBindings">
-        <elementDefinition Id="e3683026-cea5-4d7d-9978-53ccfcdf27df" />
-      </profileInstance>
-      <elementDefinition Id="4a624a9f-6cb2-40b0-90c8-b011c3327ac8" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="c272ff50-bce6-4ff8-9b6f-c83263686078">
-      <profileInstance Id="11285f69-8cce-43ea-bfcd-f15dfad75cf3" name="CSharpProfile">
-        <elementDefinition Id="815875e9-99cf-4b7c-854e-b398ff483e8e" />
-      </profileInstance>
-      <elementDefinition Id="d6a0b1d9-34d3-499a-917b-30a3ebaae74f" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="7dfd8ac6-fe74-4845-9007-02f7a1f7498f" name="CurrencyExplorer" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -149,33 +123,19 @@
         </appliedStereotypesInternal>
         <elementDefinition Id="0555e110-524b-4ad7-ae8e-d85afaf2ac5b" />
         <suppliersInternal>
-          <dependency Id="010361a1-3939-409b-840f-d17a29128706">
-            <classMoniker Id="e559cc2b-dc2a-4564-9fa2-839f31042ecf" LastKnownName="DataProcessor" />
-            <elementDefinition Id="cffa1847-7c19-43d5-b406-dbb84a43ec74" />
-          </dependency>
           <dependency Id="1742c88e-10bb-4ada-81e9-e84e03416d5a">
             <classMoniker Id="25624b56-d0d5-4b9f-92d9-c9d21d8dc906" LastKnownName="DataPresenter" />
             <elementDefinition Id="dece5820-8ca3-4bb0-b7a2-34b01900de4c" />
           </dependency>
+          <dependency Id="85b93bbd-4686-4c49-bf12-52ba97928ee4">
+            <classMoniker Id="e559cc2b-dc2a-4564-9fa2-839f31042ecf" LastKnownName="DataProcessor" />
+            <elementDefinition Id="14c4a6e3-a527-4c72-bed2-161b19c59256" />
+          </dependency>
+          <dependency Id="ebd77f3b-0592-4b6a-aa4f-5ababe8d8928">
+            <classMoniker Id="ae2b7b8e-bc6d-4c12-8079-a4cc6158d0d2" LastKnownName="DataHolder" />
+            <elementDefinition Id="35e09e85-8a9f-41c0-ad27-595bc71b1394" />
+          </dependency>
         </suppliersInternal>
-        <targetEnds>
-          <association Id="43cd5618-9447-43b4-ba3d-80c3bd760120" isDerived="false" sourceEndRoleName="CurrencyExplorer" targetEndRoleName="ISettingsHolder" isLeaf="false" isAbstract="false">
-            <interfaceMoniker Id="49aaab46-56c9-48b4-b651-379ddc221dbc" LastKnownName="ISettingsHolder" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="6ec497af-9ded-4a95-a276-a23a14601d3d" name="CurrencyExplorer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="2c225231-1d39-4ece-b225-fffc28039c4c" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="bbb010b3-4692-4bb9-bf27-084d3c91b40c" name="ISettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <elementDefinition Id="fb59c271-b0c3-4ccb-b310-c09c2358d118" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="f634974a-0694-4979-92f0-45b316d464ce" />
-          </association>
-        </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -309,7 +269,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="49aaab46-56c9-48b4-b651-379ddc221dbc" name="ISettingsHolder" isAbstract="false" isLeaf="false">
+      <Interface Id="49aaab46-56c9-48b4-b651-379ddc221dbc" name="IUserSettingsHolder" isAbstract="false" isLeaf="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="266b4df8-18bf-43af-a870-e0b28d6997f6" name="interface" profile="CSharpProfile">
             <elementDefinition Id="fc5a8d79-8afc-48fc-a796-fd4428068cae" />
@@ -345,43 +305,7 @@
       </Interface>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="9440aa6c-3084-45da-8334-423c2d17d24c" name="ISettingsRepository" isAbstract="false" isLeaf="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="ad65a2ba-0858-424a-aaa2-3c5277432c02" name="interface" profile="CSharpProfile">
-            <elementDefinition Id="e6f3934d-8e60-4bfa-b1c6-11ab0ab73b0c" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="3cd2de96-9b68-4d86-9728-b36cc5972489">
-                <propertyInstance Id="d34bed94-3b3b-4054-92af-93929afa3e35" name="ClrAttributes">
-                  <elementDefinition Id="d9b884ce-8229-43d3-9f2b-b36d2fb27ff5" />
-                </propertyInstance>
-                <elementDefinition Id="07b13646-5982-4e79-9d84-ec9218900cdd" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="3a2932f6-effc-4415-a327-e22cfcb339ef">
-                <propertyInstance Id="81596e83-8b9f-4cd7-81f3-934ee25f6f34" name="IsPartial" value="false">
-                  <elementDefinition Id="3db3da2d-aea0-4e89-a26b-b7eff48f6998" />
-                </propertyInstance>
-                <elementDefinition Id="df48017a-8b48-4e79-8c93-63de94db88c9" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="c26010fd-03b6-4b71-bbe9-ea6cf22767f7">
-                <propertyInstance Id="637bb6e1-4342-4553-9b62-7a0563409c6d" name="IsUnsafe" value="false">
-                  <elementDefinition Id="f0bb46ad-77f8-4492-b61b-8dcc1df0449b" />
-                </propertyInstance>
-                <elementDefinition Id="af7ccb3b-7834-4a6b-b4dc-8fae810bc34e" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="752f20c0-fd73-4fb2-9d6e-016f2779ebde">
-                <propertyInstance Id="6bc54426-155c-4003-92b1-d2a3ffe088a8" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="f4ff170f-7ddf-4f31-b829-cd33da1d7b92" />
-                </propertyInstance>
-                <elementDefinition Id="7304a0ba-f494-4ec8-bdcb-43239322e34f" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="4b97af06-9197-4e9a-a31a-fece3ec18376" />
-      </Interface>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="4ea57405-7c3d-4126-adab-182631594259" name="SettingsHolder" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="4ea57405-7c3d-4126-adab-182631594259" name="UserSettingsHolder" isAbstract="false" isLeaf="false" isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="400af4d2-afb4-481f-9cf6-920042502899" name="class" profile="CSharpProfile">
             <elementDefinition Id="4c494b6c-2a1e-4bf1-93e6-a4f539c039fa" />
@@ -422,122 +346,28 @@
         <elementDefinition Id="30c4ad23-0408-4712-be3d-f007a727fef8" />
         <suppliersInternal>
           <interfaceRealization Id="b8c45514-35f0-4afd-9967-ae6fdb2d815f">
-            <interfaceMoniker Id="49aaab46-56c9-48b4-b651-379ddc221dbc" LastKnownName="ISettingsHolder" />
+            <interfaceMoniker Id="49aaab46-56c9-48b4-b651-379ddc221dbc" LastKnownName="IUserSettingsHolder" />
             <elementDefinition Id="ce9a0afb-c3b6-4244-b404-44954c4f0777" />
           </interfaceRealization>
         </suppliersInternal>
         <targetEnds>
-          <association Id="68d157e7-9754-494d-89b6-4d336b21b08b" isDerived="false" sourceEndRoleName="SettingsHolder" targetEndRoleName="ISettingsRepository" isLeaf="false" isAbstract="false">
-            <interfaceMoniker Id="9440aa6c-3084-45da-8334-423c2d17d24c" LastKnownName="ISettingsRepository" />
+          <association Id="fa5b291b-26a5-4bdc-9838-f243a889e786" isDerived="false" sourceEndRoleName="SettingsHolder" targetEndRoleName="ICurrencyExplorerRepository" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" LastKnownName="ICurrencyExplorerRepository" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="a858c5bf-5037-4cdb-a0f7-5e33e3ad7d93" name="SettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="ccff22eb-d351-40fd-89fa-19128d6753a7" />
+                <memberEnd Id="6687e639-b199-41d5-bd86-388700842d65" name="SettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="988af0d8-e34c-484e-9ef6-4ff16f4def9e" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="09129b1d-b232-4dcf-874a-c25f93481f2c" name="ISettingsRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <elementDefinition Id="dd42d213-d0e3-4bfe-8eb6-0620ff969deb" />
+                <memberEnd Id="eb9eac38-adc4-4dc7-ac1c-a70f0332b09b" name="ICurrencyExplorerRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="45ec03cb-19cc-48c7-aebf-f01837fee61b" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="7321783a-7547-4082-b043-90b188041cac" />
+            <elementDefinition Id="fb5cc0ef-7b19-4fc9-bd4f-0236ea5bb5ba" />
           </association>
         </targetEnds>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="59ea41a8-1b7f-4627-88a4-937e36c4e203" name="SettingsRepository" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="98c93cb0-9900-41ff-b1eb-d0109fd26512" name="class" profile="CSharpProfile">
-            <elementDefinition Id="6abeb87d-0db7-4a4a-a3d1-7a03958199a8" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="50bc31d8-4c69-4eb8-a928-e7b408884bb2">
-                <propertyInstance Id="770ff30b-4a19-49d4-b200-1f88609eeadf" name="ClrAttributes">
-                  <elementDefinition Id="304ec092-c72a-4c28-9aff-4034cab995e8" />
-                </propertyInstance>
-                <elementDefinition Id="b1ee7ee7-d04d-4354-966d-12d15164d6c0" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="7b7e8a5a-774a-4612-8fe7-2647afb4f059">
-                <propertyInstance Id="4db21b57-9f2a-4e7c-88a6-73528c81bbe5" name="IsPartial" value="false">
-                  <elementDefinition Id="e983d8d2-5fa6-43d9-8521-e4e9f1a72c68" />
-                </propertyInstance>
-                <elementDefinition Id="faed2ab6-62fb-4840-bc56-98e1ee6de922" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="b8b5fc3d-0ac6-4594-8de2-19d08ae64d06">
-                <propertyInstance Id="9ea90a4c-b969-42ad-94c4-b4991eaf4b4c" name="IsStatic" value="false">
-                  <elementDefinition Id="49897665-23a3-4a18-a26f-4d1e72d23ba7" />
-                </propertyInstance>
-                <elementDefinition Id="36d50396-b756-4ffe-bbea-b915cefb736e" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="f20af513-78b6-4c73-838d-7d859e995e2f">
-                <propertyInstance Id="d1fa143b-3fb5-47c5-8125-787931e80ed0" name="IsUnsafe" value="false">
-                  <elementDefinition Id="5af9a560-bcd2-4b11-a82b-c1f221b849e4" />
-                </propertyInstance>
-                <elementDefinition Id="ce1dc3c5-5afa-4d31-b6f9-f597675f53b2" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="c23a99b7-55e6-485b-ab81-238f65a66353">
-                <propertyInstance Id="c227bf59-34ae-4f20-88a9-3f9625dd55f4" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="50abdba1-e8be-4118-8e85-cd370729db0c" />
-                </propertyInstance>
-                <elementDefinition Id="767cba83-079e-4532-bad6-aba20f205ffc" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="a47d6995-700c-44cd-a88c-54402f57bc59" />
-        <suppliersInternal>
-          <interfaceRealization Id="e74397b5-b300-41ae-bb00-d79f8f4a66e9">
-            <interfaceMoniker Id="9440aa6c-3084-45da-8334-423c2d17d24c" LastKnownName="ISettingsRepository" />
-            <elementDefinition Id="c7185010-7315-4607-944d-fe509345c6de" />
-          </interfaceRealization>
-          <dependency Id="2097091d-2845-4837-9bd7-5999387687a4">
-            <classMoniker Id="23d5ca62-9ee2-4034-bb62-53c9154e0844" LastKnownName="SettingsDbContext" />
-            <elementDefinition Id="f15c126b-ba31-4dbf-9098-be8ac012bda0" />
-          </dependency>
-        </suppliersInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="23d5ca62-9ee2-4034-bb62-53c9154e0844" name="SettingsDbContext" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="7a5dd2a5-976f-463f-a398-29dd35cabd7a" name="class" profile="CSharpProfile">
-            <elementDefinition Id="3ce5222b-5c0f-4600-b1b8-f1713d21fcd7" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="0dd6f66f-8311-4672-95fd-bf562aa983e2">
-                <propertyInstance Id="86e6e438-d696-4733-8115-88fa51973617" name="ClrAttributes">
-                  <elementDefinition Id="45fa6952-2f41-414d-b2cd-abe084790b71" />
-                </propertyInstance>
-                <elementDefinition Id="f6b94234-5edc-4322-87b8-e0220ede0a15" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="980e7cf9-bf61-4bf7-aa33-262298c5a57c">
-                <propertyInstance Id="63f1ebbe-7488-4717-a650-0ec699f20e6b" name="IsPartial" value="false">
-                  <elementDefinition Id="d178680d-b430-40d1-9ddb-b2f17d030924" />
-                </propertyInstance>
-                <elementDefinition Id="f77be1ea-1e44-4033-b49c-223070df1b86" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="4bd74c5f-58a6-420a-bebe-f5d691985a19">
-                <propertyInstance Id="eafe4a8e-db53-44a5-bb10-4bcd6cd6ec63" name="IsStatic" value="false">
-                  <elementDefinition Id="9788c78d-feab-4f34-b830-d5668950452c" />
-                </propertyInstance>
-                <elementDefinition Id="4fd6d942-fe02-4127-9245-8999c13b3cd6" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="e52590a8-15f9-4f28-980f-4efdb4a9e042">
-                <propertyInstance Id="0610b803-577c-4279-9edb-c6732daa314b" name="IsUnsafe" value="false">
-                  <elementDefinition Id="ec40311a-8201-4256-ad98-7e9bf6f462ae" />
-                </propertyInstance>
-                <elementDefinition Id="8d7c7f13-7a4b-4fe7-b07f-276066c8defb" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="a104f81b-1776-41df-be15-8bacdd56353c">
-                <propertyInstance Id="14f20cd4-a37f-408c-92df-82f6863e0a58" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="71da3949-d043-494a-a2b7-6397bf0bd3f3" />
-                </propertyInstance>
-                <elementDefinition Id="80315a12-c605-4f4f-b43a-42cc04b5a558" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="aaff5cba-49ce-4822-9723-8d265f020625" />
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -639,21 +469,21 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="8ff0ef4a-8500-428f-a17a-953ea6ab418c" />
           </association>
-          <association Id="59602ef1-41fc-4c4b-808e-caf31b25b7dc" isDerived="false" sourceEndRoleName="CachingProcessor" targetEndRoleName="ICurrencyRepository" isLeaf="false" isAbstract="false">
-            <interfaceMoniker Id="de2ea431-5bb0-449e-81c3-f5d51e39116b" LastKnownName="ICurrencyRepository" />
+          <association Id="c6b38418-7b88-40bc-aac0-42feefa7f327" isDerived="false" sourceEndRoleName="CachingProcessor" targetEndRoleName="ICurrencyExplorerRepository" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" LastKnownName="ICurrencyExplorerRepository" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="aab0f741-b217-47c8-b125-4fe65023bfa9" name="CachingProcessor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="7f16c45f-30c0-4143-b90e-f60f0a668deb" />
+                <memberEnd Id="3793c2f2-a324-4df2-b5bc-3d11a7af9c82" name="CachingProcessor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="84162e05-72bd-45d2-a91b-e453ee3fd464" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="89322e68-7d88-4989-909d-945149e8fc4c" name="ICurrencyRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <elementDefinition Id="80a41558-3082-4050-86b0-4ec4b69b4bb0" />
+                <memberEnd Id="faf73f93-7f34-45a8-bbf6-8fe8af4ccfca" name="ICurrencyExplorerRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="36e34a46-1132-4689-978d-58d37b512240" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="d6e3757e-295a-45f8-9c3b-f0f5e2634a1e" />
+            <elementDefinition Id="e08325a4-e6a8-43e8-865a-adcba46e8d29" />
           </association>
         </targetEnds>
       </class>
@@ -740,136 +570,24 @@
             <elementDefinition Id="cd9af0ae-d1bc-4b32-a430-509bcec3195b" />
           </interfaceRealization>
         </suppliersInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <Interface Id="de2ea431-5bb0-449e-81c3-f5d51e39116b" name="ICurrencyRepository" isAbstract="false" isLeaf="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="89183275-1fd9-42d2-8a9c-3bd82593b083" name="interface" profile="CSharpProfile">
-            <elementDefinition Id="81a2d370-a42e-4b6c-9343-640ce387fd7f" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="b1f8e59e-a561-4a26-8084-51855c202a63">
-                <propertyInstance Id="e2fe94aa-9c6c-4bac-8766-45e4318af3ee" name="ClrAttributes">
-                  <elementDefinition Id="ebfcde04-ff0b-4d72-a9c3-5b27b1c2e9c6" />
-                </propertyInstance>
-                <elementDefinition Id="71d203bb-a8af-4d0a-9e1c-829466a05bb4" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="0a2a2d0c-ac22-4716-b009-c88f2a0ed1b4">
-                <propertyInstance Id="ee778e4a-2b0d-4bce-bb2e-cb0216a79ccc" name="IsPartial" value="false">
-                  <elementDefinition Id="58a812a4-bd15-4f34-8117-e7341e682e89" />
-                </propertyInstance>
-                <elementDefinition Id="50cd7081-c437-4419-bac2-a5eac1a1f776" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="31cfec2d-9171-4033-8b34-09d4e3dbe7ae">
-                <propertyInstance Id="99537a53-9302-4121-a46d-173de0d35519" name="IsUnsafe" value="false">
-                  <elementDefinition Id="b05f8454-7db6-4c86-a7ac-e68761b1ba41" />
-                </propertyInstance>
-                <elementDefinition Id="0af4b14c-8a38-43d7-8b98-8d8a84f3c8bf" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="d19bea6f-1fbb-4d12-be73-8d4eb8470003">
-                <propertyInstance Id="c39fd466-a2c7-4d1a-aa54-7240c1281eb7" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="296774dc-0953-4ecd-b29a-b39145177378" />
-                </propertyInstance>
-                <elementDefinition Id="483beddd-9eb7-4013-a4e4-95f91e309062" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="440f3524-485b-4f24-9bea-5e771f8018bb" />
-      </Interface>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="a2d9fd9f-da68-4b37-bc70-e15e1273c590" name="CurrencyRepository" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="eb9b96cf-9404-4ca0-95c2-a588fa296a4a" name="class" profile="CSharpProfile">
-            <elementDefinition Id="dc707dde-8594-4c3a-bb9e-10904b997626" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="2b66fab8-540f-4560-9ec8-9da22f1a7d65">
-                <propertyInstance Id="513aef05-f834-45dd-9dff-5382afec798a" name="ClrAttributes">
-                  <elementDefinition Id="740519b0-3fd4-44a0-997f-454552d362bf" />
-                </propertyInstance>
-                <elementDefinition Id="f7ff258d-6f7d-4bf5-832a-a695b6991831" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="4e72157f-560e-4188-bddf-c5cc47d78101">
-                <propertyInstance Id="aeca05c9-ff50-41d3-8253-3e26cf202186" name="IsPartial" value="false">
-                  <elementDefinition Id="652a4d95-b48e-4ca8-ae21-709f4000b1b8" />
-                </propertyInstance>
-                <elementDefinition Id="1dc4cce7-29b4-43b7-9f5d-59bb241664d1" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="5eee2d4a-c556-43fd-a000-a30a5031495c">
-                <propertyInstance Id="88ae05e1-a185-40d4-9d76-0c7b055011ce" name="IsStatic" value="false">
-                  <elementDefinition Id="33ead139-d420-48a7-b60b-343e1c36b487" />
-                </propertyInstance>
-                <elementDefinition Id="b74dcb17-8101-46d5-9d05-097713bc13e2" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="03540dbb-7e9e-4b1c-908d-80fba5b1f2a8">
-                <propertyInstance Id="ac62c6da-6a3f-4760-87b1-bbf8668f4259" name="IsUnsafe" value="false">
-                  <elementDefinition Id="adea1624-f8cf-43da-9fb7-aa06764179e7" />
-                </propertyInstance>
-                <elementDefinition Id="ca7b2de6-2d9e-4f70-af58-66c4a8061f1e" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="135f5893-abaa-411a-910f-8abfbe7d38cd">
-                <propertyInstance Id="e97b654e-2d4f-41f1-9e34-f079a06e608d" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="0ee2e319-1992-45d7-9b14-6e042fbe16df" />
-                </propertyInstance>
-                <elementDefinition Id="ee992975-4cf5-4333-9415-a0ef466a838e" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="9b917392-7e4e-45d5-978b-c56af49d420e" />
-        <suppliersInternal>
-          <interfaceRealization Id="633bf701-4c36-4e0a-9a3a-0348e48a6062">
-            <interfaceMoniker Id="de2ea431-5bb0-449e-81c3-f5d51e39116b" LastKnownName="ICurrencyRepository" />
-            <elementDefinition Id="e1d459f1-e916-4ee4-82a0-1848c08a4049" />
-          </interfaceRealization>
-          <dependency Id="07f36453-e3e4-464b-8cb0-60236572b542">
-            <classMoniker Id="4eb42cdd-197a-4867-9a69-dc22b00fede6" LastKnownName="CurrencyDbContext" />
-            <elementDefinition Id="6e337829-9bbf-4283-8a25-37e12304cec2" />
-          </dependency>
-        </suppliersInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="4eb42cdd-197a-4867-9a69-dc22b00fede6" name="CurrencyDbContext" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="4942112f-1307-4494-8473-88e31133e550" name="class" profile="CSharpProfile">
-            <elementDefinition Id="3ef482b0-0da6-4790-879c-de88c4b25cb5" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="4859da22-47b4-46a5-91db-6c1be842c54a">
-                <propertyInstance Id="6c6911fc-a96e-439e-9b12-b96fdbc9b9ee" name="ClrAttributes">
-                  <elementDefinition Id="316c5c8f-dbe6-42da-bfa7-fd22044a1e62" />
-                </propertyInstance>
-                <elementDefinition Id="23bfb0e0-b8be-42f4-8d26-8a8858812e0c" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="c2d04a3d-5fa6-41a2-8317-a47b9b2e83af">
-                <propertyInstance Id="6770176f-8f3b-4a08-bae9-21b3c27694c5" name="IsPartial" value="false">
-                  <elementDefinition Id="5f8d882a-5472-4ce2-8607-7c583de1efd8" />
-                </propertyInstance>
-                <elementDefinition Id="6f6b03d7-7072-448b-b026-774a9a9093fd" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="da3f1ddb-4628-4983-9f89-09bac771f263">
-                <propertyInstance Id="2258ef48-3a35-44e9-a8ca-4cfc81ff8720" name="IsStatic" value="false">
-                  <elementDefinition Id="572177b1-fa61-4173-8cfb-4fe53b5dfd8d" />
-                </propertyInstance>
-                <elementDefinition Id="dce8622f-fb3c-4a9e-84c4-9e92644064df" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="e51d9e53-beff-4b39-86f1-bfa39ce0232e">
-                <propertyInstance Id="21d10c28-a631-46b7-b025-05ceb9b42190" name="IsUnsafe" value="false">
-                  <elementDefinition Id="2251105c-bf19-4fe3-bb35-06a36293835e" />
-                </propertyInstance>
-                <elementDefinition Id="e576d2e2-0013-416e-9401-6e878b6200da" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="9b942107-1456-4917-b4d2-eab08e356833">
-                <propertyInstance Id="cb57df6c-f436-4b38-aa8c-011bb79f5d32" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="8811eb33-333c-464b-a346-162fb71b8df6" />
-                </propertyInstance>
-                <elementDefinition Id="bb39463b-56bb-4b08-84d2-bcb17ffb1087" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="ce6770d1-ffc0-4344-bda0-41c3ff051fba" />
+        <targetEnds>
+          <association Id="47e53b6c-c177-4773-b40b-123a6748a9d1" isDerived="false" sourceEndRoleName="NationalBankCurrencyProvider" targetEndRoleName="ICurrencyImporter" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="8ecb3e1e-5908-4f5d-aae5-5d8f0ecc491b" LastKnownName="ICurrencyImporter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5d698c89-ba31-47c2-bc8a-373b123e150f" name="NationalBankCurrencyProvider" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3a53d2f4-f24e-47d1-ba16-fb3b11ecb048" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c5dc060b-dda6-4cf2-aca9-86ac1826b65c" name="ICurrencyImporter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="57c55432-65d4-4b22-aca8-1b726f583b94" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="066df2f2-d7d4-4d87-952e-1f40f119b31a" />
+          </association>
+        </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -1100,8 +818,161 @@
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" name="ICurrencyExplorerRepository" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="97c03a2f-045e-42ef-8c0b-f3ff5cbbce84" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="95ba0fa4-6f3e-40bf-8f48-c7579d3c4ada" name="CurrencyExplorerRepository" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bc355d35-8ad5-42c6-a5f2-0ba90052c256" />
+        <suppliersInternal>
+          <interfaceRealization Id="12e11fac-7b94-4429-bc86-7260f2ba1de4">
+            <interfaceMoniker Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" LastKnownName="ICurrencyExplorerRepository" />
+            <elementDefinition Id="1b36819a-ba36-44bb-94c2-ea4cd4a56456" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="8ecb3e1e-5908-4f5d-aae5-5d8f0ecc491b" name="ICurrencyImporter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e169c544-a843-48c3-a1a1-d3d71a4abedb" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e8a98fd2-4cae-4a04-a2e5-69122cbf8b94" name="JsonCurrencyImporter" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6cfab3f5-d590-4f30-832a-53e767fa9b94" />
+        <generalsInternal>
+          <generalization Id="5f393882-d52c-4893-b035-073d0ff2d5fc" isSubstitutable="false">
+            <classMoniker Id="78649b7d-b58b-4513-9bf9-b1206ab29955" LastKnownName="AbstractCurrencyImporter" />
+            <elementDefinition Id="b586fa01-eef1-491f-a023-c23895496479" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ce58f954-318d-4c46-935d-4cd818590289" name="XmlCurrencyImporter" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="849091b8-c7bb-45b2-8f23-29853fb44600" />
+        <generalsInternal>
+          <generalization Id="df1cb158-b94c-4182-8826-03aefaca589c" isSubstitutable="false">
+            <classMoniker Id="78649b7d-b58b-4513-9bf9-b1206ab29955" LastKnownName="AbstractCurrencyImporter" />
+            <elementDefinition Id="ec185f43-79d1-4bd5-9f69-90a2bfa72208" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="78649b7d-b58b-4513-9bf9-b1206ab29955" name="AbstractCurrencyImporter" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="193d7e44-8610-4bde-b32a-1bd93c7521df" />
+        <suppliersInternal>
+          <interfaceRealization Id="a9979282-0bf5-4bd1-8e0b-e55189dc4064">
+            <interfaceMoniker Id="8ecb3e1e-5908-4f5d-aae5-5d8f0ecc491b" LastKnownName="ICurrencyImporter" />
+            <elementDefinition Id="bf0c5b5e-285d-4e7d-852c-177d17c90f31" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ae2b7b8e-bc6d-4c12-8079-a4cc6158d0d2" name="DataHolder" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="61d9a09e-f6bf-4243-a26b-93f820c5558c" />
+        <targetEnds>
+          <association Id="9a012f17-f575-4699-b304-894bf7b7e2bc" isDerived="false" sourceEndRoleName="DataHolder" targetEndRoleName="ISettingsHolder" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="49aaab46-56c9-48b4-b651-379ddc221dbc" LastKnownName="IUserSettingsHolder" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="902087e1-f83b-4098-95f4-f3a4b0539cf8" name="DataHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c1941c9a-1483-43e5-862d-bf8c21f01f5c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="427f5c81-36a1-4c90-9df8-fac4feefaf87" name="ISettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="521715c8-0b94-46f4-bd49-dcc407e04a12" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0e169cde-ed9e-4232-918a-69705bc4004d" />
+          </association>
+          <association Id="925a0800-eed0-49a1-98a8-d0842733ee9f" isDerived="false" sourceEndRoleName="DataHolder" targetEndRoleName="IProgramSettingsHolder" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="1fd1f238-b22b-45a3-a097-79363befc189" LastKnownName="IProgramSettingsHolder" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b909d896-e98e-4e37-97b2-5a9975906017" name="DataHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9c3334f9-12a8-4d11-beaa-82e6218dbde9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="08b1e6bc-8168-4879-8497-c097a939385e" name="IProgramSettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="8e0ff43d-8fd8-407b-93f1-ff81e6e558db" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="35166441-bcf8-4b6d-bdbc-e2e9867a9dbf" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="1fd1f238-b22b-45a3-a097-79363befc189" name="IProgramSettingsHolder" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bd63bffc-ccb5-4f5f-a4fe-9bd9cc225176" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9630f19d-1e34-46cb-8d2c-265166926173" name="UserSettingsHolder" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ce90c200-5aec-4216-ae0f-b7dae4a8fa96" />
+        <suppliersInternal>
+          <interfaceRealization Id="972044a4-e4ba-4575-8fa5-f8adb846b4ba">
+            <interfaceMoniker Id="1fd1f238-b22b-45a3-a097-79363befc189" LastKnownName="IProgramSettingsHolder" />
+            <elementDefinition Id="45937abd-9dee-4c44-b159-46ed041f774d" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="0ec15cd6-aaa3-41f7-8103-35037cdd7c2b" isDerived="false" sourceEndRoleName="UserSettingsHolder" targetEndRoleName="ICurrencyExplorerRepository" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" LastKnownName="ICurrencyExplorerRepository" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ac83aa65-c6de-4090-8214-9547550a672d" name="UserSettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="14fdee60-dbb8-45ce-8c4a-72ba2aec9c5a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7f2daf4a-8aa2-475d-bd86-e89b8946e8ae" name="ICurrencyExplorerRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0e517073-7043-4d26-be1a-2768e7b27b0a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8e837997-f41a-4fd6-8a72-c264a3b55bbe" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="1df6b79f-8b63-4dcd-94d4-c229962e1807" name="ModelingProject">
     <elementDefinition Id="2be56d21-9d94-4330-8393-bf83727e89b5" />
+    <profileInstances>
+      <packageHasProfileInstances Id="cf69d831-e374-4201-a622-bdb19caaa656">
+        <profileInstance Id="81202ec1-856c-447b-9528-7d87a4daa296" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="e64af7a5-e62b-43e8-8006-df6f41a23bf1">
+        <profileInstance Id="17d81cd0-1fe8-4270-9626-8074d57abd9a" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="127252e6-494e-4d78-933a-673a57ffb0d6">
+        <profileInstance Id="7bc9fe38-0a05-49db-a937-88c3ce3203ec" name="TextTemplateBindings">
+          <elementDefinition Id="e3683026-cea5-4d7d-9978-53ccfcdf27df" />
+        </profileInstance>
+        <elementDefinition Id="4a624a9f-6cb2-40b0-90c8-b011c3327ac8" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="c272ff50-bce6-4ff8-9b6f-c83263686078">
+        <profileInstance Id="11285f69-8cce-43ea-bfcd-f15dfad75cf3" name="CSharpProfile">
+          <elementDefinition Id="815875e9-99cf-4b7c-854e-b398ff483e8e" />
+        </profileInstance>
+        <elementDefinition Id="d6a0b1d9-34d3-499a-917b-30a3ebaae74f" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
