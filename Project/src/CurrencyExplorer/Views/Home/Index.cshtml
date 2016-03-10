@@ -1,9 +1,11 @@
-﻿@*
+﻿@using CurrencyExplorer.Models.Entities
+@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html" charset="utf-8" />
@@ -91,8 +93,9 @@
     <main>
         <div id="explorer">
             <div id="today" class="text-color-gray">
-                Today <span>1 USD</span> costs <span>27.50 UAH</span>
-                <hr class="no-style today-hr" />
+                @ViewBag.Info<br/>
+                @Html.Partial("~/Views/Partial/TodayPartial.cshtml", ((UserSettings) ViewBag.UserSettings).Currencies)
+                <hr class="no-style today-hr"/>
             </div>
             <div id="navigation">
                 <div id="left">

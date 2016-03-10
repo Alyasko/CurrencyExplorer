@@ -1,0 +1,12 @@
+﻿@using CurrencyExplorer.Models.Entities
+@model IEnumerable<CurrencyExplorer.Models.Entities.CurrencyData>
+@{
+}
+
+@foreach (CurrencyData data in Model)
+{
+    <div class="today-currency">
+        Today <span>1 @data.ShortName</span> costs <span>@data.Value UAH</span>
+    </div>
+}
+

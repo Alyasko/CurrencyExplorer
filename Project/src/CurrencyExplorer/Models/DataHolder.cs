@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CurrencyExplorer.Models
 {
-    public class DataPresenter
+    public class DataHolder
     {
     }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CurrencyExplorer.Models
+namespace CurrencyExplorer.Models.Contracts
 {
-    public class DataPresenter
+    public interface ICurrencyImporter
     {
     }
 }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CurrencyExplorer.Models
+namespace CurrencyExplorer.Models.Entities
 {
-    public class DataPresenter
+    public enum ExportFormat
     {
+        Jpeg,
+        Csv
     }
 }
