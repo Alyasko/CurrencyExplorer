@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm12="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="75d6dd5b-28be-483b-932b-b9b582a37c3a" name="ModelSequenceDiagram" linkedPackageId="9621540e-e906-4623-a657-b0233cf71135" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="ffea9ce4-4753-4335-bac7-365d1de4c235" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="324348bf-2271-4842-88b9-bac42c544ae6" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="34d054c3-8fa6-4efb-bad7-05f36b20002c">
+          <propertyInstance Id="022be9c7-5dbc-4e2d-a069-0b6864c3cf7a" name="BaseName">
+            <elementDefinition Id="4d941a2e-7bfa-466f-acfd-a7b05b6f0883" />
+          </propertyInstance>
+          <elementDefinition Id="48971383-07eb-4d47-8df4-f71697f19f95" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="13964d11-5b8f-48b1-99ca-9ca0edaf97da">
+          <propertyInstance Id="3f1c2a9f-3f4b-4707-92ee-c4cad04aabee" name="ClrAttributes">
+            <elementDefinition Id="5940923e-d83d-45b1-9716-f065d9c24547" />
+          </propertyInstance>
+          <elementDefinition Id="d9b78d12-6b21-4064-a7d1-c0fc1231efde" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="bd8f873f-2f52-4f74-9ec1-c67a56959c74">
+          <propertyInstance Id="6463bb19-0874-4d99-9cdf-73caaee98e67" name="Usings">
+            <elementDefinition Id="7f16d219-0156-4b49-bbd6-95f0139741ae" />
+          </propertyInstance>
+          <elementDefinition Id="4f94ebf9-116b-4500-99f0-ec50a9c58bf7" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="e6f3c70c-a5b4-4b1f-9d8d-165106e6570b" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="44c6fec6-05b7-4f39-81d9-d006e68fc32f" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d8a99a49-ac6e-41dd-89f1-2532eea64f7b">
+          <propertyInstance Id="c67abb12-8c2a-4a6f-9f38-de3beb2ba3ce" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="e05093f8-6a58-4d32-83aa-58f8ca68eb25" />
+          </propertyInstance>
+          <elementDefinition Id="a469c929-5dd1-4caa-8f12-13b4ec680b98" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="8f60a280-5368-46e5-a541-8d14708cf4e0">
+          <propertyInstance Id="08d4b44c-9811-4851-910f-9348d8c05bf0" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="8b4ad44f-0c31-4828-84cd-f56d740da4cc" />
+          </propertyInstance>
+          <elementDefinition Id="ff0ca674-9273-4f1b-a5f4-cb7046011a59" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="509f3134-c98f-411c-8849-d3a2f5e408a1">
+          <propertyInstance Id="876c4ffb-b736-41bb-a648-923cad615610" name="ProjectPath" value="ClassTemplate=..\ModelingProjectLib\ModelingProjectLib.csproj|EnumTemplate=..\ModelingProjectLib\ModelingProjectLib.csproj|InterfaceTemplate=..\ModelingProjectLib\ModelingProjectLib.csproj|StructTemplate=..\ModelingProjectLib\ModelingProjectLib.csproj">
+            <elementDefinition Id="661ad3f0-d378-4b96-aa8d-9b656765dbe4" />
+          </propertyInstance>
+          <elementDefinition Id="519ffbf9-edc5-403e-9db7-5a4b9fa8fd9b" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="44047c4b-c587-4aee-8ebe-ab57465ef59e">
+          <propertyInstance Id="d39d1e13-96c8-4c6d-bd38-0cf1c4e912b3" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="4d51d278-bb99-4813-a589-734ac2dd2916" />
+          </propertyInstance>
+          <elementDefinition Id="358df54b-e655-4e4e-810e-5af3d0ab4fa1" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f4524489-3498-461d-a0d4-4dc8dde5c8bf">
+          <propertyInstance Id="42b2efbf-fba3-491b-82f5-1ebc43e24385" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="42a13412-3fc0-41ef-afba-cd16d62de469" />
+          </propertyInstance>
+          <elementDefinition Id="fa136007-3325-4f7d-a76b-f417bc7c28fb" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f908cd06-0033-4c7f-b309-2d15a6d40225">
+          <propertyInstance Id="762612f2-7862-4a9d-9770-cbd70f36c748" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="52802f24-af44-457f-bb08-cc082cd96f26" />
+          </propertyInstance>
+          <elementDefinition Id="3f23caf5-af8d-4900-9ba6-6a9ae077cc42" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="20b34f97-5a3e-48b9-ba17-fd97e390b357">
+          <propertyInstance Id="a9cb60a3-413d-4d48-a586-fd860b9c1339" name="Parameters">
+            <elementDefinition Id="07b03143-3b38-4019-8181-3860fef6dede" />
+          </propertyInstance>
+          <elementDefinition Id="6149efe8-609d-4af7-b468-87a2e5ae3799" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="f32ce258-4664-4b82-9d68-679f7ff4ef6b">
+      <profileInstance Id="b74cec1e-edc1-4f47-9b30-29bc80c36500" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="91e761ce-2afa-4e4e-89a9-f95f5b5e558f">
+      <profileInstance Id="467d259f-4d9e-4c1a-893f-b70dc6db66c6" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="5331e8ff-6a03-4f57-941e-3fd9d1dd2d49">
+      <profileInstance Id="25d7084e-abbd-46af-be8f-aaf3fcdd2270" name="TextTemplateBindings">
+        <elementDefinition Id="e3683026-cea5-4d7d-9978-53ccfcdf27df" />
+      </profileInstance>
+      <elementDefinition Id="4a624a9f-6cb2-40b0-90c8-b011c3327ac8" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="6edcbc4c-f7c3-421d-91a5-27d417791722">
+      <profileInstance Id="6b929c4d-6e26-4ffe-af6d-56048bfaf989" name="CSharpProfile">
+        <elementDefinition Id="815875e9-99cf-4b7c-854e-b398ff483e8e" />
+      </profileInstance>
+      <elementDefinition Id="d6a0b1d9-34d3-499a-917b-30a3ebaae74f" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="f913895a-0517-4668-94b2-58b0c624b0af" name="ModelSequenceDiagram" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <elementDefinition Id="db9ab32e-de2f-4901-ab4d-b1d151fe2bd2" />
+        <lifelines>
+          <lifeline Id="a374267f-7fc9-4f9d-bf1b-054020308017" name="business Logic Wrapper : Business Logic Wrapper" isActor="false" lifelineDisplayName="business Logic Wrapper : Business Logic Wrapper">
+            <elementDefinition Id="588f7077-345d-4ed2-a7a8-bf5bbe667fcb" />
+            <represents>
+              <propertyMoniker Id="ec6a6487-4808-4d74-a6b7-c6919d00bf26" />
+            </represents>
+          </lifeline>
+          <lifeline Id="b38b1e79-5308-4587-bd11-1766f0a20900" name="Business Logic Wrapper : Business Logic Wrapper" isActor="false" lifelineDisplayName="Business Logic Wrapper : Business Logic Wrapper">
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="579aaa05-4e6d-4a3e-a023-11dce61c55c6" name="TextTemplateBindings" profile="TextTemplateBindings">
+                <elementDefinition Id="77496a70-01d7-42f9-83e1-932af1384647" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="be6eb8fd-9d0a-4c27-8196-e457c3a1b509">
+                    <propertyInstance Id="46fd137b-f85b-4f85-8359-650be6158669" name="Alias">
+                      <elementDefinition Id="977709e0-791f-4e60-9ab3-2a433c3795ca" />
+                    </propertyInstance>
+                    <elementDefinition Id="bd89aaec-0a24-4c6d-b846-32ddc04e2684" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="da536333-a0d5-4ede-94a8-13c2137f8be5">
+                    <propertyInstance Id="3d0ee129-b23e-4451-b900-ecee5abe080b" name="TemplateFilePath">
+                      <elementDefinition Id="ac867cec-6897-4754-b48e-34ac4cb7b1f9" />
+                    </propertyInstance>
+                    <elementDefinition Id="5a0cd8d3-1c88-4bfa-b3eb-2a8d10a66b2a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a65fa105-9cab-4165-8d6c-537174fa137c">
+                    <propertyInstance Id="2ca75ff9-3fae-4022-a71a-f542b129c4ab" name="ProjectPath">
+                      <elementDefinition Id="418bebaa-606f-41ec-b4c7-330f28d7fcfe" />
+                    </propertyInstance>
+                    <elementDefinition Id="7e7551e0-0ce3-4def-a5ae-17fbd867b81f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="501a2a4f-5dba-49e1-bf58-7d8828ed538c">
+                    <propertyInstance Id="1b9248c3-f97d-473b-b163-3b74a31f83d2" name="TargetDirectory">
+                      <elementDefinition Id="c0c20773-91d7-42c9-a496-4f6355e74226" />
+                    </propertyInstance>
+                    <elementDefinition Id="9ade410b-6010-44b4-acf3-2a6c14a0c00f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9ab24405-4507-4937-bb4a-8de257ca0653">
+                    <propertyInstance Id="19a2aa0c-303e-4656-bf14-ca07fc441cd7" name="TargetName">
+                      <elementDefinition Id="0553ca6f-53be-4180-beec-3f7d13f30d52" />
+                    </propertyInstance>
+                    <elementDefinition Id="86108a8c-d85a-40ba-ba39-107684c87284" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0a4d168d-1630-469f-b8d0-5fb1d86b22aa">
+                    <propertyInstance Id="8cd699a9-825f-48e4-bc69-9755fb83b922" name="Overwrite">
+                      <elementDefinition Id="906f2aab-35c1-4214-ba27-b932e8411f6e" />
+                    </propertyInstance>
+                    <elementDefinition Id="3e2c84e6-823a-45ec-ac2b-b557f478b27a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5045d2f6-6a3e-4651-8f4a-b3072fd04f5f">
+                    <propertyInstance Id="af350ec5-b6da-41e6-bda7-a9da69099658" name="Parameters">
+                      <elementDefinition Id="e2cf5632-0f26-4680-9acd-71d78400b71d" />
+                    </propertyInstance>
+                    <elementDefinition Id="ad5513fb-25a6-4335-9498-31cde7b021a6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="f3a43e04-6df4-4fb7-8086-e39feacfe4ac" />
+            <represents>
+              <propertyMoniker Id="909c59d8-7982-439b-9d0f-fc73e82ec2e4" />
+            </represents>
+          </lifeline>
+          <lifeline Id="650d30d6-9083-4a5b-bff6-57fd178463a9" name="data Processor : Data Processor" isActor="false" lifelineDisplayName="data Processor : Data Processor">
+            <elementDefinition Id="3ab99c90-e7d5-486c-83cf-572ac2d9edf4" />
+            <represents>
+              <propertyMoniker Id="23967e40-cc79-4318-92e8-e9ddceb5bb79" />
+            </represents>
+          </lifeline>
+          <lifeline Id="60817cad-e831-4259-9442-870ff782da32" name="caching Processor : Caching Processor" isActor="false" lifelineDisplayName="caching Processor : Caching Processor">
+            <elementDefinition Id="a54ed0b2-1cb8-4189-b4da-c2278e326ed6" />
+            <represents>
+              <propertyMoniker Id="e4579865-c605-4ee6-89b4-3843110a1c2b" />
+            </represents>
+          </lifeline>
+          <lifeline Id="ba9ef92f-9343-43eb-bac1-325d75a75b15" name="currency API : Currency API" isActor="false" lifelineDisplayName="currency API : Currency API">
+            <elementDefinition Id="9f78d2d5-9786-498c-a333-62cc43c87608" />
+            <represents>
+              <propertyMoniker Id="aba34b75-4a5f-4ac9-b386-f45742003db6" />
+            </represents>
+          </lifeline>
+          <lifeline Id="53b75bc6-5f03-4341-9e1d-ffb43815dc3f" name="data Holder : Data Holder" isActor="false" lifelineDisplayName="data Holder : Data Holder">
+            <elementDefinition Id="bc5029d7-23bd-4abd-b04c-99d18e9935ca" />
+            <represents>
+              <propertyMoniker Id="20d32ccf-feb9-4b1a-8c6c-ce4f252938c3" />
+            </represents>
+          </lifeline>
+          <lifeline Id="e521496f-1080-40ff-b234-0ed63495fbf9" name="data Presenter : Data Presenter" isActor="false" lifelineDisplayName="data Presenter : Data Presenter">
+            <elementDefinition Id="224315c6-94b1-4c30-865c-51e62d493082" />
+            <represents>
+              <propertyMoniker Id="59f36025-b6cb-4c21-b71b-37318cb2cc03" />
+            </represents>
+          </lifeline>
+          <lifeline Id="ec29d728-3ee5-4aa3-a326-f98181cf932a" name="user Settings Holder : User Settings Holder" isActor="false" lifelineDisplayName="user Settings Holder : User Settings Holder">
+            <elementDefinition Id="b0ae6bd3-67bd-4373-a2a1-b6b1596ad7a6" />
+            <represents>
+              <propertyMoniker Id="2e3a0887-a10d-4765-8c3b-1b4b3c2f54e7" />
+            </represents>
+          </lifeline>
+          <lifeline Id="a2630575-e855-4068-ad89-a5250380bbc9" name="program Settings Holder : Program Settings Holder" isActor="false" lifelineDisplayName="program Settings Holder : Program Settings Holder">
+            <elementDefinition Id="527be74f-350e-49a9-b399-c7f0fbb6430c" />
+            <represents>
+              <propertyMoniker Id="135b8e0b-abe6-4893-bee9-0a4d3d1bd926" />
+            </represents>
+          </lifeline>
+          <lifeline Id="90506f8b-53a7-4eae-86f1-791210e6c91e" name="converter : Converter" isActor="false" lifelineDisplayName="converter : Converter">
+            <elementDefinition Id="b4443e30-eb93-45c2-9b25-8d8e3686221a" />
+            <represents>
+              <propertyMoniker Id="75fc9157-23a0-4d1c-93ea-fdce0ed74797" />
+            </represents>
+          </lifeline>
+          <lifeline Id="d0ab2b36-71bb-43c4-b96d-36221618d91f" name="currencyExplorer Repository : CurrencyExplorer Repository" isActor="false" lifelineDisplayName="currencyExplorer Repository : CurrencyExplorer Repository">
+            <elementDefinition Id="db0cdac1-a738-4ca7-b5d4-e2a3c2ea8f58" />
+            <represents>
+              <propertyMoniker Id="8e2ee609-b46f-4b76-889d-29d70f834b9a" />
+            </represents>
+          </lifeline>
+          <lifeline Id="003e3f4f-ce2f-47ac-98b0-c5ff326ba6ab" name="currencyExplorer DB Context : CurrencyExplorer DB Context" isActor="false" lifelineDisplayName="currencyExplorer DB Context : CurrencyExplorer DB Context">
+            <elementDefinition Id="b6eba726-b33d-45f1-a1f0-e5fbf9c50bc5" />
+            <represents>
+              <propertyMoniker Id="caeefd1b-e2db-4e1f-89e7-07629d39c26f" />
+            </represents>
+          </lifeline>
+        </lifelines>
+        <ownedAttributesInternal>
+          <property Id="ec6a6487-4808-4d74-a6b7-c6919d00bf26" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8f84c94f-bc42-40f9-9b34-8d3ff6c3b8c7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8dff8562-7009-48d8-8b0d-c851420026f4" LastKnownName="Business Logic Wrapper" />
+            </type_NamedElement>
+          </property>
+          <property Id="909c59d8-7982-439b-9d0f-fc73e82ec2e4" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="abdf3988-f227-4615-a4e7-91d502beea6d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8dff8562-7009-48d8-8b0d-c851420026f4" LastKnownName="Business Logic Wrapper" />
+            </type_NamedElement>
+          </property>
+          <property Id="23967e40-cc79-4318-92e8-e9ddceb5bb79" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ae5c780f-66f6-4bbe-88c5-aa034b271c2e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fcd54f7e-80e7-4db0-88be-1bbca1e57a5d" LastKnownName="Data Processor" />
+            </type_NamedElement>
+          </property>
+          <property Id="e4579865-c605-4ee6-89b4-3843110a1c2b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3a9c0dff-01b4-4cfc-9248-ff4b8dd72cfc" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cdde08fa-67fa-42ea-a89c-a8813e6998c2" LastKnownName="Caching Processor" />
+            </type_NamedElement>
+          </property>
+          <property Id="aba34b75-4a5f-4ac9-b386-f45742003db6" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b02a85e0-42a6-4226-8112-159468810d38" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5a51372a-1521-48e9-b227-e5cbf1f00e11" LastKnownName="Currency API" />
+            </type_NamedElement>
+          </property>
+          <property Id="20d32ccf-feb9-4b1a-8c6c-ce4f252938c3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f4999fbb-9056-46db-9d28-3a1a45e13d4f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1e71927b-4ddf-45fc-a84f-3b04d3d221af" LastKnownName="Data Holder" />
+            </type_NamedElement>
+          </property>
+          <property Id="59f36025-b6cb-4c21-b71b-37318cb2cc03" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="86a14c03-c61f-4fec-b500-b017b0bbd3a7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a30a566b-e213-4ad8-865c-e28b0b81cef7" LastKnownName="Data Presenter" />
+            </type_NamedElement>
+          </property>
+          <property Id="2e3a0887-a10d-4765-8c3b-1b4b3c2f54e7" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3eea5410-f88f-46e9-b31f-dd07435e3ead" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="246877cd-1e93-4300-96a3-f519b5aacf22" LastKnownName="User Settings Holder" />
+            </type_NamedElement>
+          </property>
+          <property Id="135b8e0b-abe6-4893-bee9-0a4d3d1bd926" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="848a2cea-fd72-4091-8203-26202cfb77ec" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="bbfca403-e501-48cb-b032-2fb841085b43" LastKnownName="Program Settings Holder" />
+            </type_NamedElement>
+          </property>
+          <property Id="75fc9157-23a0-4d1c-93ea-fdce0ed74797" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0fb24890-b766-4a58-9eaf-80c786482a41" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0f3c76eb-31e1-4735-a0a2-f59d7d8375de" LastKnownName="Converter" />
+            </type_NamedElement>
+          </property>
+          <property Id="8e2ee609-b46f-4b76-889d-29d70f834b9a" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e580a9a5-52ea-43bc-a151-de0853e0206b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="32c0db6a-e12c-41c9-b100-c536b2bc13b7" LastKnownName="CurrencyExplorer Repository" />
+            </type_NamedElement>
+          </property>
+          <property Id="caeefd1b-e2db-4e1f-89e7-07629d39c26f" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ba290d8d-4e1b-4cf5-bdd5-3e39a8b9222c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8d653a28-05e0-4282-9fc0-a28b7c8e745f" LastKnownName="CurrencyExplorer DB Context" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8dff8562-7009-48d8-8b0d-c851420026f4" name="Business Logic Wrapper" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Business Logic Wrapper">
+        <elementDefinition Id="5b4a4088-dd8c-46c1-9edd-1ff5c5a5ac61" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fcd54f7e-80e7-4db0-88be-1bbca1e57a5d" name="Data Processor" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Data Processor">
+        <elementDefinition Id="0aa39370-2963-4ae0-a956-7e209ee6ef89" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cdde08fa-67fa-42ea-a89c-a8813e6998c2" name="Caching Processor" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Caching Processor">
+        <elementDefinition Id="7bbe8e82-c2bf-41e6-bb98-bfa2f968adc0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5a51372a-1521-48e9-b227-e5cbf1f00e11" name="Currency API" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Currency API">
+        <elementDefinition Id="3d4f09db-c534-4b2e-9552-32527c6e46e7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1e71927b-4ddf-45fc-a84f-3b04d3d221af" name="Data Holder" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Data Holder">
+        <elementDefinition Id="eeaf7af6-2d96-43e7-a981-14af3d91c1c4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a30a566b-e213-4ad8-865c-e28b0b81cef7" name="Data Presenter" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Data Presenter">
+        <elementDefinition Id="a859dd37-ad21-4d11-ba8a-a4f1c0415b01" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="246877cd-1e93-4300-96a3-f519b5aacf22" name="User Settings Holder" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::User Settings Holder">
+        <elementDefinition Id="cfcf3271-84f4-47fb-abd3-2d56b2dfc1cf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="bbfca403-e501-48cb-b032-2fb841085b43" name="Program Settings Holder" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Program Settings Holder">
+        <elementDefinition Id="b63f5e22-a441-42f3-b4c5-c101a6adc602" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0f3c76eb-31e1-4735-a0a2-f59d7d8375de" name="Converter" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Converter">
+        <elementDefinition Id="d767ea0a-1300-4061-b4e7-36306e5ec056" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="32c0db6a-e12c-41c9-b100-c536b2bc13b7" name="CurrencyExplorer Repository" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::CurrencyExplorer Repository">
+        <elementDefinition Id="8a4e7eb5-1c49-46fa-bdd7-26cf35c32431" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8d653a28-05e0-4282-9fc0-a28b7c8e745f" name="CurrencyExplorer DB Context" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::CurrencyExplorer DB Context">
+        <elementDefinition Id="ecabb4cb-83cb-4809-a9c0-c86e10ca1ea3" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="9621540e-e906-4623-a657-b0233cf71135" name="ModelingProject">
+    <elementDefinition Id="2be56d21-9d94-4330-8393-bf83727e89b5" />
+  </package>
+</SequenceDesignerModel>
