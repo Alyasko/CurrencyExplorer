@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CurrencyExplorer.Models
+namespace CurrencyExplorer.Models.Enums
 {
-    public class DataPresenter
+    public enum CurrencyImporterType
     {
+        Json,
+        Xml
     }
 }
