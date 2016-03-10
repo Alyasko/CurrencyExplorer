@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CurrencyExplorer</name>
+    </assembly>
+    <members>
+        <member name="M:CurrencyExplorer.Models.CurrencyXplorer.RequestChartData">
+            <summary>
+            Requests data to be displayed in the chart.
+            Requires ChartTimePeriod, ChartCurrencyCodes.
+            The result is stored in ChartDataPoints.
+            </summary>
+        </member>
+        <member name="M:CurrencyExplorer.Models.CurrencyXplorer.RequestTodaysCurrencies">
+            <summary>
+            Requests todays currencies.
+            Currencies are specified in ChartCurrencyCodes.
+            </summary>
+            <returns>Currency data object.</returns>
+        </member>
+        <member name="M:CurrencyExplorer.Models.CurrencyXplorer.AddUserSettings(System.String,CurrencyExplorer.Models.Entities.UserSettings)">
+            <summary>
+            Adds user settings into the database.
+            </summary>
+            <param name="ip">The IP that user is browsing from.</param>
+            <param name="userSettings">User settings.</param>
+        </member>
+        <member name="M:CurrencyExplorer.Models.CurrencyXplorer.RequestUserSettings(System.String)">
+            <summary>
+            Requests user settings by specified IP.
+            </summary>
+            <returns>The user settings.</returns>
+        </member>
+        <member name="M:CurrencyExplorer.Models.CurrencyXplorer.ExportChartData(CurrencyExplorer.Models.Entities.ExportFormat)">
+            <summary>
+            Exports data from chart in specified format.
+            </summary>
+            <param name="exportFormat">The format in which chart is to be exported.</param>
+            <returns>The path to the generated file.</returns>
+        </member>
+        <member name="M:CurrencyExplorer.Models.DataProcessor.GetChartData(CurrencyExplorer.Models.Entities.ChartTimePeriod,System.Collections.Generic.IEnumerable{CurrencyExplorer.Models.Entities.CurrencyCode})">
+            <summary>
+            Requests currency data for the chart within specified time period for specified currency codes.
+            </summary>
+            <param name="chartTimePeriod">The time period which the currency data should be returned for.</param>
+            <param name="chartCurrencyCodes">The list of currency codes which currency data should be returned for.</param>
+            <returns>The dictionary of currency code as key and the list of chart data points as value.</returns>
+        </member>
+        <member name="M:CurrencyExplorer.Models.DataProcessor.GetDailyCurrencies(System.DateTime,System.Collections.Generic.IEnumerable{CurrencyExplorer.Models.Entities.CurrencyCode})">
+            <summary>
+            Requests currency data for specified date for specified currency codes.
+            </summary>
+            <param name="date">The date which currencies should be returned on.</param>
+            <param name="chartCurrencyCodes">The list of currency codes which currency data should be returned for.</param>
+            <returns>The dictionary of currency code as key and currency data as value</returns>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.ChartCurrencyDataPoint.Position">
+            <summary>
+            The position on the chart.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.ChartCurrencyDataPoint.CurrencyDataObject">
+            <summary>
+            Specific currency data.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.ChartTimePeriod.Begin">
+            <summary>
+            Begin time.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.ChartTimePeriod.End">
+            <summary>
+            End time.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.CurrencyCode.Value">
+            <summary>
+            String representation of code.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.CurrencyData.Value">
+            <summary>
+            The value of currency.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.CurrencyData.ShortName">
+            <summary>
+            Short representation of name.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.CurrencyData.Name">
+            <summary>
+            The name of the currency.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.CurrencyData.Actual">
+            <summary>
+            The time of currency actuality.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.CurrencyData.Code">
+            <summary>
+            Unique code of currency.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.UserSettings.Language">
+            <summary>
+            The language of web-site.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.UserSettings.Currencies">
+            <summary>
+            Selected currencies.
+            </summary>
+        </member>
+        <member name="P:CurrencyExplorer.Models.Entities.UserSettings.TimePeriod">
+            <summary>
+            Selected time period.
+            </summary>
+        </member>
+    </members>
+</doc>

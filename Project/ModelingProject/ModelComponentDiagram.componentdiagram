@@ -12,7 +12,7 @@
       <elementDefinition Id="baa256ae-86d9-49f4-8d24-4de1ada98e4b" />
       <body>Contains all user specific settings. Is to be stored in bowser cookies</body>
       <annotatedElements>
-        <componentMoniker Id="9a49f210-e378-442d-9ef1-3e48c9374517" LastKnownName="User Settings Holder" />
+        <componentMoniker Id="9a49f210-e378-442d-9ef1-3e48c9374517" LastKnownName="Settings Holder" />
       </annotatedElements>
     </comment>
     <comment Id="262d777b-cbfe-4946-a7b1-2225fc7f2263">
@@ -48,13 +48,6 @@
       <body>Converter can be either JPG, CSV, JSON</body>
       <annotatedElements>
         <componentMoniker Id="4d3ca486-d907-4f7f-aa99-a5994d9ece71" LastKnownName="Converter" />
-      </annotatedElements>
-    </comment>
-    <comment Id="8d64e1bb-32de-4869-b299-4de87cd0a0e5">
-      <elementDefinition Id="5ad8045a-b129-48cb-afbe-377bd0a2529b" />
-      <body>Allows accesing the database</body>
-      <annotatedElements>
-        <componentMoniker Id="0aaf24fc-9807-4291-97e5-22102a7b253d" LastKnownName="Data Holder" />
       </annotatedElements>
     </comment>
   </ownedCommentsInternal>
@@ -161,21 +154,31 @@
             <componentMoniker Id="1a350bc6-0f49-4b7a-ae49-538dd0ab02c9" LastKnownName="Data Presenter" />
             <elementDefinition Id="dea85b0c-688c-4809-aa2c-536a52c01d3d" />
           </dependency>
-          <dependency Id="536b9f13-f4b8-419c-a3a4-3ed46d943974">
-            <componentMoniker Id="0aaf24fc-9807-4291-97e5-22102a7b253d" LastKnownName="Data Holder" />
-            <elementDefinition Id="7e8d8795-1401-499b-b5a8-eaa2ab479a29" />
-          </dependency>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <requiredInterface Id="b9814ce2-692d-439a-b06a-51f0a7d61324" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="87eb8170-f099-4ec2-b3df-d9eaf393e2f5" />
+            <suppliersInternal>
+              <dependency Id="1502d701-3522-4b43-a57a-c5cc89d0ab9f">
+                <providedInterfaceMoniker Id="bcaf7941-995d-4a02-9590-ef9b47d6bd94" LastKnownName="Port1" />
+                <elementDefinition Id="e5191f68-9149-4005-b20e-c73d5fd113d5" />
+              </dependency>
+            </suppliersInternal>
+            <type_NamedElement>
+              <interfaceMoniker Id="64affda0-c113-42dd-96c9-70c74ebc15ec" LastKnownName="Settings Holder" />
+            </type_NamedElement>
+          </requiredInterface>
+        </ownedAttributesInternal>
       </component>
     </componentModelHasComponents>
     <componentModelHasComponents>
-      <component Id="9a49f210-e378-442d-9ef1-3e48c9374517" name="User Settings Holder" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <component Id="9a49f210-e378-442d-9ef1-3e48c9374517" name="Settings Holder" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="cfcf3271-84f4-47fb-abd3-2d56b2dfc1cf" />
         <ownedAttributesInternal>
           <providedInterface Id="bcaf7941-995d-4a02-9590-ef9b47d6bd94" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
             <elementDefinition Id="d6a8b6a0-37b9-46eb-bf56-eb042f8f8eb7" />
             <type_NamedElement>
-              <interfaceMoniker Id="20527eb7-d712-47a2-951b-32df6a5c5383" LastKnownName="User Settings" />
+              <interfaceMoniker Id="20527eb7-d712-47a2-951b-32df6a5c5383" LastKnownName="Settings Holder" />
             </type_NamedElement>
           </providedInterface>
           <requiredInterface Id="4bdaf928-8e0f-4b1d-a08f-c1027c4a9bb3" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
@@ -194,7 +197,7 @@
       </component>
     </componentModelHasComponents>
     <modelContainsNamedElements>
-      <Interface Id="20527eb7-d712-47a2-951b-32df6a5c5383" name="User Settings" isAbstract="false" isLeaf="false">
+      <Interface Id="20527eb7-d712-47a2-951b-32df6a5c5383" name="Settings Holder" isAbstract="false" isLeaf="false">
         <elementDefinition Id="09a92afa-cf9f-434e-b0a2-dcb67c4fc721" />
       </Interface>
     </modelContainsNamedElements>
@@ -274,6 +277,11 @@
         <elementDefinition Id="9a788daa-59fd-4590-a9e6-d0ceefb86b10" />
       </Interface>
     </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="64affda0-c113-42dd-96c9-70c74ebc15ec" name="Settings Holder" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9fdb790c-6bd2-4399-93dd-06b3bc420f09" />
+      </Interface>
+    </modelContainsNamedElements>
     <componentModelHasComponents>
       <component Id="1a350bc6-0f49-4b7a-ae49-538dd0ab02c9" name="Data Presenter" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="a859dd37-ad21-4d11-ba8a-a4f1c0415b01" />
@@ -348,82 +356,6 @@
     <modelContainsNamedElements>
       <Interface Id="b6d6ac06-b129-44dc-b0d7-0275a96ac29c" name="Repository" isAbstract="false" isLeaf="false">
         <elementDefinition Id="b4e28915-34bb-4599-b028-363ae36eb418" />
-      </Interface>
-    </modelContainsNamedElements>
-    <componentModelHasComponents>
-      <component Id="0aaf24fc-9807-4291-97e5-22102a7b253d" name="Data Holder" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="eeaf7af6-2d96-43e7-a981-14af3d91c1c4" />
-        <ownedAttributesInternal>
-          <requiredInterface Id="ed5c3f7b-6bfa-41c8-b75a-afeb11dfe475" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
-            <elementDefinition Id="f51d3377-0cfa-4037-ac11-df90f7f7ff0c" />
-            <suppliersInternal>
-              <dependency Id="f3631b73-e87a-4188-8640-c6242f226a76">
-                <providedInterfaceMoniker Id="bcaf7941-995d-4a02-9590-ef9b47d6bd94" LastKnownName="Port1" />
-                <elementDefinition Id="9e48dbd7-3c15-4b9e-b14e-21643995248b" />
-              </dependency>
-            </suppliersInternal>
-            <type_NamedElement>
-              <interfaceMoniker Id="0653c133-5b49-4f14-9afa-e04988fb0a2f" LastKnownName="User Settings" />
-            </type_NamedElement>
-          </requiredInterface>
-          <requiredInterface Id="bd71fa5e-089e-4035-a442-c2909b5ec9f4" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
-            <elementDefinition Id="f15130d9-24f6-4d55-acee-1379b80f93ec" />
-            <suppliersInternal>
-              <dependency Id="37437efc-eb9a-4187-9829-96e7ccdc8565">
-                <providedInterfaceMoniker Id="19ab1930-9653-4bcf-a6db-446231add557" LastKnownName="Port1" />
-                <elementDefinition Id="9856d6b5-5a5d-480c-b28c-412abf98581c" />
-              </dependency>
-            </suppliersInternal>
-            <type_NamedElement>
-              <interfaceMoniker Id="5c906a12-7f84-4981-96d0-a1c564ed53e1" LastKnownName="Program Settings" />
-            </type_NamedElement>
-          </requiredInterface>
-        </ownedAttributesInternal>
-      </component>
-    </componentModelHasComponents>
-    <modelContainsNamedElements>
-      <Interface Id="0653c133-5b49-4f14-9afa-e04988fb0a2f" name="User Settings" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="af4c1041-6255-4444-8080-f90dbda0520f" />
-      </Interface>
-    </modelContainsNamedElements>
-    <componentModelHasComponents>
-      <component Id="21ed4d8f-43e3-4056-8571-92e90d26a27a" name="Program Settings Holder" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="b63f5e22-a441-42f3-b4c5-c101a6adc602" />
-        <ownedAttributesInternal>
-          <providedInterface Id="19ab1930-9653-4bcf-a6db-446231add557" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
-            <elementDefinition Id="64bf20f5-f689-45ab-94d3-b7d5afc60186" />
-            <type_NamedElement>
-              <interfaceMoniker Id="90028f82-a59a-4147-bdaa-b069c25161ae" LastKnownName="Program Settings" />
-            </type_NamedElement>
-          </providedInterface>
-          <requiredInterface Id="d77b5b50-4adc-48e8-abf9-ca20930ed757" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
-            <elementDefinition Id="190e5419-2905-4806-9f33-37b1b07f2d44" />
-            <suppliersInternal>
-              <dependency Id="511b391c-4cdf-4985-a377-ed103e6dd675">
-                <providedInterfaceMoniker Id="16251853-4cf1-42ac-b50b-4056ca1c7d30" LastKnownName="Port1" />
-                <elementDefinition Id="72a514b8-58d8-49c0-b895-09478b09b1a5" />
-              </dependency>
-            </suppliersInternal>
-            <type_NamedElement>
-              <interfaceMoniker Id="d8d55bdc-742a-4567-a9a0-8d6620a0eb06" LastKnownName="Interface1" />
-            </type_NamedElement>
-          </requiredInterface>
-        </ownedAttributesInternal>
-      </component>
-    </componentModelHasComponents>
-    <modelContainsNamedElements>
-      <Interface Id="90028f82-a59a-4147-bdaa-b069c25161ae" name="Program Settings" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="61f4a4f8-c26e-40c6-83da-ea1838d035a3" />
-      </Interface>
-    </modelContainsNamedElements>
-    <modelContainsNamedElements>
-      <Interface Id="5c906a12-7f84-4981-96d0-a1c564ed53e1" name="Program Settings" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="bf6c1c5f-2101-475f-88bb-4c14228b22ca" />
-      </Interface>
-    </modelContainsNamedElements>
-    <modelContainsNamedElements>
-      <Interface Id="d8d55bdc-742a-4567-a9a0-8d6620a0eb06" name="Interface1" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="cc9a364b-c52c-4e28-9139-204c03df35b7" />
       </Interface>
     </modelContainsNamedElements>
   </packagedElements>
