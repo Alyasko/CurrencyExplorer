@@ -2707,6 +2707,7 @@
         isLeaf="false" />
     </packageHasNamedElement>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <packageHasNamedElement>
       <class
         Id="ce90c200-5aec-4216-ae0f-b7dae4a8fa96"
@@ -3156,6 +3157,8 @@
         </ownedAttributesInternal>
       </interaction>
     </packageHasNamedElement>
+=======
+>>>>>>> parent of c49622f... ModelComponentDiagram v1.2, ModelClassDiagram v1.1
 =======
 >>>>>>> parent of c49622f... ModelComponentDiagram v1.2, ModelClassDiagram v1.1
   </packagedElements>
