@@ -72,6 +72,32 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="4bfd695c-ccb9-4731-ab5e-a80fc29f3c2c">
+      <profileInstance Id="0e262714-5ffe-48b4-9457-8590a3cfb88c" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7bd624ce-3060-4dd5-bef1-fb5eccdd6e38">
+      <profileInstance Id="faaa7e7a-3fec-456e-a97b-f0cb5f72b8a8" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="4b9d9d05-f1a7-471d-979c-3df12a0b8ac9">
+      <profileInstance Id="3033e018-78d0-43ef-bdff-3ff41fe2f5a5" name="TextTemplateBindings">
+        <elementDefinition Id="e3683026-cea5-4d7d-9978-53ccfcdf27df" />
+      </profileInstance>
+      <elementDefinition Id="4a624a9f-6cb2-40b0-90c8-b011c3327ac8" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="39c0058e-6bb9-4fe1-aa75-4581fc71ae72">
+      <profileInstance Id="9369f185-490f-4e02-9fdf-7ff6912474e0" name="CSharpProfile">
+        <elementDefinition Id="815875e9-99cf-4b7c-854e-b398ff483e8e" />
+      </profileInstance>
+      <elementDefinition Id="d6a0b1d9-34d3-499a-917b-30a3ebaae74f" />
+    </packageHasProfileInstances>
+  </profileInstances>
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="c66267aa-61c6-4788-b968-95976e5fcaef" name="User" isAbstract="false" isLeaf="false">
@@ -135,7 +161,7 @@
         <elementDefinition Id="173222d9-3a74-44aa-8885-9c7f07e0476c" />
         <additions>
           <include Id="69d92149-4952-4751-a483-638e5210cdb2">
-            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save user settings" />
+            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save settings" />
             <elementDefinition Id="f646298b-bd45-4a75-98d0-ebf64707a30d" />
           </include>
         </additions>
@@ -146,7 +172,7 @@
         <elementDefinition Id="909ebef5-c531-4372-a7c0-600ffc2ad2a6" />
         <additions>
           <include Id="517859e5-03dd-481c-bb95-bedb088b8dc9">
-            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save user settings" />
+            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save settings" />
             <elementDefinition Id="66c9afdc-9b9c-44d4-b9a5-83e9f5dee7f6" />
           </include>
         </additions>
@@ -157,7 +183,7 @@
         <elementDefinition Id="3c7e1c23-00ff-4cf6-9ebb-03dbb8fac00c" />
         <additions>
           <include Id="bf279c55-859d-4b0d-99d0-bc93eabe0bd1">
-            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save user settings" />
+            <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save settings" />
             <elementDefinition Id="cdfe39f9-a944-4328-af5f-81f1ed2d7508" />
           </include>
         </additions>
@@ -176,12 +202,6 @@
     <packageHasNamedElement>
       <useCase Id="24d6315d-665a-4170-a6e5-462f30902bdf" name="Explore currency chart" isAbstract="false" isLeaf="false">
         <elementDefinition Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b" />
-        <additions>
-          <include Id="defc3fa9-4da3-450b-a46b-c4f5a105d3e0">
-            <useCaseMoniker Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" LastKnownName="Provide data" />
-            <elementDefinition Id="c1238006-09cd-4a19-a642-653402b890d6" />
-          </include>
-        </additions>
       </useCase>
     </packageHasNamedElement>
     <useCaseModelRootHasTypes>
@@ -209,91 +229,11 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="19a74e2a-bdcf-4e04-b1ce-5b60f17de4ab" />
           </association>
-          <association Id="a68520a0-b31d-4b11-93b2-40667ca8d6d9" isDerived="false" sourceEndRoleName="Web-server" targetEndRoleName="Load settings from Database" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="30492196-caa8-4c38-ab79-b1378a52c6d5" LastKnownName="Load settings from Database" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="122af308-6089-4ee4-aee4-b0cfcf4f735b" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="5415b7e2-396b-4404-8e47-36d36425d261" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="0481e4b3-2d96-49d6-a894-87c5db070fa8" name="Load settings from Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="99543110-2b01-4055-8b60-4472bab62448" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="46775e5e-d68e-4215-adc2-83a251dc1320" />
-          </association>
-          <association Id="e1cd86d8-1ca3-4424-8f7f-aebabac9ea92" isDerived="false" sourceEndRoleName="Web-server" targetEndRoleName="Check user IP" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="674f1771-0534-496c-8fd5-32492bf4850c" LastKnownName="Check user IP" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="2a48bdbc-1b8e-45b5-923b-78916031cf04" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="a2503626-8cda-413f-bf7b-11e65214dc4f" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="8934eaf2-17c1-4bec-b72a-83d5508b4f68" name="Check user IP" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="4a8bd78f-efa3-4ee8-86b8-1a5d4cb3cb87" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="a63d74d9-be66-4410-ad9e-aaa7b438579c" />
-          </association>
-          <association Id="46312fca-7254-440f-b6e4-3b0921e66397" isDerived="false" sourceEndRoleName="Web-server" targetEndRoleName="Export as image" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="88f1f0b2-afd3-4096-8471-f5fe9cf078ab" LastKnownName="Export as image" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="d1211fb3-3ed6-4d07-9bf0-3359694969d6" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="897bd930-363e-46d2-b2f9-d91d3425e12e" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="9b41f726-6d5a-499b-a20a-862aefff47e1" name="Export as image" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="4e887864-f60b-49e0-94c8-4ea7ac7ce1f6" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="5afb10c3-53bf-478f-9089-b7f3f501e35c" />
-          </association>
-          <association Id="05ede6b3-65e1-42f8-8be8-a83c164b489f" isDerived="false" sourceEndRoleName="Web-server" targetEndRoleName="Export as table" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="41daa902-657e-43d6-a0b6-aa7d9a14c604" LastKnownName="Export as table" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="796764b3-0828-4f57-9a6a-f6c5667852ad" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="d2d3e39f-f5a6-4e28-9f22-df3e1ded6eb0" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="19f69b6c-e2d8-4196-866f-7c321dd1f6a9" name="Export as table" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="7e0d8f7f-1b03-409b-8b5e-23028fc47c70" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="0f5f8a88-55e7-4c05-a38d-a8df688e4478" />
-          </association>
-          <association Id="4ef3b046-5a50-4e8d-9fb6-5de99bcdbd6e" isDerived="false" sourceEndRoleName="Web-server" targetEndRoleName="Provide data" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" LastKnownName="Provide data" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="f1e8c44b-d4cd-4b43-a8d8-6ba7548a3002" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="cd347abb-b926-4eec-a28f-7c456b2f24ef" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="001eb1cb-58e8-4dc6-9ab2-f46f7e1aec3a" name="Provide data" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="3a3c1237-3202-433d-a61d-541264cb98a0" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="56c75407-7d56-4787-bc3e-2d9e415ccc59" />
-          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="fbbefda3-5362-4914-a8e7-54b67522e37a" name="Save user settings" isAbstract="false" isLeaf="false">
+      <useCase Id="fbbefda3-5362-4914-a8e7-54b67522e37a" name="Save settings" isAbstract="false" isLeaf="false">
         <elementDefinition Id="4f662c0b-444f-44d5-88f9-05ebce8585a1" />
         <targetEnds>
           <association Id="6da57e9e-3858-42d6-8680-f885d0955146" isDerived="false" sourceEndRoleName="Save settings" targetEndRoleName="Web-server" isLeaf="false" isAbstract="false">
@@ -313,29 +253,63 @@
             <elementDefinition Id="cfcd2fc0-03b8-4c54-b205-686ab1a51b8b" />
           </association>
         </targetEnds>
+        <additions>
+          <include Id="7121eb9f-c7f6-4c0b-8c9d-94bf8bfc7e25">
+            <useCaseMoniker Id="5e173ec0-4c9a-4fb8-95ac-61ae92881252" LastKnownName="Set Cookies" />
+            <elementDefinition Id="7d5c0cf2-e9e3-4ac1-b3e4-62cdccd26d92" />
+          </include>
+        </additions>
       </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5e173ec0-4c9a-4fb8-95ac-61ae92881252" name="Set Cookies" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ac63d6c5-c03c-4276-a1f2-0ead787506bc" />
+        <targetEnds>
+          <association Id="c6a8cc36-d1cd-459c-925d-231d93c34436" isDerived="false" sourceEndRoleName="Set Cookies" targetEndRoleName="Web-browser" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="735e123b-e5fb-427f-b2fe-7cd3b7c27088" LastKnownName="Web-browser" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d0472fa5-a458-486b-81f0-b2492327bf4d" name="Set Cookies" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="08201613-b4de-4603-afe7-d54544ac7ea0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="54421c58-89de-4281-ae4f-92c2cac333de" name="Web-browser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="77af6317-ddf2-4935-9cd1-05274d7ed801" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e6c4ac61-2930-43d4-83a4-23b074a28cf2" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="735e123b-e5fb-427f-b2fe-7cd3b7c27088" name="Web-browser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5834937d-438a-40e7-95c1-e2deea6594c9" />
+        <targetEnds>
+          <association Id="114ac63f-3e12-4a87-b903-ab519d9a22fa" isDerived="false" sourceEndRoleName="Web-browser" targetEndRoleName="Visit CurrencyExplorer" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8518c103-87af-44fd-9533-54657e570457" LastKnownName="Visit CurrencyExplorer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="60d4a0d5-06d7-4cea-b29d-641bdf939ab0" name="Web-browser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e17c2054-7300-439c-bab3-651e72548a25" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4115b380-b869-4d58-9fa9-e7c6d8248d15" name="Visit CurrencyExplorer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c7f92317-dd1c-48e8-88bb-48cb343812ce" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="aa811494-e964-4a0f-ad42-d113fb2fbaf6" />
+          </association>
+        </targetEnds>
+      </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="8518c103-87af-44fd-9533-54657e570457" name="Visit CurrencyExplorer" isAbstract="false" isLeaf="false">
         <elementDefinition Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13" />
-        <targetEnds>
-          <association Id="747d7fa9-f2de-4dd1-bf81-55ab2dd43931" isDerived="false" sourceEndRoleName="Visit CurrencyExplorer" targetEndRoleName="Login" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="44758c83-f49d-4130-89de-960d82cfc0b1" LastKnownName="Login" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="d30d1a01-5a4d-49ec-96b9-085da29b041e" name="Visit CurrencyExplorer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="5ab2f164-f70d-40a1-a875-32252586c735" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="503b90cb-9fbf-44be-b9db-8182c87a5724" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="5b5aeb5e-6142-4283-ad61-f0ed6b0cfc0a" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="4621f087-9f61-4b52-a6dc-f27990fd9966" />
-          </association>
-        </targetEnds>
         <extendedCases>
           <extend Id="c4bd2d20-04aa-45fd-81c2-bb5ff56ba2e1">
             <useCaseMoniker Id="1c473733-8e6b-468f-9245-625983308750" LastKnownName="Configure Explorer" />
@@ -350,12 +324,6 @@
             <elementDefinition Id="348f3edd-95f5-4e19-8087-a2e565bd5da5" />
           </extend>
         </extendedCases>
-        <additions>
-          <include Id="22c97906-9df3-428e-9bd9-a439b7f6263f">
-            <useCaseMoniker Id="674f1771-0534-496c-8fd5-32492bf4850c" LastKnownName="Check user IP" />
-            <elementDefinition Id="2199b2d7-317f-4f68-9a74-9435752ad166" />
-          </include>
-        </additions>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -384,151 +352,10 @@
     <useCaseModelRootHasTypes>
       <useCase Id="30492196-caa8-4c38-ab79-b1378a52c6d5" name="Load settings from Database" isAbstract="false" isLeaf="false">
         <elementDefinition Id="bf9c26b1-97e0-43ff-89c4-8b7e0548f0ef" />
-        <targetEnds>
-          <association Id="f299b325-ad2b-4a5b-90a7-a6c1199fa2e5" isDerived="false" sourceEndRoleName="Load settings from Database" targetEndRoleName="Database Server" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="7ea221a4-3b64-4ed6-a9af-464fd0a25b9e" LastKnownName="Database Server" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="1c28b4be-1e87-4e2b-b25e-8404ee2790c6" name="Load settings from Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="e1d4ffdd-56bf-4a8c-847a-d8d5e52381ee" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="9670f4e5-3b50-4799-b145-69f6fdaab9fb" name="Database Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="6fdfa2d1-be06-48b6-8843-f2284ca84b97" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="c3f08e2d-9771-47fd-82c6-2e9e1b1fefd0" />
-          </association>
-        </targetEnds>
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="44758c83-f49d-4130-89de-960d82cfc0b1" name="Login" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="fbb05361-2280-4af7-adc0-da0675b2049b" />
-        <extendedCases>
-          <extend Id="d26657cb-f215-419a-8735-181d8a89e3a3">
-            <useCaseMoniker Id="8505bb64-c4db-496f-8376-9e0ae813b986" LastKnownName="Set source data type" />
-            <elementDefinition Id="2ebc2c1f-09d6-497a-8a12-d005f282de52" />
-          </extend>
-          <extend Id="62450bbf-9baa-433c-b3d4-7a12e6332931">
-            <useCaseMoniker Id="1c473733-8e6b-468f-9245-625983308750" LastKnownName="Configure Explorer" />
-            <elementDefinition Id="1de974cd-1c1d-484c-b4a5-c4941cd90181" />
-          </extend>
-          <extend Id="33edfb2c-5372-4bd3-93d4-13c4d56144c2">
-            <useCaseMoniker Id="b7923968-d7ef-41ab-b404-61e670791deb" LastKnownName="Export currency data" />
-            <elementDefinition Id="0369cd37-de1b-40c7-8d0c-e5dc560cb88b" />
-          </extend>
-          <extend Id="1446bdce-3d70-456f-bde2-858ea43e9edc">
-            <useCaseMoniker Id="24d6315d-665a-4170-a6e5-462f30902bdf" LastKnownName="Explore currency chart" />
-            <elementDefinition Id="a59d3e44-3348-4dd5-8817-7d7ad0c5ad97" />
-          </extend>
-          <extend Id="4775a781-355d-43e1-855f-c69301e2ed83">
-            <useCaseMoniker Id="a9fcc1c8-5505-4d81-b187-956f786d5f6b" LastKnownName="View users settings" />
-            <elementDefinition Id="e5d3d818-2b06-412c-af41-796fdac99376" />
-          </extend>
-          <extend Id="7df3c876-d866-4e61-8d19-700f4fd24a55">
-            <useCaseMoniker Id="ad0106a8-43e2-411b-bd58-dbe48416dcfe" LastKnownName="View caching statistics" />
-            <elementDefinition Id="264352eb-5453-4730-a559-d5b74be64838" />
-          </extend>
-        </extendedCases>
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="8505bb64-c4db-496f-8376-9e0ae813b986" name="Set source data type" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="54c6653d-23bf-4b9d-9c83-157e7d424489" />
-        <additions>
-          <include Id="35989149-0644-4951-9dde-f9be59472565">
-            <useCaseMoniker Id="91aa718b-f04a-46cd-a8d1-c46ead6f2319" LastKnownName="Save server settings" />
-            <elementDefinition Id="25381be1-3df5-40dd-9720-eed6cf98959d" />
-          </include>
-        </additions>
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="a9fcc1c8-5505-4d81-b187-956f786d5f6b" name="View users settings" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="fe9e962d-625f-48da-bb61-9632397f8b7b" />
-        <additions>
-          <include Id="92c1e301-7110-4555-8255-bf5204c79fc0">
-            <useCaseMoniker Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" LastKnownName="Provide data" />
-            <elementDefinition Id="be1613a6-4c4c-4156-9b79-511eef0ca60f" />
-          </include>
-        </additions>
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="ad0106a8-43e2-411b-bd58-dbe48416dcfe" name="View caching statistics" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="61140ca6-56b3-421a-b225-f0deb5aedb08" />
-        <additions>
-          <include Id="4347984c-b876-45b9-8eea-9a03a407259c">
-            <useCaseMoniker Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" LastKnownName="Provide data" />
-            <elementDefinition Id="311eba12-fe04-45fa-8a50-df0f5252d55d" />
-          </include>
-        </additions>
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="674f1771-0534-496c-8fd5-32492bf4850c" name="Check user IP" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="a6402489-b81c-41a8-9b19-238f92010c72" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" name="Provide data" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="8e2a2f83-027f-479f-bd1c-a4d3803fc35d" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="91aa718b-f04a-46cd-a8d1-c46ead6f2319" name="Save server settings" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="aa741e26-81d1-4b61-a372-27bed1a4394b" />
-        <targetEnds>
-          <association Id="8aae717d-1ed6-4dcc-9885-32b92d0eda0b" isDerived="false" sourceEndRoleName="Save server settings" targetEndRoleName="Web-server" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="34cd3254-ad43-4b1f-ade3-c0e9da8521b1" LastKnownName="Web-server" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="7b0f3673-7cd6-4569-9f1e-c840cf14c654" name="Save server settings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="2a1f9b18-079e-485d-bb21-d6da0a61839b" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="490e5a0e-3f1d-4c25-ae1a-777e92d267df" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="2279bbf8-1812-4580-bb75-84e64047d99b" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="c06ab2e8-1c9a-43a0-8191-063b60954ea4" />
-          </association>
-        </targetEnds>
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>
   <package Id="84c29e9f-4d2c-40e3-a1bf-29e113c2773d" name="ModelingProject">
     <elementDefinition Id="2be56d21-9d94-4330-8393-bf83727e89b5" />
-    <profileInstances>
-      <packageHasProfileInstances Id="4bfd695c-ccb9-4731-ab5e-a80fc29f3c2c">
-        <profileInstance Id="0e262714-5ffe-48b4-9457-8590a3cfb88c" name="StandardProfileL2">
-          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-        </profileInstance>
-        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-      </packageHasProfileInstances>
-      <packageHasProfileInstances Id="7bd624ce-3060-4dd5-bef1-fb5eccdd6e38">
-        <profileInstance Id="faaa7e7a-3fec-456e-a97b-f0cb5f72b8a8" name="StandardProfileL3">
-          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-        </profileInstance>
-        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-      </packageHasProfileInstances>
-      <packageHasProfileInstances Id="4b9d9d05-f1a7-471d-979c-3df12a0b8ac9">
-        <profileInstance Id="3033e018-78d0-43ef-bdff-3ff41fe2f5a5" name="TextTemplateBindings">
-          <elementDefinition Id="e3683026-cea5-4d7d-9978-53ccfcdf27df" />
-        </profileInstance>
-        <elementDefinition Id="4a624a9f-6cb2-40b0-90c8-b011c3327ac8" />
-      </packageHasProfileInstances>
-      <packageHasProfileInstances Id="39c0058e-6bb9-4fe1-aa75-4581fc71ae72">
-        <profileInstance Id="9369f185-490f-4e02-9fdf-7ff6912474e0" name="CSharpProfile">
-          <elementDefinition Id="815875e9-99cf-4b7c-854e-b398ff483e8e" />
-        </profileInstance>
-        <elementDefinition Id="d6a0b1d9-34d3-499a-917b-30a3ebaae74f" />
-      </packageHasProfileInstances>
-    </profileInstances>
   </package>
 </useCaseModelRoot>
