@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models;
 using CurrencyExplorer.Models.Contracts;
+using CurrencyExplorer.Models.CurrencyImporters;
 using CurrencyExplorer.Models.Entities;
 using Moq;
 using Xunit;
@@ -19,19 +22,15 @@ namespace UnitTestProject
         public void GeneralTest()
         {
             // Arrange
-
-            ICurrencyProvider currencyProvider =
-                Mock.Of<ICurrencyProvider>(
-                    t => t.Data == new CurrencyData() {Actual = DateTime.Now, Code = new CurrencyCode() {Value = "r020"}});
-            ICachingProcessor cachingProcessor =
-                Mock.Of<ICachingProcessor>(
-                    t => t.RequestSingleData(It.IsAny<DateTime>(), It.IsAny<IEnumerable<CurrencyCode>>()) == null);
+            JsonCurrencyImporter currencyImporter = new JsonCurrencyImporter();
 
             // Act
-            var data = cachingProcessor.RequestSingleData(DateTime.Now, null);
+            currencyImporter.Import(DateTime.Now);
+
+            var data = currencyImporter.StringData;
 
             // Assert
-            Assert.Equal(cachingProcessor, null);
+            Assert.Equal(data, null);
         }
     }
 }

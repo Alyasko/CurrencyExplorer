@@ -27,8 +27,8 @@ namespace CurrencyExplorer
             services.AddMvc();
 
             services.AddScoped<CurrencyXplorer>();
-            services.AddScoped<ICachingProcessor, ApiDatabaseCachingProcessor>();
-            services.AddScoped<ICurrencyProvider, NationalBankCurrencyProvider>();
+            //services.AddScoped<ICachingProcessor, ApiDatabaseCachingProcessor>();
+            //services.AddScoped<ICurrencyProvider, NationalBankCurrencyProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

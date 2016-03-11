@@ -11,9 +11,9 @@ namespace CurrencyExplorer.Models
     {
         private ICachingProcessor _iCachingProcessor;
 
-        public DataProcessor()
+        public DataProcessor(ICachingProcessor iCachingProcessor)
         {
-            _iCachingProcessor = null;
+            _iCachingProcessor = iCachingProcessor;
         }
 
         /// <summary>

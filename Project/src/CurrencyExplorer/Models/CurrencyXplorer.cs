@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
+using CurrencyExplorer.Models.CurrencyImporters;
 using CurrencyExplorer.Models.Entities;
 using CurrencyExplorer.Models.Enums;
 
@@ -15,11 +16,25 @@ namespace CurrencyExplorer.Models
         private DataHolder _dataHolder;
         private DataPresenter _dataPresenter;
 
-        public CurrencyXplorer(ICachingProcessor cachingProcessor)
+        private ICachingProcessor _iCachingProcessor;
+
+        private ICurrencyProvider _iCurrencyProvider;
+
+        private ICurrencyImporter _iCurrencyImporter;
+
+        public CurrencyXplorer()
         {
+            // Entry point for dependency injection.
+
+            _iCurrencyImporter = new JsonCurrencyImporter();
+
+            _iCurrencyProvider = new NationalBankCurrencyProvider(_iCurrencyImporter);
+
+            _iCachingProcessor = new ApiDatabaseCachingProcessor(_iCurrencyProvider);
+
             _dataPresenter = new DataPresenter();
             _dataHolder = new DataHolder();
-            _dataProcessor = new DataProcessor();
+            _dataProcessor = new DataProcessor(_iCachingProcessor);
         }
 
         /// <summary>

@@ -12,16 +12,23 @@ namespace CurrencyExplorer.Models
     {
         private ICurrencyImporter _iCurrencyImporter;
 
-        public NationalBankCurrencyProvider()
+        public NationalBankCurrencyProvider(ICurrencyImporter importer)
         {
-            _iCurrencyImporter = null;
+            _iCurrencyImporter = importer;
         }
 
-        public void RequestCurrencyData(DateTime time, CurrencyCode currencyCode)
+        public void RequestCurrencyData(DateTime time)
         {
-            throw new NotImplementedException();
+            _iCurrencyImporter.Import(time);
+            Data = _iCurrencyImporter.Data;
         }
 
-        public CurrencyData Data { get; }
+        public IDictionary<CurrencyCode, CurrencyData> Data { get; private set; }
+
+        public ICurrencyImporter ICurrencyImporter
+        {
+            get { return _iCurrencyImporter; }
+            set { _iCurrencyImporter = value; }
+        }
     }
 }

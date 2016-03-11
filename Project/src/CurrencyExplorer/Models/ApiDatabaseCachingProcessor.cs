@@ -12,16 +12,16 @@ namespace CurrencyExplorer.Models
     {
         private ICurrencyProvider _iCurrencyProvider;
 
-        public ApiDatabaseCachingProcessor()
+        public ApiDatabaseCachingProcessor(ICurrencyProvider iCurrencyProvider)
         {
-            _iCurrencyProvider = null;
+            _iCurrencyProvider = iCurrencyProvider;
             Data = null;
         }
 
         public IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime timePeriod, IEnumerable<CurrencyCode> codes)
         {
             bool existsInDb = CheckDbData();
-            IDictionary<CurrencyCode, CurrencyData> singleCurrencyData =
+            IDictionary<CurrencyCode, CurrencyData> requiredSingleCurrencyData =
                 new Dictionary<CurrencyCode, CurrencyData>();
 
 
@@ -33,17 +33,18 @@ namespace CurrencyExplorer.Models
             {
                 // Download data from API.
 
-                foreach (CurrencyCode currencyCode in codes)
-                {
-                    _iCurrencyProvider.RequestCurrencyData(timePeriod, currencyCode);
 
-                    CurrencyData data = _iCurrencyProvider.Data;
+                _iCurrencyProvider.RequestCurrencyData(timePeriod);
+                var allCurrencyDataPerDay = _iCurrencyProvider.Data;
 
-                    singleCurrencyData.Add(currencyCode, data);
-                }
+                // TODO: save allCurrencyDataPerDay to the database.
+
+                // TODO: select required values basing on codes and fill requiredSingleCurrencyData with required codes.
+
+                
             }
 
-            return singleCurrencyData;
+            return requiredSingleCurrencyData;
         }
 
         public IDictionary<CurrencyCode, IEnumerable<CurrencyData>> RequestPeriodData(ChartTimePeriod timePeriod, IEnumerable<CurrencyCode> codes)
