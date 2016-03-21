@@ -19,8 +19,7 @@ namespace CurrencyExplorer.Models
 
         public void RequestCurrencyData(DateTime time)
         {
-            _iCurrencyImporter.Import(time);
-            Data = _iCurrencyImporter.Data;
+            Data = _iCurrencyImporter.ImportAsync(time).Result;
         }
 
         public IDictionary<CurrencyCode, CurrencyData> Data { get; private set; }

@@ -9,7 +9,7 @@ namespace CurrencyExplorer.Models.CurrencyImporters
 {
     public class XmlCurrencyImporter : AbstractCurrencyImporter
     {
-        public override void Import(DateTime time)
+        public override Task<IDictionary<CurrencyCode, CurrencyData>> ImportAsync(DateTime time)
         {
             throw new NotImplementedException();
         }

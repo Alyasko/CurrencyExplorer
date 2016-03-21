@@ -9,10 +9,6 @@ namespace CurrencyExplorer.Models.CurrencyImporters
 {
     public abstract class AbstractCurrencyImporter : ICurrencyImporter
     {
-        public abstract void Import(DateTime time);
-
-        //protected virtual 
-
-        public IDictionary<CurrencyCode, CurrencyData> Data { get; set; }
+        public abstract Task<IDictionary<CurrencyCode, CurrencyData>> ImportAsync(DateTime time);
     }
 }

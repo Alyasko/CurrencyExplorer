@@ -4027,6 +4027,49 @@
         </ownedAttributesInternal>
       </interaction>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fa0b9b82-15d7-4d75-a271-535fc60dc236"
+        name="UseCase2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="89e6f530-6d81-4ee5-bceb-47692fc74692"
+        name="UseCase3"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="5d37b03f-5bfa-45bf-8d86-4d14bdac82d0"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="fa0b9b82-15d7-4d75-a271-535fc60dc236"
+              LastKnownName="UseCase2"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="24807de2-5a13-4528-933a-932a1365c799"
+        name="UseCase4"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="4bc75f53-f825-4f14-b253-c4be9b62fd39"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="fa0b9b82-15d7-4d75-a271-535fc60dc236"
+              LastKnownName="UseCase2"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
