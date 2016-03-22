@@ -102,7 +102,7 @@ namespace CurrencyExplorer.Models
                             Value = 27.5,
                             ShortName = "USD",
                             Name = "US Dollars",
-                            Actual = DateTime.Now
+                            ActualDateString = "23.03.2016"
                         },
                         new CurrencyData()
                         {
@@ -110,7 +110,7 @@ namespace CurrencyExplorer.Models
                             Value = 35.2,
                             ShortName = "EUR",
                             Name = "Europe Euro",
-                            Actual = DateTime.Now
+                            ActualDateString = "23.03.2016"
                         }
                     }
             };
@@ -130,7 +130,7 @@ namespace CurrencyExplorer.Models
 
         public void SetCurrencyImporter(CurrencyImporterType importerType)
         {
-            
+
         }
 
         public ChartTimePeriod ChartTimePeriod { get; set; }

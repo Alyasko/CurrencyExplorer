@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CurrencyExplorer.Models.Converters;
 using Newtonsoft.Json;
 
 namespace CurrencyExplorer.Models.Entities
@@ -9,6 +11,40 @@ namespace CurrencyExplorer.Models.Entities
     [JsonObject]
     public class CurrencyData
     {
+        private string _actualDateString;
+
+        private DateTime ProcessActualDateString(string inputValue)
+        {
+            DateTime result;
+
+            Regex regex = new Regex(@"(?<d>\d{2})\.(?<m>\d{2}).(?<y>\d{4})");
+
+            Match match = regex.Match(inputValue);
+
+            int d = 0;
+            int m = 0;
+            int y = 0;
+
+            if (!Int32.TryParse(match.Groups["d"].Value, out d))
+            {
+                throw new FormatException("Bad input date string from API. Parameter 'Day'.");
+            }
+
+            if (!Int32.TryParse(match.Groups["m"].Value, out m))
+            {
+                throw new FormatException("Bad input date string from API. Parameter 'Month'.");
+            }
+
+            if (!Int32.TryParse(match.Groups["y"].Value, out y))
+            {
+                throw new FormatException("Bad input date string from API. Parameter 'Year'.");
+            }
+
+            result = new DateTime(y, m, d);
+
+            return result;
+        }
+
         /// <summary>
         /// The value of currency.
         /// </summary>
@@ -28,10 +64,25 @@ namespace CurrencyExplorer.Models.Entities
         public string Name { get; set; }
 
         /// <summary>
-        /// The time of currency actuality.
+        /// The date of currency actuality.
+        /// </summary>
+        //[JsonConverter(typeof(DateTimeJsonConverter))]
+        public DateTime ActualDate { get; private set; }
+
+        /// <summary>
+        /// The string representaton of actuality date from API.
         /// </summary>
         [JsonProperty("exchangedate")]
-        public DateTime Actual { get; set; }
+        public String ActualDateString
+        {
+            get { return _actualDateString; }
+            set
+            {
+                _actualDateString = value;
+
+                ActualDate = ProcessActualDateString(value);
+            }
+        }
 
         /// <summary>
         /// Unique code of currency.

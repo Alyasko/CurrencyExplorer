@@ -17,12 +17,10 @@ namespace CurrencyExplorer.Models
             _iCurrencyImporter = importer;
         }
 
-        public void RequestCurrencyData(DateTime time)
+        public IDictionary<CurrencyCode, CurrencyData> RequestCurrencyData(DateTime time)
         {
-            Data = _iCurrencyImporter.ImportAsync(time).Result;
+            return _iCurrencyImporter.ImportAsync(time);
         }
-
-        public IDictionary<CurrencyCode, CurrencyData> Data { get; private set; }
 
         public ICurrencyImporter ICurrencyImporter
         {

@@ -15,7 +15,7 @@ namespace CurrencyExplorer.Models.CurrencyImporters
 {
     public class JsonCurrencyImporter : AbstractCurrencyImporter
     {
-        public override async Task<IDictionary<CurrencyCode, CurrencyData>> ImportAsync(DateTime date)
+        public override IDictionary<CurrencyCode, CurrencyData> ImportAsync(DateTime date)
         {
             IDictionary<CurrencyCode, CurrencyData> currencyCodeResult = null;
 
@@ -24,8 +24,10 @@ namespace CurrencyExplorer.Models.CurrencyImporters
             try
             {
                 string dateFormated = Utils.GetFormattedDateString(date);
-                WebRequest httpRequest = WebRequest.Create($"http://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date={dateFormated}&json");
-                WebResponse response = await httpRequest.GetResponseAsync();
+                string requestUrl =
+                    $"http://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date={dateFormated}&json";
+                WebRequest httpRequest = WebRequest.Create(requestUrl);
+                WebResponse response = httpRequest.GetResponse();
 
                 Stream resposeStream = response.GetResponseStream();
                 if (resposeStream != null)
@@ -33,7 +35,12 @@ namespace CurrencyExplorer.Models.CurrencyImporters
                     StreamReader reader = new StreamReader(resposeStream);
                     jsonStringResult = reader.ReadToEnd();
 
-                    IEnumerable<CurrencyData> jsonCurrencyData = JsonConvert.DeserializeObject<IEnumerable<CurrencyData>>(jsonStringResult);
+                    //JsonSerializerSettings jsonSettings = new JsonSerializerSettings();
+                    //jsonSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat;
+                    //jsonSettings.DateFormatString = "dd.mm.yyyy";
+
+                    IEnumerable<CurrencyData> jsonCurrencyData =
+                        JsonConvert.DeserializeObject<IEnumerable<CurrencyData>>(jsonStringResult);
 
                     if (jsonCurrencyData.Any())
                     {

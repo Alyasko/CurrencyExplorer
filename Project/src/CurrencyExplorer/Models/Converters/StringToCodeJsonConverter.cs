@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
 using Newtonsoft.Json;
 
-namespace CurrencyExplorer.Models
+namespace CurrencyExplorer.Models.Converters
 {
     public class StringToCodeJsonConverter : JsonConverter
     {

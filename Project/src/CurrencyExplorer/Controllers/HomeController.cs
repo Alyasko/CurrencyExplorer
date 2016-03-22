@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
 using CurrencyExplorer.Models;
@@ -55,5 +56,24 @@ namespace CurrencyExplorer.Controllers
 
             return View();
         }
+
+        public async Task<IActionResult> AsyncTest()
+        {
+            int d = await GetResult();
+
+            return Content($"Result {d}");
+        }
+
+        private async Task<int> GetResult()
+        {
+            Task<int> task = new Task<int>(() =>
+            {
+                //Thread.Sleep(2000);
+                return 10;
+            });
+
+            return await task;
+        } 
+
     }
 }

@@ -10,11 +10,10 @@ namespace CurrencyExplorer.Models
 {
     public class ApiDatabaseCachingProcessor : ICachingProcessor
     {
-        private ICurrencyProvider _iCurrencyProvider;
 
         public ApiDatabaseCachingProcessor(ICurrencyProvider iCurrencyProvider)
         {
-            _iCurrencyProvider = iCurrencyProvider;
+            CurrencyProvider = iCurrencyProvider;
             Data = null;
         }
 
@@ -33,15 +32,13 @@ namespace CurrencyExplorer.Models
             {
                 // Download data from API.
 
-
-                _iCurrencyProvider.RequestCurrencyData(timePeriod);
-                var allCurrencyDataPerDay = _iCurrencyProvider.Data;
+                var allCurrencyDataPerDay = CurrencyProvider.RequestCurrencyData(timePeriod);
 
                 // TODO: save allCurrencyDataPerDay to the database.
 
                 // TODO: select required values basing on codes and fill requiredSingleCurrencyData with required codes.
 
-                
+
             }
 
             return requiredSingleCurrencyData;
@@ -82,5 +79,7 @@ namespace CurrencyExplorer.Models
         }
 
         public IEnumerable<IDictionary<CurrencyCode, ChartCurrencyDataPoint>> Data { get; private set; }
+
+        public ICurrencyProvider CurrencyProvider { get; }
     }
 }
