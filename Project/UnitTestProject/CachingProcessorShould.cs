@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,15 +24,45 @@ namespace UnitTestProject
             {
                 new CurrencyCode()
                 {
-                    Value = "USD"
+                    Value = "36"
                 },
                 new CurrencyCode()
                 {
-                    Value = "EUR"
+                    Value = "826"
                 }
             });
 
-            Assert.NotNull(data);
+            Assert.Equal(2, data.Count);
+        }
+
+        [Fact]
+        public void ImportDataWithNoCurrencyCodesSpecified()
+        {
+            ICurrencyImporter importer = new JsonCurrencyImporter();
+            ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
+            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider);
+
+            var data = cachingProcessor.RequestSingleData(DateTime.Now, new CurrencyCode[]
+            {
+                
+            });
+
+            Assert.Equal(0, data.Count);
+        }
+
+        [Fact]
+        public void ImportDataWithNullCurrencyCodes()
+        {
+            ICurrencyImporter importer = new JsonCurrencyImporter();
+            ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
+            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider);
+
+            Action action = () =>
+            {
+                cachingProcessor.RequestSingleData(DateTime.Now, null);
+            };
+
+            Assert.ThrowsAny<NullReferenceException>(action);
         }
     }
 }

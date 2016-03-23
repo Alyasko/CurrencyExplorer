@@ -20,13 +20,18 @@ namespace CurrencyExplorer.Models
         public IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime timePeriod, IEnumerable<CurrencyCode> codes)
         {
             bool existsInDb = CheckDbData();
-            IDictionary<CurrencyCode, CurrencyData> requiredSingleCurrencyData =
-                new Dictionary<CurrencyCode, CurrencyData>();
+            IDictionary<CurrencyCode, CurrencyData> requiredSingleCurrencyData = null;
 
-
+            if (codes == null)
+            {
+                throw new NullReferenceException("Currency codes dictionary is null.");
+            }
+            
             if (existsInDb)
             {
                 // Select data from DB.
+
+                // TODO: implement selection from DB.
             }
             else
             {
@@ -34,10 +39,9 @@ namespace CurrencyExplorer.Models
 
                 var allCurrencyDataPerDay = CurrencyProvider.RequestCurrencyData(timePeriod);
 
+                requiredSingleCurrencyData = allCurrencyDataPerDay.Where(x => codes.Contains(x.Key)).ToDictionary(k => k.Key, v => v.Value);
+
                 // TODO: save allCurrencyDataPerDay to the database.
-
-                // TODO: select required values basing on codes and fill requiredSingleCurrencyData with required codes.
-
 
             }
 
