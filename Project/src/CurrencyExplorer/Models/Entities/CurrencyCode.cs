@@ -28,5 +28,15 @@ namespace CurrencyExplorer.Models.Entities
 
             return string.Equals(Value, currency.Value);
         }
+
+        protected bool Equals(CurrencyCode other)
+        {
+            return string.Equals(Value, other.Value);
+        }
+
+        public override int GetHashCode()
+        {
+            return (Value != null ? Value.GetHashCode() : 0);
+        }
     }
 }

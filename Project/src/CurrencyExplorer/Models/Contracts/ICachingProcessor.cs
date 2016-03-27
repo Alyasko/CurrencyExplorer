@@ -10,11 +10,13 @@ namespace CurrencyExplorer.Models.Contracts
     {
         IDictionary<CurrencyCode, CurrencyData> RequestSingleData(
             DateTime timePeriod,
-            IEnumerable<CurrencyCode> codes);
+            ICollection<CurrencyCode> codes);
 
-        IDictionary<CurrencyCode, IEnumerable<CurrencyData>> RequestPeriodData(
+        IDictionary<CurrencyCode, ICollection<CurrencyData>> RequestPeriodData(
             ChartTimePeriod timePeriod,
-            IEnumerable<CurrencyCode> codes);
+            ICollection<CurrencyCode> codes);
+
+        ICollection<CurrencyCode> RequestAllCurrencyCodes();
 
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.Entities;
+using Newtonsoft.Json;
 
 namespace CurrencyExplorer.Models
 {
@@ -17,7 +19,22 @@ namespace CurrencyExplorer.Models
             Data = null;
         }
 
-        public IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime timePeriod, IEnumerable<CurrencyCode> codes)
+        private IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime time)
+        {
+            IDictionary<CurrencyCode, CurrencyData> result = null;
+            try
+            {
+                result = CurrencyProvider.RequestCurrencyData(time);
+            }
+            catch (NoItemsException e)
+            {
+                Debug.WriteLine($"Time: {time.ToString()}, Message: {e.Message}");
+            }
+
+            return result;
+        }
+
+        public IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime timePeriod, ICollection<CurrencyCode> codes)
         {
             bool existsInDb = CheckDbData();
             IDictionary<CurrencyCode, CurrencyData> requiredSingleCurrencyData = null;
@@ -26,7 +43,7 @@ namespace CurrencyExplorer.Models
             {
                 throw new NullReferenceException("Currency codes dictionary is null.");
             }
-            
+
             if (existsInDb)
             {
                 // Select data from DB.
@@ -37,9 +54,13 @@ namespace CurrencyExplorer.Models
             {
                 // Download data from API.
 
-                var allCurrencyDataPerDay = CurrencyProvider.RequestCurrencyData(timePeriod);
+                var allCurrencyDataPerDay = RequestSingleData(timePeriod);
 
-                requiredSingleCurrencyData = allCurrencyDataPerDay.Where(x => codes.Contains(x.Key)).ToDictionary(k => k.Key, v => v.Value);
+                if (allCurrencyDataPerDay != null)
+                {
+                    requiredSingleCurrencyData =
+                        allCurrencyDataPerDay.Where(x => codes.Contains(x.Key)).ToDictionary(k => k.Key, v => v.Value);
+                }
 
                 // TODO: save allCurrencyDataPerDay to the database.
 
@@ -48,10 +69,10 @@ namespace CurrencyExplorer.Models
             return requiredSingleCurrencyData;
         }
 
-        public IDictionary<CurrencyCode, IEnumerable<CurrencyData>> RequestPeriodData(ChartTimePeriod timePeriod, IEnumerable<CurrencyCode> codes)
+        public IDictionary<CurrencyCode, ICollection<CurrencyData>> RequestPeriodData(ChartTimePeriod timePeriod, ICollection<CurrencyCode> codes)
         {
-            IDictionary<CurrencyCode, List<CurrencyData>> periodCurrencyData =
-                new Dictionary<CurrencyCode, List<CurrencyData>>();
+            IDictionary<CurrencyCode, ICollection<CurrencyData>> periodCurrencyData =
+                new Dictionary<CurrencyCode, ICollection<CurrencyData>>();
 
             DateTime beginTime = timePeriod.Begin;
             DateTime endTime = timePeriod.End;
@@ -66,14 +87,38 @@ namespace CurrencyExplorer.Models
             {
                 IDictionary<CurrencyCode, CurrencyData> currentSingleData = this.RequestSingleData(iterator, codes);
 
-                foreach (var pair in currentSingleData)
+                if (currentSingleData != null)
                 {
-                    periodCurrencyData[pair.Key].Add(pair.Value);
+                    foreach (var pair in currentSingleData)
+                    {
+                        periodCurrencyData[pair.Key].Add(pair.Value);
+                    }
                 }
             }
 
-            // TODO: fix IEnumerable
-            return periodCurrencyData as IDictionary<CurrencyCode, IEnumerable<CurrencyData>>;
+            return periodCurrencyData;
+        }
+
+        public ICollection<CurrencyCode> RequestAllCurrencyCodes()
+        {
+            ICollection<CurrencyCode> result = null;
+
+            IDictionary<CurrencyCode, CurrencyData> responce = RequestSingleData(DateTime.Now);
+
+            DateTime startDate = DateTime.Now;
+
+            while (responce == null)
+            {
+                responce = RequestSingleData(startDate);
+                startDate = startDate.Subtract(TimeSpan.FromDays(1));
+            }
+            
+            if (responce.Count != 0)
+            {
+                result = responce.Select(p => p.Key).ToList();
+            }
+
+            return result;
         }
 
 

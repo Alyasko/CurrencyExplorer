@@ -46,7 +46,7 @@ hr.no-style {
     hr.today-hr {
         background-color: rgb(228, 228, 228);
 
-        margin-top: 20px;
+        margin-top: 0;
     }
 
 
@@ -233,7 +233,7 @@ div#today {
 
     text-align: center;
 
-    margin: 25px 0px;
+    margin: 0 0 25px 0;
     padding: 0px;
 }
 
@@ -241,6 +241,12 @@ div#today {
         font-size: 30px;
 
         color: #4f85ce;
+    }
+
+    #today-currency-date {
+        font-size: 15px;
+        margin-top: 0px;
+        margin-bottom: 5px;
     }
 
 div#about {

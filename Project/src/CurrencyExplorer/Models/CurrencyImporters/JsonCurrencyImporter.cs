@@ -15,49 +15,45 @@ namespace CurrencyExplorer.Models.CurrencyImporters
 {
     public class JsonCurrencyImporter : AbstractCurrencyImporter
     {
-        public override IDictionary<CurrencyCode, CurrencyData> ImportAsync(DateTime date)
+        public override IDictionary<CurrencyCode, CurrencyData> Import(DateTime date)
         {
             IDictionary<CurrencyCode, CurrencyData> currencyCodeResult = null;
 
             string jsonStringResult = "";
 
-            try
-            {
-                string dateFormated = Utils.GetFormattedDateString(date);
-                string requestUrl =
-                    $"http://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date={dateFormated}&json";
-                WebRequest httpRequest = WebRequest.Create(requestUrl);
-                WebResponse response = httpRequest.GetResponse();
+            string dateFormated = Utils.GetFormattedDateString(date);
+            string requestUrl =
+                $"http://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date={dateFormated}&json";
+            WebRequest httpRequest = WebRequest.Create(requestUrl);
+            WebResponse response = httpRequest.GetResponse();
 
-                Stream resposeStream = response.GetResponseStream();
-                if (resposeStream != null)
+            Stream resposeStream = response.GetResponseStream();
+            if (resposeStream != null)
+            {
+                StreamReader reader = new StreamReader(resposeStream);
+                jsonStringResult = reader.ReadToEnd();
+
+                //JsonSerializerSettings jsonSettings = new JsonSerializerSettings();
+                //jsonSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat;
+                //jsonSettings.DateFormatString = "dd.mm.yyyy";
+
+                IEnumerable<CurrencyData> jsonCurrencyData =
+                    JsonConvert.DeserializeObject<IEnumerable<CurrencyData>>(jsonStringResult);
+
+                if (jsonCurrencyData.Any())
                 {
-                    StreamReader reader = new StreamReader(resposeStream);
-                    jsonStringResult = reader.ReadToEnd();
+                    currencyCodeResult = new Dictionary<CurrencyCode, CurrencyData>();
 
-                    //JsonSerializerSettings jsonSettings = new JsonSerializerSettings();
-                    //jsonSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat;
-                    //jsonSettings.DateFormatString = "dd.mm.yyyy";
-
-                    IEnumerable<CurrencyData> jsonCurrencyData =
-                        JsonConvert.DeserializeObject<IEnumerable<CurrencyData>>(jsonStringResult);
-
-                    if (jsonCurrencyData.Any())
+                    foreach (CurrencyData currencyData in jsonCurrencyData)
                     {
-                        currencyCodeResult = new Dictionary<CurrencyCode, CurrencyData>();
-
-                        foreach (CurrencyData currencyData in jsonCurrencyData)
-                        {
-                            currencyCodeResult.Add(currencyData.Code, currencyData);
-                        }
+                        currencyCodeResult.Add(currencyData.Code, currencyData);
                     }
-
                 }
-            }
-            catch (Exception e)
-            {
-                // TODO: handle exception.
-                throw;
+                else
+                {
+                    throw new NoItemsException("Json result returned no items.");
+                }
+
             }
 
             return currencyCodeResult;

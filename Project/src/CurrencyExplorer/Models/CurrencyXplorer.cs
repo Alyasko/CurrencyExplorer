@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -72,7 +73,7 @@ namespace CurrencyExplorer.Models
         /// Requests user settings by specified IP.
         /// </summary>
         /// <returns>The user settings.</returns>
-        public UserSettings RequestUserSettings(string ip)
+        public UserSettings RequestUserSettings(string cookie)
         {
             // Get from DB.
 
@@ -85,6 +86,8 @@ namespace CurrencyExplorer.Models
 
         public UserSettings RequestDefaultUserSettings()
         {
+            // TODO: use data holder.
+
             UserSettings defaultUserSettings = new UserSettings()
             {
                 Language = CurrencyExplorerLanguage.English,
@@ -93,27 +96,26 @@ namespace CurrencyExplorer.Models
                     Begin = DateTime.Now.Subtract(TimeSpan.FromDays(30)),
                     End = DateTime.Now
                 },
-                Currencies =
-                    new List<CurrencyData>()
-                    {
-                        new CurrencyData()
-                        {
-                            Code = new CurrencyCode() {Value = "r030"},
-                            Value = 27.5,
-                            ShortName = "USD",
-                            Name = "US Dollars",
-                            ActualDateString = "23.03.2016"
-                        },
-                        new CurrencyData()
-                        {
-                            Code = new CurrencyCode() {Value = "r040"},
-                            Value = 35.2,
-                            ShortName = "EUR",
-                            Name = "Europe Euro",
-                            ActualDateString = "23.03.2016"
-                        }
-                    }
             };
+
+            ICollection<CurrencyCode> defaultCodes = new List<CurrencyCode>();
+
+            var allCodes = _iCachingProcessor.RequestAllCurrencyCodes();
+
+            defaultCodes.Add(allCodes.ElementAt(0));
+            defaultCodes.Add(allCodes.ElementAt(1));
+
+            IDictionary<CurrencyCode, CurrencyData> recvData = null;
+
+            DateTime iterator = DateTime.Now;
+
+            while (recvData == null)
+            {
+                recvData = _iCachingProcessor.RequestSingleData(iterator, defaultCodes);
+                iterator = iterator.Subtract(TimeSpan.FromDays(1));
+            }
+
+            defaultUserSettings.Currencies = recvData.Select((pair) => pair.Value).ToList();
 
             return defaultUserSettings;
         }
@@ -134,8 +136,8 @@ namespace CurrencyExplorer.Models
         }
 
         public ChartTimePeriod ChartTimePeriod { get; set; }
-        public IDictionary<CurrencyCode, IEnumerable<ChartCurrencyDataPoint>> ChartDataPoints { get; set; }
+        public IDictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint>> ChartDataPoints { get; set; }
         public IDictionary<CurrencyCode, CurrencyData> TodaysCurrencies { get; set; }
-        public IEnumerable<CurrencyCode> ChartCurrencyCodes { get; set; }
+        public ICollection<CurrencyCode> ChartCurrencyCodes { get; set; }
     }
 }

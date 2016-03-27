@@ -5,8 +5,12 @@
 
 @foreach (CurrencyData data in Model)
 {
-    <div class="today-currency">
+    <div>
         Today <span>1 @data.ShortName</span> costs <span>@data.Value UAH</span>
     </div>
 }
+
+<div id="today-currency-date">
+    <i>Actual currency on @Model.First().ActualDate.ToShortDateString()</i>
+</div>
 

@@ -17,9 +17,16 @@ namespace UnitTestProject
             ICurrencyImporter importer = new JsonCurrencyImporter();
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
 
-            var data = currencyProvider.RequestCurrencyData(DateTime.Now);
+            try
+            {
+                var data = currencyProvider.RequestCurrencyData(DateTime.Now);
 
-            Assert.NotNull(data);
+                Assert.NotNull(data);
+            }
+            catch (Exception e)
+            {
+                Assert.True(e is NoItemsException);
+            }
         }
     }
 }

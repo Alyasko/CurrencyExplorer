@@ -26,11 +26,20 @@ namespace UnitTestProject
             // Arrange
             JsonCurrencyImporter currencyImporter = new JsonCurrencyImporter();
 
-            // Act
-            var data = currencyImporter.ImportAsync(DateTime.Now);
+            try
+            {
+                // Act
+                var data = currencyImporter.Import(DateTime.Now);
 
-            // Assert
-            Assert.NotEqual(data, null);
+                // Assert
+                Assert.NotEqual(data, null);
+            }
+            catch (Exception e)
+            {
+                Assert.True(e is NoItemsException);
+            }
+
+            
         }
 
         [Fact]
@@ -53,10 +62,17 @@ namespace UnitTestProject
             JsonCurrencyImporter currencyImporter = new JsonCurrencyImporter();
 
             // Act
-            var data = currencyImporter.ImportAsync(DateTime.Parse("2621.03.25"));
+            try
+            {
+                var data = currencyImporter.Import(DateTime.Parse("2621.03.25"));
 
-            // Assert
-            Assert.Null(data);
+                Assert.Null(data);
+            }
+            catch (Exception e)
+            {
+                Assert.True(e is NoItemsException);
+            }
+            
         }
 
         [Fact]

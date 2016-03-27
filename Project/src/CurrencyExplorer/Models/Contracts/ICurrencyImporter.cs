@@ -8,6 +8,6 @@ namespace CurrencyExplorer.Models.Contracts
 {
     public interface ICurrencyImporter
     {
-        IDictionary<CurrencyCode, CurrencyData> ImportAsync(DateTime time);
+        IDictionary<CurrencyCode, CurrencyData> Import(DateTime time);
     }
 }

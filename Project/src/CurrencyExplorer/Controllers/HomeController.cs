@@ -21,6 +21,22 @@ namespace CurrencyExplorer.Controllers
 
         public IActionResult Index()
         {
+            // TODO: add cookies usage.
+            
+            UserSettings userSettings = _currencyXplorer.RequestUserSettings("cookie");
+
+            if (userSettings == null)
+            {
+                userSettings = _currencyXplorer.RequestDefaultUserSettings();
+            }
+
+            ViewBag.UserSettings = userSettings;
+
+            return View();
+        }
+
+        private void TestCookies()
+        {
             string cookieUid = "";
             long uid = DateTime.Now.ToFileTime();
 
@@ -53,27 +69,6 @@ namespace CurrencyExplorer.Controllers
 
             ViewBag.Info = $"Cookie: {cookieUid}. Generated: {uid}.";
 
-
-            return View();
         }
-
-        public async Task<IActionResult> AsyncTest()
-        {
-            int d = await GetResult();
-
-            return Content($"Result {d}");
-        }
-
-        private async Task<int> GetResult()
-        {
-            Task<int> task = new Task<int>(() =>
-            {
-                //Thread.Sleep(2000);
-                return 10;
-            });
-
-            return await task;
-        } 
-
     }
 }

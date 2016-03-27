@@ -19,7 +19,14 @@ namespace CurrencyExplorer.Models
 
         public IDictionary<CurrencyCode, CurrencyData> RequestCurrencyData(DateTime time)
         {
-            return _iCurrencyImporter.ImportAsync(time);
+            return _iCurrencyImporter.Import(time);
+        }
+
+        public ICollection<CurrencyCode> RequestAllCurrencyCodes(DateTime time)
+        {
+            var allData = _iCurrencyImporter.Import(time);
+
+            return allData.Select(currencyData => currencyData.Key).ToList();
         }
 
         public ICurrencyImporter ICurrencyImporter
