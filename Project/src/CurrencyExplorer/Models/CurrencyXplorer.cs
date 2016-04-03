@@ -23,11 +23,14 @@ namespace CurrencyExplorer.Models
 
         private ICurrencyImporter _iCurrencyImporter;
 
+        private ICollection<CurrencyCode> _allCurrencyCodes; 
+
         public CurrencyXplorer()
         {
             // Entry point for dependency injection.
 
-            _iCurrencyImporter = new JsonCurrencyImporter();
+            //_iCurrencyImporter = new JsonCurrencyImporter();
+            _iCurrencyImporter = new LocalJsonCurrencyImporter();;
 
             _iCurrencyProvider = new NationalBankCurrencyProvider(_iCurrencyImporter);
 
@@ -36,6 +39,22 @@ namespace CurrencyExplorer.Models
             _dataPresenter = new DataPresenter();
             _dataHolder = new DataHolder();
             _dataProcessor = new DataProcessor(_iCachingProcessor);
+
+            GetAllCurrencyCodes();
+        }
+
+        private ICollection<CurrencyCode> GetAllCurrencyCodes()
+        {
+            ICollection<CurrencyCode> result = null;
+            if (_allCurrencyCodes != null && _allCurrencyCodes.Any())
+            {
+                result = _allCurrencyCodes;
+            }
+            else
+            {
+                result = _iCachingProcessor.RequestAllCurrencyCodes();
+            }
+            return result;
         }
 
         /// <summary>
@@ -45,7 +64,14 @@ namespace CurrencyExplorer.Models
         /// </summary>
         public void RequestChartData()
         {
-            ChartDataPoints = _dataProcessor.GetChartData(ChartTimePeriod, ChartCurrencyCodes);
+            ChartDataPoints = _dataProcessor.GetChartData(ChartTimePeriod, ConvertCurrencyStringsToCodes(ChartCurrencyCodeStrings));
+        }
+
+        private ICollection<CurrencyCode> ConvertCurrencyStringsToCodes(ICollection<string> input)
+        {
+            var allCodes = GetAllCurrencyCodes();
+
+            return allCodes.Where(e => input.Contains(e.Alias)).ToList();
         }
 
         /// <summary>
@@ -56,7 +82,7 @@ namespace CurrencyExplorer.Models
         public void RequestTodaysCurrencies()
         {
             //TodaysCurrencies
-            TodaysCurrencies = _dataProcessor.GetDailyCurrencies(DateTime.Now, ChartCurrencyCodes);
+            TodaysCurrencies = _dataProcessor.GetDailyCurrencies(DateTime.Now, ConvertCurrencyStringsToCodes(ChartCurrencyCodeStrings));
         }
 
         /// <summary>
@@ -136,8 +162,11 @@ namespace CurrencyExplorer.Models
         }
 
         public ChartTimePeriod ChartTimePeriod { get; set; }
-        public IDictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint>> ChartDataPoints { get; set; }
+        public IDictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint<CurrencyData>>> ChartDataPoints { get; set; }
         public IDictionary<CurrencyCode, CurrencyData> TodaysCurrencies { get; set; }
-        public ICollection<CurrencyCode> ChartCurrencyCodes { get; set; }
+        /// <summary>
+        /// Like USD, UAH.
+        /// </summary>
+        public ICollection<string> ChartCurrencyCodeStrings { get; set; }
     }
 }

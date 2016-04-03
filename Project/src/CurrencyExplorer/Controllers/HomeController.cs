@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace CurrencyExplorer.Controllers
         public HomeController(CurrencyXplorer currencyXplorer)
         {
             _currencyXplorer = currencyXplorer;
+            Debug.WriteLine("Entry");
         }
 
         public IActionResult Index()

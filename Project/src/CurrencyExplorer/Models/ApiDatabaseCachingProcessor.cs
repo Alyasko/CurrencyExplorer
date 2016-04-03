@@ -127,7 +127,7 @@ namespace CurrencyExplorer.Models
             return false;
         }
 
-        public IEnumerable<IDictionary<CurrencyCode, ChartCurrencyDataPoint>> Data { get; private set; }
+        public IEnumerable<IDictionary<CurrencyCode, ChartCurrencyDataPoint<CurrencyData>>> Data { get; private set; }
 
         public ICurrencyProvider CurrencyProvider { get; }
     }

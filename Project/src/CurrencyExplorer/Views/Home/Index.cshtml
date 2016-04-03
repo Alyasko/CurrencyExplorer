@@ -110,8 +110,9 @@
                 </div>
             </div>
             <div id="chart">
-                <svg width="800" height="500">
-                </svg>
+                <canvas style="background-color: aliceblue" width="800" height="500" id="canvas-explorer-chart">
+                    
+                </canvas>
             </div>
             <div id="timeline">
 
@@ -122,9 +123,9 @@
                     <div>End date: Feb, 29, 2016</div>
                 </div>
                 <div id="export-to">
-                    <input type="submit" class="export-button" name="export-image" value="Export as image"/>
+                    <input type="submit" onclick="loadChartData(Date.now(), 0, 0)" class="export-button" name="export-image" value="Export as image"/>
                     <br/>
-                    <input type="submit" class="export-button" name="export-table" value="Export as table"/>
+                    <input type="submit" onclick="" class="export-button" name="export-table" value="Export as table"/>
                 </div>
             </div>
         </div>

@@ -7,10 +7,26 @@ namespace CurrencyExplorer.Models.Entities
 {
     public class CurrencyCode
     {
+        public CurrencyCode()
+        {
+            
+        }
+
+        public CurrencyCode(string value, string alias)
+        {
+            Value = value;
+            Alias = alias;
+        }
+
         /// <summary>
         /// String representation of code.
         /// </summary>
         public string Value { get; set; }
+
+        /// <summary>
+        /// The alias for Value. For example USD, UAH.
+        /// </summary>
+        public string Alias { get; set; }
 
         public override string ToString()
         {
