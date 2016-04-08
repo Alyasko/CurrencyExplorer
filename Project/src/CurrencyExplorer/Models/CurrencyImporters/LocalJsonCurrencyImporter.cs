@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,7 +15,11 @@ namespace CurrencyExplorer.Models.CurrencyImporters
         {
             IDictionary<CurrencyCode, CurrencyData> currencyCodeResult = null;
 
-            string path = $"Json//test{time.ToShortDateString()}.txt";
+            // TODO: add culture specific date time.
+
+            CultureInfo ci = new CultureInfo("ru-RU");
+
+            string path = $"Json//test{time.ToString("d", ci)}.txt";
 
             string jsonStringResult = "";
 
