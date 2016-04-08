@@ -46,6 +46,7 @@ namespace CurrencyExplorer.Models.CurrencyImporters
 
                     foreach (CurrencyData currencyData in jsonCurrencyData)
                     {
+                        currencyData.Code.Alias = currencyData.ShortName;
                         currencyCodeResult.Add(currencyData.Code, currencyData);
                     }
                 }

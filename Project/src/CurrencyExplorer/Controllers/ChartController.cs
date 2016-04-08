@@ -44,22 +44,22 @@ namespace CurrencyExplorer.Controllers
 
                     // Minimify all
 
-                    IDictionary<string, List<string[]>> lazyPoints =
-                        new Dictionary<string, List<string[]>>();
+                    IDictionary<string, List< JsonChartPointData>> lazyPoints =
+                        new Dictionary<string, List<JsonChartPointData>>();
 
                     foreach (var pair in points)
                     {
-                        lazyPoints.Add(pair.Key.Alias, new List<string[]>());
+                        lazyPoints.Add(pair.Key.Alias, new List<JsonChartPointData>());
 
-                        foreach (ChartCurrencyDataPoint<CurrencyData> currencyDataPoint in pair.Value)
+                        foreach (var currencyDataPoint in pair.Value)
                         {
                             // TODO: fix date conversion so that it is based on language.
-                            lazyPoints[pair.Key.Alias].Add(new string[]
+                            lazyPoints[pair.Key.Alias].Add(new JsonChartPointData()
                             {
-                                currencyDataPoint.DataObject.ActualDate.ToLongDateString(),
-                                currencyDataPoint.DataObject.Value.ToString(),
-                                currencyDataPoint.DataObject.ShortName,
-                                currencyDataPoint.DataObject.Name
+                                ActualDate = currencyDataPoint.DataObject.ActualDate.ToLongDateString(),
+                                Value = currencyDataPoint.DataObject.Value,
+                                Alias = currencyDataPoint.DataObject.ShortName,
+                                Name = currencyDataPoint.DataObject.Name
                             });
                         }
                     }

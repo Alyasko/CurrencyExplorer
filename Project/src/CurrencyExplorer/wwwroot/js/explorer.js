@@ -21,7 +21,6 @@ function loadChartData(begin, end, currencies) {
         url: "Chart/LoadChartData",
         data: "json=" + JSON.stringify(dataObj),
         success: function (d) {
-            //alert(d);
             drawChart(d, "canvas-explorer-chart");
         },
         failure: function (err) {
@@ -39,44 +38,11 @@ function drawChart(jData, cnv) {
 
     var data = $.parseJSON(jData);
 
-    var drawData = new Object();
-
-    $.each(data, function (currency, dataObj) {
-        
-        drawData[currency] = new Array();
-
-        $.each(dataObj, function(point, currObj) {
-            var stopData = new Object();
-            stopData.date = currObj[0];
-            stopData.val = currObj[1];
-            stopData.alias = currObj[2];
-            stopData.name = currObj[3];
-
-            drawData[currency][drawData.length] = stopData;
-        });
-    });
-
-    // HERE
-    var max = -1;
-    for (var i in drawData) {
-        alert(drawData);
-        $.each(drawData[i], function(j, v) {
-            alert(j);
-        });
-
-        //for (var j = 0; j < drawData[i].length; j++) {
-        //    //alert(drawData[i][j].val);
-        //    if (drawData[i][j].val > max)
-        //        max = drawData[i][j].val;
-        //}
-    }
-    //
-
     var NORMAL_MODE_MAX_POINTS_COUNT = 100;
-    var MARGIN_LEFT = 10;
-    var MARGIN_RIGHT = 10;
-    var MARGIN_BOTTOM = 10;
-    var MARGIN_TOP = 10;
+    var MARGIN_LEFT = 50;
+    var MARGIN_RIGHT = 50;
+    var MARGIN_BOTTOM = 50;
+    var MARGIN_TOP = 50;
 
     var canvas = document.getElementById(cnv);
     var ctx = canvas.getContext("2d");
@@ -84,8 +50,10 @@ function drawChart(jData, cnv) {
     var cnvHeight = canvas.clientHeight;
     var cnvWidth = canvas.clientWidth;
 
-    //var maxValue = findChartMax(drawData);
-    //var minValue = findChartMin(drawData);
+    var maxValue = findChartMax(data);
+    var minValue = findChartMin(data);
+
+    var diffValue = maxValue - minValue;
 
     ctx.scale(1, -1);
     ctx.translate(0, -cnvHeight);
@@ -95,77 +63,65 @@ function drawChart(jData, cnv) {
 
     ctx.beginPath();
 
-    for (var currency in drawData) {
-        var chartPointsCount = 0;
+    for (var currency in data) {
+        var chartPointsCount = data[currency].length;
 
-        //alert(dObj[currency]);
+        for (var point in data[currency]) {
 
-        for (var item in drawData[currency]) {
-            
-        }
+            if (chartPointsCount < NORMAL_MODE_MAX_POINTS_COUNT) {
 
-        //alert(chartPointsCount);
+                var pointHStep = (cnvWidth - MARGIN_LEFT - MARGIN_RIGHT) / chartPointsCount;
+                var pointVStep = (cnvHeight - MARGIN_TOP - MARGIN_BOTTOM) / diffValue;
 
-        if (chartPointsCount < NORMAL_MODE_MAX_POINTS_COUNT) {
+                var x = 0;
+                var y = 0;
 
-            var pointHStep = (cnvWidth - MARGIN_LEFT - MARGIN_RIGHT) / chartPointsCount;
-            var pointVStep = (cnvHeight - MARGIN_TOP - MARGIN_BOTTOM) / maxValue;
+                for (var j = chartPointsCount - 1; j >= 0; j--) {
+                    var chartPoint = data[currency][j];
 
-            
+                    x = pointHStep/2 + pointHStep * j + MARGIN_LEFT;
+                    y = pointVStep * (chartPoint.Value - minValue) + MARGIN_BOTTOM;
 
-            for (var i = chartPointsCount - 1; i >= 0; i--) {
-                var chartPoint = drawData[currency][i];
+                    if (j !== chartPointsCount - 1) {
+                        ctx.lineTo(x, y);
+                    } else {
+                        ctx.moveTo(x, y);
+                    }
 
-                ctx.moveTo(10, 10);
-                ctx.lineTo(pointHStep * i, pointVStep * chartPoint.val);
-
-                
+                    //ctx.fillArc(x, y, 5, 0, 2 * Math.PI);
+                }
             }
         }
     }
 
     ctx.stroke();
     ctx.closePath();
+
+
 }
 
 function findChartMax(drawData) {
     var max = -1;
     
-    Object.keys(drawData).forEach(key => {
-        //alert(drawData[key]);
-    });
-
-
-    $.each(drawData, function (ind1, val1) {
-        //alert(val1);
-
-        //????
-
-        $.each(val1, function (ind2, val2) {
-            //alert(val2);
-            $.each(val2, function(ind3, val3) {
-                //alert(val3);
-            });
-        });
-    });
-
     for (var currency in drawData) {
-        //alert(drawData[currency]);
         for (var point in drawData[currency]) {
-            if (drawData[currency][point].val > max)
-                max = drawData[currency][point].val;
+            if (drawData[currency][point].Value > max)
+                max = drawData[currency][point].Value;
         }
     }
+
     return max;
 }
 
 function findChartMin(drawData) {
     var min = 1000000;
+
     for (var currency in drawData) {
         for (var point in drawData[currency]) {
-            if (drawData[currency][point].val < min)
-                min = drawData[currency][point].val;
+            if (drawData[currency][point].Value < min)
+                min = drawData[currency][point].Value;
         }
     }
+
     return min;
 }
