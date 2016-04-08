@@ -39,23 +39,38 @@ function drawChart(jData, cnv) {
 
     var data = $.parseJSON(jData);
 
-    var drawData = new Array();
+    var drawData = new Object();
 
-    $.each(data, function (currency, data) {
-        alert();
+    $.each(data, function (currency, dataObj) {
+        
         drawData[currency] = new Array();
-        for (var point in data[currency]) {
-            var stopData = new Array();
-            stopData.date = data[currency][point][0];
-            stopData.val = data[currency][point][1];
-            stopData.alias = data[currency][point][2];
-            stopData.name = data[currency][point][3];
+
+        $.each(dataObj, function(point, currObj) {
+            var stopData = new Object();
+            stopData.date = currObj[0];
+            stopData.val = currObj[1];
+            stopData.alias = currObj[2];
+            stopData.name = currObj[3];
 
             drawData[currency][drawData.length] = stopData;
-        }
+        });
     });
 
-    alert(drawData['USD']);
+    // HERE
+    var max = -1;
+    for (var i in drawData) {
+        alert(drawData);
+        $.each(drawData[i], function(j, v) {
+            alert(j);
+        });
+
+        //for (var j = 0; j < drawData[i].length; j++) {
+        //    //alert(drawData[i][j].val);
+        //    if (drawData[i][j].val > max)
+        //        max = drawData[i][j].val;
+        //}
+    }
+    //
 
     var NORMAL_MODE_MAX_POINTS_COUNT = 100;
     var MARGIN_LEFT = 10;
@@ -69,8 +84,8 @@ function drawChart(jData, cnv) {
     var cnvHeight = canvas.clientHeight;
     var cnvWidth = canvas.clientWidth;
 
-    var maxValue = findChartMax(drawData);
-    var minValue = findChartMin(drawData);
+    //var maxValue = findChartMax(drawData);
+    //var minValue = findChartMin(drawData);
 
     ctx.scale(1, -1);
     ctx.translate(0, -cnvHeight);
@@ -83,8 +98,6 @@ function drawChart(jData, cnv) {
     for (var currency in drawData) {
         var chartPointsCount = 0;
 
-
-        alert(JSON.stringify(drawData));
         //alert(dObj[currency]);
 
         for (var item in drawData[currency]) {
@@ -112,12 +125,32 @@ function drawChart(jData, cnv) {
     }
 
     ctx.stroke();
-    ctx.endPath();
+    ctx.closePath();
 }
 
 function findChartMax(drawData) {
     var max = -1;
+    
+    Object.keys(drawData).forEach(key => {
+        //alert(drawData[key]);
+    });
+
+
+    $.each(drawData, function (ind1, val1) {
+        //alert(val1);
+
+        //????
+
+        $.each(val1, function (ind2, val2) {
+            //alert(val2);
+            $.each(val2, function(ind3, val3) {
+                //alert(val3);
+            });
+        });
+    });
+
     for (var currency in drawData) {
+        //alert(drawData[currency]);
         for (var point in drawData[currency]) {
             if (drawData[currency][point].val > max)
                 max = drawData[currency][point].val;
