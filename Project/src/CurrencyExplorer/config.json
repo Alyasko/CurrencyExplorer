@@ -1,0 +1,10 @@
+﻿{
+  "AppSettings": {
+    "Author": "Alexander Yasko"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=CurrenciesCache;Trusted_Connection=True;"
+    }
+  }
+}

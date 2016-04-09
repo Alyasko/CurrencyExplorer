@@ -56,7 +56,7 @@ namespace CurrencyExplorer.Controllers
                             // TODO: fix date conversion so that it is based on language.
                             lazyPoints[pair.Key.Alias].Add(new JsonChartPointData()
                             {
-                                ActualDate = currencyDataPoint.DataObject.ActualDate.ToLongDateString(),
+                                ActualDate = currencyDataPoint.DataObject.ActualDate.ToString(),
                                 Value = currencyDataPoint.DataObject.Value,
                                 Alias = currencyDataPoint.DataObject.ShortName,
                                 Name = currencyDataPoint.DataObject.Name

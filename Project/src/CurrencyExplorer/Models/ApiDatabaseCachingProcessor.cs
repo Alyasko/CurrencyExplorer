@@ -36,8 +36,8 @@ namespace CurrencyExplorer.Models
 
         public IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime timePeriod, ICollection<CurrencyCode> codes)
         {
-            bool existsInDb = CheckDbData();
             IDictionary<CurrencyCode, CurrencyData> requiredSingleCurrencyData = null;
+            bool existsInDb = CheckDbData();
 
             if (codes == null)
             {
@@ -124,6 +124,8 @@ namespace CurrencyExplorer.Models
 
         private bool CheckDbData()
         {
+
+
             return false;
         }
 

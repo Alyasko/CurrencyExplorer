@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.Entities;
@@ -24,10 +25,11 @@ namespace CurrencyExplorer.Models.CurrencyImporters
             string dateFormated = Utils.GetFormattedDateString(date);
             string requestUrl =
                 $"http://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date={dateFormated}&json";
-            WebRequest httpRequest = WebRequest.Create(requestUrl);
-            WebResponse response = httpRequest.GetResponse();
 
-            Stream resposeStream = response.GetResponseStream();
+            HttpClient httpClient = new HttpClient();
+            
+            Stream resposeStream = httpClient.GetStreamAsync(requestUrl).Result;
+
             if (resposeStream != null)
             {
                 StreamReader reader = new StreamReader(resposeStream);
@@ -46,8 +48,8 @@ namespace CurrencyExplorer.Models.CurrencyImporters
 
                     foreach (CurrencyData currencyData in jsonCurrencyData)
                     {
-                        currencyData.Code.Alias = currencyData.ShortName;
-                        currencyCodeResult.Add(currencyData.Code, currencyData);
+                        currencyData.CurrencyCode.Alias = currencyData.ShortName;
+                        currencyCodeResult.Add(currencyData.CurrencyCode, currencyData);
                     }
                 }
                 else

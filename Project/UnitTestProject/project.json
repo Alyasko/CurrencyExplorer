@@ -9,7 +9,7 @@
     "defaultNamespace": "<%= namespace %>"
   },
   "dependencies": {
-    "CurrencyExplorer": "1.0.0-*",
+    "CurrencyExplorer": "",
     "xunit": "2.1.0",
     "xunit.runner.dnx": "2.1.0-rc1-build204"
   },
@@ -26,6 +26,9 @@
         "System.Runtime": "4.0.21-beta-23516",
         "System.Threading": "4.0.11-beta-23516"
       }
+    },
+    "dnxcore50": {
+
     }
   }
 }

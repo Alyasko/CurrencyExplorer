@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -13,6 +14,14 @@ namespace CurrencyExplorer.Models.Entities
     {
         private string _actualDateString;
 
+        [Key]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Returns DateTime object from specified string.
+        /// </summary>
+        /// <param name="inputValue">The string represntation of DateTime.</param>
+        /// <returns>The DateTime object.</returns>
         private DateTime ProcessActualDateString(string inputValue)
         {
             DateTime result;
@@ -89,7 +98,7 @@ namespace CurrencyExplorer.Models.Entities
         /// </summary>
         [JsonConverter(typeof(StringToCodeJsonConverter))]
         [JsonProperty("r030")]
-        public CurrencyCode Code { get; set; }
+        public CurrencyCode CurrencyCode { get; set; }
 
         public override string ToString()
         {

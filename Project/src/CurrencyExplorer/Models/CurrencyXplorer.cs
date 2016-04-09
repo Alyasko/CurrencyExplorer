@@ -29,8 +29,8 @@ namespace CurrencyExplorer.Models
         {
             // Entry point for dependency injection.
 
-            _iCurrencyImporter = new JsonCurrencyImporter();
-            //_iCurrencyImporter = new LocalJsonCurrencyImporter();;
+            //_iCurrencyImporter = new JsonCurrencyImporter();
+            _iCurrencyImporter = new LocalJsonCurrencyImporter();;
 
             _iCurrencyProvider = new NationalBankCurrencyProvider(_iCurrencyImporter);
 
