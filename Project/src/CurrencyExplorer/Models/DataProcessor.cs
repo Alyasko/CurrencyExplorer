@@ -24,9 +24,12 @@ namespace CurrencyExplorer.Models
         /// <returns>The dictionary of currency code as key and the list of chart data points as value.</returns>
         public IDictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint<CurrencyData>>> GetChartData(ChartTimePeriod chartTimePeriod, ICollection<CurrencyCode> chartCurrencyCodes)
         {
+            // Request datat from caching processor.
             var currencyData = _iCachingProcessor.RequestPeriodData(chartTimePeriod, chartCurrencyCodes);
+
             var currencyDataPoints = new Dictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint<CurrencyData>>>();
 
+            // Format the structure of data representation.
             foreach (KeyValuePair<CurrencyCode, ICollection<CurrencyData>> pair in currencyData)
             {
                 List<ChartCurrencyDataPoint<CurrencyData>> dataPoints = new List<ChartCurrencyDataPoint<CurrencyData>>();

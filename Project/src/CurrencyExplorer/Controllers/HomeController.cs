@@ -15,8 +15,12 @@ namespace CurrencyExplorer.Controllers
     {
         private CurrencyXplorer _currencyXplorer;
 
+        private static int launchCounter = 0;
+
         public HomeController(CurrencyXplorer currencyXplorer)
         {
+            launchCounter++;
+
             _currencyXplorer = currencyXplorer;
             Debug.WriteLine("Entry");
         }
@@ -24,7 +28,12 @@ namespace CurrencyExplorer.Controllers
         public IActionResult Index()
         {
             // TODO: add cookies usage.
-            
+
+            if (launchCounter < 3)
+            {
+                return Content("Update page, please");
+            }
+
             UserSettings userSettings = _currencyXplorer.RequestUserSettings("cookie");
 
             if (userSettings == null)

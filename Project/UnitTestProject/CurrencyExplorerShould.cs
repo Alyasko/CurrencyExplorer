@@ -10,6 +10,7 @@ using CurrencyExplorer.Models;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.CurrencyImporters;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Utilities;
 using Xunit;
 
 namespace UnitTestProject

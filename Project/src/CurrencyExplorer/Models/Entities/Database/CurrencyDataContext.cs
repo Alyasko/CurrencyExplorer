@@ -8,7 +8,21 @@ namespace CurrencyExplorer.Models.Entities.Database
 {
     public class CurrencyDataContext : DbContext
     {
+        private string _connectionString;
+
+        public CurrencyDataContext(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public DbSet<CurrencyData> CurrencyEntries { get; set; }
         public DbSet<CurrencyCode> CurrencyCodes { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+
+            optionsBuilder.UseSqlServer(_connectionString);
+        }
     }
 }

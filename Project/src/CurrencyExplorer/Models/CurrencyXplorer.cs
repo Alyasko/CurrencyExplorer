@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.CurrencyImporters;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 using CurrencyExplorer.Models.Enums;
+using CurrencyExplorer.Models.Repositories;
+using CurrencyExplorer.Utilities;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace CurrencyExplorer.Models
 {
@@ -20,27 +25,41 @@ namespace CurrencyExplorer.Models
         private ICachingProcessor _iCachingProcessor;
 
         private ICurrencyProvider _iCurrencyProvider;
-
+        private ICurrencyRepository _iCurrencyRepository;
         private ICurrencyImporter _iCurrencyImporter;
 
-        private ICollection<CurrencyCode> _allCurrencyCodes; 
+        private CurrencyDataContext _currencyDataContext;
+
+        private ICollection<CurrencyCode> _allCurrencyCodes;
+
+        public IConfiguration Configuration { get; set; }
 
         public CurrencyXplorer()
         {
+            _allCurrencyCodes = null;
+        }
+
+        public CurrencyXplorer(IApplicationEnvironment appEnv) : this()
+        {
+            Configuration = Utils.CreateConfiguration(appEnv);
+
             // Entry point for dependency injection.
 
-            //_iCurrencyImporter = new JsonCurrencyImporter();
-            _iCurrencyImporter = new LocalJsonCurrencyImporter();;
+            _iCurrencyImporter = new JsonCurrencyImporter();
+            //_iCurrencyImporter = new LocalJsonCurrencyImporter(); ;
 
             _iCurrencyProvider = new NationalBankCurrencyProvider(_iCurrencyImporter);
 
-            _iCachingProcessor = new ApiDatabaseCachingProcessor(_iCurrencyProvider);
+            _currencyDataContext = new CurrencyDataContext(Configuration["Data:DefaultConnection:ConnectionString"]);
+            _iCurrencyRepository = new CurrencyRepository(_currencyDataContext);
+
+            _iCachingProcessor = new ApiDatabaseCachingProcessor(_iCurrencyProvider, _iCurrencyRepository);
 
             _dataPresenter = new DataPresenter();
             _dataHolder = new DataHolder();
             _dataProcessor = new DataProcessor(_iCachingProcessor);
 
-            GetAllCurrencyCodes();
+            _allCurrencyCodes = GetAllCurrencyCodes();
         }
 
         private ICollection<CurrencyCode> GetAllCurrencyCodes()

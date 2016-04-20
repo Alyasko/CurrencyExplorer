@@ -9,7 +9,7 @@ namespace CurrencyExplorer.Models.Contracts
     public interface ICachingProcessor
     {
         IDictionary<CurrencyCode, CurrencyData> RequestSingleData(
-            DateTime timePeriod,
+            DateTime time,
             ICollection<CurrencyCode> codes);
 
         IDictionary<CurrencyCode, ICollection<CurrencyData>> RequestPeriodData(

@@ -1,6 +1,10 @@
 ﻿{
   "AppSettings": {
-    "Author": "Alexander Yasko"
+    "Author": "Alexander Yasko",
+    "Weekends": [
+      "Saturday",
+      "Sunday"
+    ]
   },
   "Data": {
     "DefaultConnection": {

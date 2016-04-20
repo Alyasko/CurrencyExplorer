@@ -4,14 +4,19 @@
 
 
 function loadChartData(begin, end, currencies) {
+    // PROBLEM
+    /*
+    begin = new Date(2016, 4, 1);
+    end = new Date();
+    */
 
-    begin = new Date(2016, 2, 29);
+    begin = new Date(2016, 0, 15);
     end = new Date();
     currencies = new Array("USD", "EUR");
-
+    
     var dataObj = {
-        Begin: begin,
-        End: end,
+        Begin: begin.toUTCString(),
+        End: end.toUTCString(),
         Currencies: currencies
     };
 
@@ -30,7 +35,6 @@ function loadChartData(begin, end, currencies) {
 }
 
 function getDrawingObject(jData) {
-    
     return drawData;
 }
 
@@ -79,7 +83,7 @@ function drawChart(jData, cnv) {
                 for (var j = chartPointsCount - 1; j >= 0; j--) {
                     var chartPoint = data[currency][j];
 
-                    x = pointHStep/2 + pointHStep * j + MARGIN_LEFT;
+                    x = pointHStep / 2 + pointHStep * j + MARGIN_LEFT;
                     y = pointVStep * (chartPoint.Value - minValue) + MARGIN_BOTTOM;
 
                     if (j !== chartPointsCount - 1) {
@@ -102,7 +106,7 @@ function drawChart(jData, cnv) {
 
 function findChartMax(drawData) {
     var max = -1;
-    
+
     for (var currency in drawData) {
         for (var point in drawData[currency]) {
             if (drawData[currency][point].Value > max)

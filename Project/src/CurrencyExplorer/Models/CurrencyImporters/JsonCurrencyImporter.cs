@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Utilities;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Internal;
 using Newtonsoft.Json;

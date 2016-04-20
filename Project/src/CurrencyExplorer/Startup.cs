@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models;
@@ -23,12 +24,21 @@ namespace CurrencyExplorer
 
         public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(appEnv.ApplicationBasePath)
-                .AddJsonFile("config.json")
-                .AddEnvironmentVariables();
+            try
+            {
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(appEnv.ApplicationBasePath)
+                    .AddJsonFile("config.json")
+                    .AddEnvironmentVariables();
 
-            Configuration = builder.Build();
+                Configuration = builder.Build();
+            }
+            catch (FormatException e)
+            {
+                Debug.WriteLine($"Logged exception: {e.Message}");
+                throw;
+            }
+
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -38,12 +48,15 @@ namespace CurrencyExplorer
             //services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddMvc();
 
-            services.AddEntityFramework()
-                .AddSqlServer()
-                .AddDbContext<CurrencyDataContext>(options =>
-                {
-                    options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]);
-                });
+            string config = Configuration["Data:DefaultConnection:ConnectionString"];
+
+            //services.AddEntityFramework()
+            //    .AddSqlServer()
+            //    .AddDbContext<CurrencyDataContext>(options =>
+            //    {
+            //        config = Configuration["Data:DefaultConnection:ConnectionString"];
+            //        options.UseSqlServer(config);
+            //    });
 
 
             services.AddScoped<CurrencyXplorer>();

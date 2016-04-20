@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Converters;
+using Microsoft.AspNet.Razor.Compilation.TagHelpers;
 using Newtonsoft.Json;
 
 namespace CurrencyExplorer.Models.Entities
@@ -24,6 +25,12 @@ namespace CurrencyExplorer.Models.Entities
         /// <returns>The DateTime object.</returns>
         private DateTime ProcessActualDateString(string inputValue)
         {
+            // TODO: parse using DateTime.
+            // TODO: move Name and other to the CD table.
+            // TODO: change Today.
+            // TODO: currency doesn't change on weekends.
+            // TODO: при отсутствии данных запросить данные раньше, когда они были.
+
             DateTime result;
 
             Regex regex = new Regex(@"(?<d>\d{2})\.(?<m>\d{2}).(?<y>\d{4})");
@@ -100,9 +107,29 @@ namespace CurrencyExplorer.Models.Entities
         [JsonProperty("r030")]
         public CurrencyCode CurrencyCode { get; set; }
 
+        public int CurrencyCodeId { get; set; }
+
         public override string ToString()
         {
             return $"{ShortName}:{Name}";
+        }
+
+        public override bool Equals(object o)
+        {
+            CurrencyData other = o as CurrencyData;
+            bool result = other != null && this.Equals(other);
+
+            return result;
+        }
+
+        protected bool Equals(CurrencyData other)
+        {
+            bool result = Math.Abs(this.Value - other.Value) < 0.0000005 &&
+                          this.Name == other.Name &&
+                          this.ShortName == other.ShortName &&
+                          this.ActualDate == other.ActualDate &&
+                          this.CurrencyCode.Equals(other.CurrencyCode);
+            return result;
         }
     }
 }
