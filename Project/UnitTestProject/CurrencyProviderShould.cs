@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using CurrencyExplorer.Models;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.CurrencyImporters;
+using CurrencyExplorer.Models.Entities.Database;
+using CurrencyExplorer.Models.Repositories;
 using Xunit;
 
 namespace UnitTestProject
@@ -19,7 +21,7 @@ namespace UnitTestProject
 
             try
             {
-                var data = currencyProvider.RequestCurrencyData(DateTime.Now);
+                var data = currencyProvider.RequestSingleCurrencyData(DateTime.Now);
 
                 Assert.NotNull(data);
             }
@@ -27,6 +29,16 @@ namespace UnitTestProject
             {
                 Assert.True(e is NoItemsException);
             }
+        }
+
+        [Fact]
+        public void GetAllCurrencyCodes()
+        {
+            MsSqlCurrencyRepository repository = new MsSqlCurrencyRepository(new CurrencyDataContext());
+
+            var data = repository.GetEntries().ToArray();
+
+            Assert.NotNull(data);
         }
     }
 }

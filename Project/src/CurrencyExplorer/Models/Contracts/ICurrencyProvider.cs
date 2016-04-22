@@ -8,7 +8,8 @@ namespace CurrencyExplorer.Models.Contracts
 {
     public interface ICurrencyProvider
     {
-        IDictionary<CurrencyCode, CurrencyData> RequestCurrencyData(DateTime time);
+        IDictionary<CurrencyCode, CurrencyData> RequestSingleCurrencyData(DateTime time);
+        IDictionary<CurrencyCode, List<CurrencyData>> RequestPeriodCurrencyData(ChartTimePeriod period);
         ICollection<CurrencyCode> RequestAllCurrencyCodes(DateTime time);
     }
 }

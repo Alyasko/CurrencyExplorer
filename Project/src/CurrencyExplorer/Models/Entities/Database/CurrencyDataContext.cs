@@ -10,6 +10,11 @@ namespace CurrencyExplorer.Models.Entities.Database
     {
         private string _connectionString;
 
+        public CurrencyDataContext()
+        {
+            _connectionString = "Server=(localdb)\\ProjectsV12;Database=CurrenciesCache;Trusted_Connection=True;";
+        }
+
         public CurrencyDataContext(string connectionString)
         {
             _connectionString = connectionString;

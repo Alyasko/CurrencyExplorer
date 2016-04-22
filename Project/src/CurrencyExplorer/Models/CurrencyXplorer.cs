@@ -51,7 +51,7 @@ namespace CurrencyExplorer.Models
             _iCurrencyProvider = new NationalBankCurrencyProvider(_iCurrencyImporter);
 
             _currencyDataContext = new CurrencyDataContext(Configuration["Data:DefaultConnection:ConnectionString"]);
-            _iCurrencyRepository = new CurrencyRepository(_currencyDataContext);
+            _iCurrencyRepository = new MsSqlCurrencyRepository(_currencyDataContext);
 
             _iCachingProcessor = new ApiDatabaseCachingProcessor(_iCurrencyProvider, _iCurrencyRepository);
 

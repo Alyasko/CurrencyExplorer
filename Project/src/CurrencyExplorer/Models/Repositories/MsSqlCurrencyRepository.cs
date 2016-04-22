@@ -9,18 +9,19 @@ using Microsoft.Data.Entity;
 
 namespace CurrencyExplorer.Models.Repositories
 {
-    public class CurrencyRepository : ICurrencyRepository
+    public class MsSqlCurrencyRepository : ICurrencyRepository
     {
         private CurrencyDataContext _currencyDataContext;
 
-        public CurrencyRepository(CurrencyDataContext currencyDataContext)
+        public MsSqlCurrencyRepository(CurrencyDataContext currencyDataContext)
         {
             _currencyDataContext = currencyDataContext;
         }
 
         public IQueryable<CurrencyData> GetEntries()
         {
-            return _currencyDataContext.CurrencyEntries;
+            var data = _currencyDataContext.CurrencyEntries.FromSql("SELECT * FROM CurrencyData");
+            return data;
         }
 
         public IQueryable<CurrencyData> GetEntries(ChartTimePeriod timePeriod)
@@ -30,7 +31,8 @@ namespace CurrencyExplorer.Models.Repositories
 
         public IQueryable<CurrencyCode> GetCodeEntries()
         {
-            return _currencyDataContext.CurrencyCodes;
+            var data = _currencyDataContext.CurrencyCodes.FromSql("SELECT * FROM CurrencyCode");
+            return data;
         }
 
         public void AddEntry(CurrencyData currencyData)
@@ -49,7 +51,12 @@ namespace CurrencyExplorer.Models.Repositories
 
             //}
 
-            if (!_currencyDataContext.CurrencyEntries.Any(data => data.Equals(currencyData)))
+            var data = _currencyDataContext.CurrencyEntries.FromSql($"SELECT * FROM CurrencyData d " +
+                                                                    "INNER JOIN CurrencyCode c ON c.Id = d.CurrencyCodeId " +
+                                                                    "WHERE ActualDate = p0 AND c.Alias = 'p1'",
+                currencyData.ActualDate, currencyData.CurrencyCode.Alias).ToList();
+
+            if (!data.Any())
             {
                 _currencyDataContext.CurrencyEntries.Add(currencyData);
 
@@ -61,9 +68,18 @@ namespace CurrencyExplorer.Models.Repositories
         {
             bool isEntryAdded = false;
 
+            CurrencyData currencyData = entries.ElementAt(0);
+
+            //var sql = "SELECT d.* FROM CurrencyData d " +
+            //          "INNER JOIN CurrencyCode c ON c.Id = d.CurrencyCodeId " +
+            //          $"WHERE ActualDate = STR_TO_DATE('{currencyData.ActualDate}', '%Y-%m-%d %H:%i:%s') AND c.Alias = '{currencyData.CurrencyCode.Alias}'";
+
+            //var dat = _currencyDataContext.CurrencyEntries.FromSql(sql).ToList();
+
+
             foreach (CurrencyData entry in entries)
             {
-                if (!_currencyDataContext.CurrencyEntries.Any(code => code.Equals(entry)))
+                if (!_currencyDataContext.CurrencyEntries.Any(data => data.Equals(entry)))
                 {
                     _currencyDataContext.CurrencyEntries.Add(entry);
                     isEntryAdded = true;

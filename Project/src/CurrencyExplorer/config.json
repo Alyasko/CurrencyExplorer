@@ -8,7 +8,7 @@
   },
   "Data": {
     "DefaultConnection": {
-      "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=CurrenciesCache;Trusted_Connection=True;"
+      "ConnectionString": "Server=(localdb)\\ProjectsV12;Database=CurrenciesCache;Trusted_Connection=True;"
     }
   }
 }

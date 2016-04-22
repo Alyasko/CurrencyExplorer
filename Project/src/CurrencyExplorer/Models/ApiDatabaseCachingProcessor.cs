@@ -45,11 +45,11 @@ namespace CurrencyExplorer.Models
 
         private IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime time)
         {
-            // TODO: FIX. Should we need this method?
+            // TODO: FIX. Do we need this method?
             IDictionary<CurrencyCode, CurrencyData> result = null;
             try
             {
-                result = _currencyProvider.RequestCurrencyData(time);
+                result = _currencyProvider.RequestSingleCurrencyData(time);
             }
             catch (NoItemsException e)
             {
@@ -59,58 +59,70 @@ namespace CurrencyExplorer.Models
             return result;
         }
 
+        private IQueryable<CurrencyData> TryGetDatabaseData(DateTime time, CurrencyCode code)
+        {
+            var dbEntries = _currencyRepository.GetEntries().Where(data => data.ActualDate.Date == time.Date && code.Equals(data.CurrencyCode));
+
+            return dbEntries.Any() ? dbEntries : null;
+        }
+
         public IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime time, ICollection<CurrencyCode> codes)
         {
             IDictionary<CurrencyCode, CurrencyData> requiredSingleCurrencyData = null;
 
             var dbCodes = _currencyRepository.GetCodeEntries();
-            var dbEntries = _currencyRepository.GetEntries().Where(data => data.ActualDate.Date == time.Date && codes.Any(code => code.Equals(data.CurrencyCode)));
 
-            if (codes == null)
+            foreach (CurrencyCode code in codes)
             {
+                // Array of Data is received.
+                var dbEntries = TryGetDatabaseData(time, code);
 
-                throw new NullReferenceException("Currency codes dictionary is null.");
-            }
-
-            if (dbEntries.Any())
-            {
-                // Select data from DB.
-
-                requiredSingleCurrencyData = new Dictionary<CurrencyCode, CurrencyData>();
-
-                var entriesList = dbEntries.ToArray();
-                var codesList = dbCodes.ToArray();
-
-                foreach (CurrencyData currencyData in entriesList)
+                if (dbEntries != null)
                 {
-                    requiredSingleCurrencyData.Add(currencyData.CurrencyCode, currencyData);
-                }
-
-                // TODO: implement selection from DB.
-            }
-            else
-            {
-                // Download data from API.
-
-                var allCurrencyDataPerDay = RequestSingleData(time);
-
-                if (allCurrencyDataPerDay != null)
-                {
-                    requiredSingleCurrencyData =
-                        allCurrencyDataPerDay.Where(x => codes.Contains(x.Key)).ToDictionary(k => k.Key, v => v.Value);
-
-                    _currencyRepository.AddCodeEntries(codes);
-
-                    var codesFromDb = _currencyRepository.GetCodeEntries();
-                    foreach (KeyValuePair<CurrencyCode, CurrencyData> currencyData in requiredSingleCurrencyData)
+                    // We have data in database
+                    if (requiredSingleCurrencyData == null)
                     {
-                        currencyData.Value.CurrencyCode = codesFromDb.First(code => code.Value == currencyData.Value.CurrencyCode.Value);
+                        requiredSingleCurrencyData = new Dictionary<CurrencyCode, CurrencyData>();
+                    }
 
-                        _currencyRepository.AddEntry(currencyData.Value);
+                    requiredSingleCurrencyData.Add(code, dbEntries.First());
+                }
+                else
+                {
+                    // No data in database.
+                    IDictionary<CurrencyCode, CurrencyData> allCurrencyDataPerDay = null;
+                    
+                    // Download data.
+                    try
+                    {
+                        allCurrencyDataPerDay = _currencyProvider.RequestSingleCurrencyData(time);
+                    }
+                    catch (NoItemsException e)
+                    {
+                        Debug.WriteLine($"Time: {time.ToString()}, Message: {e.Message}");
+                    }
+
+                    // If it has returned something.
+                    if (allCurrencyDataPerDay != null)
+                    {
+                        // Add to the database.
+                        _currencyRepository.AddCodeEntries(allCurrencyDataPerDay.Keys);
+
+                        var codesFromDb = _currencyRepository.GetCodeEntries();
+
+                        foreach (KeyValuePair<CurrencyCode, CurrencyData> currencyData in allCurrencyDataPerDay)
+                        {
+                            currencyData.Value.CurrencyCode = codesFromDb.First(x => x.Equals(currencyData.Key));
+                        }
+
+                        _currencyRepository.AddEntries(allCurrencyDataPerDay.Values);
+
+                        // Save acquired data.
+                        requiredSingleCurrencyData = allCurrencyDataPerDay.Where(x => codes.Contains(x.Key)).ToDictionary(k => k.Key, v => v.Value);
+
+                        break;
                     }
                 }
-
-                // TODO: save allCurrencyDataPerDay to the database.
             }
 
             return requiredSingleCurrencyData;
@@ -225,13 +237,6 @@ namespace CurrencyExplorer.Models
             return result;
         }
 
-
-        private bool CheckDbData(DateTime time)
-        {
-            bool result = _currencyRepository.GetEntries().Any(data => data.ActualDate.Date == time.Date);
-
-            return result;
-        }
 
         public IEnumerable<IDictionary<CurrencyCode, ChartCurrencyDataPoint<CurrencyData>>> Data { get; private set; }
     }

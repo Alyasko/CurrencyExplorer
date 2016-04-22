@@ -17,9 +17,14 @@ namespace CurrencyExplorer.Models
             _iCurrencyImporter = importer;
         }
 
-        public IDictionary<CurrencyCode, CurrencyData> RequestCurrencyData(DateTime time)
+        public IDictionary<CurrencyCode, CurrencyData> RequestSingleCurrencyData(DateTime time)
         {
             return _iCurrencyImporter.Import(time);
+        }
+
+        public IDictionary<CurrencyCode, List<CurrencyData>> RequestPeriodCurrencyData(ChartTimePeriod period)
+        {
+            throw new NotImplementedException();
         }
 
         public ICollection<CurrencyCode> RequestAllCurrencyCodes(DateTime time)

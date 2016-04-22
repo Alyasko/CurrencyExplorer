@@ -124,10 +124,7 @@ namespace CurrencyExplorer.Models.Entities
 
         protected bool Equals(CurrencyData other)
         {
-            bool result = Math.Abs(this.Value - other.Value) < 0.0000005 &&
-                          this.Name == other.Name &&
-                          this.ShortName == other.ShortName &&
-                          this.ActualDate == other.ActualDate &&
+            bool result = this.ActualDate.Date == other.ActualDate.Date &&
                           this.CurrencyCode.Equals(other.CurrencyCode);
             return result;
         }
