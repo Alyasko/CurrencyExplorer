@@ -10,7 +10,8 @@ namespace CurrencyExplorer.Models.Contracts
     {
         IDictionary<CurrencyCode, CurrencyData> RequestSingleData(
             DateTime time,
-            ICollection<CurrencyCode> codes);
+            ICollection<CurrencyCode> codes,
+            bool useCaching = true);
 
         IDictionary<CurrencyCode, ICollection<CurrencyData>> RequestPeriodData(
             ChartTimePeriod timePeriod,

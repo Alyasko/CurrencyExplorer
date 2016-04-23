@@ -59,14 +59,23 @@ namespace CurrencyExplorer.Models
             return result;
         }
 
-        private IQueryable<CurrencyData> TryGetDatabaseData(DateTime time, CurrencyCode code)
+        private CurrencyData TryGetSingleDatabaseData(DateTime time, CurrencyCode code)
         {
-            var dbEntries = _currencyRepository.GetEntries().Where(data => data.ActualDate.Date == time.Date && code.Equals(data.CurrencyCode));
+            CurrencyData result = null;
 
-            return dbEntries.Any() ? dbEntries : null;
+            var dbEntries = _currencyRepository.GetEntries().Where(data => data.ActualDate.Date == time.Date && code.Equals(data.CurrencyCode));
+            //var dbCode = _currencyRepository.GetCodeEntries().First(x => x.Equals(code));
+
+            if (dbEntries.Any())
+            {
+                result = dbEntries.First();
+                result.CurrencyCode = code;
+            }
+
+            return result;
         }
 
-        public IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime time, ICollection<CurrencyCode> codes)
+        public IDictionary<CurrencyCode, CurrencyData> RequestSingleData(DateTime time, ICollection<CurrencyCode> codes, bool useCaching = true)
         {
             IDictionary<CurrencyCode, CurrencyData> requiredSingleCurrencyData = null;
 
@@ -75,9 +84,9 @@ namespace CurrencyExplorer.Models
             foreach (CurrencyCode code in codes)
             {
                 // Array of Data is received.
-                var dbEntries = TryGetDatabaseData(time, code);
+                var dbEntry = TryGetSingleDatabaseData(time, code);
 
-                if (dbEntries != null)
+                if (dbEntry != null)
                 {
                     // We have data in database
                     if (requiredSingleCurrencyData == null)
@@ -85,7 +94,9 @@ namespace CurrencyExplorer.Models
                         requiredSingleCurrencyData = new Dictionary<CurrencyCode, CurrencyData>();
                     }
 
-                    requiredSingleCurrencyData.Add(code, dbEntries.First());
+                    requiredSingleCurrencyData.Add(code, dbEntry);
+
+                    Debug.WriteLine($"{DateTime.Now}: data acquired from database.");
                 }
                 else
                 {
@@ -120,12 +131,36 @@ namespace CurrencyExplorer.Models
                         // Save acquired data.
                         requiredSingleCurrencyData = allCurrencyDataPerDay.Where(x => codes.Contains(x.Key)).ToDictionary(k => k.Key, v => v.Value);
 
+                        Debug.WriteLine($"{DateTime.Now}: data acquired from API.");
+
                         break;
                     }
                 }
             }
 
             return requiredSingleCurrencyData;
+        }
+
+        private ICollection<CurrencyData> TryGetPeriodDatabaseData(DateTime beginTime, DateTime endTime, CurrencyCode code)
+        {
+            ICollection<CurrencyData> result = null;
+
+            var dbEntries = _currencyRepository.GetEntries().Where(data => 
+                data.ActualDate.Date >= beginTime.Date &&
+                data.ActualDate.Date <= endTime.Date &&
+                data.CurrencyCode.Equals(code));
+
+            if (dbEntries.Any())
+            {
+                result = dbEntries.ToList();
+
+                foreach (CurrencyData data in result)
+                {
+                    data.CurrencyCode = code;
+                }
+            }
+
+            return result;
         }
 
         public IDictionary<CurrencyCode, ICollection<CurrencyData>> RequestPeriodData(ChartTimePeriod timePeriod, ICollection<CurrencyCode> codes)
@@ -136,6 +171,83 @@ namespace CurrencyExplorer.Models
             DateTime beginTime = SelectWorkingDate(timePeriod.Begin, DateSelection.BeforeWeekends);
             DateTime endTime = SelectWorkingDate(timePeriod.End, DateSelection.AfterWeekends);
 
+
+            foreach (CurrencyCode code in codes)
+            {
+                // Try get from database.
+                var dbEntries = TryGetPeriodDatabaseData(beginTime, endTime, code);
+
+                List<CurrencyData> entries = null;
+
+                if (dbEntries == null)
+                {
+                    entries = new List<CurrencyData>();
+                }
+                else
+                {
+                    entries = dbEntries.ToList();
+                }
+
+                List<CurrencyData> correctedEntries = new List<CurrencyData>();
+
+                // Add already acquired entries from database.
+                correctedEntries.AddRange(entries);
+
+                CurrencyData lastSingleData = null;
+                CurrencyData tempSingleData = null;
+
+                // Check currency data per date.
+                for (DateTime iterator = beginTime; iterator < endTime; iterator = iterator.AddDays(1))
+                {
+                    tempSingleData = correctedEntries.FirstOrDefault(x => x.ActualDate.Date == iterator.Date);
+
+                    if (
+                        !correctedEntries.Exists(
+                            p => p.ActualDate.Date == iterator.Date && p.CurrencyCode.Equals(code)))
+                    {
+                        if (_weekends.Contains(iterator.DayOfWeek))
+                        {
+                            if (lastSingleData != null)
+                            {
+                                CurrencyData newCurrencyData = lastSingleData.Clone();
+                                newCurrencyData.ActualDateString =
+                                    $"{iterator.Day:00}.{iterator.Month:00}.{iterator.Year:0000}";
+                                correctedEntries.Add(newCurrencyData);
+                            }
+                            continue;
+                        }
+
+                        // If database doesn't have record for this date.
+                        var downloadedData = RequestSingleData(iterator, new CurrencyCode[] {code}, false);
+
+                        if (tempSingleData == null)
+                        {
+                            tempSingleData = lastSingleData;
+                        }
+
+                        if (downloadedData != null)
+                        {
+                            correctedEntries.Add(downloadedData[code]);
+                        }
+
+
+                    }
+
+                    lastSingleData = tempSingleData;
+                }
+
+                correctedEntries.Sort(
+                    (d1, d2) => d1.ActualDate > d2.ActualDate ? 1 : (d1.ActualDate == d2.ActualDate ? 0 : -1));
+
+                periodCurrencyData.Add(code, correctedEntries);
+
+            }
+
+            return periodCurrencyData;
+
+/*
+            //var mData = TryGetPeriodDatabaseData(beginTime, endTime, codes.ElementAt(0)).ToList();
+
             // Format the keys of data structure to be returned.
             foreach (CurrencyCode code in codes)
             {
@@ -144,6 +256,7 @@ namespace CurrencyExplorer.Models
 
             IDictionary<CurrencyCode, CurrencyData> lastSingleData = null;
             IDictionary<CurrencyCode, CurrencyData> tempSingleData = null;
+
             // TODO: fix iterator to make possible to change the step of selection so that select less data in large queries.
             for (DateTime iterator = beginTime; iterator < endTime; iterator = iterator.AddDays(1))
             {
@@ -172,8 +285,8 @@ namespace CurrencyExplorer.Models
                 lastSingleData = tempSingleData;
             }
 
-            return periodCurrencyData;
-        }
+            return periodCurrencyData;*/
+            }
 
         private DateTime SelectWorkingDate(DateTime dateTime, DateSelection selectionType)
         {

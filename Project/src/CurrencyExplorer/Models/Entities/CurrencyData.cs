@@ -128,5 +128,19 @@ namespace CurrencyExplorer.Models.Entities
                           this.CurrencyCode.Equals(other.CurrencyCode);
             return result;
         }
+
+        public CurrencyData Clone()
+        {
+            return new CurrencyData()
+            {
+                Name = Name,
+                CurrencyCode = CurrencyCode,
+                Value = Value,
+                ActualDateString = ActualDateString,
+                CurrencyCodeId =  CurrencyCodeId,
+                Id = Id,
+                ShortName = ShortName,
+            };
+        }
     }
 }

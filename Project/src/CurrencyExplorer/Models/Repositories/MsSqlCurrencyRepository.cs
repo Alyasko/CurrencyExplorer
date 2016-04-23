@@ -76,10 +76,11 @@ namespace CurrencyExplorer.Models.Repositories
 
             //var dat = _currencyDataContext.CurrencyEntries.FromSql(sql).ToList();
 
+            var allEntries = _currencyDataContext.CurrencyEntries.ToList();
 
             foreach (CurrencyData entry in entries)
             {
-                if (!_currencyDataContext.CurrencyEntries.Any(data => data.Equals(entry)))
+                if (!allEntries.Any(data => data.Equals(entry)))
                 {
                     _currencyDataContext.CurrencyEntries.Add(entry);
                     isEntryAdded = true;
