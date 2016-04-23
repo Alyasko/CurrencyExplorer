@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Converters;
+using CurrencyExplorer.Models.Entities.Database;
 using Microsoft.AspNet.Razor.Compilation.TagHelpers;
 using Newtonsoft.Json;
 
 namespace CurrencyExplorer.Models.Entities
 {
     [JsonObject]
-    public class CurrencyData
+    public class JsonCurrencyData
     {
         private string _actualDateString;
 
@@ -71,12 +73,14 @@ namespace CurrencyExplorer.Models.Entities
         /// Short representation of name.
         /// </summary>
         [JsonProperty("cc")]
+        [NotMapped]
         public string ShortName { get; set; }
 
         /// <summary>
         /// The name of the currency.
         /// </summary>
         [JsonProperty("txt")]
+        [NotMapped]
         public string Name { get; set; }
 
         /// <summary>
@@ -89,6 +93,7 @@ namespace CurrencyExplorer.Models.Entities
         /// The string representaton of actuality date from API.
         /// </summary>
         [JsonProperty("exchangedate")]
+        [NotMapped]
         public String ActualDateString
         {
             get { return _actualDateString; }
@@ -103,9 +108,8 @@ namespace CurrencyExplorer.Models.Entities
         /// <summary>
         /// Unique code of currency.
         /// </summary>
-        [JsonConverter(typeof(StringToCodeJsonConverter))]
         [JsonProperty("r030")]
-        public CurrencyCode CurrencyCode { get; set; }
+        public string CurrencyCodeValue { get; set; }
 
         public int CurrencyCodeId { get; set; }
 
@@ -116,25 +120,25 @@ namespace CurrencyExplorer.Models.Entities
 
         public override bool Equals(object o)
         {
-            CurrencyData other = o as CurrencyData;
+            JsonCurrencyData other = o as JsonCurrencyData;
             bool result = other != null && this.Equals(other);
 
             return result;
         }
 
-        protected bool Equals(CurrencyData other)
+        protected bool Equals(JsonCurrencyData other)
         {
             bool result = this.ActualDate.Date == other.ActualDate.Date &&
-                          this.CurrencyCode.Equals(other.CurrencyCode);
+                          this.CurrencyCodeValue.Equals(other.CurrencyCodeValue);
             return result;
         }
 
-        public CurrencyData Clone()
+        public JsonCurrencyData Clone()
         {
-            return new CurrencyData()
+            return new JsonCurrencyData()
             {
                 Name = Name,
-                CurrencyCode = CurrencyCode,
+                CurrencyCodeValue = CurrencyCodeValue,
                 Value = Value,
                 ActualDateString = ActualDateString,
                 CurrencyCodeId =  CurrencyCodeId,

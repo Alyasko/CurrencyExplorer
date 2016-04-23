@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 using Microsoft.AspNet.Builder;
 
 namespace CurrencyExplorer.Models
@@ -17,17 +18,28 @@ namespace CurrencyExplorer.Models
             _iCurrencyImporter = importer;
         }
 
-        public IDictionary<CurrencyCode, CurrencyData> RequestSingleCurrencyData(DateTime time)
+        public IDictionary<CurrencyCodeEntry, CurrencyDataEntry> RequestSingleCurrencyData(DateTime time)
         {
-            return _iCurrencyImporter.Import(time);
+            IDictionary<CurrencyCodeEntry, JsonCurrencyData> jsonResult = _iCurrencyImporter.Import(time);
+
+            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> result = jsonResult.ToDictionary(
+                k => k.Key,
+                v => new CurrencyDataEntry()
+                {
+                    ActualDate = v.Value.ActualDate,
+                    Value = v.Value.Value,
+                    DbCurrencyCodeEntry = v.Key
+                });
+
+            return result;
         }
 
-        public IDictionary<CurrencyCode, List<CurrencyData>> RequestPeriodCurrencyData(ChartTimePeriod period)
+        public IDictionary<CurrencyCodeEntry, List<CurrencyDataEntry>> RequestPeriodCurrencyData(ChartTimePeriod period)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<CurrencyCode> RequestAllCurrencyCodes(DateTime time)
+        public ICollection<CurrencyCodeEntry> RequestAllCurrencyCodes(DateTime time)
         {
             var allData = _iCurrencyImporter.Import(time);
 

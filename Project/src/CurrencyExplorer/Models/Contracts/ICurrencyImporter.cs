@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 
 namespace CurrencyExplorer.Models.Contracts
 {
     public interface ICurrencyImporter
     {
-        IDictionary<CurrencyCode, CurrencyData> Import(DateTime time);
+        IDictionary<CurrencyCodeEntry, JsonCurrencyData> Import(DateTime time);
     }
 }

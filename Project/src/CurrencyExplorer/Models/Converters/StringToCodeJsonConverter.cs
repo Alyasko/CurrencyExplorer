@@ -1,5 +1,6 @@
 ﻿using System;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 using Newtonsoft.Json;
 
 namespace CurrencyExplorer.Models.Converters
@@ -8,7 +9,7 @@ namespace CurrencyExplorer.Models.Converters
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            CurrencyCode obj = (CurrencyCode)value;
+            CurrencyCodeEntry obj = (CurrencyCodeEntry)value;
 
             // Write associative array field name
             writer.WriteValue(obj.Value);
@@ -18,7 +19,7 @@ namespace CurrencyExplorer.Models.Converters
         {
             string value = reader.Value.ToString();
             
-            return new CurrencyCode() { Value = value };
+            return new CurrencyCodeEntry() { Value = value };
         }
 
         public override bool CanConvert(Type objectType)

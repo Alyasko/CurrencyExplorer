@@ -20,8 +20,8 @@ namespace CurrencyExplorer.Models.Entities.Database
             _connectionString = connectionString;
         }
 
-        public DbSet<CurrencyData> CurrencyEntries { get; set; }
-        public DbSet<CurrencyCode> CurrencyCodes { get; set; }
+        public DbSet<CurrencyDataEntry> CurrencyDataEntries { get; set; }
+        public DbSet<CurrencyCodeEntry> CurrencyCodesEntries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

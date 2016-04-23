@@ -1,12 +1,13 @@
 ﻿@using CurrencyExplorer.Models.Entities
-@model IEnumerable<CurrencyExplorer.Models.Entities.CurrencyData>
+@using CurrencyExplorer.Models.Entities.Database
+@model IEnumerable<CurrencyExplorer.Models.Entities.Database.CurrencyDataEntry>
 @{
 }
 
-@foreach (CurrencyData data in Model)
+@foreach (CurrencyDataEntry data in Model)
 {
     <div>
-        Today <span>1 @data.ShortName</span> costs <span>@data.Value UAH</span>
+        Today <span>1 @data.DbCurrencyCodeEntry.Alias</span> costs <span>@data.Value UAH</span>
     </div>
 }
 

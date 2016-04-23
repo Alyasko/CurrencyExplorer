@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CurrencyExplorer.Models.Entities.Database;
 
 namespace CurrencyExplorer.Models.Entities
 {
@@ -15,7 +16,7 @@ namespace CurrencyExplorer.Models.Entities
         /// <summary>
         /// Selected currencies.
         /// </summary>
-        public IEnumerable<CurrencyData> Currencies { get; set; } 
+        public IEnumerable<CurrencyDataEntry> Currencies { get; set; } 
 
         /// <summary>
         /// Selected time period.

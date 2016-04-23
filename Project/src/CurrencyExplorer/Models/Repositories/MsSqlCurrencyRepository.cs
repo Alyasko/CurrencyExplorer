@@ -18,24 +18,22 @@ namespace CurrencyExplorer.Models.Repositories
             _currencyDataContext = currencyDataContext;
         }
 
-        public IQueryable<CurrencyData> GetEntries()
+        public IQueryable<CurrencyDataEntry> GetDataEntries()
         {
-            var data = _currencyDataContext.CurrencyEntries.FromSql("SELECT * FROM CurrencyData");
-            return data;
+            return _currencyDataContext.CurrencyDataEntries;
         }
 
-        public IQueryable<CurrencyData> GetEntries(ChartTimePeriod timePeriod)
+        public IQueryable<CurrencyDataEntry> GetDataEntries(ChartTimePeriod timePeriod)
         {
             throw new System.NotImplementedException();
         }
 
-        public IQueryable<CurrencyCode> GetCodeEntries()
+        public IQueryable<CurrencyCodeEntry> GetCodeEntries()
         {
-            var data = _currencyDataContext.CurrencyCodes.FromSql("SELECT * FROM CurrencyCode");
-            return data;
+            return _currencyDataContext.CurrencyCodesEntries;
         }
 
-        public void AddEntry(CurrencyData currencyData)
+        public void AddDataEntry(CurrencyDataEntry currencyData)
         {
             //bool contains = false;
             //foreach (CurrencyData data in _currencyDataContext.CurrencyEntries)
@@ -51,24 +49,21 @@ namespace CurrencyExplorer.Models.Repositories
 
             //}
 
-            var data = _currencyDataContext.CurrencyEntries.FromSql($"SELECT * FROM CurrencyData d " +
-                                                                    "INNER JOIN CurrencyCode c ON c.Id = d.CurrencyCodeId " +
-                                                                    "WHERE ActualDate = p0 AND c.Alias = 'p1'",
-                currencyData.ActualDate, currencyData.CurrencyCode.Alias).ToList();
+            var data = _currencyDataContext.CurrencyDataEntries.Where(x => x.Equals(currencyData));
 
             if (!data.Any())
             {
-                _currencyDataContext.CurrencyEntries.Add(currencyData);
+                _currencyDataContext.CurrencyDataEntries.Add(currencyData);
 
                 _currencyDataContext.SaveChanges();
             }
         }
 
-        public void AddEntries(ICollection<CurrencyData> entries)
+        public void AddDataEntries(ICollection<CurrencyDataEntry> entries)
         {
             bool isEntryAdded = false;
 
-            CurrencyData currencyData = entries.ElementAt(0);
+            CurrencyDataEntry currencyData = entries.ElementAt(0);
 
             //var sql = "SELECT d.* FROM CurrencyData d " +
             //          "INNER JOIN CurrencyCode c ON c.Id = d.CurrencyCodeId " +
@@ -76,13 +71,13 @@ namespace CurrencyExplorer.Models.Repositories
 
             //var dat = _currencyDataContext.CurrencyEntries.FromSql(sql).ToList();
 
-            var allEntries = _currencyDataContext.CurrencyEntries.ToList();
+            var allEntries = _currencyDataContext.CurrencyDataEntries.ToList();
 
-            foreach (CurrencyData entry in entries)
+            foreach (CurrencyDataEntry entry in entries)
             {
                 if (!allEntries.Any(data => data.Equals(entry)))
                 {
-                    _currencyDataContext.CurrencyEntries.Add(entry);
+                    _currencyDataContext.CurrencyDataEntries.Add(entry);
                     isEntryAdded = true;
                 }
             }
@@ -93,15 +88,15 @@ namespace CurrencyExplorer.Models.Repositories
             }
         }
 
-        public void AddCodeEntries(ICollection<CurrencyCode> codeEntries)
+        public void AddCodeEntries(ICollection<CurrencyCodeEntry> codeEntries)
         {
             bool isEntryAdded = false;
 
-            foreach (CurrencyCode codeEntry in codeEntries)
+            foreach (CurrencyCodeEntry codeEntry in codeEntries)
             {
-                if (!_currencyDataContext.CurrencyCodes.Any(code => code.Equals(codeEntry)))
+                if (!_currencyDataContext.CurrencyCodesEntries.Any(code => code.Equals(codeEntry)))
                 {
-                    _currencyDataContext.CurrencyCodes.Add(codeEntry);
+                    _currencyDataContext.CurrencyCodesEntries.Add(codeEntry);
                     isEntryAdded = true;
                 }
             }
@@ -112,27 +107,27 @@ namespace CurrencyExplorer.Models.Repositories
             }
         }
 
-        public void AddCodeEntry(CurrencyCode codeEntry)
+        public void AddCodeEntry(CurrencyCodeEntry codeEntryEntry)
         {
-            if (!_currencyDataContext.CurrencyCodes.Any(code => code.Equals(codeEntry)))
+            if (!_currencyDataContext.CurrencyCodesEntries.Any(code => code.Equals(codeEntryEntry)))
             {
-                _currencyDataContext.CurrencyCodes.Add(codeEntry);
+                _currencyDataContext.CurrencyCodesEntries.Add(codeEntryEntry);
 
                 _currencyDataContext.SaveChanges();
             }
         }
 
-        public void RemoveEntries(CurrencyCode entryToRemove)
+        public void RemoveDataEntries(CurrencyCodeEntry entryToRemove)
         {
             throw new System.NotImplementedException();
         }
 
-        public void RemoveEntries(ChartTimePeriod timePeriod)
+        public void RemoveDataEntries(ChartTimePeriod timePeriod)
         {
             throw new System.NotImplementedException();
         }
 
-        public void RemoveEntries(CurrencyCode entryToRemove, ChartTimePeriod timePeriod)
+        public void RemoveDataEntries(CurrencyCodeEntry entryToRemove, ChartTimePeriod timePeriod)
         {
             throw new System.NotImplementedException();
         }

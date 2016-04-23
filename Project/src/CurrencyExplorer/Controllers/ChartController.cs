@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 using Microsoft.AspNet.Mvc;
 using Newtonsoft.Json;
 
@@ -26,7 +27,7 @@ namespace CurrencyExplorer.Controllers
         public IActionResult LoadChartData(string json)
         {
             ChartDataRequest clientRequest = null;
-            IDictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint<CurrencyData>>> points = null;
+            IDictionary<CurrencyCodeEntry, ICollection<ChartCurrencyDataPoint<CurrencyDataEntry>>> points = null;
 
             string resultJson = "";
 
@@ -58,8 +59,8 @@ namespace CurrencyExplorer.Controllers
                             {
                                 ActualDate = currencyDataPoint.DataObject.ActualDate.ToString(),
                                 Value = currencyDataPoint.DataObject.Value,
-                                Alias = currencyDataPoint.DataObject.ShortName,
-                                Name = currencyDataPoint.DataObject.Name
+                                Alias = currencyDataPoint.DataObject.DbCurrencyCodeEntry.Alias,
+                                Name = currencyDataPoint.DataObject.DbCurrencyCodeEntry.Name
                             });
                         }
                     }

@@ -1,5 +1,5 @@
-SELECT * FROM CurrencyCode;
-SELECT * FROM CurrencyData  ORDER BY ActualDate;
+SELECT * FROM CurrencyCodeEntry;
+SELECT * FROM CurrencyDataEntry  ORDER BY ActualDate;
 
 DELETE FROM CurrencyData;
 DELETE FROM CurrencyCode;

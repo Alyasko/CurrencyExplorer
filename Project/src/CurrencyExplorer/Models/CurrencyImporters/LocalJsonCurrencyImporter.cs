@@ -5,15 +5,16 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 using Newtonsoft.Json;
 
 namespace CurrencyExplorer.Models.CurrencyImporters
 {
     public class LocalJsonCurrencyImporter : AbstractCurrencyImporter
     {
-        public override IDictionary<CurrencyCode, CurrencyData> Import(DateTime time)
+        public override IDictionary<CurrencyCodeEntry, JsonCurrencyData> Import(DateTime time)
         {
-            IDictionary<CurrencyCode, CurrencyData> currencyCodeResult = null;
+            IDictionary<CurrencyCodeEntry, JsonCurrencyData> currencyCodeResult = null;
 
             // TODO: add culture specific date time.
 
@@ -28,17 +29,22 @@ namespace CurrencyExplorer.Models.CurrencyImporters
                 jsonStringResult = File.ReadAllText(path);
             }
 
-            IEnumerable<CurrencyData> jsonCurrencyData =
-                JsonConvert.DeserializeObject<IEnumerable<CurrencyData>>(jsonStringResult);
+            IEnumerable<JsonCurrencyData> jsonCurrencyData =
+                JsonConvert.DeserializeObject<IEnumerable<JsonCurrencyData>>(jsonStringResult);
 
             if (jsonCurrencyData != null && jsonCurrencyData.Any())
             {
-                currencyCodeResult = new Dictionary<CurrencyCode, CurrencyData>();
+                currencyCodeResult = new Dictionary<CurrencyCodeEntry, JsonCurrencyData>();
 
-                foreach (CurrencyData currencyData in jsonCurrencyData)
+                foreach (JsonCurrencyData currencyData in jsonCurrencyData)
                 {
-                    currencyData.CurrencyCode.Alias = currencyData.ShortName;
-                    currencyCodeResult.Add(currencyData.CurrencyCode, currencyData);
+                    CurrencyCodeEntry currencyCodeEntry = new CurrencyCodeEntry()
+                    {
+                        Value = currencyData.CurrencyCodeValue,
+                        Alias = currencyData.ShortName,
+                        Name = currencyData.Name
+                    };
+                    currencyCodeResult.Add(currencyCodeEntry, currencyData);
                 }
             }
             else

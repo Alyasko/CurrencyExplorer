@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 
 namespace CurrencyExplorer.Models
 {
@@ -22,20 +23,20 @@ namespace CurrencyExplorer.Models
         /// <param name="chartTimePeriod">The time period which the currency data should be returned for.</param>
         /// <param name="chartCurrencyCodes">The list of currency codes which currency data should be returned for.</param>
         /// <returns>The dictionary of currency code as key and the list of chart data points as value.</returns>
-        public IDictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint<CurrencyData>>> GetChartData(ChartTimePeriod chartTimePeriod, ICollection<CurrencyCode> chartCurrencyCodes)
+        public IDictionary<CurrencyCodeEntry, ICollection<ChartCurrencyDataPoint<CurrencyDataEntry>>> GetChartData(ChartTimePeriod chartTimePeriod, ICollection<CurrencyCodeEntry> chartCurrencyCodes)
         {
             // Request datat from caching processor.
             var currencyData = _iCachingProcessor.RequestPeriodData(chartTimePeriod, chartCurrencyCodes);
 
-            var currencyDataPoints = new Dictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint<CurrencyData>>>();
+            var currencyDataPoints = new Dictionary<CurrencyCodeEntry, ICollection<ChartCurrencyDataPoint<CurrencyDataEntry>>>();
 
             // Format the structure of data representation.
-            foreach (KeyValuePair<CurrencyCode, ICollection<CurrencyData>> pair in currencyData)
+            foreach (KeyValuePair<CurrencyCodeEntry, ICollection<CurrencyDataEntry>> pair in currencyData)
             {
-                List<ChartCurrencyDataPoint<CurrencyData>> dataPoints = new List<ChartCurrencyDataPoint<CurrencyData>>();
-                foreach (CurrencyData data in pair.Value)
+                List<ChartCurrencyDataPoint<CurrencyDataEntry>> dataPoints = new List<ChartCurrencyDataPoint<CurrencyDataEntry>>();
+                foreach (CurrencyDataEntry data in pair.Value)
                 {
-                    dataPoints.Add(new ChartCurrencyDataPoint<CurrencyData>() { DataObject = data});
+                    dataPoints.Add(new ChartCurrencyDataPoint<CurrencyDataEntry>() { DataObject = data});
                 }
 
                 currencyDataPoints.Add(pair.Key, dataPoints);
@@ -50,7 +51,7 @@ namespace CurrencyExplorer.Models
         /// <param name="date">The date which currencies should be returned on.</param>
         /// <param name="chartCurrencyCodes">The list of currency codes which currency data should be returned for.</param>
         /// <returns>The dictionary of currency code as key and currency data as value</returns>
-        public IDictionary<CurrencyCode, CurrencyData> GetDailyCurrencies(DateTime date, ICollection<CurrencyCode> chartCurrencyCodes)
+        public IDictionary<CurrencyCodeEntry, CurrencyDataEntry> GetDailyCurrencies(DateTime date, ICollection<CurrencyCodeEntry> chartCurrencyCodes)
         {
             return _iCachingProcessor.RequestSingleData(date, chartCurrencyCodes);
         }

@@ -10,7 +10,7 @@ function loadChartData(begin, end, currencies) {
     end = new Date();
     */
 
-    begin = new Date(2016, 1, 8);
+    begin = new Date(2016, 3, 8);
     end = new Date(2016, 3, 22);
     currencies = new Array("USD", "EUR");
     

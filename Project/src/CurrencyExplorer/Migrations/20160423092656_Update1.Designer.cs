@@ -8,15 +8,16 @@ using CurrencyExplorer.Models.Entities.Database;
 namespace CurrencyExplorer.Migrations
 {
     [DbContext(typeof(CurrencyDataContext))]
-    partial class CurrencyDataContextModelSnapshot : ModelSnapshot
+    [Migration("20160423092656_Update1")]
+    partial class Update1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CurrencyExplorer.Models.Entities.Database.CurrencyCodeEntry", b =>
+            modelBuilder.Entity("CurrencyExplorer.Models.Entities.CurrencyCode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -30,25 +31,25 @@ namespace CurrencyExplorer.Migrations
                     b.HasKey("Id");
                 });
 
-            modelBuilder.Entity("CurrencyExplorer.Models.Entities.Database.CurrencyDataEntry", b =>
+            modelBuilder.Entity("CurrencyExplorer.Models.Entities.CurrencyData", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("ActualDate");
 
-                    b.Property<int?>("DbCurrencyCodeEntryId");
+                    b.Property<int>("CurrencyCodeId");
 
                     b.Property<double>("Value");
 
                     b.HasKey("Id");
                 });
 
-            modelBuilder.Entity("CurrencyExplorer.Models.Entities.Database.CurrencyDataEntry", b =>
+            modelBuilder.Entity("CurrencyExplorer.Models.Entities.CurrencyData", b =>
                 {
-                    b.HasOne("CurrencyExplorer.Models.Entities.Database.CurrencyCodeEntry")
+                    b.HasOne("CurrencyExplorer.Models.Entities.CurrencyCode")
                         .WithMany()
-                        .HasForeignKey("DbCurrencyCodeEntryId");
+                        .HasForeignKey("CurrencyCodeId");
                 });
         }
     }

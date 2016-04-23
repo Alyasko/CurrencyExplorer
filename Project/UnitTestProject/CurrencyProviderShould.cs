@@ -36,7 +36,7 @@ namespace UnitTestProject
         {
             MsSqlCurrencyRepository repository = new MsSqlCurrencyRepository(new CurrencyDataContext());
 
-            var data = repository.GetEntries().ToArray();
+            var data = repository.GetDataEntries().ToArray();
 
             Assert.NotNull(data);
         }

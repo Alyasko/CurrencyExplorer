@@ -30,7 +30,7 @@ namespace CurrencyExplorer.Models
 
         private CurrencyDataContext _currencyDataContext;
 
-        private ICollection<CurrencyCode> _allCurrencyCodes;
+        private ICollection<CurrencyCodeEntry> _allCurrencyCodes;
 
         public IConfiguration Configuration { get; set; }
 
@@ -62,9 +62,9 @@ namespace CurrencyExplorer.Models
             _allCurrencyCodes = GetAllCurrencyCodes();
         }
 
-        private ICollection<CurrencyCode> GetAllCurrencyCodes()
+        private ICollection<CurrencyCodeEntry> GetAllCurrencyCodes()
         {
-            ICollection<CurrencyCode> result = null;
+            ICollection<CurrencyCodeEntry> result = null;
             if (_allCurrencyCodes != null && _allCurrencyCodes.Any())
             {
                 result = _allCurrencyCodes;
@@ -86,7 +86,7 @@ namespace CurrencyExplorer.Models
             ChartDataPoints = _dataProcessor.GetChartData(ChartTimePeriod, ConvertCurrencyStringsToCodes(ChartCurrencyCodeStrings));
         }
 
-        private ICollection<CurrencyCode> ConvertCurrencyStringsToCodes(ICollection<string> input)
+        private ICollection<CurrencyCodeEntry> ConvertCurrencyStringsToCodes(ICollection<string> input)
         {
             var allCodes = GetAllCurrencyCodes();
 
@@ -143,14 +143,14 @@ namespace CurrencyExplorer.Models
                 },
             };
 
-            ICollection<CurrencyCode> defaultCodes = new List<CurrencyCode>();
+            ICollection<CurrencyCodeEntry> defaultCodes = new List<CurrencyCodeEntry>();
 
             var allCodes = _iCachingProcessor.RequestAllCurrencyCodes();
 
             defaultCodes.Add(allCodes.ElementAt(0));
             defaultCodes.Add(allCodes.ElementAt(1));
 
-            IDictionary<CurrencyCode, CurrencyData> recvData = null;
+            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> recvData = null;
 
             DateTime iterator = DateTime.Now;
 
@@ -181,8 +181,8 @@ namespace CurrencyExplorer.Models
         }
 
         public ChartTimePeriod ChartTimePeriod { get; set; }
-        public IDictionary<CurrencyCode, ICollection<ChartCurrencyDataPoint<CurrencyData>>> ChartDataPoints { get; set; }
-        public IDictionary<CurrencyCode, CurrencyData> TodaysCurrencies { get; set; }
+        public IDictionary<CurrencyCodeEntry, ICollection<ChartCurrencyDataPoint<CurrencyDataEntry>>> ChartDataPoints { get; set; }
+        public IDictionary<CurrencyCodeEntry, CurrencyDataEntry> TodaysCurrencies { get; set; }
         /// <summary>
         /// Like USD, UAH.
         /// </summary>

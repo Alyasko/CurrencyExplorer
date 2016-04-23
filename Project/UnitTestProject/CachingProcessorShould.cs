@@ -22,17 +22,17 @@ namespace UnitTestProject
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
             ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlCurrencyRepository(new CurrencyDataContext()));
 
-            IDictionary<CurrencyCode, CurrencyData> data = null;
+            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> data = null;
 
             try
             {
-                data = cachingProcessor.RequestSingleData(DateTime.Now, new CurrencyCode[]
+                data = cachingProcessor.RequestSingleData(DateTime.Now, new CurrencyCodeEntry[]
                 {
-                    new CurrencyCode()
+                    new CurrencyCodeEntry()
                     {
                         Value = "36"
                     },
-                    new CurrencyCode()
+                    new CurrencyCodeEntry()
                     {
                         Value = "826"
                     }
@@ -54,11 +54,11 @@ namespace UnitTestProject
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
             ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlCurrencyRepository(new CurrencyDataContext()));
 
-            IDictionary<CurrencyCode, CurrencyData> data = null;
+            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> data = null;
 
             try
             {
-                data = cachingProcessor.RequestSingleData(DateTime.Now, new CurrencyCode[]
+                data = cachingProcessor.RequestSingleData(DateTime.Now, new CurrencyCodeEntry[]
                 {
 
                 });
@@ -96,13 +96,13 @@ namespace UnitTestProject
 
             ChartTimePeriod timePeriod = new ChartTimePeriod(DateTime.Now.Subtract(TimeSpan.FromDays(10)), DateTime.Now);
 
-            var data = cachingProcessor.RequestPeriodData(timePeriod, new CurrencyCode[]
+            var data = cachingProcessor.RequestPeriodData(timePeriod, new CurrencyCodeEntry[]
             {
-                new CurrencyCode()
+                new CurrencyCodeEntry()
                 {
                     Value = "36"
                 },
-                new CurrencyCode()
+                new CurrencyCodeEntry()
                 {
                     Value = "826"
                 }
@@ -121,7 +121,7 @@ namespace UnitTestProject
 
             ChartTimePeriod timePeriod = new ChartTimePeriod(DateTime.Now.Subtract(TimeSpan.FromDays(10)), DateTime.Now);
 
-            var data = cachingProcessor.RequestPeriodData(timePeriod, new CurrencyCode[]
+            var data = cachingProcessor.RequestPeriodData(timePeriod, new CurrencyCodeEntry[]
             {
             });
 

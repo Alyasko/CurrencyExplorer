@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 using CurrencyExplorer.Utilities;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Internal;
@@ -17,9 +18,9 @@ namespace CurrencyExplorer.Models.CurrencyImporters
 {
     public class JsonCurrencyImporter : AbstractCurrencyImporter
     {
-        public override IDictionary<CurrencyCode, CurrencyData> Import(DateTime date)
+        public override IDictionary<CurrencyCodeEntry, JsonCurrencyData> Import(DateTime date)
         {
-            IDictionary<CurrencyCode, CurrencyData> currencyCodeResult = null;
+            IDictionary<CurrencyCodeEntry, JsonCurrencyData> currencyCodeResult = null;
 
             string jsonStringResult = "";
 
@@ -40,17 +41,22 @@ namespace CurrencyExplorer.Models.CurrencyImporters
                 //jsonSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat;
                 //jsonSettings.DateFormatString = "dd.mm.yyyy";
 
-                IEnumerable<CurrencyData> jsonCurrencyData =
-                    JsonConvert.DeserializeObject<IEnumerable<CurrencyData>>(jsonStringResult);
+                IEnumerable<JsonCurrencyData> jsonCurrencyData =
+                    JsonConvert.DeserializeObject<IEnumerable<JsonCurrencyData>>(jsonStringResult);
 
                 if (jsonCurrencyData.Any())
                 {
-                    currencyCodeResult = new Dictionary<CurrencyCode, CurrencyData>();
+                    currencyCodeResult = new Dictionary<CurrencyCodeEntry, JsonCurrencyData>();
 
-                    foreach (CurrencyData currencyData in jsonCurrencyData)
+                    foreach (JsonCurrencyData currencyData in jsonCurrencyData)
                     {
-                        currencyData.CurrencyCode.Alias = currencyData.ShortName;
-                        currencyCodeResult.Add(currencyData.CurrencyCode, currencyData);
+                        CurrencyCodeEntry currencyCodeEntry = new CurrencyCodeEntry()
+                        {
+                            Value = currencyData.CurrencyCodeValue,
+                            Alias = currencyData.ShortName,
+                            Name = currencyData.Name
+                        };
+                        currencyCodeResult.Add(currencyCodeEntry, currencyData);
                     }
                 }
                 else

@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 
 namespace CurrencyExplorer.Models.Contracts
 {
     public interface ICachingProcessor
     {
-        IDictionary<CurrencyCode, CurrencyData> RequestSingleData(
+        IDictionary<CurrencyCodeEntry, CurrencyDataEntry> RequestSingleData(
             DateTime time,
-            ICollection<CurrencyCode> codes,
+            ICollection<CurrencyCodeEntry> codes,
             bool useCaching = true);
 
-        IDictionary<CurrencyCode, ICollection<CurrencyData>> RequestPeriodData(
+        IDictionary<CurrencyCodeEntry, ICollection<CurrencyDataEntry>> RequestPeriodData(
             ChartTimePeriod timePeriod,
-            ICollection<CurrencyCode> codes);
+            ICollection<CurrencyCodeEntry> codes);
 
-        ICollection<CurrencyCode> RequestAllCurrencyCodes();
+        ICollection<CurrencyCodeEntry> RequestAllCurrencyCodes();
 
     }
 }

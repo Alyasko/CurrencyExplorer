@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace CurrencyExplorer.Models.Entities
+namespace CurrencyExplorer.Models.Entities.Database
 {
-    public class CurrencyCode
+    public class CurrencyCodeEntry
     {
-        public CurrencyCode()
+        public CurrencyCodeEntry()
         {
             
         }
 
-        public CurrencyCode(string value, string alias)
+        public CurrencyCodeEntry(string value, string alias)
         {
             Value = value;
             Alias = alias;
@@ -28,6 +24,11 @@ namespace CurrencyExplorer.Models.Entities
         public string Value { get; set; }
 
         /// <summary>
+        /// The description of the currency code.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
         /// The alias for Value. For example USD, UAH.
         /// </summary>
         public string Alias { get; set; }
@@ -37,19 +38,21 @@ namespace CurrencyExplorer.Models.Entities
             return Value;
         }
 
+        #region EqualityMembers
+
         public override bool Equals(object obj)
         {
-            CurrencyCode currency = obj as CurrencyCode;
+            CurrencyCodeEntry dbCurrency = obj as CurrencyCodeEntry;
 
-            if (currency == null)
+            if (dbCurrency == null)
             {
                 return false;
             }
 
-            return string.Equals(Value, currency.Value);
+            return string.Equals(Value, dbCurrency.Value);
         }
 
-        protected bool Equals(CurrencyCode other)
+        protected bool Equals(CurrencyCodeEntry other)
         {
             return string.Equals(Value, other.Value);
         }
@@ -58,5 +61,8 @@ namespace CurrencyExplorer.Models.Entities
         {
             return (Value != null ? Value.GetHashCode() : 0);
         }
+
+        #endregion
+
     }
 }

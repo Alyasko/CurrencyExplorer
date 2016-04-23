@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
+using CurrencyExplorer.Models.Entities.Database;
 
 namespace CurrencyExplorer.Models.Contracts
 {
@@ -12,63 +13,63 @@ namespace CurrencyExplorer.Models.Contracts
         /// Queries all entries from database.
         /// </summary>
         /// <returns>All entries.</returns>
-        IQueryable<CurrencyData> GetEntries();
+        IQueryable<CurrencyDataEntry> GetDataEntries();
 
         /// <summary>
         /// Get entries withing specified time period.
         /// </summary>
         /// <param name="timePeriod"></param>
         /// <returns>Entries withing specified time period.</returns>
-        IQueryable<CurrencyData> GetEntries(ChartTimePeriod timePeriod);
+        IQueryable<CurrencyDataEntry> GetDataEntries(ChartTimePeriod timePeriod);
 
         /// <summary>
         /// Get all code entries.
         /// </summary>
         /// <returns>The list of code entries</returns>
-        IQueryable<CurrencyCode> GetCodeEntries();
+        IQueryable<CurrencyCodeEntry> GetCodeEntries();
 
         /// <summary>
         /// Adds entry to the database.
         /// </summary>
         /// <param name="currencyData">The data to be added.</param>
-        void AddEntry(CurrencyData currencyData);
+        void AddDataEntry(CurrencyDataEntry currencyData);
 
         /// <summary>
         /// Adds list of entries to the database.
         /// </summary>
         /// <param name="entries">The list of entries to be added.</param>
-        void AddEntries(ICollection<CurrencyData> entries);
+        void AddDataEntries(ICollection<CurrencyDataEntry> entries);
 
         /// <summary>
         /// Adds list of code entries to the database.
         /// </summary>
         /// <param name="codeEntries">The list of code entries to be added.</param>
-        void AddCodeEntries(ICollection<CurrencyCode> codeEntries);
+        void AddCodeEntries(ICollection<CurrencyCodeEntry> codeEntries);
 
         /// <summary>
         /// Adds code entry to the database.
         /// </summary>
-        /// <param name="codeEntry">The data to be added.</param>
-        void AddCodeEntry(CurrencyCode codeEntry);
+        /// <param name="codeEntryEntry">The data to be added.</param>
+        void AddCodeEntry(CurrencyCodeEntry codeEntryEntry);
 
         /// <summary>
         /// Removes all database entries from the database that satisfy specified currency code.
         /// </summary>
         /// <param name="entryToRemove">Specified currency to be removed.</param>
-        void RemoveEntries(CurrencyCode entryToRemove);
+        void RemoveDataEntries(CurrencyCodeEntry entryToRemove);
 
         /// <summary>
         /// Removes all entries within specified time period.
         /// </summary>
         /// <param name="timePeriod">The period of time which entries are to be removed.</param>
-        void RemoveEntries(ChartTimePeriod timePeriod);
+        void RemoveDataEntries(ChartTimePeriod timePeriod);
 
         /// <summary>
         /// Removes all entries that satisfy specified currency code within period of time.
         /// </summary>
         /// <param name="entryToRemove">Specified currency to be removed.</param>
         /// <param name="timePeriod">The period of time which entries are to be removed.</param>
-        void RemoveEntries(CurrencyCode entryToRemove, ChartTimePeriod timePeriod);
+        void RemoveDataEntries(CurrencyCodeEntry entryToRemove, ChartTimePeriod timePeriod);
 
         /// <summary>
         /// Exeutes specified query.
