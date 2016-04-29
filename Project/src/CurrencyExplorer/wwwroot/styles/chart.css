@@ -1,11 +1,16 @@
-﻿div#chart svg {
+﻿.chart-currency-label {
+    position: absolute;
 
-}
+    background-color: #4f85ce;
+    color: white;
 
+    text-align: center;
 
+    padding: 1px 8px 2px 8px;
 
-.rect {
-    fill: red;
-    stroke: black;
-    stroke-width: 3px;
+    overflow: hidden;
+
+    transition: width 0.2s ease;
+
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.20);
 }

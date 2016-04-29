@@ -13,7 +13,9 @@ using Newtonsoft.Json;
 namespace CurrencyExplorer.Models.Entities
 {
     [JsonObject]
+#pragma warning disable CS0659 // 'JsonCurrencyData' overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public class JsonCurrencyData
+#pragma warning restore CS0659 // 'JsonCurrencyData' overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
         private string _actualDateString;
 

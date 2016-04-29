@@ -9,6 +9,8 @@
         top: 200px;
         left: 20px;
 
+        z-index: 1;
+
         position: absolute;
     }
 
@@ -20,6 +22,8 @@
 
         top: 200px;
         right: 20px;
+
+        z-index: 1;
 
         position: absolute;
     }
@@ -38,7 +42,7 @@
 
 div#explorer #chart {
     background-color: rgb(240, 240, 240);
-
+    position: relative;
     text-align: center;
 }
 

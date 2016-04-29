@@ -1,8 +1,8 @@
 SELECT * FROM CurrencyCodeEntry;
 SELECT * FROM CurrencyDataEntry  ORDER BY ActualDate;
 
-DELETE FROM CurrencyData;
-DELETE FROM CurrencyCode;
+DELETE FROM CurrencyDataEntry;
+DELETE FROM CurrencyCodeEntry;
 
 
 DELETE FROM CurrencyCode WHERE Id = 234;

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="~/styles/main-menu.css" />
     <link rel="stylesheet" href="~/styles/explorer.css" />
     <link rel="stylesheet" href="~/styles/chart.css" />
+    <link rel="stylesheet" href="~/styles/scroller.css" />
 </head>
 <body>
     <header>
@@ -97,25 +98,36 @@
                 @Html.Partial("~/Views/Partial/TodayPartial.cshtml", ((UserSettings) ViewBag.UserSettings).Currencies)
                 <hr class="no-style today-hr"/>
             </div>
+
             <div id="navigation">
                 <div id="left">
-                    <svg id="btn-nav-left" width="40" height="100">
+                    <svg id="btn-nav-left" width="40" height="100" onclick="scrollChartRight(80)">
                         <polygon points="25,0 0,50, 25,100 40,100 15,50 40,0 25,0" class="nav-normal"></polygon>
                     </svg>
                 </div>
                 <div id="right">
-                    <svg id="btn-nav-right" width="40" height="100">
+                    <svg id="btn-nav-right" width="40" height="100" onclick="scrollChartLeft(80)">
                         <polygon points="25,0 0,50, 25,100 40,100 15,50 40,0 25,0" class="nav-normal" transform="rotate(180 20 50)"></polygon>
                     </svg>
                 </div>
             </div>
+
             <div id="chart">
-                <canvas width="800" height="500" id="canvas-explorer-chart">
-                    
+
+                <canvas width="800" height="500" style="background-color: transparent" id="canvas-explorer-chart">
+
                 </canvas>
+
+
             </div>
             <div id="timeline">
-
+                <div id="scroller-wrapper">
+                    <div id="scroller">
+                        <div id="bar">
+                            Period
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="information" class="text-color-gray clear-after">
                 <div id="dates">
@@ -123,7 +135,7 @@
                     <div>End date: Feb, 29, 2016</div>
                 </div>
                 <div id="export-to">
-                    <input type="submit" onclick="loadChartData(Date.now(), 0, 0)" class="export-button" name="export-image" value="Export as image"/>
+                    <input type="submit" onclick="" class="export-button" name="export-image" value="Export as image"/>
                     <br/>
                     <input type="submit" onclick="" class="export-button" name="export-table" value="Export as table"/>
                 </div>

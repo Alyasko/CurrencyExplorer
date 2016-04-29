@@ -1,0 +1,43 @@
+﻿#scroller-wrapper {
+    position: relative;
+
+    z-index: 1;
+
+    background-color: rgb(240, 240, 240);
+}
+
+#scroller {
+    height: 25px;
+
+    border-left: 3px solid lightgray;
+    border-right: 3px solid lightgray;
+
+    background-color: white;
+
+    margin: 0 40px 0 40px;
+}
+
+#bar {
+    cursor: default;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    position: absolute;
+
+    background-color: lightgray;
+
+    padding: 0 8px 2px 8px;
+}
+
+#bar:hover {
+    background-color: #60bc4e;
+    color: white;
+}
+
+#bar:active {
+    background-color: #6bc759;
+}

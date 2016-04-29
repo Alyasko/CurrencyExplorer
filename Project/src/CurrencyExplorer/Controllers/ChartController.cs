@@ -72,7 +72,9 @@ namespace CurrencyExplorer.Controllers
             {
                 Debug.WriteLine(e.Message);
                 throw;
+#pragma warning disable CS0162 // Unreachable code detected
                 return HttpNotFound();
+#pragma warning restore CS0162 // Unreachable code detected
             }
 
 
