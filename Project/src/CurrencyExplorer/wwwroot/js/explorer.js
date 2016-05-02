@@ -1,13 +1,21 @@
 ﻿var parsedChartJsonData = null;
 var currencyLblsStatus = new Array();
+var currencyPopupPoints = new Array();
 var currencyLblsHandlerAssigned = false;
+
 var CANVAS_ID = "canvas-explorer-chart";
+var CHART_POPUP_ID = "chart-popup";
+
 var SCROLLBAR_MARGIN = 40;
+var CHART_LEFT_RIGHT_MARGIN = 40;
+var CANVAS_PAGE_MARGINS = 130;
+
 
 var isScrollBarDragging;
 var scrollBarPosDifference;
 var mousePosition = new Object();
 var chartScrollingValue;
+var totalChartWidth;
 
 $(document).ready(function () {
     updateCanvasWidth(CANVAS_ID);
@@ -18,9 +26,9 @@ $(document).ready(function () {
 
     chartScrollingValue = 0;
 
-    $("#bar").mousedown(scrollBarMouseDown);
-    $("#bar").mouseup(scrollBarMouseUp);
-    $(document).mousemove(scrollBarMouseMove);
+    $("#" + CANVAS_ID).mousedown(scrollBarMouseDown);
+    $("#" + CANVAS_ID).mouseup(scrollBarMouseUp);
+    $("#" + CANVAS_ID).mousemove(scrollBarMouseMove);
 });
 
 $(window).resize(function () {
@@ -32,18 +40,66 @@ $(window).resize(function () {
 
 function scrollBarMouseMove(e) {
     if (isScrollBarDragging) {
-        var windowWidth = $(document).width();
-        var bar = $("#bar");
         var x = e.pageX - scrollBarPosDifference;
-        if (x >= (SCROLLBAR_MARGIN + 2) && (x + bar.width() + 18) <= (windowWidth - SCROLLBAR_MARGIN)) {
-            bar.css("left", x);
+
+        scrollChartAbsolute(x);
+    } else {
+        checkDataPoints(e);
+    }
+}
+
+function checkDataPoints(e) {
+    var HIT_TEST_RADIUS = 10;
+
+    var canvas = $("#" + CANVAS_ID);
+    var canvasLeft = canvas.offset().left;
+    var canvasTop = canvas.offset().top;
+    var canvasHeight = canvas.height();
+
+    var popup = $("#" + CHART_POPUP_ID);
+
+    var isHit = false;
+    var lastTop = 0;
+     
+    for (var i = 0; i < currencyPopupPoints.length; i++) {
+        var obj = currencyPopupPoints[i];
+        var currencyData = obj.Object;
+
+        var pX = obj.X;
+        var pY = obj.Y;
+
+        var mX = e.pageX - canvasLeft;
+        var mY = canvasTop + canvasHeight - e.pageY;
+
+        lastTop = canvasHeight - pY - popup.height() - 20;
+
+        if ((pX - mX) * (pX - mX) + (pY - mY) * (pY - mY) <= (HIT_TEST_RADIUS * HIT_TEST_RADIUS)) {
+            $("#currency-name").text(currencyData.Name);
+            $("#currency-value").text(currencyData.Value);
+            $("#currency-date").text(currencyData.ActualDate);
+
+            popup.removeClass("popup-hidden");
+            popup.addClass("popup-shown");
+            popup.css({
+                left: canvasLeft + pX - popup.width() / 2 + "px",
+                top: lastTop + "px"
+            });
+            isHit = true;
         }
     }
+
+    if (isHit === false) {
+        popup.removeClass("popup-shown");
+        popup.addClass("popup-hidden");
+    }
+
+    $("#dates").text("MX: " + mX + " MY: " + mY);
 }
 
 function scrollBarMouseDown(e) {
     isScrollBarDragging = true;
-    scrollBarPosDifference = e.pageX - $("#bar").position().left;
+    //alert($("#" + CANVAS_ID).offset().left);
+    scrollBarPosDifference = e.pageX - chartScrollingValue;
 }
 
 function scrollBarMouseUp() {
@@ -55,7 +111,7 @@ function scrollBarMouseUp() {
 function updateCanvasWidth(id) {
     var windowWidth = $(document).width();
     var canvas = document.getElementById(id);
-    canvas.width = windowWidth - 300;
+    canvas.width = windowWidth - CANVAS_PAGE_MARGINS * 2;
 }
 
 function loadChartData(begin, end, currencies) {
@@ -65,9 +121,9 @@ function loadChartData(begin, end, currencies) {
     end = new Date();
     */
 
-    begin = new Date(2016, 1, 22);
-    end = new Date(2016, 3, 22);
-    currencies = new Array("USD", "AUD", "EUR");
+    begin = new Date(2016, 2, 22);
+    end = new Date();
+    currencies = new Array("USD", "EUR");
 
     var dataObj = {
         Begin: begin.toUTCString(),
@@ -100,12 +156,15 @@ function drawChart(jData, cnv, parseJson, horTransl) {
     var data = parsedChartJsonData;
 
     var chart = $("#canvas-explorer-chart");
+    currencyPopupPoints = new Array();
 
     var NORMAL_MODE_MAX_POINTS_COUNT = 200;
-    var MARGIN_LEFT = 20;
-    var MARGIN_RIGHT = 20;
+    var MARGIN_LEFT = 0;
+    var MARGIN_RIGHT = 0;
     var MARGIN_BOTTOM = 50;
     var MARGIN_TOP = 50;
+
+    var CURRENCY_LABELS_RIGHT_MARGIN = 80;
 
     var TIGHT_POINTS_THRESHOLD = 20;
 
@@ -124,6 +183,8 @@ function drawChart(jData, cnv, parseJson, horTransl) {
     // For scrolling.
     var horTranslation = horTransl;
 
+    $("#bar").text(horTranslation);
+
     //ctx.scale(1, -1);
     ctx.setTransform(1, 0, 0, -1, 0, 0);
     ctx.translate(0, -cnvHeight);
@@ -141,6 +202,8 @@ function drawChart(jData, cnv, parseJson, horTransl) {
 
         if (chartPointsCount < NORMAL_MODE_MAX_POINTS_COUNT) {
 
+            totalChartWidth = 0;
+
             var pointHStep = (cnvWidth - MARGIN_LEFT - MARGIN_RIGHT) / chartPointsCount;
             var pointVStep = (cnvHeight - MARGIN_TOP - MARGIN_BOTTOM) / diffValue;
 
@@ -154,13 +217,19 @@ function drawChart(jData, cnv, parseJson, horTransl) {
 
             ctx.beginPath();
 
+            var visiblePointNumber = 0;
+
             for (var j = chartPointsCount - 1; j >= 0; j--) {
                 var chartPoint = data[currency][j];
 
                 x = pointHStep / 2 + pointHStep * j + MARGIN_LEFT + horTranslation;
                 y = pointVStep * (chartPoint.Value - minValue) + MARGIN_BOTTOM;
 
-                if (x > (horTranslation) && x < cnvWidth + horTranslation) {
+                totalChartWidth += pointHStep;
+
+
+
+                if (x > 0 && x < cnvWidth) {
 
                     if (j !== chartPointsCount - 1) {
                         ctx.lineTo(x, y);
@@ -168,25 +237,37 @@ function drawChart(jData, cnv, parseJson, horTransl) {
                         ctx.moveTo(x, y);
                     }
 
-                    if (j == 0) {
+                    if (visiblePointNumber == 0) {
+                        //alert(visiblePointNumber);
+
+                        var lblFor = "lbl-for-" + currency.toLowerCase();
+
                         if (currencyLblsStatus.indexOf(currency) == -1) {
                             // First point.
-                            var lblFor = "lbl-for-" + currency.toLowerCase();
                             chart.before('<div class="chart-currency-label" data-descr="' + chartPoint.Name + '" id="' + lblFor + '">' + currency + '</div>');
-
-                            $("#" + lblFor).css({
-                                left: '100px',
-                                bottom: (y - 6) + 'px'
-                            });
-
                         }
+
+                        $("#" + lblFor).css({
+                            right: CURRENCY_LABELS_RIGHT_MARGIN + 'px',
+                            bottom: (y - 6) + 'px'
+                        });
+
+                        visiblePointNumber++;
 
                         currencyLblsStatus[currencyLblsStatus.length] = currency;
                     }
-                }
 
-                //ctx.fillArc(x, y, 5, 0, 2 * Math.PI);
+                    var popupObject = new Object();
+
+                    popupObject.X = x;
+                    popupObject.Y = y;
+                    popupObject.Object = chartPoint;
+
+                    currencyPopupPoints[currencyPopupPoints.length] = popupObject;
+                }
             }
+
+            totalChartWidth += pointHStep;
 
             ctx.stroke();
             ctx.closePath();
@@ -241,13 +322,35 @@ function findChartMin(drawData) {
     return min;
 }
 
+function scrollChartAbsolute(amount) {
+    var cnvWidth = $("#" + CANVAS_ID).width();
+    if (amount < (0 + CHART_LEFT_RIGHT_MARGIN) && amount > -(totalChartWidth + CHART_LEFT_RIGHT_MARGIN - cnvWidth)) {
+        chartScrollingValue = amount;
+    }
+
+    drawChart(null, CANVAS_ID, false, chartScrollingValue);
+}
+
 function scrollChartLeft(amount) {
-    chartScrollingValue -= amount;
+    var tempScrollingValue = chartScrollingValue + amount;
+    if (tempScrollingValue < (0 + CHART_LEFT_RIGHT_MARGIN)) {
+        chartScrollingValue += amount;
+    } else {
+        chartScrollingValue = (0 + CHART_LEFT_RIGHT_MARGIN);
+    }
+
     drawChart(null, CANVAS_ID, false, chartScrollingValue);
 }
 
 function scrollChartRight(amount) {
-    chartScrollingValue += amount;
+    var cnvWidth = $("#" + CANVAS_ID).width();
+    var tempScrollingValue = chartScrollingValue - amount;
+    if (tempScrollingValue > -(totalChartWidth + CHART_LEFT_RIGHT_MARGIN - cnvWidth)) {
+        chartScrollingValue = tempScrollingValue;
+    } else {
+        chartScrollingValue = -(totalChartWidth + CHART_LEFT_RIGHT_MARGIN - cnvWidth);
+    }
+
     drawChart(null, CANVAS_ID, false, chartScrollingValue);
 }
 

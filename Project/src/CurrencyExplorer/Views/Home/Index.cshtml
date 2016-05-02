@@ -101,33 +101,28 @@
 
             <div id="navigation">
                 <div id="left">
-                    <svg id="btn-nav-left" width="40" height="100" onclick="scrollChartRight(80)">
+                    <svg id="btn-nav-left" width="40" height="100" onclick="scrollChartLeft(50, false)">
                         <polygon points="25,0 0,50, 25,100 40,100 15,50 40,0 25,0" class="nav-normal"></polygon>
                     </svg>
                 </div>
                 <div id="right">
-                    <svg id="btn-nav-right" width="40" height="100" onclick="scrollChartLeft(80)">
+                    <svg id="btn-nav-right" width="40" height="100" onclick="scrollChartRight(50, false)">
                         <polygon points="25,0 0,50, 25,100 40,100 15,50 40,0 25,0" class="nav-normal" transform="rotate(180 20 50)"></polygon>
                     </svg>
                 </div>
             </div>
 
             <div id="chart">
-
+                <div id="chart-popup" class="popup-hidden">
+                    <div id="currency-name">USA dollar</div>
+                    <div id="currency-value">25.065315</div>
+                    <div id="currency-date">2016.05.21</div>
+                </div>
                 <canvas width="800" height="500" style="background-color: transparent" id="canvas-explorer-chart">
 
                 </canvas>
 
 
-            </div>
-            <div id="timeline">
-                <div id="scroller-wrapper">
-                    <div id="scroller">
-                        <div id="bar">
-                            Period
-                        </div>
-                    </div>
-                </div>
             </div>
             <div id="information" class="text-color-gray clear-after">
                 <div id="dates">

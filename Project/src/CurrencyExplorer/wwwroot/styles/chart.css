@@ -14,3 +14,44 @@
 
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.20);
 }
+
+#chart-popup {
+    position: absolute;
+
+    transition: opacity 0.2s ease, left 0.2s ease, top 0.2s ease;
+
+    width: 120px;
+    background-color: white;
+
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
+
+    overflow: hidden;
+}
+
+#currency-name {
+    font-size: 15px;
+    padding: 2px 4px 0 4px;
+    color: rgb(103, 103, 103);
+}
+
+#currency-value {
+    font-size: 23px;
+    padding: 2px 4px 0 4px;
+    color: #4f85ce;
+}
+
+
+#currency-date {
+    font-size: 13px;
+    padding: 2px 4px 2px 4px;
+    color: rgb(103, 103, 103);
+}
+
+.popup-shown {
+    opacity: 1;
+}
+
+.popup-hidden {
+    opacity: 0;
+}
+
