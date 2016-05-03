@@ -60,7 +60,7 @@ div#information {
 
     }
 
-    #export-to .export-button {
+    .blue-button {
         font-family: "Segoe UI";
 
         background-color: transparent;
@@ -75,19 +75,24 @@ div#information {
         padding: 5px;
     }
 
-    #export-to .export-button:focus {
+    .blue-button:focus {
         outline: none;
     }
 
-    #export-to .export-button:hover {
+    .blue-button:hover {
         background-color: #4f85ce;
         color: white;
 
         cursor: pointer;
     }
 
-    #export-to .export-button:active {
+    .blue-button:active {
         background-color: #6192d4;
         color: white;
+    }
+
+    #update-chart {
+        width: 100%;
+        margin-top: 5px;
     }
 

@@ -19,7 +19,7 @@ var totalChartWidth;
 
 $(document).ready(function () {
     updateCanvasWidth(CANVAS_ID);
-    loadChartData(0, 0, 0);
+    loadChartData();
 
     isScrollBarDragging = false;
     scrollBarPosDifference = 0;
@@ -92,8 +92,6 @@ function checkDataPoints(e) {
         popup.removeClass("popup-shown");
         popup.addClass("popup-hidden");
     }
-
-    $("#dates").text("MX: " + mX + " MY: " + mY);
 }
 
 function scrollBarMouseDown(e) {
@@ -114,35 +112,92 @@ function updateCanvasWidth(id) {
     canvas.width = windowWidth - CANVAS_PAGE_MARGINS * 2;
 }
 
-function loadChartData(begin, end, currencies) {
-    // PROBLEM
-    /*
-    begin = new Date(2016, 4, 1);
-    end = new Date();
-    */
+function checkPeriodDates(beginValue, endValue) {
+    var result = true;
 
-    begin = new Date(2016, 2, 22);
-    end = new Date();
-    currencies = new Array("USD", "EUR");
+    var beginDate = new Date(beginValue);
+    var endDate = new Date(endValue);
 
-    var dataObj = {
-        Begin: begin.toUTCString(),
-        End: end.toUTCString(),
-        Currencies: currencies
-    };
+    if (isNaN(beginDate.getTime()) || isNaN(endDate.getTime())) {
+        result = false;
+    }
 
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "Chart/LoadChartData",
-        data: "json=" + JSON.stringify(dataObj),
-        success: function (d) {
-            drawChart(d, CANVAS_ID, true, 0);
-        },
-        failure: function (err) {
-            alert(err);
+    return result;
+}
+
+function loadChartData() {
+    loadingShow();
+
+    var beginValue = $("#date-begin").val();
+    var endValue = $("#date-end").val();
+
+    var beginDate = new Date(beginValue);
+    var endDate = new Date(endValue);
+
+    var isCorrectPeriod = true;
+
+    if (isNaN(beginDate.getTime()) || isNaN(endDate.getTime())) {
+        isCorrectPeriod = false;
+    }
+
+    if (isCorrectPeriod === true) {
+        if (beginDate < endDate) {
+            var begin = beginDate;
+            var end = endDate;
+
+            var currencies = new Array("USD");
+
+            var dataObj = {
+                Begin: begin.toUTCString(),
+                End: end.toUTCString(),
+                Currencies: currencies
+            };
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "Chart/LoadChartData",
+                data: "json=" + JSON.stringify(dataObj),
+                success: function(d) {
+                    var parsedData = $.parseJSON(d);
+
+                    var state = parsedData["State"];
+                    var data = parsedData["Data"];
+
+                    if (state === "Success") {
+                        drawChart(data, CANVAS_ID, true, 0);
+                    } else if (state === "Failed") {
+                        alert(data);
+                    }
+
+                    loadingHide();
+                },
+                failure: function(err) {
+                    alert(err);
+                }
+            });
+        } else {
+            alert("Begin date cannot be later than end date.");
         }
-    });
+    } else {
+        alert("Incorrect date. I will not load data.");
+    }
+}
+
+function loadingShow() {
+    var cont = $("#loading-container");
+    if (cont.hasClass("loading-hidden")) {
+        cont.removeClass("loading-hidden");
+        cont.addClass("loading-shown");
+    }
+}
+
+function loadingHide() {
+    var cont = $("#loading-container");
+    if (cont.hasClass("loading-shown")) {
+        cont.removeClass("loading-shown");
+        cont.addClass("loading-hidden");
+    }
 }
 
 function getDrawingObject(jData) {
@@ -151,7 +206,7 @@ function getDrawingObject(jData) {
 
 function drawChart(jData, cnv, parseJson, horTransl) {
     if (parseJson == true) {
-        parsedChartJsonData = $.parseJSON(jData);
+        parsedChartJsonData = jData;
     }
     var data = parsedChartJsonData;
 
@@ -200,7 +255,7 @@ function drawChart(jData, cnv, parseJson, horTransl) {
     for (var currency in data) {
         var chartPointsCount = data[currency].length;
 
-        if (chartPointsCount < NORMAL_MODE_MAX_POINTS_COUNT) {
+        if (chartPointsCount > 0) {
 
             totalChartWidth = 0;
 

@@ -152,7 +152,8 @@ namespace CurrencyExplorer.Models
 
             IDictionary<CurrencyCodeEntry, CurrencyDataEntry> recvData = null;
 
-            DateTime iterator = DateTime.Now;
+            //DateTime iterator = DateTime.Now;
+            DateTime iterator = new DateTime(2016, 4, 28);
 
             while (recvData == null)
             {

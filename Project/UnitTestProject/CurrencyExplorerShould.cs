@@ -80,7 +80,7 @@ namespace UnitTestProject
         [Fact]
         public void TestDateStringFormat()
         {
-            string formated = Utils.GetFormattedDateString(DateTime.Parse("2016.03.10"));
+            string formated = Utils.GetJsonFormattedDateString(DateTime.Parse("2016.03.10"));
 
             Assert.Equal("20160310", formated);
         }

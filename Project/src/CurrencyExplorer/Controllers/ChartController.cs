@@ -37,6 +37,12 @@ namespace CurrencyExplorer.Controllers
 
                 if (clientRequest != null)
                 {
+                    if (clientRequest.End.Date > DateTime.Now.Date)
+                    {
+                        throw new ArgumentOutOfRangeException("End date should not be greater than todays date.");
+                    }
+
+
                     _currencyXplorer.ChartTimePeriod = new ChartTimePeriod(clientRequest.Begin, clientRequest.End);
                     _currencyXplorer.ChartCurrencyCodeStrings = clientRequest.Currencies;
                     _currencyXplorer.RequestChartData();
@@ -57,7 +63,7 @@ namespace CurrencyExplorer.Controllers
                             // TODO: fix date conversion so that it is based on language.
                             lazyPoints[pair.Key.Alias].Add(new JsonChartPointData()
                             {
-                                ActualDate = currencyDataPoint.DataObject.ActualDate.ToUniversalTime().ToString(),
+                                ActualDate = currencyDataPoint.DataObject.ActualDate.ToString("yyyy.M.dd"),
                                 Value = currencyDataPoint.DataObject.Value,
                                 Alias = currencyDataPoint.DataObject.DbCurrencyCodeEntry.Alias,
                                 Name = currencyDataPoint.DataObject.DbCurrencyCodeEntry.Name
@@ -65,19 +71,14 @@ namespace CurrencyExplorer.Controllers
                         }
                     }
 
-                    resultJson = JsonConvert.SerializeObject(lazyPoints);
+                    resultJson = JsonConvert.SerializeObject(new { State = "Success", Data = lazyPoints});
                 }
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
-                throw;
-#pragma warning disable CS0162 // Unreachable code detected
-                return HttpNotFound();
-#pragma warning restore CS0162 // Unreachable code detected
+                resultJson = JsonConvert.SerializeObject(new { State = "Failed", Data = e.Message });
             }
-
-
 
             return Json(resultJson);
         }

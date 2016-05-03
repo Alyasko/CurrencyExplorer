@@ -24,7 +24,7 @@ namespace CurrencyExplorer.Models.CurrencyImporters
 
             string jsonStringResult = "";
 
-            string dateFormated = Utils.GetFormattedDateString(date);
+            string dateFormated = Utils.GetJsonFormattedDateString(date);
             string requestUrl =
                 $"http://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date={dateFormated}&json";
 

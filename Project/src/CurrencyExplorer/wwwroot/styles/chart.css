@@ -55,3 +55,24 @@
     opacity: 0;
 }
 
+#loading-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 500px;
+    background-color: rgb(240, 240, 240);
+}
+
+#loading-animation {
+    vertical-align: middle;
+}
+
+.loading-shown {
+    display: table;
+}
+
+.loading-hidden {
+    display: none;
+}
+

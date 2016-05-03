@@ -6,9 +6,14 @@ namespace CurrencyExplorer.Utilities
 {
     public static class Utils
     {
-        public static string GetFormattedDateString(DateTime date)
+        public static string GetJsonFormattedDateString(DateTime date)
         {
             return $"{date.Year:0000}{date.Month:00}{date.Day:00}";
+        }
+
+        public static string GetClientFormattedDateString(DateTime date)
+        {
+            return $"{date.Year:0000}-{date.Month:00}-{date.Day:00}";
         }
 
         public static IConfigurationRoot CreateConfiguration(IApplicationEnvironment appEnv)
