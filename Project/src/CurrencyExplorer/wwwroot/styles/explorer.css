@@ -96,3 +96,7 @@ div#information {
         margin-top: 5px;
     }
 
+    #date-begin, #date-end {
+        display: inline-block;
+    }
+

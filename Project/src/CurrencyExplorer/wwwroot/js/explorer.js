@@ -60,7 +60,7 @@ function checkDataPoints(e) {
 
     var isHit = false;
     var lastTop = 0;
-     
+
     for (var i = 0; i < currencyPopupPoints.length; i++) {
         var obj = currencyPopupPoints[i];
         var currencyData = obj.Object;
@@ -126,7 +126,12 @@ function checkPeriodDates(beginValue, endValue) {
 }
 
 function loadChartData() {
-    loadingShow();
+    showMessageContainer();
+    hideLoadingError();
+    showLoading();
+
+    hideInputError("date-begin");
+    hideInputError("date-end");
 
     var beginValue = $("#date-begin").val();
     var endValue = $("#date-end").val();
@@ -158,7 +163,7 @@ function loadChartData() {
                 dataType: "json",
                 url: "Chart/LoadChartData",
                 data: "json=" + JSON.stringify(dataObj),
-                success: function(d) {
+                success: function (d) {
                     var parsedData = $.parseJSON(d);
 
                     var state = parsedData["State"];
@@ -170,34 +175,107 @@ function loadChartData() {
                         alert(data);
                     }
 
-                    loadingHide();
+                    hideLoading();
+                    hideLoadingError();
+                    hideMessageContainer();
                 },
-                failure: function(err) {
+                failure: function (err) {
                     alert(err);
                 }
             });
         } else {
-            alert("Begin date cannot be later than end date.");
+            showInputError("date-begin", "Begin date should be earlier that end date.");
+            showMessageContainer();
+            hideLoading();
+            showLoadingError();
         }
     } else {
-        alert("Incorrect date. I will not load data.");
+        showMessageContainer();
+        hideLoading();
+        showLoadingError();
+
+        if (isNaN(beginDate.getTime())) {
+            showInputError("date-begin", "Incorrect date fromat.");
+        }
+        if (isNaN(endDate.getTime())) {
+            showInputError("date-end", "Incorrect date fromat.");
+        }
     }
 }
 
-function loadingShow() {
-    var cont = $("#loading-container");
-    if (cont.hasClass("loading-hidden")) {
-        cont.removeClass("loading-hidden");
-        cont.addClass("loading-shown");
+function showInputError(id, text) {
+    var inp = $("#" + id);
+
+    inp.parent().parent().find(".error-description").removeClass(".hidden").addClass(".shown").text(text);
+    if (inp.hasClass("input-error") === false) {
+        inp.addClass("input-error");
     }
 }
 
-function loadingHide() {
-    var cont = $("#loading-container");
-    if (cont.hasClass("loading-shown")) {
-        cont.removeClass("loading-shown");
-        cont.addClass("loading-hidden");
+function hideInputError(id) {
+    var inp = $("#" + id);
+    inp.parent().parent().find(".error-description").removeClass(".shown").addClass(".hidden").text("");
+    if (inp.hasClass("input-error")) {
+        inp.removeClass("input-error");
     }
+}
+
+function showLoadingError() {
+    var err = $("#loading-error");
+
+    if (err.hasClass("hidden")) {
+        err.removeClass("hidden");
+        err.addClass("shown");
+
+    }
+}
+
+function hideLoadingError() {
+    var err = $("#loading-error");
+
+    if (err.hasClass("shown")) {
+        err.removeClass("shown");
+        err.addClass("hidden");
+    }
+}
+
+function showMessageContainer() {
+    var cont = $("#message-container");
+
+    if (cont.hasClass("hidden")) {
+        cont.removeClass("hidden");
+        cont.addClass("shown");
+    }
+}
+
+function hideMessageContainer() {
+    var cont = $("#message-container");
+
+    if (cont.hasClass("shown")) {
+        cont.removeClass("shown");
+        cont.addClass("hidden");
+    }
+}
+
+
+function showLoading() {
+    var loading = $("#loading-animation");
+
+    if (loading.hasClass("hidden")) {
+        loading.removeClass("hidden");
+        loading.addClass("shown");
+    }
+
+}
+
+function hideLoading() {
+    var loading = $("#loading-animation");
+
+    if (loading.hasClass("shown")) {
+        loading.removeClass("shown");
+        loading.addClass("hidden");
+    }
+
 }
 
 function getDrawingObject(jData) {
