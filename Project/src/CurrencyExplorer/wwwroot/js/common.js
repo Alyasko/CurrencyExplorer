@@ -87,6 +87,10 @@ $(document).ready(function () {
             isFixed = true;
         }
     });
+
+
+    // REMOVE
+    MenuItemsClick("settings");
 });
 
 

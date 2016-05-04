@@ -62,7 +62,7 @@ namespace CurrencyExplorer.Models
             _allCurrencyCodes = GetAllCurrencyCodes();
         }
 
-        private ICollection<CurrencyCodeEntry> GetAllCurrencyCodes()
+        public ICollection<CurrencyCodeEntry> GetAllCurrencyCodes()
         {
             ICollection<CurrencyCodeEntry> result = null;
             if (_allCurrencyCodes != null && _allCurrencyCodes.Any())

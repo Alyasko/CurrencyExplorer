@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
 using CurrencyExplorer.Models;
+using CurrencyExplorer.Models.Entities.Database;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Net.Http.Headers;
 
@@ -41,6 +42,9 @@ namespace CurrencyExplorer.Controllers
                 userSettings = _currencyXplorer.RequestDefaultUserSettings();
             }
 
+            ICollection<CurrencyCodeEntry> currencyCodesList = _currencyXplorer.GetAllCurrencyCodes();
+
+            ViewBag.CurrencyCodesList = currencyCodesList;
             ViewBag.UserSettings = userSettings;
 
             return View();

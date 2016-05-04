@@ -57,7 +57,7 @@ hr.no-style {
 
     z-index: 20;
 
-    width: 200px;
+    width: 300px;
     height: 100vh;
 
     transition: left 0.5s ease-in-out;
@@ -73,17 +73,14 @@ hr.no-style {
         background-color: white;
         border: none;
 
-        width: 100px;
+        width: 250px;
         height: 25px;
 
         color: rgba(111, 117, 125, 0.95);
 
         text-align: right;
 
-        font-weight: bold;
-        font-size: 15px;
-        
-        direction: rtl;
+        font-size: 14px;
     }
 
     #settings input[type="submit"] {
@@ -201,14 +198,12 @@ hr.no-style {
             opacity: 1;
         }
 
-    #convert-from div:first-child, #convert-to div:first-child {
+    #convert-from div:first-child {
         float: left;
     }
 
-    #convert-from div:last-child, #convert-to div:last-child{
+    #convert-from div:last-child{
         float: right;
-
-        margin-right: 6px;
 
         font-weight: bold;
     }
@@ -220,6 +215,50 @@ hr.no-style {
     #convert-to {
         margin-top: 10px;
     }
+
+
+
+    #currencies-list {
+        margin: 0;
+    }
+
+    .currency-name {
+        float: right;
+        font-weight: bold;
+    }
+
+    .currency-list-button {
+        margin: 0 4px 0 3px;
+        float: right;
+    }
+
+    #add-currency-wrapper {
+        float: right;
+    }
+
+    .currency-list-button-svg {
+        cursor: pointer;
+    }
+
+    .currency-list-button-svg:hover {
+        fill: #b7dfaf;
+        
+    }
+
+    .currency-list-button-svg:active {
+        fill: #ccebc6;
+    }
+
+    .currency-item, .new-item {
+        float: right;
+        clear: right;
+    }
+
+    .new-item {
+
+    }
+
+
 
 .clear-after:after {
     content: "";
