@@ -183,7 +183,7 @@ hr.no-style {
             width: 35px;
 
             opacity: 0.4;
-            padding: 4px;
+            padding: 4px 3px 0 3px;
 
             transition: opacity 0.2s ease-in-out;
         }
@@ -194,7 +194,7 @@ hr.no-style {
 
         .lang-selected {
             border: 3px solid #60bc4e;
-            border-radius: 5px;
+            border-radius: 0px;
         }
 
         .lang-selected img {
