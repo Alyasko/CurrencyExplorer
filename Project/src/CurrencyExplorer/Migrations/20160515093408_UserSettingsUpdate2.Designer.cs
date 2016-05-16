@@ -8,9 +8,10 @@ using CurrencyExplorer.Models.Entities.Database;
 namespace CurrencyExplorer.Migrations
 {
     [DbContext(typeof(CurrencyDataContext))]
-    partial class CurrencyDataContextModelSnapshot : ModelSnapshot
+    [Migration("20160515093408_UserSettingsUpdate2")]
+    partial class UserSettingsUpdate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")

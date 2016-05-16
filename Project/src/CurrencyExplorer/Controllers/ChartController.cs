@@ -42,9 +42,8 @@ namespace CurrencyExplorer.Controllers
                         throw new ArgumentOutOfRangeException("End date should not be greater than todays date.");
                     }
 
-
                     _currencyXplorer.ChartTimePeriod = new ChartTimePeriod(clientRequest.Begin, clientRequest.End);
-                    _currencyXplorer.ChartCurrencyCodeStrings = clientRequest.Currencies;
+                    _currencyXplorer.ChartCurrencyCodeStrings = clientRequest.CurrencyValues;
                     _currencyXplorer.RequestChartData();
 
                     points = _currencyXplorer.ChartDataPoints;

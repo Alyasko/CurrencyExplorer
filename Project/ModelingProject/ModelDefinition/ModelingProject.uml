@@ -2304,29 +2304,12 @@
         name="Configure Explorer"
         isAbstract="false"
         isLeaf="false">
-        <extendedCases>
-          <extend
-            Id="e8404f78-3e2f-4e40-87d9-c35ff8cb6154">
-            <useCaseMoniker
-              Id="173222d9-3a74-44aa-8885-9c7f07e0476c"
-              LastKnownName="Set currency"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-          <extend
-            Id="afc0f5ff-bdc3-482c-85c7-6cd44610f95b">
-            <useCaseMoniker
-              Id="909ebef5-c531-4372-a7c0-600ffc2ad2a6"
-              LastKnownName="Set time period"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-          <extend
-            Id="ef6ea591-f586-4c8b-a31c-8e6921f1e220">
-            <useCaseMoniker
-              Id="3c7e1c23-00ff-4cf6-9ebb-03dbb8fac00c"
-              LastKnownName="Set language"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2337,20 +2320,26 @@
         isLeaf="false">
         <extendedCases>
           <extend
-            Id="a674828a-2f40-4fe2-a90c-b53dcc46a752">
+            Id="54f4bf01-8a9f-4806-be16-cce6a7f9d458">
             <useCaseMoniker
-              Id="52de480c-4c5e-4a2f-b85c-2283c17ff330"
-              LastKnownName="Export as image"
+              Id="fbb05361-2280-4af7-adc0-da0675b2049b"
+              LastKnownName="Login"
               LastKnownLocation="ModelingProject.uml" />
           </extend>
           <extend
-            Id="93874b78-5ecb-4264-b44a-655e53623a6a">
+            Id="c50ee7d1-e891-48ee-b088-883e2ba98c76">
             <useCaseMoniker
-              Id="c7845afa-8699-4272-9779-a68b570ab6c0"
-              LastKnownName="Export as table"
+              Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13"
+              LastKnownName="Visit CurrencyExplorer"
               LastKnownLocation="ModelingProject.uml" />
           </extend>
         </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2359,6 +2348,15 @@
         name="Set currency"
         isAbstract="false"
         isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="91640b0f-5087-401c-bfa8-4d4cefab6a71">
+            <useCaseMoniker
+              Id="9b27a423-b08a-4f29-94da-0e21fe09d63a"
+              LastKnownName="Configure Explorer"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
         <additions>
           <include
             Id="f646298b-bd45-4a75-98d0-ebf64707a30d">
@@ -2368,6 +2366,12 @@
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2376,6 +2380,15 @@
         name="Set time period"
         isAbstract="false"
         isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="78f6b82a-96fa-4820-b797-248d9a60b0f4">
+            <useCaseMoniker
+              Id="9b27a423-b08a-4f29-94da-0e21fe09d63a"
+              LastKnownName="Configure Explorer"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
         <additions>
           <include
             Id="66c9afdc-9b9c-44d4-b9a5-83e9f5dee7f6">
@@ -2385,6 +2398,12 @@
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2393,6 +2412,15 @@
         name="Set language"
         isAbstract="false"
         isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="67589a63-1a1b-4f8f-8270-7909399075e3">
+            <useCaseMoniker
+              Id="9b27a423-b08a-4f29-94da-0e21fe09d63a"
+              LastKnownName="Configure Explorer"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
         <additions>
           <include
             Id="cdfe39f9-a944-4328-af5f-81f1ed2d7508">
@@ -2402,6 +2430,12 @@
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2409,14 +2443,46 @@
         Id="52de480c-4c5e-4a2f-b85c-2283c17ff330"
         name="Export as image"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="6bd24847-0a84-4dc1-97df-25be95026b7f">
+            <useCaseMoniker
+              Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1"
+              LastKnownName="Export currency data"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="c7845afa-8699-4272-9779-a68b570ab6c0"
         name="Export as table"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="5ec2a7e6-6070-4169-be9e-aafe45986fd3">
+            <useCaseMoniker
+              Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1"
+              LastKnownName="Export currency data"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -2424,6 +2490,15 @@
         name="Explore currency chart"
         isAbstract="false"
         isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="145f0c14-568f-4ccb-9352-ffbf9ad47a65">
+            <useCaseMoniker
+              Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13"
+              LastKnownName="Visit CurrencyExplorer"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
         <additions>
           <include
             Id="c1238006-09cd-4a19-a642-653402b890d6">
@@ -2433,6 +2508,12 @@
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2536,7 +2617,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="a6402489-b81c-41a8-9b19-238f92010c72"
-              LastKnownName="Check user IP"
+              LastKnownName="Process cookies"
               LastKnownLocation="ModelingProject.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -2742,6 +2823,12 @@
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2848,47 +2935,6 @@
         name="Visit CurrencyExplorer"
         isAbstract="false"
         isLeaf="false">
-        <targetEnds>
-          <association
-            Id="4621f087-9f61-4b52-a6dc-f27990fd9966"
-            isDerived="false"
-            sourceEndRoleName="Visit CurrencyExplorer"
-            targetEndRoleName="Login"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="fbb05361-2280-4af7-adc0-da0675b2049b"
-              LastKnownName="Login"
-              LastKnownLocation="ModelingProject.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="5ab2f164-f70d-40a1-a875-32252586c735"
-                  name="Visit CurrencyExplorer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="5b5aeb5e-6142-4283-ad61-f0ed6b0cfc0a"
-                  name="Login"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <extendedCases>
           <extend
             Id="11b72994-24c3-4fa9-9962-b994f493987a">
@@ -2897,30 +2943,22 @@
               LastKnownName="Configure Explorer"
               LastKnownLocation="ModelingProject.uml" />
           </extend>
-          <extend
-            Id="5b018ea3-533e-4261-aaa8-e4bc05e72a18">
-            <useCaseMoniker
-              Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1"
-              LastKnownName="Export currency data"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-          <extend
-            Id="348f3edd-95f5-4e19-8087-a2e565bd5da5">
-            <useCaseMoniker
-              Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b"
-              LastKnownName="Explore currency chart"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
         </extendedCases>
         <additions>
           <include
             Id="2199b2d7-317f-4f68-9a74-9435752ad166">
             <useCaseMoniker
               Id="a6402489-b81c-41a8-9b19-238f92010c72"
-              LastKnownName="Check user IP"
+              LastKnownName="Process cookies"
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2970,6 +3008,12 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3019,6 +3063,12 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3334,48 +3384,19 @@
         isLeaf="false">
         <extendedCases>
           <extend
-            Id="2ebc2c1f-09d6-497a-8a12-d005f282de52">
+            Id="2abbfe40-5f12-43cb-a35d-8fe1e649735f">
             <useCaseMoniker
-              Id="54c6653d-23bf-4b9d-9c83-157e7d424489"
-              LastKnownName="Set source data type"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-          <extend
-            Id="1de974cd-1c1d-484c-b4a5-c4941cd90181">
-            <useCaseMoniker
-              Id="9b27a423-b08a-4f29-94da-0e21fe09d63a"
-              LastKnownName="Configure Explorer"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-          <extend
-            Id="0369cd37-de1b-40c7-8d0c-e5dc560cb88b">
-            <useCaseMoniker
-              Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1"
-              LastKnownName="Export currency data"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-          <extend
-            Id="a59d3e44-3348-4dd5-8817-7d7ad0c5ad97">
-            <useCaseMoniker
-              Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b"
-              LastKnownName="Explore currency chart"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-          <extend
-            Id="e5d3d818-2b06-412c-af41-796fdac99376">
-            <useCaseMoniker
-              Id="fe9e962d-625f-48da-bb61-9632397f8b7b"
-              LastKnownName="View users settings"
-              LastKnownLocation="ModelingProject.uml" />
-          </extend>
-          <extend
-            Id="264352eb-5453-4730-a559-d5b74be64838">
-            <useCaseMoniker
-              Id="61140ca6-56b3-421a-b225-f0deb5aedb08"
-              LastKnownName="View caching statistics"
+              Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13"
+              LastKnownName="Visit CurrencyExplorer"
               LastKnownLocation="ModelingProject.uml" />
           </extend>
         </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3384,6 +3405,15 @@
         name="Set source data type"
         isAbstract="false"
         isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="77958e7d-c4d8-408d-9180-e97f3cd1f51e">
+            <useCaseMoniker
+              Id="fbb05361-2280-4af7-adc0-da0675b2049b"
+              LastKnownName="Login"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
         <additions>
           <include
             Id="25381be1-3df5-40dd-9720-eed6cf98959d">
@@ -3393,6 +3423,12 @@
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3401,6 +3437,15 @@
         name="View users settings"
         isAbstract="false"
         isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="813a8e4a-07db-44cf-8f0f-c6a7fcd8056b">
+            <useCaseMoniker
+              Id="fbb05361-2280-4af7-adc0-da0675b2049b"
+              LastKnownName="Login"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
         <additions>
           <include
             Id="be1613a6-4c4c-4156-9b79-511eef0ca60f">
@@ -3410,6 +3455,12 @@
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3418,6 +3469,15 @@
         name="View caching statistics"
         isAbstract="false"
         isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="6bac88ae-5fa0-4fd9-babe-e05b5dfb29a5">
+            <useCaseMoniker
+              Id="fbb05361-2280-4af7-adc0-da0675b2049b"
+              LastKnownName="Login"
+              LastKnownLocation="ModelingProject.uml" />
+          </extend>
+        </extendedCases>
         <additions>
           <include
             Id="311eba12-fe04-45fa-8a50-df0f5252d55d">
@@ -3427,21 +3487,41 @@
               LastKnownLocation="ModelingProject.uml" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="a6402489-b81c-41a8-9b19-238f92010c72"
-        name="Check user IP"
+        name="Process cookies"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="8e2a2f83-027f-479f-bd1c-a4d3803fc35d"
         name="Provide data"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -3490,6 +3570,12 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3581,7 +3667,7 @@
     <packageHasNamedElement>
       <class
         Id="ce90c200-5aec-4216-ae0f-b7dae4a8fa96"
-        name="UserSettingsHolder"
+        name="ProgramSettingsHolder"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -4068,6 +4154,42 @@
               LastKnownLocation="ModelingProject.uml" />
           </generalization>
         </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+        name="Currency Explorer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="42606cb4-63a5-4561-a89f-9311e9faa837"
+        name="Cache data"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="19eae3a7-2b68-4ab8-a82b-293f578f63f6"
+        name="Provide data"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138"
+            LastKnownName="Currency Explorer"
+            LastKnownLocation="ModelingProject.uml" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
   </packagedElements>

@@ -1,6 +1,9 @@
 ﻿var currenciesList = new Array();
 var itemId;
 
+var lastCorrectBeginDate = null;
+var lastCorrectEndDate = null;
+
 $(document).ready(function () {
     itemId = 0;
 
@@ -52,6 +55,43 @@ function addCurrency() {
     }
 }
 
+function sendSettings() {
+    var lang = getSelectedLanguage();
+
+    var currencies = new Array();
+
+    for (var i = 0; i < currenciesList.length; i++) {
+        currencies.push(currenciesList[i].Value);
+    }
+
+    var dataObj = {
+        Language: lang,
+        CurrencyValues: currencies,
+        BeginDate: lastCorrectBeginDate,
+        EndDate: lastCorrectEndDate
+    };
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "Settings/SaveUserSettings",
+        data: "json=" + JSON.stringify(dataObj),
+        success: function(d) {
+            alert(d.Result);
+            if (d.Result === "OK") {
+                loadChartData();
+            }
+        }
+    });
+
+    //
+
+}
+
+function getSelectedLanguage() {
+    return $(".lang-selected").attr("id");
+}
+
 function drawNewCurrencyItem(item) {
     var html = '<div id="ci-' + item.Id + '" class="currency-item" data-value="' + item.Value + '">' +
         '<div onclick="deleteCurrency(' + item.Id + ')" class="delete currency-list-button">' +
@@ -80,4 +120,5 @@ function deleteCurrency(id) {
         alert("The list should contain more than one item.");
     }
 }
+
 

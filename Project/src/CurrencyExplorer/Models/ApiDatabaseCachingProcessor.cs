@@ -17,11 +17,11 @@ namespace CurrencyExplorer.Models
     {
         private ICurrencyProvider _currencyProvider;
         private ICollection<DayOfWeek> _weekends;
-        private ICurrencyRepository _currencyRepository;
+        private IExplorerRepository _currencyRepository;
 
         public ApiDatabaseCachingProcessor(
             ICurrencyProvider iCurrencyProvider,
-            ICurrencyRepository iCurrencyRepository)
+            IExplorerRepository iCurrencyRepository)
         {
             _currencyProvider = iCurrencyProvider;
             _currencyRepository = iCurrencyRepository;
@@ -36,7 +36,7 @@ namespace CurrencyExplorer.Models
 
         public ApiDatabaseCachingProcessor(
             ICurrencyProvider iCurrencyProvider,
-            ICurrencyRepository iCurrencyRepository,
+            IExplorerRepository iCurrencyRepository,
             ICollection<DayOfWeek> weekends)
             : this(iCurrencyProvider, iCurrencyRepository)
         {
@@ -79,8 +79,6 @@ namespace CurrencyExplorer.Models
         public IDictionary<CurrencyCodeEntry, CurrencyDataEntry> RequestSingleData(DateTime time, ICollection<CurrencyCodeEntry> codes, bool useCaching = true)
         {
             IDictionary<CurrencyCodeEntry, CurrencyDataEntry> requiredSingleCurrencyData = null;
-
-            var dbCodes = _currencyRepository.GetCodeEntries();
 
             foreach (CurrencyCodeEntry code in codes)
             {
@@ -178,21 +176,16 @@ namespace CurrencyExplorer.Models
                 // Try get from database.
                 var dbEntries = TryGetPeriodDatabaseData(beginTime, endTime, code);
 
-                List<CurrencyDataEntry> entries = null;
+                List<CurrencyDataEntry> correctedEntries = null;
 
                 if (dbEntries == null)
                 {
-                    entries = new List<CurrencyDataEntry>();
+                    correctedEntries = new List<CurrencyDataEntry>();
                 }
                 else
                 {
-                    entries = dbEntries.ToList();
+                    correctedEntries = dbEntries.ToList();
                 }
-
-                List<CurrencyDataEntry> correctedEntries = new List<CurrencyDataEntry>();
-
-                // Add already acquired entries from database.
-                correctedEntries.AddRange(entries);
 
                 CurrencyDataEntry lastSingleData = null;
                 CurrencyDataEntry tempSingleData = null;

@@ -10,6 +10,6 @@ namespace CurrencyExplorer.Models.Entities
 
         public DateTime Begin { get; set; }
         public DateTime End { get; set; }
-        public List<string> Currencies { get; set; } 
+        public List<string> CurrencyValues { get; set; } 
     }
 }

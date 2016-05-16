@@ -1,0 +1,3 @@
+{
+    "State":"Success",
+    "Data":{"USD":[{"ActualDate":"2016.5.10","Value":25.162672,"Alias":"USD","Name":"Äמכאנ ÑØÀ"},{"ActualDate":"2016.5.11","Value":25.196137,"Alias":"USD","Name":"Äמכאנ ÑØÀ"},{"ActualDate":"2016.5.12","Value":25.325663,"Alias":"USD","Name":"Äמכאנ ÑØÀ"}],"EUR":[{"ActualDate":"2016.5.10","Value":28.753385,"Alias":"EUR","Name":"×גנמ"},{"ActualDate":"2016.5.11","Value":28.660606,"Alias":"EUR","Name":"×גנמ"},{"ActualDate":"2016.5.12","Value":28.894049,"Alias":"EUR","Name":"×גנמ"}]}}

@@ -34,7 +34,7 @@ namespace UnitTestProject
         [Fact]
         public void GetAllCurrencyCodes()
         {
-            MsSqlCurrencyRepository repository = new MsSqlCurrencyRepository(new CurrencyDataContext());
+            MsSqlExplorerRepository repository = new MsSqlExplorerRepository(new CurrencyDataContext());
 
             var data = repository.GetDataEntries().ToArray();
 

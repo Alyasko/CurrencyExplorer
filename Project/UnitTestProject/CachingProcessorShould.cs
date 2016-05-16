@@ -20,7 +20,7 @@ namespace UnitTestProject
         {
             ICurrencyImporter importer = new JsonCurrencyImporter();
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
-            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlCurrencyRepository(new CurrencyDataContext()));
+            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlExplorerRepository(new CurrencyDataContext()));
 
             IDictionary<CurrencyCodeEntry, CurrencyDataEntry> data = null;
 
@@ -52,7 +52,7 @@ namespace UnitTestProject
         {
             ICurrencyImporter importer = new JsonCurrencyImporter();
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
-            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlCurrencyRepository(new CurrencyDataContext()));
+            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlExplorerRepository(new CurrencyDataContext()));
 
             IDictionary<CurrencyCodeEntry, CurrencyDataEntry> data = null;
 
@@ -77,7 +77,7 @@ namespace UnitTestProject
         {
             ICurrencyImporter importer = new JsonCurrencyImporter();
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
-            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlCurrencyRepository(new CurrencyDataContext()));
+            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlExplorerRepository(new CurrencyDataContext()));
 
             Action action = () =>
             {
@@ -92,7 +92,7 @@ namespace UnitTestProject
         {
             ICurrencyImporter importer = new JsonCurrencyImporter();
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
-            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlCurrencyRepository(new CurrencyDataContext()));
+            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlExplorerRepository(new CurrencyDataContext()));
 
             ChartTimePeriod timePeriod = new ChartTimePeriod(DateTime.Now.Subtract(TimeSpan.FromDays(10)), DateTime.Now);
 
@@ -117,7 +117,7 @@ namespace UnitTestProject
         {
             ICurrencyImporter importer = new JsonCurrencyImporter();
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
-            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlCurrencyRepository(new CurrencyDataContext()));
+            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlExplorerRepository(new CurrencyDataContext()));
 
             ChartTimePeriod timePeriod = new ChartTimePeriod(DateTime.Now.Subtract(TimeSpan.FromDays(10)), DateTime.Now);
 
@@ -133,7 +133,7 @@ namespace UnitTestProject
         {
             ICurrencyImporter importer = new JsonCurrencyImporter();
             ICurrencyProvider currencyProvider = new NationalBankCurrencyProvider(importer);
-            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlCurrencyRepository(new CurrencyDataContext()));
+            ICachingProcessor cachingProcessor = new ApiDatabaseCachingProcessor(currencyProvider, new MsSqlExplorerRepository(new CurrencyDataContext()));
 
             ChartTimePeriod timePeriod = new ChartTimePeriod(DateTime.Now.Subtract(TimeSpan.FromDays(10)), DateTime.Now);
 

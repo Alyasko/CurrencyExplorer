@@ -25,8 +25,10 @@ namespace CurrencyExplorer.Models
         private ICachingProcessor _iCachingProcessor;
 
         private ICurrencyProvider _iCurrencyProvider;
-        private ICurrencyRepository _iCurrencyRepository;
+        private IExplorerRepository _iCurrencyRepository;
         private ICurrencyImporter _iCurrencyImporter;
+
+        private IUserSettingsHolder _iUserSettingsHolder;
 
         private CurrencyDataContext _currencyDataContext;
 
@@ -41,7 +43,7 @@ namespace CurrencyExplorer.Models
 
         public CurrencyXplorer(IApplicationEnvironment appEnv) : this()
         {
-            Configuration = Utils.CreateConfiguration(appEnv);
+            Configuration = Utils.CreateConfiguration(appEnv, "config.json");
 
             // Entry point for dependency injection.
 
@@ -51,12 +53,14 @@ namespace CurrencyExplorer.Models
             _iCurrencyProvider = new NationalBankCurrencyProvider(_iCurrencyImporter);
 
             _currencyDataContext = new CurrencyDataContext(Configuration["Data:DefaultConnection:ConnectionString"]);
-            _iCurrencyRepository = new MsSqlCurrencyRepository(_currencyDataContext);
+            _iCurrencyRepository = new MsSqlExplorerRepository(_currencyDataContext);
 
             _iCachingProcessor = new ApiDatabaseCachingProcessor(_iCurrencyProvider, _iCurrencyRepository);
 
+            _iUserSettingsHolder = new UserSettingsHolder(_iCurrencyRepository);
+
             _dataPresenter = new DataPresenter();
-            _dataHolder = new DataHolder();
+            _dataHolder = new DataHolder(_iCachingProcessor, _iUserSettingsHolder, Configuration);
             _dataProcessor = new DataProcessor(_iCachingProcessor);
 
             _allCurrencyCodes = GetAllCurrencyCodes();
@@ -83,14 +87,14 @@ namespace CurrencyExplorer.Models
         /// </summary>
         public void RequestChartData()
         {
-            ChartDataPoints = _dataProcessor.GetChartData(ChartTimePeriod, ConvertCurrencyStringsToCodes(ChartCurrencyCodeStrings));
+            ChartDataPoints = _dataProcessor.GetChartData(ChartTimePeriod, ConvertCurrencyVluesToCodes(ChartCurrencyCodeStrings));
         }
 
-        private ICollection<CurrencyCodeEntry> ConvertCurrencyStringsToCodes(ICollection<string> input)
+        private ICollection<CurrencyCodeEntry> ConvertCurrencyVluesToCodes(ICollection<string> input)
         {
             var allCodes = GetAllCurrencyCodes();
 
-            return allCodes.Where(e => input.Contains(e.Alias)).ToList();
+            return allCodes.Where(e => input.Contains(e.Value)).ToList();
         }
 
         /// <summary>
@@ -101,67 +105,27 @@ namespace CurrencyExplorer.Models
         public void RequestTodaysCurrencies()
         {
             //TodaysCurrencies
-            TodaysCurrencies = _dataProcessor.GetDailyCurrencies(DateTime.Now, ConvertCurrencyStringsToCodes(ChartCurrencyCodeStrings));
+            TodaysCurrencies = _dataProcessor.GetDailyCurrencies(DateTime.Now, ConvertCurrencyVluesToCodes(ChartCurrencyCodeStrings));
         }
 
         /// <summary>
         /// Adds user settings into the database.
         /// </summary>
-        /// <param name="ip">The IP that user is browsing from.</param>
+        /// <param name="uid">The uid cookie of browser</param>
         /// <param name="userSettings">User settings.</param>
-        public void AddUserSettings(string ip, UserSettings userSettings)
+        public void SaveUserSettings(long uid, UserSettingsRequest userSettings)
         {
-
+            _dataHolder.SaveSettings(uid, userSettings);
+            
         }
 
         /// <summary>
         /// Requests user settings by specified IP.
         /// </summary>
         /// <returns>The user settings.</returns>
-        public UserSettings RequestUserSettings(string cookie)
+        public UserSettings RequestUserSettings(long uid)
         {
-            // Get from DB.
-
-            Debug.WriteLine("User settings requested");
-
-
-            return null;
-            //throw new NotImplementedException();
-        }
-
-        public UserSettings RequestDefaultUserSettings()
-        {
-            // TODO: use data holder.
-
-            UserSettings defaultUserSettings = new UserSettings()
-            {
-                Language = CurrencyExplorerLanguage.English,
-                TimePeriod = new ChartTimePeriod()
-                {
-                    Begin = DateTime.Now.Subtract(TimeSpan.FromDays(30)),
-                    End = DateTime.Now
-                },
-            };
-
-            ICollection<CurrencyCodeEntry> defaultCodes = new List<CurrencyCodeEntry>();
-
-            var allCodes = _iCachingProcessor.RequestAllCurrencyCodes();
-
-            defaultCodes.Add(allCodes.ElementAt(0));
-            defaultCodes.Add(allCodes.ElementAt(1));
-
-            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> recvData = null;
-
-            //DateTime iterator = DateTime.Now;
-            DateTime iterator = new DateTime(2016, 4, 28);
-
-            while (recvData == null)
-            {
-                recvData = _iCachingProcessor.RequestSingleData(iterator, defaultCodes);
-                iterator = iterator.Subtract(TimeSpan.FromDays(1));
-            }
-
-            defaultUserSettings.Currencies = recvData.Select((pair) => pair.Value).ToList();
+            UserSettings defaultUserSettings = _dataHolder.LoadSettings(uid);
 
             return defaultUserSettings;
         }

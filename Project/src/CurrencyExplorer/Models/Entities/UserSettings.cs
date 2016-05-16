@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities.Database;
+using CurrencyExplorer.Models.Enums;
 
 namespace CurrencyExplorer.Models.Entities
 {

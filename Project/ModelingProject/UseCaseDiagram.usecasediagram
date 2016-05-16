@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="5c57e3e0-652e-4f6a-ba1b-ac6464394c99" name="UseCaseDiagram" linkedPackageId="84c29e9f-4d2c-40e3-a1bf-29e113c2773d" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="5c57e3e0-652e-4f6a-ba1b-ac6464394c99" name="UseCaseDiagram" linkedPackageId="84c29e9f-4d2c-40e3-a1bf-29e113c2773d" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <appliedStereotypesInternal>
     <stereotypeInstance Id="359186f4-8d4c-4e7c-831a-82f2799a17d3" name="namespace" profile="CSharpProfile">
       <elementDefinition Id="324348bf-2271-4842-88b9-bac42c544ae6" />
@@ -99,89 +99,135 @@
     <packageHasNamedElement>
       <useCase Id="1c473733-8e6b-468f-9245-625983308750" name="Configure Explorer" isAbstract="false" isLeaf="false">
         <elementDefinition Id="9b27a423-b08a-4f29-94da-0e21fe09d63a" />
-        <extendedCases>
-          <extend Id="74f824d7-b5e5-4ce4-bf47-dbe7ab6ee56b">
-            <useCaseMoniker Id="4d461520-ba39-4842-928d-928c1b439fde" LastKnownName="Set currency" />
-            <elementDefinition Id="e8404f78-3e2f-4e40-87d9-c35ff8cb6154" />
-          </extend>
-          <extend Id="851a51fe-3b5a-4df1-b4be-0202d8459365">
-            <useCaseMoniker Id="26078aff-3768-4a46-92e1-eb858fcbfcfd" LastKnownName="Set time period" />
-            <elementDefinition Id="afc0f5ff-bdc3-482c-85c7-6cd44610f95b" />
-          </extend>
-          <extend Id="eb254eeb-e7de-4806-bae1-c3898236d374">
-            <useCaseMoniker Id="91300a51-e23b-4d46-8cb2-22c71b79de8a" LastKnownName="Set language" />
-            <elementDefinition Id="ef6ea591-f586-4c8b-a31c-8e6921f1e220" />
-          </extend>
-        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase Id="b7923968-d7ef-41ab-b404-61e670791deb" name="Export currency data" isAbstract="false" isLeaf="false">
         <elementDefinition Id="cf3ede6d-bcb0-4984-a1bb-fd559f5267d1" />
         <extendedCases>
-          <extend Id="5473f445-4a08-499c-8b94-338c897b3a95">
-            <useCaseMoniker Id="88f1f0b2-afd3-4096-8471-f5fe9cf078ab" LastKnownName="Export as image" />
-            <elementDefinition Id="a674828a-2f40-4fe2-a90c-b53dcc46a752" />
+          <extend Id="aee88322-fb1e-4133-83b2-8de7b7c56af1">
+            <useCaseMoniker Id="44758c83-f49d-4130-89de-960d82cfc0b1" LastKnownName="Login" />
+            <elementDefinition Id="54f4bf01-8a9f-4806-be16-cce6a7f9d458" />
           </extend>
-          <extend Id="d99f0db2-25f2-4e3f-b7c4-a5e814362853">
-            <useCaseMoniker Id="41daa902-657e-43d6-a0b6-aa7d9a14c604" LastKnownName="Export as table" />
-            <elementDefinition Id="93874b78-5ecb-4264-b44a-655e53623a6a" />
+          <extend Id="28f0690b-a319-49c1-846b-0fa3a76dca6d">
+            <useCaseMoniker Id="8518c103-87af-44fd-9533-54657e570457" LastKnownName="Visit CurrencyExplorer" />
+            <elementDefinition Id="c50ee7d1-e891-48ee-b088-883e2ba98c76" />
           </extend>
         </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase Id="4d461520-ba39-4842-928d-928c1b439fde" name="Set currency" isAbstract="false" isLeaf="false">
         <elementDefinition Id="173222d9-3a74-44aa-8885-9c7f07e0476c" />
+        <extendedCases>
+          <extend Id="61afa544-7e3d-4614-bdaa-5769892bc114">
+            <useCaseMoniker Id="1c473733-8e6b-468f-9245-625983308750" LastKnownName="Configure Explorer" />
+            <elementDefinition Id="91640b0f-5087-401c-bfa8-4d4cefab6a71" />
+          </extend>
+        </extendedCases>
         <additions>
           <include Id="69d92149-4952-4751-a483-638e5210cdb2">
             <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save user settings" />
             <elementDefinition Id="f646298b-bd45-4a75-98d0-ebf64707a30d" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase Id="26078aff-3768-4a46-92e1-eb858fcbfcfd" name="Set time period" isAbstract="false" isLeaf="false">
         <elementDefinition Id="909ebef5-c531-4372-a7c0-600ffc2ad2a6" />
+        <extendedCases>
+          <extend Id="2a4bba15-9ded-4bf8-aec9-1b9b03abf6a8">
+            <useCaseMoniker Id="1c473733-8e6b-468f-9245-625983308750" LastKnownName="Configure Explorer" />
+            <elementDefinition Id="78f6b82a-96fa-4820-b797-248d9a60b0f4" />
+          </extend>
+        </extendedCases>
         <additions>
           <include Id="517859e5-03dd-481c-bb95-bedb088b8dc9">
             <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save user settings" />
             <elementDefinition Id="66c9afdc-9b9c-44d4-b9a5-83e9f5dee7f6" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase Id="91300a51-e23b-4d46-8cb2-22c71b79de8a" name="Set language" isAbstract="false" isLeaf="false">
         <elementDefinition Id="3c7e1c23-00ff-4cf6-9ebb-03dbb8fac00c" />
+        <extendedCases>
+          <extend Id="d4b4096c-2f37-44b8-a2b7-05a829e67047">
+            <useCaseMoniker Id="1c473733-8e6b-468f-9245-625983308750" LastKnownName="Configure Explorer" />
+            <elementDefinition Id="67589a63-1a1b-4f8f-8270-7909399075e3" />
+          </extend>
+        </extendedCases>
         <additions>
           <include Id="bf279c55-859d-4b0d-99d0-bc93eabe0bd1">
             <useCaseMoniker Id="fbbefda3-5362-4914-a8e7-54b67522e37a" LastKnownName="Save user settings" />
             <elementDefinition Id="cdfe39f9-a944-4328-af5f-81f1ed2d7508" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase Id="88f1f0b2-afd3-4096-8471-f5fe9cf078ab" name="Export as image" isAbstract="false" isLeaf="false">
         <elementDefinition Id="52de480c-4c5e-4a2f-b85c-2283c17ff330" />
+        <extendedCases>
+          <extend Id="2e6fa2d2-e36b-4645-b642-a3e2a370ce2b">
+            <useCaseMoniker Id="b7923968-d7ef-41ab-b404-61e670791deb" LastKnownName="Export currency data" />
+            <elementDefinition Id="6bd24847-0a84-4dc1-97df-25be95026b7f" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase Id="41daa902-657e-43d6-a0b6-aa7d9a14c604" name="Export as table" isAbstract="false" isLeaf="false">
         <elementDefinition Id="c7845afa-8699-4272-9779-a68b570ab6c0" />
+        <extendedCases>
+          <extend Id="21b49cf9-1d12-4155-8a14-0e4db92d55fc">
+            <useCaseMoniker Id="b7923968-d7ef-41ab-b404-61e670791deb" LastKnownName="Export currency data" />
+            <elementDefinition Id="5ec2a7e6-6070-4169-be9e-aafe45986fd3" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase Id="24d6315d-665a-4170-a6e5-462f30902bdf" name="Explore currency chart" isAbstract="false" isLeaf="false">
         <elementDefinition Id="91a775f7-da2c-44d0-8591-af5b00f5ef2b" />
+        <extendedCases>
+          <extend Id="d5f7864d-e892-4726-b46e-4a3616bacee5">
+            <useCaseMoniker Id="8518c103-87af-44fd-9533-54657e570457" LastKnownName="Visit CurrencyExplorer" />
+            <elementDefinition Id="145f0c14-568f-4ccb-9352-ffbf9ad47a65" />
+          </extend>
+        </extendedCases>
         <additions>
           <include Id="defc3fa9-4da3-450b-a46b-c4f5a105d3e0">
             <useCaseMoniker Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" LastKnownName="Provide data" />
             <elementDefinition Id="c1238006-09cd-4a19-a642-653402b890d6" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </packageHasNamedElement>
     <useCaseModelRootHasTypes>
@@ -226,7 +272,7 @@
             <elementDefinition Id="46775e5e-d68e-4215-adc2-83a251dc1320" />
           </association>
           <association Id="e1cd86d8-1ca3-4424-8f7f-aebabac9ea92" isDerived="false" sourceEndRoleName="Web-server" targetEndRoleName="Check user IP" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="674f1771-0534-496c-8fd5-32492bf4850c" LastKnownName="Check user IP" />
+            <useCaseMoniker Id="674f1771-0534-496c-8fd5-32492bf4850c" LastKnownName="Process cookies" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="2a48bdbc-1b8e-45b5-923b-78916031cf04" name="Web-server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -313,49 +359,29 @@
             <elementDefinition Id="cfcd2fc0-03b8-4c54-b205-686ab1a51b8b" />
           </association>
         </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="8518c103-87af-44fd-9533-54657e570457" name="Visit CurrencyExplorer" isAbstract="false" isLeaf="false">
         <elementDefinition Id="f1d1fc3c-ba37-4d77-ba43-a47595542a13" />
-        <targetEnds>
-          <association Id="747d7fa9-f2de-4dd1-bf81-55ab2dd43931" isDerived="false" sourceEndRoleName="Visit CurrencyExplorer" targetEndRoleName="Login" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="44758c83-f49d-4130-89de-960d82cfc0b1" LastKnownName="Login" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="d30d1a01-5a4d-49ec-96b9-085da29b041e" name="Visit CurrencyExplorer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="5ab2f164-f70d-40a1-a875-32252586c735" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="503b90cb-9fbf-44be-b9db-8182c87a5724" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="5b5aeb5e-6142-4283-ad61-f0ed6b0cfc0a" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="4621f087-9f61-4b52-a6dc-f27990fd9966" />
-          </association>
-        </targetEnds>
         <extendedCases>
           <extend Id="c4bd2d20-04aa-45fd-81c2-bb5ff56ba2e1">
             <useCaseMoniker Id="1c473733-8e6b-468f-9245-625983308750" LastKnownName="Configure Explorer" />
             <elementDefinition Id="11b72994-24c3-4fa9-9962-b994f493987a" />
           </extend>
-          <extend Id="35b6db9c-b479-4384-a69e-d1ab244662e2">
-            <useCaseMoniker Id="b7923968-d7ef-41ab-b404-61e670791deb" LastKnownName="Export currency data" />
-            <elementDefinition Id="5b018ea3-533e-4261-aaa8-e4bc05e72a18" />
-          </extend>
-          <extend Id="ebe881fb-87bd-49bd-8797-26385adfb52f">
-            <useCaseMoniker Id="24d6315d-665a-4170-a6e5-462f30902bdf" LastKnownName="Explore currency chart" />
-            <elementDefinition Id="348f3edd-95f5-4e19-8087-a2e565bd5da5" />
-          </extend>
         </extendedCases>
         <additions>
           <include Id="22c97906-9df3-428e-9bd9-a439b7f6263f">
-            <useCaseMoniker Id="674f1771-0534-496c-8fd5-32492bf4850c" LastKnownName="Check user IP" />
+            <useCaseMoniker Id="674f1771-0534-496c-8fd5-32492bf4850c" LastKnownName="Process cookies" />
             <elementDefinition Id="2199b2d7-317f-4f68-9a74-9435752ad166" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -379,6 +405,9 @@
             <elementDefinition Id="bfd4be7a-1601-4cd4-b0c8-1d0bab544bc5" />
           </association>
         </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -402,80 +431,99 @@
             <elementDefinition Id="c3f08e2d-9771-47fd-82c6-2e9e1b1fefd0" />
           </association>
         </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="44758c83-f49d-4130-89de-960d82cfc0b1" name="Login" isAbstract="false" isLeaf="false">
         <elementDefinition Id="fbb05361-2280-4af7-adc0-da0675b2049b" />
         <extendedCases>
-          <extend Id="d26657cb-f215-419a-8735-181d8a89e3a3">
-            <useCaseMoniker Id="8505bb64-c4db-496f-8376-9e0ae813b986" LastKnownName="Set source data type" />
-            <elementDefinition Id="2ebc2c1f-09d6-497a-8a12-d005f282de52" />
-          </extend>
-          <extend Id="62450bbf-9baa-433c-b3d4-7a12e6332931">
-            <useCaseMoniker Id="1c473733-8e6b-468f-9245-625983308750" LastKnownName="Configure Explorer" />
-            <elementDefinition Id="1de974cd-1c1d-484c-b4a5-c4941cd90181" />
-          </extend>
-          <extend Id="33edfb2c-5372-4bd3-93d4-13c4d56144c2">
-            <useCaseMoniker Id="b7923968-d7ef-41ab-b404-61e670791deb" LastKnownName="Export currency data" />
-            <elementDefinition Id="0369cd37-de1b-40c7-8d0c-e5dc560cb88b" />
-          </extend>
-          <extend Id="1446bdce-3d70-456f-bde2-858ea43e9edc">
-            <useCaseMoniker Id="24d6315d-665a-4170-a6e5-462f30902bdf" LastKnownName="Explore currency chart" />
-            <elementDefinition Id="a59d3e44-3348-4dd5-8817-7d7ad0c5ad97" />
-          </extend>
-          <extend Id="4775a781-355d-43e1-855f-c69301e2ed83">
-            <useCaseMoniker Id="a9fcc1c8-5505-4d81-b187-956f786d5f6b" LastKnownName="View users settings" />
-            <elementDefinition Id="e5d3d818-2b06-412c-af41-796fdac99376" />
-          </extend>
-          <extend Id="7df3c876-d866-4e61-8d19-700f4fd24a55">
-            <useCaseMoniker Id="ad0106a8-43e2-411b-bd58-dbe48416dcfe" LastKnownName="View caching statistics" />
-            <elementDefinition Id="264352eb-5453-4730-a559-d5b74be64838" />
+          <extend Id="fd897178-a1a6-4bcd-9210-559ac413abf5">
+            <useCaseMoniker Id="8518c103-87af-44fd-9533-54657e570457" LastKnownName="Visit CurrencyExplorer" />
+            <elementDefinition Id="2abbfe40-5f12-43cb-a35d-8fe1e649735f" />
           </extend>
         </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="8505bb64-c4db-496f-8376-9e0ae813b986" name="Set source data type" isAbstract="false" isLeaf="false">
         <elementDefinition Id="54c6653d-23bf-4b9d-9c83-157e7d424489" />
+        <extendedCases>
+          <extend Id="4a2f1f43-2574-46d0-b1b0-8c749d756372">
+            <useCaseMoniker Id="44758c83-f49d-4130-89de-960d82cfc0b1" LastKnownName="Login" />
+            <elementDefinition Id="77958e7d-c4d8-408d-9180-e97f3cd1f51e" />
+          </extend>
+        </extendedCases>
         <additions>
           <include Id="35989149-0644-4951-9dde-f9be59472565">
             <useCaseMoniker Id="91aa718b-f04a-46cd-a8d1-c46ead6f2319" LastKnownName="Save server settings" />
             <elementDefinition Id="25381be1-3df5-40dd-9720-eed6cf98959d" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="a9fcc1c8-5505-4d81-b187-956f786d5f6b" name="View users settings" isAbstract="false" isLeaf="false">
         <elementDefinition Id="fe9e962d-625f-48da-bb61-9632397f8b7b" />
+        <extendedCases>
+          <extend Id="8456ec33-a24e-4695-8a79-cf61f8252cf4">
+            <useCaseMoniker Id="44758c83-f49d-4130-89de-960d82cfc0b1" LastKnownName="Login" />
+            <elementDefinition Id="813a8e4a-07db-44cf-8f0f-c6a7fcd8056b" />
+          </extend>
+        </extendedCases>
         <additions>
           <include Id="92c1e301-7110-4555-8255-bf5204c79fc0">
             <useCaseMoniker Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" LastKnownName="Provide data" />
             <elementDefinition Id="be1613a6-4c4c-4156-9b79-511eef0ca60f" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="ad0106a8-43e2-411b-bd58-dbe48416dcfe" name="View caching statistics" isAbstract="false" isLeaf="false">
         <elementDefinition Id="61140ca6-56b3-421a-b225-f0deb5aedb08" />
+        <extendedCases>
+          <extend Id="b37ce009-c03c-4665-9ac2-6bb8e2828b61">
+            <useCaseMoniker Id="44758c83-f49d-4130-89de-960d82cfc0b1" LastKnownName="Login" />
+            <elementDefinition Id="6bac88ae-5fa0-4fd9-babe-e05b5dfb29a5" />
+          </extend>
+        </extendedCases>
         <additions>
           <include Id="4347984c-b876-45b9-8eea-9a03a407259c">
             <useCaseMoniker Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" LastKnownName="Provide data" />
             <elementDefinition Id="311eba12-fe04-45fa-8a50-df0f5252d55d" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="674f1771-0534-496c-8fd5-32492bf4850c" name="Check user IP" isAbstract="false" isLeaf="false">
+      <useCase Id="674f1771-0534-496c-8fd5-32492bf4850c" name="Process cookies" isAbstract="false" isLeaf="false">
         <elementDefinition Id="a6402489-b81c-41a8-9b19-238f92010c72" />
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="0ebe6f6d-f28b-4d2c-83d8-34d85babb3f0" name="Provide data" isAbstract="false" isLeaf="false">
         <elementDefinition Id="8e2a2f83-027f-479f-bd1c-a4d3803fc35d" />
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -499,8 +547,32 @@
             <elementDefinition Id="c06ab2e8-1c9a-43a0-8191-063b60954ea4" />
           </association>
         </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="f357597a-079b-44ce-87ca-0b733fbe1e72" name="Currency Explorer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f6c0774d-6e2e-4f2d-9c00-2f0cf2466138" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="2c981972-d6b8-4652-808e-9ec0e33e6cc4" name="Cache data" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="42606cb4-63a5-4561-a89f-9311e9faa837" />
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="3e10bdfd-e576-4bca-a57c-b13a9e1f04a6" name="Provide data" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="19eae3a7-2b68-4ab8-a82b-293f578f63f6" />
+        <subjects>
+          <subsystemMoniker Id="f357597a-079b-44ce-87ca-0b733fbe1e72" LastKnownName="Currency Explorer" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="84c29e9f-4d2c-40e3-a1bf-29e113c2773d" name="ModelingProject">
     <elementDefinition Id="2be56d21-9d94-4330-8393-bf83727e89b5" />

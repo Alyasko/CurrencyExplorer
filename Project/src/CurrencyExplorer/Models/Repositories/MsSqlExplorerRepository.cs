@@ -9,11 +9,11 @@ using Microsoft.Data.Entity;
 
 namespace CurrencyExplorer.Models.Repositories
 {
-    public class MsSqlCurrencyRepository : ICurrencyRepository
+    public class MsSqlExplorerRepository : IExplorerRepository
     {
         private CurrencyDataContext _currencyDataContext;
 
-        public MsSqlCurrencyRepository(CurrencyDataContext currencyDataContext)
+        public MsSqlExplorerRepository(CurrencyDataContext currencyDataContext)
         {
             _currencyDataContext = currencyDataContext;
         }
@@ -35,20 +35,6 @@ namespace CurrencyExplorer.Models.Repositories
 
         public void AddDataEntry(CurrencyDataEntry currencyData)
         {
-            //bool contains = false;
-            //foreach (CurrencyData data in _currencyDataContext.CurrencyEntries)
-            //{
-            //    Debug.WriteLine($"{data.CurrencyCode}, {data.ActualDate}, {data.Name}, {data.ShortName}, {data.Value}, {data.ActualDateString}");
-            //    Debug.WriteLine(
-            //        $"{currencyData.CurrencyCode}, {currencyData.ActualDate}, {currencyData.Name}, {currencyData.ShortName}, {currencyData.Value}, {currencyData.ActualDateString}");
-
-            //    if (data.Equals(currencyData))
-            //    {
-            //        Debug.WriteLine("Equals!");
-            //    }
-
-            //}
-
             var data = _currencyDataContext.CurrencyDataEntries.Where(x => x.Equals(currencyData));
 
             if (!data.Any())
@@ -62,14 +48,6 @@ namespace CurrencyExplorer.Models.Repositories
         public void AddDataEntries(ICollection<CurrencyDataEntry> entries)
         {
             bool isEntryAdded = false;
-
-            CurrencyDataEntry currencyData = entries.ElementAt(0);
-
-            //var sql = "SELECT d.* FROM CurrencyData d " +
-            //          "INNER JOIN CurrencyCode c ON c.Id = d.CurrencyCodeId " +
-            //          $"WHERE ActualDate = STR_TO_DATE('{currencyData.ActualDate}', '%Y-%m-%d %H:%i:%s') AND c.Alias = '{currencyData.CurrencyCode.Alias}'";
-
-            //var dat = _currencyDataContext.CurrencyEntries.FromSql(sql).ToList();
 
             var allEntries = _currencyDataContext.CurrencyDataEntries.ToList();
 
@@ -135,6 +113,55 @@ namespace CurrencyExplorer.Models.Repositories
         public void ExecuteQuery(string query)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void SaveUserSettings(UserSettingsEntry userSettings)
+        {
+            var data = _currencyDataContext.UserSettingsEntries.Where(x => x.Equals(userSettings));
+
+            if (!data.Any())
+            {
+                _currencyDataContext.UserSettingsEntries.Add(userSettings);
+
+                _currencyDataContext.SaveChanges();
+            }
+            else
+            {
+                UserSettingsEntry dbEntry = data.FirstOrDefault();
+                if (dbEntry != null)
+                {
+                    dbEntry.ChartBeginTime = userSettings.ChartBeginTime;
+                    dbEntry.ChartEndTime = userSettings.ChartEndTime;
+                    dbEntry.CurrencyCodes = userSettings.CurrencyCodes;
+                    dbEntry.Language = userSettings.Language;
+
+                    _currencyDataContext.UserSettingsEntries.Update(dbEntry);
+
+                    _currencyDataContext.SaveChanges();
+                }
+            }
+        }
+
+        public UserSettingsEntry LoadUserSettings(long uid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddUserLanguage(UserLanguageEntry userLanguageEntry)
+        {
+            var data = _currencyDataContext.UserLanguageEntries.Where(x => x.Equals(userLanguageEntry));
+
+            if (!data.Any())
+            {
+                _currencyDataContext.UserLanguageEntries.Add(userLanguageEntry);
+
+                _currencyDataContext.SaveChanges();
+            }
+        }
+
+        public void GetUserLanguages()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -7,7 +7,7 @@ using CurrencyExplorer.Models.Entities.Database;
 
 namespace CurrencyExplorer.Models.Contracts
 {
-    public interface ICurrencyRepository
+    public interface ICurrenciesRepository
     {
         /// <summary>
         /// Queries all entries from database.
@@ -70,11 +70,5 @@ namespace CurrencyExplorer.Models.Contracts
         /// <param name="entryToRemove">Specified currency to be removed.</param>
         /// <param name="timePeriod">The period of time which entries are to be removed.</param>
         void RemoveDataEntries(CurrencyCodeEntry entryToRemove, ChartTimePeriod timePeriod);
-
-        /// <summary>
-        /// Exeutes specified query.
-        /// </summary>
-        /// <param name="query">The query to be executed.</param>
-        void ExecuteQuery(string query);
     }
 }

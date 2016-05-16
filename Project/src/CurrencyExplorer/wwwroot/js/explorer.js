@@ -150,12 +150,19 @@ function loadChartData() {
             var begin = beginDate;
             var end = endDate;
 
-            var currencies = new Array("USD");
+            lastCorrectBeginDate = begin;
+            lastCorrectEndDate = end;
 
+            var currencies = new Array();
+
+            for (var i = 0; i < currenciesList.length; i++) {
+                currencies.push(currenciesList[i].Value);
+            }
+            
             var dataObj = {
                 Begin: begin.toUTCString(),
                 End: end.toUTCString(),
-                Currencies: currencies
+                CurrencyValues: currencies
             };
 
             $.ajax({
@@ -164,6 +171,7 @@ function loadChartData() {
                 url: "Chart/LoadChartData",
                 data: "json=" + JSON.stringify(dataObj),
                 success: function (d) {
+                    //$("#today-currency-date").text(d);
                     var parsedData = $.parseJSON(d);
 
                     var state = parsedData["State"];
@@ -317,6 +325,10 @@ function drawChart(jData, cnv, parseJson, horTransl) {
     var horTranslation = horTransl;
 
     $("#bar").text(horTranslation);
+
+    $(".chart-currency-label").remove();
+    currencyLblsStatus.splice(0, currencyLblsStatus.length);
+    currencyLblsHandlerAssigned = false;
 
     //ctx.scale(1, -1);
     ctx.setTransform(1, 0, 0, -1, 0, 0);

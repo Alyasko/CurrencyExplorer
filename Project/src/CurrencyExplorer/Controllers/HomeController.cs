@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
 using CurrencyExplorer.Models;
 using CurrencyExplorer.Models.Entities.Database;
+using CurrencyExplorer.Utilities;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Net.Http.Headers;
 
@@ -15,6 +16,7 @@ namespace CurrencyExplorer.Controllers
     public class HomeController : Controller
     {
         private CurrencyXplorer _currencyXplorer;
+        private CookiesManager _cookiesManager;
 
         private static int launchCounter = 0;
 
@@ -35,12 +37,11 @@ namespace CurrencyExplorer.Controllers
                 return Content("Update page, please");
             }
 
-            UserSettings userSettings = _currencyXplorer.RequestUserSettings("cookie");
+            _cookiesManager = new CookiesManager(Request, Response);
 
-            if (userSettings == null)
-            {
-                userSettings = _currencyXplorer.RequestDefaultUserSettings();
-            }
+            long uid = _cookiesManager.GetUid();
+
+            UserSettings userSettings = _currencyXplorer.RequestUserSettings(uid);
 
             ICollection<CurrencyCodeEntry> currencyCodesList = _currencyXplorer.GetAllCurrencyCodes();
 
@@ -48,42 +49,6 @@ namespace CurrencyExplorer.Controllers
             ViewBag.UserSettings = userSettings;
 
             return View();
-        }
-
-        private void TestCookies()
-        {
-            string cookieUid = "";
-            long uid = DateTime.Now.ToFileTime();
-
-            // Cookies.
-
-            if (Request.Cookies.ContainsKey("uid"))
-            {
-                cookieUid = Request.Cookies["uid"];
-            }
-
-            if (String.IsNullOrWhiteSpace(cookieUid) == false)
-            {
-                uid = long.Parse(cookieUid);
-            }
-            else
-            {
-                Response.Cookies.Append("uid", uid.ToString());
-            }
-
-            // Settings.
-
-            UserSettings userSettings = _currencyXplorer.RequestUserSettings(uid.ToString());
-
-            if (userSettings == null)
-            {
-                userSettings = _currencyXplorer.RequestDefaultUserSettings();
-            }
-
-            ViewBag.UserSettings = userSettings;
-
-            ViewBag.Info = $"Cookie: {cookieUid}. Generated: {uid}.";
-
         }
     }
 }

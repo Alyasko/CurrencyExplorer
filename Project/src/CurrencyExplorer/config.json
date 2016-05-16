@@ -10,5 +10,13 @@
     "DefaultConnection": {
       "ConnectionString": "Server=(localdb)\\ProjectsV12;Database=CurrenciesCache;Trusted_Connection=True;"
     }
+  },
+  "ExplorerSettings": {
+    "Defaults": {
+      "Language": "English",
+      "ChartPeriodInDays": "10",
+      "CurrenciesList": [ "USD", "EUR" ]
+    }
+    
   }
 }
