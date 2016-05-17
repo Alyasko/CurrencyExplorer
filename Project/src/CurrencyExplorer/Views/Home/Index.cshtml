@@ -3,13 +3,17 @@
 @using System.Collections.Generic
 @using System.Linq
 @using System.Threading.Tasks
+@using CurrencyExplorer.Models.Contracts
 @using CurrencyExplorer.Models.Entities
 @using CurrencyExplorer.Models.Entities.Database
+@using CurrencyExplorer.Models.Enums
 @using CurrencyExplorer.Utilities
+@using Microsoft.AspNet.Mvc.ViewFeatures
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ILocalization localization = ViewBag.Localization;
 }
 
 <!DOCTYPE html>
@@ -43,50 +47,72 @@
         <nav id="main-menu" class="shadowed-line">
             <ul>
                 <li>
-                    <a href="#" class="no-style text-color-gray" data-name="settings">Settings</a>
+                    <a href="#" class="no-style text-color-gray" data-name="settings">@localization.MenuSettings</a>
                 </li>
                 <li>
-                    <a href="#" class="no-style text-color-gray" data-name="explore">Explore</a>
+                    <a href="#" class="no-style text-color-gray" data-name="explore">@localization.MenuExplore</a>
                 </li>
                 <li>
-                    <a href="#" class="no-style text-color-gray" data-name="help">Help</a>
+                    <a href="#" class="no-style text-color-gray" data-name="help">@localization.MenuHelp</a>
                 </li>
                 <li>
-                    <a href="#" class="no-style text-color-gray" data-name="about">About</a>
+                    <a href="#" class="no-style text-color-gray" data-name="about">@localization.MenuAbout</a>
                 </li>
             </ul>
         </nav>
         <div id="settings">
             <div id="settings-wrapper">
                 <div id="settings-head" class="clear-after">
-                    <div id="settings-title">Settings</div>
+                    <div id="settings-title">@localization.SettingsTitle</div>
                     <a href="#" id="settings-close"></a>
                 </div>
                 <div id="settings-body">
                     <hr />
                     <div class="clear-after">
                         <div>
-                            Interface language
+                            @localization.SettingsInterfaceLanguage
                         </div>
                         <div id="lang-selector">
-                            <div id="ru" class="lang lang-selected">
-                                <img src="~/img/lang-ru.png" />
+                            @{
+                                string ruText = "";
+                                string enText = "";
+                                string uaText = "";
+
+                                CurrencyExplorerLanguage language = ViewBag.UiLanguage;
+
+                                switch (language)
+                                {
+                                    case CurrencyExplorerLanguage.Russian:
+                                        ruText = "lang-selected";
+                                        break;
+                                    case CurrencyExplorerLanguage.Ukrainian:
+                                        uaText = "lang-selected";
+                                        break;
+                                    case CurrencyExplorerLanguage.English:
+                                        enText = "lang-selected";
+                                        break;
+                                    default:
+                                        throw new ArgumentOutOfRangeException();
+                                }
+                            }
+                            <div id="ru" class="lang @Html.Raw(ruText)">
+                                <img src="~/img/lang-ru.png"/>
                             </div>
-                            <div id="ua" class="lang">
-                                <img src="~/img/lang-ua.png" />
+                            <div id="ua" class="lang @Html.Raw(uaText)">
+                                <img src="~/img/lang-ua.png"/>
                             </div>
-                            <div id="en" class="lang">
-                                <img src="~/img/lang-en.png" />
+                            <div id="en" class="lang @Html.Raw(enText)">
+                                <img src="~/img/lang-en.png"/>
                             </div>
                         </div>
                     </div>
                     <hr />
                     <div id="convert-from" class="clear-after">
-                        <div>How many</div>
+                        <div>@localization.SettingsHowMany</div>
                         <div>UAH</div>
                     </div>
                     <div id="convert-to" class="clear-after">
-                        <div style="float: left">in</div>
+                        <div style="float: left">@localization.SettingsIn</div>
 
                         <div id="currencies-list">
                             @{
@@ -117,6 +143,8 @@
                                     {
                                         <option name="@codeEntry.Value">@($"{codeEntry.Name}")</option>
                                     }
+
+                                    //int a = 0;
                                 }
                             </select>
                             <div onclick="addCurrency()" id="add-currency-wrapper" class="currency-list-button">
@@ -128,7 +156,7 @@
                         </div>
 
                     </div>
-                    <input id="btn-submit-settings" type="submit" value="Apply" onclick="sendSettings()"/>
+                    <input id="btn-submit-settings" type="submit" value="@localization.SettingsApply" onclick="sendSettings()"/>
                 </div>
             </div>
         </div>
@@ -137,8 +165,11 @@
     <main>
         <div id="explorer">
             <div id="today" class="text-color-gray">
-                @ViewBag.Info<br />
-                @Html.Partial("~/Views/Partial/TodayPartial.cshtml", ((UserSettings)ViewBag.UserSettings).Currencies)
+                <br/>
+                @{
+                    //ViewData.Add("Localization", localization);
+                }
+                @Html.Partial("~/Views/Partial/TodayPartial.cshtml", ((UserSettings) ViewBag.UserSettings).Currencies, ViewData )
                 <hr class="no-style today-hr" />
             </div>
 
@@ -185,7 +216,7 @@
                 <div id="dates">
                     <table>
                         <tr>
-                            <td>Begin date:</td>
+                            <td>@localization.ExplorerBeginDate</td>
                             <td>
                                 <input type="date" id="date-begin" value="@Utils.GetClientFormattedDateString(((UserSettings) ViewBag.UserSettings).TimePeriod.Begin)" />
                             </td>
@@ -194,7 +225,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>End date:</td>
+                            <td>@localization.ExplorerEndDate</td>
                             <td>
                                 <input type="date" id="date-end" value="@Utils.GetClientFormattedDateString(((UserSettings) ViewBag.UserSettings).TimePeriod.End)" />
 
@@ -205,27 +236,27 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="submit" onclick="loadChartData()" id="update-chart" class="blue-button" name="update-chart" value="Update chart" />
+                                <input type="submit" onclick="loadChartData()" id="update-chart" class="blue-button" name="update-chart" value="@localization.ExplorerUpdateChart" />
                             </td>
                         </tr>
                     </table>
 
                 </div>
                 <div id="export-to">
-                    <input type="submit" onclick="" class="blue-button" name="export-image" value="Export as image" />
+                    <input type="submit" onclick="" class="blue-button" name="export-image" value="@localization.ExportAsImage" />
                     <br />
-                    <input type="submit" onclick="" class="blue-button" name="export-table" value="Export as table" />
+                    <input type="submit" onclick="" class="blue-button" name="export-table" value="@localization.ExportAsTable" />
                 </div>
             </div>
         </div>
         <div id="about">
             <div id="about-title" class="shadowed-line">
-                About the project
+                @localization.AboutTheProject
             </div>
         </div>
         <div id="help">
             <div id="help-title" class="shadowed-line text-color-gray">
-                Help
+                @localization.Help
             </div>
         </div>
     </main>
@@ -234,7 +265,7 @@
             Currency Explorer
         </div>
         <div id="copyright">
-            Copyright © 2016, Alexander Yasko, All rights reserved.
+            Copyright © 2016, @localization.FooterAllRightsReserved.
         </div>
     </footer>
 

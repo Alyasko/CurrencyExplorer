@@ -1,0 +1,22 @@
+﻿{
+  "MenuSettings": "Настройки",
+  "MenuExplore": "Исследовать",
+  "MenuHelp": "Помощь",
+  "MenuAbout": "О проекте",
+  "SettingsTitle": "Настройки",
+  "SettingsInterfaceLanguage": "Язык интерфейса",
+  "SettingsHowMany": "Сколько",
+  "SettingsIn": "в",
+  "SettingsApply": "Применить",
+  "TodayToday": "Сегодня",
+  "TodayCosts": "стоит",
+  "TodayActualCurrencyOn": "Данные актуальны на",
+  "ExplorerBeginDate": "Начальная дата:",
+  "ExplorerEndDate": "Конечная дата:",
+  "ExplorerUpdateChart": "Обновить график",
+  "ExportAsImage": "Экспортировать изображение",
+  "ExportAsTable": "Экспортировать таблицу",
+  "AboutTheProject": "О проекте",
+  "Help": "Помощь",
+  "FooterAllRightsReserved": "Александр Ясько, все права защищены."
+}

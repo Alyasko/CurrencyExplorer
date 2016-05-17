@@ -125,9 +125,11 @@ namespace CurrencyExplorer.Models
         /// <returns>The user settings.</returns>
         public UserSettings RequestUserSettings(long uid)
         {
-            UserSettings defaultUserSettings = _dataHolder.LoadSettings(uid);
+            UserSettings userSettings = _dataHolder.LoadSettings(uid);
 
-            return defaultUserSettings;
+            CurrencyExplorerLanguage = userSettings.Language;
+
+            return userSettings;
         }
 
         /// <summary>
@@ -152,5 +154,7 @@ namespace CurrencyExplorer.Models
         /// Like USD, UAH.
         /// </summary>
         public ICollection<string> ChartCurrencyCodeStrings { get; set; }
+
+        public CurrencyExplorerLanguage CurrencyExplorerLanguage { get; set; }
     }
 }

@@ -26,6 +26,8 @@ namespace CurrencyExplorer.Models.Entities.Database
         public DbSet<UserLanguageEntry> UserLanguageEntries { get; set; } 
         public DbSet<UserSettingsEntry> UserSettingsEntries { get; set; } 
 
+        public DbSet<CorrespondanceEntry> CorrespondanceEntries { get; set; } 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

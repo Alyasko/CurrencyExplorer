@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
 using CurrencyExplorer.Models.Entities.Database;
+using CurrencyExplorer.Models.Enums;
 
 namespace CurrencyExplorer.Models.Contracts
 {
@@ -13,6 +14,6 @@ namespace CurrencyExplorer.Models.Contracts
         UserSettingsEntry LoadUserSettings(long uid);
 
         void AddUserLanguage(UserLanguageEntry userLanguageEntry);
-        void GetUserLanguages();
+        IQueryable<UserLanguageEntry> GetUserLanguages();
     }
 }

@@ -17,6 +17,27 @@ namespace CurrencyExplorer.Models.Entities.Database
         [Key]
         public int Id { get; set; }
 
-        public CurrencyExplorerLanguage Language { get; set; }
+        public string Language { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            UserLanguageEntry other = obj as UserLanguageEntry;
+            bool result = other != null && this.Equals(other);
+
+            return result;
+        }
+
+        protected bool Equals(UserLanguageEntry other)
+        {
+            return string.Equals(Language, other.Language);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (Id*397) ^ (Language != null ? Language.GetHashCode() : 0);
+            }
+        }
     }
 }

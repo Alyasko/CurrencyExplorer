@@ -1,0 +1,22 @@
+﻿{
+  "MenuSettings": "Settings",
+  "MenuExplore": "Explore",
+  "MenuHelp": "Help",
+  "MenuAbout": "About",
+  "SettingsTitle": "Settings",
+  "SettingsInterfaceLanguage": "Interface language",
+  "SettingsHowMany": "How many",
+  "SettingsIn": "in",
+  "SettingsApply": "Apply",
+  "TodayToday": "Today",
+  "TodayCosts": "costs",
+  "TodayActualCurrencyOn": "Actual currency on",
+  "ExplorerBeginDate": "Begin date:",
+  "ExplorerEndDate": "End date:",
+  "ExplorerUpdateChart": "Update chart",
+  "ExportAsImage": "Export as image",
+  "ExportAsTable": "Export as table",
+  "AboutTheProject": "About the project",
+  "Help": "Help",
+  "FooterAllRightsReserved": "Alexander Yasko, All rights reserved"
+}

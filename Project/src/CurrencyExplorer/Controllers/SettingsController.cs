@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models;
+using CurrencyExplorer.Models.Converters;
 using CurrencyExplorer.Models.Entities;
 using CurrencyExplorer.Utilities;
 using Microsoft.AspNet.Http;
@@ -26,6 +27,8 @@ namespace CurrencyExplorer.Controllers
 
         public IActionResult SaveUserSettings(string json)
         {
+            IActionResult actionResult = Json(new {Result = "OK"});
+
             _cookiesManager = new CookiesManager(Request, Response);
             UserSettingsRequest settings = JsonConvert.DeserializeObject<UserSettingsRequest>(json);
 
@@ -33,7 +36,12 @@ namespace CurrencyExplorer.Controllers
 
             _currencyXplorer.SaveUserSettings(cookie, settings);
 
-            return Json(new { Result = "OK" });
+            if (settings.Language != _currencyXplorer.CurrencyExplorerLanguage)
+            {
+                actionResult = RedirectToAction("Index", "Home");
+            }
+
+            return actionResult;
         }
     }
 }

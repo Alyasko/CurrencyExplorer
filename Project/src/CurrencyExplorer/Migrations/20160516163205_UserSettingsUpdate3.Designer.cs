@@ -8,25 +8,14 @@ using CurrencyExplorer.Models.Entities.Database;
 namespace CurrencyExplorer.Migrations
 {
     [DbContext(typeof(CurrencyDataContext))]
-    partial class CurrencyDataContextModelSnapshot : ModelSnapshot
+    [Migration("20160516163205_UserSettingsUpdate3")]
+    partial class UserSettingsUpdate3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("CurrencyExplorer.Models.Entities.Database.CorrespondanceEntry", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("CurrencyCodeId");
-
-                    b.Property<int?>("UserSettingsId");
-
-                    b.HasKey("Id");
-                });
 
             modelBuilder.Entity("CurrencyExplorer.Models.Entities.Database.CurrencyCodeEntry", b =>
                 {
@@ -36,6 +25,8 @@ namespace CurrencyExplorer.Migrations
                     b.Property<string>("Alias");
 
                     b.Property<string>("Name");
+
+                    b.Property<int?>("UserSettingsEntryId");
 
                     b.Property<string>("Value");
 
@@ -82,15 +73,11 @@ namespace CurrencyExplorer.Migrations
                     b.HasKey("Id");
                 });
 
-            modelBuilder.Entity("CurrencyExplorer.Models.Entities.Database.CorrespondanceEntry", b =>
+            modelBuilder.Entity("CurrencyExplorer.Models.Entities.Database.CurrencyCodeEntry", b =>
                 {
-                    b.HasOne("CurrencyExplorer.Models.Entities.Database.CurrencyCodeEntry")
-                        .WithMany()
-                        .HasForeignKey("CurrencyCodeId");
-
                     b.HasOne("CurrencyExplorer.Models.Entities.Database.UserSettingsEntry")
                         .WithMany()
-                        .HasForeignKey("UserSettingsId");
+                        .HasForeignKey("UserSettingsEntryId");
                 });
 
             modelBuilder.Entity("CurrencyExplorer.Models.Entities.Database.CurrencyDataEntry", b =>

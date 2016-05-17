@@ -7,7 +7,7 @@ using CurrencyExplorer.Models.Entities.Database;
 
 namespace CurrencyExplorer.Models.Contracts
 {
-    public interface IExplorerRepository : ICurrenciesRepository, IUserSettingsRepository
+    public interface IExplorerRepository : ICurrenciesRepository, IUserSettingsRepository, ICorrespondenceRepository
     {
         /// <summary>
         /// Exeutes specified query.

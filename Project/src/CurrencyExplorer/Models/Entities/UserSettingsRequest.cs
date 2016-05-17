@@ -13,6 +13,7 @@ namespace CurrencyExplorer.Models.Entities
 
         [JsonConverter(typeof(UserLanguageJsonConverter))]
         public CurrencyExplorerLanguage Language { get; set; }
+
         public ICollection<string> CurrencyValues { get; set; } 
 
         public DateTime BeginDate { get; set; }

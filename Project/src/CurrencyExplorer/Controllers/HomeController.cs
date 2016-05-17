@@ -6,9 +6,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Entities;
 using CurrencyExplorer.Models;
+using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.Entities.Database;
+using CurrencyExplorer.Models.Enums;
+using CurrencyExplorer.Models.Localizations;
 using CurrencyExplorer.Utilities;
 using Microsoft.AspNet.Mvc;
+using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.Net.Http.Headers;
 
 namespace CurrencyExplorer.Controllers
@@ -17,14 +21,17 @@ namespace CurrencyExplorer.Controllers
     {
         private CurrencyXplorer _currencyXplorer;
         private CookiesManager _cookiesManager;
+        private IApplicationEnvironment _applicationEnvironment;
 
         private static int launchCounter = 0;
 
-        public HomeController(CurrencyXplorer currencyXplorer)
+        public HomeController(CurrencyXplorer currencyXplorer, IApplicationEnvironment appEnv)
         {
             launchCounter++;
 
             _currencyXplorer = currencyXplorer;
+            _applicationEnvironment = appEnv;
+
             Debug.WriteLine("Entry");
         }
 
@@ -45,6 +52,28 @@ namespace CurrencyExplorer.Controllers
 
             ICollection<CurrencyCodeEntry> currencyCodesList = _currencyXplorer.GetAllCurrencyCodes();
 
+            //CurrencyExplorerLanguage language = _currencyXplorer.CurrencyExplorerLanguage;
+            CurrencyExplorerLanguage language = CurrencyExplorerLanguage.Russian;
+
+            ILocalization localization = null;
+
+            switch (language)
+            {
+                case CurrencyExplorerLanguage.Russian:
+                    localization = new RussianLocalization("ru.json", _applicationEnvironment);
+                    break;
+                case CurrencyExplorerLanguage.Ukrainian:
+                    localization = new UkrainianLocalization("ua.json", _applicationEnvironment);
+                    break;
+                case CurrencyExplorerLanguage.English:
+                    localization = new EnglishLocalization("en.json", _applicationEnvironment);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            ViewBag.Localization = localization;
+            ViewBag.UiLanguage = language;
             ViewBag.CurrencyCodesList = currencyCodesList;
             ViewBag.UserSettings = userSettings;
 

@@ -1,17 +1,19 @@
-﻿@using CurrencyExplorer.Models.Entities
+﻿@using CurrencyExplorer.Models.Contracts
+@using CurrencyExplorer.Models.Entities
 @using CurrencyExplorer.Models.Entities.Database
 @model IEnumerable<CurrencyExplorer.Models.Entities.Database.CurrencyDataEntry>
 @{
+    ILocalization localization = (ILocalization)ViewData["Localization"];
 }
 
 @foreach (CurrencyDataEntry data in Model)
 {
     <div>
-        Today <span>1 @data.DbCurrencyCodeEntry.Alias</span> costs <span>@data.Value UAH</span>
+        @localization.TodayToday <span>1 @data.DbCurrencyCodeEntry.Alias</span> @localization.TodayCosts <span>@data.Value UAH</span>
     </div>
 }
 
 <div id="today-currency-date">
-    <i>Actual currency on @Model.First().ActualDate.ToShortDateString()</i>
+    <i>@localization.TodayActualCurrencyOn @Model.First().ActualDate.ToShortDateString()</i>
 </div>
 

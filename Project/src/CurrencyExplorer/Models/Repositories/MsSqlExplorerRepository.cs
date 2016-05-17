@@ -5,6 +5,7 @@ using System.Linq;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Models.Entities;
 using CurrencyExplorer.Models.Entities.Database;
+using CurrencyExplorer.Models.Enums;
 using Microsoft.Data.Entity;
 
 namespace CurrencyExplorer.Models.Repositories
@@ -117,9 +118,11 @@ namespace CurrencyExplorer.Models.Repositories
 
         public void SaveUserSettings(UserSettingsEntry userSettings)
         {
-            var data = _currencyDataContext.UserSettingsEntries.Where(x => x.Equals(userSettings));
+            //var all = _currencyDataContext.UserSettingsEntries.ToArray();
+            var langs = _currencyDataContext.UserLanguageEntries.ToArray();
+            UserSettingsEntry data = _currencyDataContext.UserSettingsEntries.FirstOrDefault(x => x.Equals(userSettings));
 
-            if (!data.Any())
+            if (data == null)
             {
                 _currencyDataContext.UserSettingsEntries.Add(userSettings);
 
@@ -127,41 +130,75 @@ namespace CurrencyExplorer.Models.Repositories
             }
             else
             {
-                UserSettingsEntry dbEntry = data.FirstOrDefault();
-                if (dbEntry != null)
-                {
-                    dbEntry.ChartBeginTime = userSettings.ChartBeginTime;
-                    dbEntry.ChartEndTime = userSettings.ChartEndTime;
-                    dbEntry.CurrencyCodes = userSettings.CurrencyCodes;
-                    dbEntry.Language = userSettings.Language;
+                // BUG: Updating is not implemented.
 
-                    _currencyDataContext.UserSettingsEntries.Update(dbEntry);
+                /*data.ChartBeginTime = userSettings.ChartBeginTime;
+                data.ChartEndTime = userSettings.ChartEndTime;
+                data.Language = userSettings.Language;
 
-                    _currencyDataContext.SaveChanges();
-                }
+                //_currencyDataContext.Entry(data).State = EntityState.Modified;
+
+                _currencyDataContext.Update(data);
+
+                _currencyDataContext.SaveChanges();*/
+
+                // DANGEROUS!
+                userSettings.Id = data.Id;
             }
         }
 
         public UserSettingsEntry LoadUserSettings(long uid)
         {
-            throw new NotImplementedException();
+            UserSettingsEntry userSettingsEntry =
+                _currencyDataContext.UserSettingsEntries.FirstOrDefault(x => x.CookieUid == uid);
+
+            return userSettingsEntry;
         }
 
         public void AddUserLanguage(UserLanguageEntry userLanguageEntry)
         {
-            var data = _currencyDataContext.UserLanguageEntries.Where(x => x.Equals(userLanguageEntry));
+            UserLanguageEntry dbEntry = _currencyDataContext.UserLanguageEntries.FirstOrDefault(x => x.Equals(userLanguageEntry));
 
-            if (!data.Any())
+            if (dbEntry == null)
             {
                 _currencyDataContext.UserLanguageEntries.Add(userLanguageEntry);
 
                 _currencyDataContext.SaveChanges();
             }
+            else
+            {
+                // DANGEROUS!
+                userLanguageEntry.Id = dbEntry.Id;
+            }
         }
 
-        public void GetUserLanguages()
+        public IQueryable<UserLanguageEntry> GetUserLanguages()
         {
-            throw new NotImplementedException();
+            return _currencyDataContext.UserLanguageEntries;
+        }
+
+
+        public void AddCorrespondenceEntry(CorrespondanceEntry correspondanceEntry)
+        {
+            var data = _currencyDataContext.CorrespondanceEntries.ToList().FirstOrDefault(x => x.Equals(correspondanceEntry));
+            //CorrespondanceEntry data = _currencyDataContext.CorrespondanceEntries.FirstOrDefault(x => x.Equals(correspondanceEntry));
+
+            if (data == null)
+            {
+                _currencyDataContext.CorrespondanceEntries.Add(correspondanceEntry);
+
+                _currencyDataContext.SaveChanges();
+            }
+        }
+
+        public IQueryable<CorrespondanceEntry> GetCorrespondanceEntries()
+        {
+            return _currencyDataContext.CorrespondanceEntries;
+        }
+
+        public IQueryable<CorrespondanceEntry> GetCorrespondanceEntries(UserSettingsEntry userSettingsEntry)
+        {
+            return _currencyDataContext.CorrespondanceEntries.Where(x => x.UserSettings.Equals(userSettingsEntry));
         }
     }
 }

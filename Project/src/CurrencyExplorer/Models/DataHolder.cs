@@ -28,13 +28,26 @@ namespace CurrencyExplorer.Models
 
         public UserSettings LoadSettings(long uid)
         {
-            UserSettings userSettings = UserSettingsHolder.LoadSettings(uid); ;
+            UserSettings userSettings = UserSettingsHolder.LoadSettings(uid);
 
             if (userSettings == null)
             {
                 // There is no UserSettings for specified cookie.
                 userSettings = LoadDefaultSettings();
             }
+
+            // Fill currenciesData for todays info.
+
+            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> currenciesData = null;
+
+            DateTime iterator = DateTime.Now;
+            while (currenciesData == null)
+            {
+                currenciesData = CachingProcessor.RequestSingleData(iterator, userSettings.Currencies.Select(x => x.DbCurrencyCodeEntry).ToList());
+                iterator = iterator.Subtract(TimeSpan.FromDays(1));
+            }
+
+            userSettings.Currencies = currenciesData.Select((pair) => pair.Value).ToList();
 
             return userSettings;
         }
@@ -66,22 +79,11 @@ namespace CurrencyExplorer.Models
 
             List<CurrencyCodeEntry> defaultCodes = new List<CurrencyCodeEntry>();
 
-            var allCodes = CachingProcessor.RequestAllCurrencyCodes();
+            var allCodes = CachingProcessor.RequestAllCurrencyCodes().Distinct().ToList();
 
             defaultCodes.AddRange(allCodes.Where(x => codesList.Contains(x.Alias)));
 
-            // Fille currenciesData for todays info.
-
-            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> currenciesData = null;
-
-            DateTime iterator = DateTime.Now;
-            while (currenciesData == null)
-            {
-                currenciesData = CachingProcessor.RequestSingleData(iterator, defaultCodes);
-                iterator = iterator.Subtract(TimeSpan.FromDays(1));
-            }
-
-            defaultUserSettings.Currencies = currenciesData.Select((pair) => pair.Value).ToList();
+            defaultUserSettings.Currencies = defaultCodes.Select(x => new CurrencyDataEntry() {DbCurrencyCodeEntry = x});
 
             return defaultUserSettings;
         }
