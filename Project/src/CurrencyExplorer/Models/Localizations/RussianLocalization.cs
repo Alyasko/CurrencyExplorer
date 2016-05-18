@@ -8,9 +8,9 @@ namespace CurrencyExplorer.Models.Localizations
 {
     public class RussianLocalization : AbstractLocalization
     {
-        public RussianLocalization(string fileName, IApplicationEnvironment appEnv) : base(fileName, appEnv)
+        public RussianLocalization(IApplicationEnvironment appEnv)
         {
-
+            InitializeConfiguration("ru.json", appEnv);
         }
     }
 }

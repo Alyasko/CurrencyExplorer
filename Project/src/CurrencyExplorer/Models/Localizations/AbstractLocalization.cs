@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using CurrencyExplorer.Models.Contracts;
 using CurrencyExplorer.Utilities;
+using Microsoft.Data.Entity.Scaffolding.Internal.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.PlatformAbstractions;
 
@@ -14,7 +15,12 @@ namespace CurrencyExplorer.Models.Localizations
     {
         protected IConfiguration Configuration;
 
-        protected AbstractLocalization(string fileName, IApplicationEnvironment appEnv)
+        protected AbstractLocalization()
+        {
+            
+        }
+
+        protected void InitializeConfiguration(string fileName, IApplicationEnvironment appEnv)
         {
             Configuration = Utils.CreateConfiguration(appEnv, $"Localizations//{fileName}");
         }

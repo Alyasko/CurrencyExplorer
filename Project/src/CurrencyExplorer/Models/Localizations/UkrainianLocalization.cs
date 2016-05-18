@@ -8,9 +8,9 @@ namespace CurrencyExplorer.Models.Localizations
 {
     public class UkrainianLocalization : AbstractLocalization
     {
-        public UkrainianLocalization(string fileName, IApplicationEnvironment appEnv) : base(fileName, appEnv)
+        public UkrainianLocalization(IApplicationEnvironment appEnv)
         {
-            
+            InitializeConfiguration("ua.json", appEnv);
         }
     }
 }

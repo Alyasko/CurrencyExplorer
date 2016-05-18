@@ -52,21 +52,21 @@ namespace CurrencyExplorer.Controllers
 
             ICollection<CurrencyCodeEntry> currencyCodesList = _currencyXplorer.GetAllCurrencyCodes();
 
-            //CurrencyExplorerLanguage language = _currencyXplorer.CurrencyExplorerLanguage;
-            CurrencyExplorerLanguage language = CurrencyExplorerLanguage.Russian;
+            CurrencyExplorerLanguage language = _currencyXplorer.CurrencyExplorerLanguage;
+            //CurrencyExplorerLanguage language = CurrencyExplorerLanguage.Ukrainian;
 
             ILocalization localization = null;
 
             switch (language)
             {
                 case CurrencyExplorerLanguage.Russian:
-                    localization = new RussianLocalization("ru.json", _applicationEnvironment);
+                    localization = new RussianLocalization(_applicationEnvironment);
                     break;
                 case CurrencyExplorerLanguage.Ukrainian:
-                    localization = new UkrainianLocalization("ua.json", _applicationEnvironment);
+                    localization = new UkrainianLocalization(_applicationEnvironment);
                     break;
                 case CurrencyExplorerLanguage.English:
-                    localization = new EnglishLocalization("en.json", _applicationEnvironment);
+                    localization = new EnglishLocalization(_applicationEnvironment);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

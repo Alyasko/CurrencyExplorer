@@ -34,12 +34,14 @@ namespace CurrencyExplorer.Controllers
 
             long cookie = _cookiesManager.GetUid();
 
-            _currencyXplorer.SaveUserSettings(cookie, settings);
+            var oldSettings = _currencyXplorer.RequestUserSettings(cookie);
 
-            if (settings.Language != _currencyXplorer.CurrencyExplorerLanguage)
+            if (settings.Language != oldSettings.Language)
             {
-                actionResult = RedirectToAction("Index", "Home");
+                actionResult = Json(new { Result = "Refresh" });
             }
+
+            _currencyXplorer.SaveUserSettings(cookie, settings);
 
             return actionResult;
         }

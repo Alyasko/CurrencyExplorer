@@ -48,16 +48,21 @@ namespace CurrencyExplorer.Models
 
         public UserSettings LoadSettings(long uid)
         {
-            UserSettings userSettings = new UserSettings();
+            UserSettings userSettings = null;
 
             var langs = ExplorerRepository.GetUserLanguages().ToList();
             UserSettingsEntry userSettingsEntry = ExplorerRepository.LoadUserSettings(uid);
 
-            userSettings.Language = (CurrencyExplorerLanguage)Enum.Parse(typeof(CurrencyExplorerLanguage), userSettingsEntry.Language.Language);
-            userSettings.TimePeriod = new ChartTimePeriod(userSettingsEntry.ChartBeginTime, userSettingsEntry.ChartEndTime);
+            if (userSettingsEntry != null)
+            {
+                userSettings = new UserSettings();
 
-            userSettings.Currencies =
-                ExplorerRepository.GetCorrespondanceEntries(userSettingsEntry).Select(x => new CurrencyDataEntry() { DbCurrencyCodeEntry = x.CurrencyCode });
+                userSettings.Language = (CurrencyExplorerLanguage)Enum.Parse(typeof(CurrencyExplorerLanguage), userSettingsEntry.Language.Language);
+                userSettings.TimePeriod = new ChartTimePeriod(userSettingsEntry.ChartBeginTime, userSettingsEntry.ChartEndTime);
+
+                userSettings.Currencies =
+                    ExplorerRepository.GetCorrespondanceEntries(userSettingsEntry).Select(x => new CurrencyDataEntry() { DbCurrencyCodeEntry = x.CurrencyCode });
+            }
 
             return userSettings;
         }

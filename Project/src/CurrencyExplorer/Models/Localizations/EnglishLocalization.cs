@@ -10,9 +10,9 @@ namespace CurrencyExplorer.Models.Localizations
 {
     public class EnglishLocalization : AbstractLocalization
     {
-        public EnglishLocalization(string fileName, IApplicationEnvironment appEnv) : base(fileName, appEnv)
+        public EnglishLocalization(IApplicationEnvironment appEnv)
         {
-
+            InitializeConfiguration("en.json", appEnv);
         }
     }
 }

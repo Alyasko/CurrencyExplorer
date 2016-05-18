@@ -77,9 +77,13 @@ function sendSettings() {
         url: "Settings/SaveUserSettings",
         data: "json=" + JSON.stringify(dataObj),
         success: function(d) {
-            alert(d.Result);
+            
             if (d.Result === "OK") {
                 loadChartData();
+                alert(d.Result);
+            }
+            else if (d.Result === "Refresh") {
+                location.reload();
             }
         }
     });

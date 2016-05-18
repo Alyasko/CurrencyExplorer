@@ -116,7 +116,7 @@ namespace CurrencyExplorer.Models
         public void SaveUserSettings(long uid, UserSettingsRequest userSettings)
         {
             _dataHolder.SaveSettings(uid, userSettings);
-            
+            CurrencyExplorerLanguage = userSettings.Language;
         }
 
         /// <summary>

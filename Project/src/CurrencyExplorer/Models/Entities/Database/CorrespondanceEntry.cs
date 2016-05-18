@@ -30,7 +30,7 @@ namespace CurrencyExplorer.Models.Entities.Database
 
         protected bool Equals(CorrespondanceEntry other)
         {
-            bool result = true;//CurrencyCode != null && UserSettings != null;
+            bool result = CurrencyCode != null && UserSettings != null;
             return result && CurrencyCode.Equals(other.CurrencyCode) && UserSettings.Equals(other.UserSettings);
         }
 

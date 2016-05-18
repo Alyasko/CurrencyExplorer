@@ -132,6 +132,10 @@ namespace CurrencyExplorer.Models.Repositories
             {
                 // BUG: Updating is not implemented.
 
+                string sql = $"UPDATE UserSettingsEntry SET LanguageId = {userSettings.Language.Id} WHERE Id = {data.Id}";
+
+                _currencyDataContext.Database.ExecuteSqlCommand(sql);
+
                 /*data.ChartBeginTime = userSettings.ChartBeginTime;
                 data.ChartEndTime = userSettings.ChartEndTime;
                 data.Language = userSettings.Language;
