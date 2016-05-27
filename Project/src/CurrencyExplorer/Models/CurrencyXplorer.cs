@@ -87,10 +87,10 @@ namespace CurrencyExplorer.Models
         /// </summary>
         public void RequestChartData()
         {
-            ChartDataPoints = _dataProcessor.GetChartData(ChartTimePeriod, ConvertCurrencyVluesToCodes(ChartCurrencyCodeStrings));
+            ChartDataPoints = _dataProcessor.GetChartData(ChartTimePeriod, ConvertCurrencyValuesToCodes(ChartCurrencyCodeStrings));
         }
 
-        private ICollection<CurrencyCodeEntry> ConvertCurrencyVluesToCodes(ICollection<string> input)
+        private ICollection<CurrencyCodeEntry> ConvertCurrencyValuesToCodes(ICollection<string> input)
         {
             var allCodes = GetAllCurrencyCodes();
 
@@ -105,7 +105,7 @@ namespace CurrencyExplorer.Models
         public void RequestTodaysCurrencies()
         {
             //TodaysCurrencies
-            TodaysCurrencies = _dataProcessor.GetDailyCurrencies(DateTime.Now, ConvertCurrencyVluesToCodes(ChartCurrencyCodeStrings));
+            TodaysCurrencies = _dataProcessor.GetDailyCurrencies(DateTime.Now, ConvertCurrencyValuesToCodes(ChartCurrencyCodeStrings));
         }
 
         /// <summary>
@@ -145,6 +145,24 @@ namespace CurrencyExplorer.Models
         public void SetCurrencyImporter(CurrencyImporterType importerType)
         {
 
+        }
+
+        public string ExportChartAsImage(ChartDataRequest dataRequest)
+        {
+            _dataPresenter.DataRequest = dataRequest;
+            _dataPresenter.InputPoints = _dataProcessor.GetChartData(dataRequest.Begin, dataRequest.End,
+                ConvertCurrencyValuesToCodes(dataRequest.CurrencyValues));
+
+            return _dataPresenter.ExportAsImage();
+        }
+
+        public string ExportChartAsTable(ChartDataRequest dataRequest)
+        {
+            _dataPresenter.DataRequest = dataRequest;
+            _dataPresenter.InputPoints = _dataProcessor.GetChartData(dataRequest.Begin, dataRequest.End,
+                ConvertCurrencyValuesToCodes(dataRequest.CurrencyValues));
+
+            return _dataPresenter.ExportAsTable();
         }
 
         public ChartTimePeriod ChartTimePeriod { get; set; }

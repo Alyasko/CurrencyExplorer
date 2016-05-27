@@ -22,14 +22,19 @@ namespace CurrencyExplorer.Models
         {
             IDictionary<CurrencyCodeEntry, JsonCurrencyData> jsonResult = _iCurrencyImporter.Import(time);
 
-            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> result = jsonResult.ToDictionary(
-                k => k.Key,
-                v => new CurrencyDataEntry()
-                {
-                    ActualDate = v.Value.ActualDate,
-                    Value = v.Value.Value,
-                    DbCurrencyCodeEntry = v.Key
-                });
+            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> result = null;
+
+            if (jsonResult != null)
+            {
+                result = jsonResult.ToDictionary(
+                    k => k.Key,
+                    v => new CurrencyDataEntry()
+                    {
+                        ActualDate = v.Value.ActualDate,
+                        Value = v.Value.Value,
+                        DbCurrencyCodeEntry = v.Key
+                    });
+            }
 
             return result;
         }

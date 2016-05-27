@@ -116,6 +116,16 @@ namespace CurrencyExplorer.Models.Repositories
             throw new System.NotImplementedException();
         }
 
+        public void RemoveCorrespondanceEntries(UserSettingsEntry userSettingsEntry)
+        {
+            var existingEnties = _currencyDataContext.CorrespondanceEntries.Where(
+                x => x.UserSettings.Equals(userSettingsEntry)).ToList();
+
+            _currencyDataContext.CorrespondanceEntries.RemoveRange(existingEnties);
+
+            _currencyDataContext.SaveChanges();
+        }
+
         public void SaveUserSettings(UserSettingsEntry userSettings)
         {
             //var all = _currencyDataContext.UserSettingsEntries.ToArray();

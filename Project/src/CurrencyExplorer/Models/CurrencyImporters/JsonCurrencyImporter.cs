@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -29,8 +30,18 @@ namespace CurrencyExplorer.Models.CurrencyImporters
                 $"http://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date={dateFormated}&json";
 
             HttpClient httpClient = new HttpClient();
-            
-            Stream resposeStream = httpClient.GetStreamAsync(requestUrl).Result;
+
+            Stream resposeStream = null;
+
+            try
+            {
+                // TODO: move try-catch block to upper layers of code.
+                resposeStream = httpClient.GetStreamAsync(requestUrl).Result;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
 
             if (resposeStream != null)
             {

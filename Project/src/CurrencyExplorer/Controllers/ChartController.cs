@@ -31,8 +31,8 @@ namespace CurrencyExplorer.Controllers
 
             string resultJson = "";
 
-            try
-            {
+            //try
+            //{
                 clientRequest = JsonConvert.DeserializeObject<ChartDataRequest>(json);
 
                 if (clientRequest != null)
@@ -72,12 +72,12 @@ namespace CurrencyExplorer.Controllers
 
                     resultJson = JsonConvert.SerializeObject(new { State = "Success", Data = lazyPoints});
                 }
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                resultJson = JsonConvert.SerializeObject(new { State = "Failed", Data = e.Message });
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(e.Message);
+            //    resultJson = JsonConvert.SerializeObject(new { State = "Failed", Data = e.Message });
+            //}
 
             return Json(resultJson);
         }

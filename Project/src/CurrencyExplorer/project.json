@@ -25,10 +25,9 @@
 
   "frameworks": {
     "dnx451": {
-
-    },
-    "dnxcore50": {
-
+      "dependencies": {
+        "ImageProcessor": "2.3.3"
+      }
     }
   },
 

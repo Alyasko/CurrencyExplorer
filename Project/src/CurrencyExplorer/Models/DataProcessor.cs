@@ -31,7 +31,7 @@ namespace CurrencyExplorer.Models
             var currencyDataPoints = new Dictionary<CurrencyCodeEntry, ICollection<ChartCurrencyDataPoint<CurrencyDataEntry>>>();
 
             // Format the structure of data representation.
-            foreach (KeyValuePair<CurrencyCodeEntry, ICollection<CurrencyDataEntry>> pair in currencyData)
+            foreach (KeyValuePair<CurrencyCodeEntry, List<CurrencyDataEntry>> pair in currencyData)
             {
                 List<ChartCurrencyDataPoint<CurrencyDataEntry>> dataPoints = new List<ChartCurrencyDataPoint<CurrencyDataEntry>>();
                 foreach (CurrencyDataEntry data in pair.Value)
@@ -43,6 +43,12 @@ namespace CurrencyExplorer.Models
             }
 
             return currencyDataPoints;
+        }
+
+        public IDictionary<CurrencyCodeEntry, ICollection<ChartCurrencyDataPoint<CurrencyDataEntry>>> GetChartData(DateTime begin, DateTime end, ICollection<CurrencyCodeEntry> chartCurrencyCodes)
+        {
+            ChartTimePeriod timePeriod = new ChartTimePeriod(begin, end);
+            return GetChartData(timePeriod, chartCurrencyCodes); ;
         }
 
         /// <summary>

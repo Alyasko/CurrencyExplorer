@@ -10,7 +10,6 @@ var SCROLLBAR_MARGIN = 40;
 var CHART_LEFT_RIGHT_MARGIN = 40;
 var CANVAS_PAGE_MARGINS = 130;
 
-
 var isScrollBarDragging;
 var scrollBarPosDifference;
 var mousePosition = new Object();
@@ -23,6 +22,7 @@ $(document).ready(function () {
 
     isScrollBarDragging = false;
     scrollBarPosDifference = 0;
+    drawChartHelpers = false;
 
     chartScrollingValue = 0;
 
@@ -104,8 +104,6 @@ function scrollBarMouseUp() {
     isScrollBarDragging = false;
 }
 
-
-
 function updateCanvasWidth(id) {
     var windowWidth = $(document).width();
     var canvas = document.getElementById(id);
@@ -130,8 +128,7 @@ function loadChartData() {
     hideLoadingError();
     showLoading();
 
-    hideInputError("date-begin");
-    hideInputError("date-end");
+    hideAllInputErrors();
 
     var beginValue = $("#date-begin").val();
     var endValue = $("#date-end").val();
@@ -139,11 +136,7 @@ function loadChartData() {
     var beginDate = new Date(beginValue);
     var endDate = new Date(endValue);
 
-    var isCorrectPeriod = true;
-
-    if (isNaN(beginDate.getTime()) || isNaN(endDate.getTime())) {
-        isCorrectPeriod = false;
-    }
+    var isCorrectPeriod = validateInputDates(beginDate, endDate);
 
     if (isCorrectPeriod === true) {
         if (beginDate < endDate) {
@@ -153,17 +146,7 @@ function loadChartData() {
             lastCorrectBeginDate = begin;
             lastCorrectEndDate = end;
 
-            var currencies = new Array();
-
-            for (var i = 0; i < currenciesList.length; i++) {
-                currencies.push(currenciesList[i].Value);
-            }
-            
-            var dataObj = {
-                Begin: begin.toUTCString(),
-                End: end.toUTCString(),
-                CurrencyValues: currencies
-            };
+            var dataObj = packChartRequestObject(begin, end);
 
             $.ajax({
                 type: "POST",
@@ -179,6 +162,28 @@ function loadChartData() {
 
                     if (state === "Success") {
                         drawChart(data, CANVAS_ID, true, 0);
+
+
+                        if (drawChartHelpers === true) {
+
+                            NORMAL_MODE_MAX_POINTS_COUNT = 200;
+                            MARGIN_LEFT = 0;
+                            MARGIN_RIGHT = 0;
+                            MARGIN_BOTTOM = 50;
+                            MARGIN_TOP = 50;
+
+                            CURRENCY_LABELS_RIGHT_MARGIN = 80;
+
+                            TIGHT_POINTS_THRESHOLD = 0;
+
+                            drawChart(data, CANVAS_ID, true, 0);
+
+                            var canvas = document.getElementById(CANVAS_ID);
+                            var data = canvas.toDataURL('image/png');
+                            location.href = data;
+                            drawChartHelpers = false;
+                            resetChartConstants();
+                        }
                     } else if (state === "Failed") {
                         alert(data);
                     }
@@ -186,105 +191,20 @@ function loadChartData() {
                     hideLoading();
                     hideLoadingError();
                     hideMessageContainer();
+
                 },
                 failure: function (err) {
                     alert(err);
                 }
             });
         } else {
-            showInputError("date-begin", "Begin date should be earlier that end date.");
-            showMessageContainer();
-            hideLoading();
-            showLoadingError();
+            displayIncorrectPeriodError(true);
         }
     } else {
-        showMessageContainer();
-        hideLoading();
-        showLoadingError();
-
-        if (isNaN(beginDate.getTime())) {
-            showInputError("date-begin", "Incorrect date fromat.");
-        }
-        if (isNaN(endDate.getTime())) {
-            showInputError("date-end", "Incorrect date fromat.");
-        }
+        displayInputDatesError(beginDate, endDate, true);
     }
 }
 
-function showInputError(id, text) {
-    var inp = $("#" + id);
-
-    inp.parent().parent().find(".error-description").removeClass(".hidden").addClass(".shown").text(text);
-    if (inp.hasClass("input-error") === false) {
-        inp.addClass("input-error");
-    }
-}
-
-function hideInputError(id) {
-    var inp = $("#" + id);
-    inp.parent().parent().find(".error-description").removeClass(".shown").addClass(".hidden").text("");
-    if (inp.hasClass("input-error")) {
-        inp.removeClass("input-error");
-    }
-}
-
-function showLoadingError() {
-    var err = $("#loading-error");
-
-    if (err.hasClass("hidden")) {
-        err.removeClass("hidden");
-        err.addClass("shown");
-
-    }
-}
-
-function hideLoadingError() {
-    var err = $("#loading-error");
-
-    if (err.hasClass("shown")) {
-        err.removeClass("shown");
-        err.addClass("hidden");
-    }
-}
-
-function showMessageContainer() {
-    var cont = $("#message-container");
-
-    if (cont.hasClass("hidden")) {
-        cont.removeClass("hidden");
-        cont.addClass("shown");
-    }
-}
-
-function hideMessageContainer() {
-    var cont = $("#message-container");
-
-    if (cont.hasClass("shown")) {
-        cont.removeClass("shown");
-        cont.addClass("hidden");
-    }
-}
-
-
-function showLoading() {
-    var loading = $("#loading-animation");
-
-    if (loading.hasClass("hidden")) {
-        loading.removeClass("hidden");
-        loading.addClass("shown");
-    }
-
-}
-
-function hideLoading() {
-    var loading = $("#loading-animation");
-
-    if (loading.hasClass("shown")) {
-        loading.removeClass("shown");
-        loading.addClass("hidden");
-    }
-
-}
 
 function getDrawingObject(jData) {
     return drawData;
@@ -299,15 +219,6 @@ function drawChart(jData, cnv, parseJson, horTransl) {
     var chart = $("#canvas-explorer-chart");
     currencyPopupPoints = new Array();
 
-    var NORMAL_MODE_MAX_POINTS_COUNT = 200;
-    var MARGIN_LEFT = 0;
-    var MARGIN_RIGHT = 0;
-    var MARGIN_BOTTOM = 50;
-    var MARGIN_TOP = 50;
-
-    var CURRENCY_LABELS_RIGHT_MARGIN = 80;
-
-    var TIGHT_POINTS_THRESHOLD = 20;
 
     var canvas = document.getElementById(cnv);
     var ctx = canvas.getContext("2d");
@@ -341,6 +252,16 @@ function drawChart(jData, cnv, parseJson, horTransl) {
 
     ctx.font = "20px Segoe UI";
 
+    // Draw the line with min and max values
+
+    //ctx.beginPath();
+
+    //ctx.moveTo(MARGIN_LEFT, MARGIN_BOTTOM);
+    //ctx.lineTo(MARGIN_LEFT, cnvHeight - MARGIN_TOP);
+
+    //ctx.endPath();
+
+    //
 
     for (var currency in data) {
         var chartPointsCount = data[currency].length;
@@ -372,8 +293,6 @@ function drawChart(jData, cnv, parseJson, horTransl) {
 
                 totalChartWidth += pointHStep;
 
-
-
                 if (x > 0 && x < cnvWidth) {
 
                     if (j !== chartPointsCount - 1) {
@@ -384,6 +303,19 @@ function drawChart(jData, cnv, parseJson, horTransl) {
 
                     if (visiblePointNumber == 0) {
                         //alert(visiblePointNumber);
+
+                        if (drawChartHelpers === true) {
+
+                            ctx.setTransform(1, 0, 0, 1, 0, 0);
+                            ctx.translate(0, 0);
+
+                            ctx.font = "20px Arial";
+                            ctx.fillText(currency, cnvWidth - CURRENCY_LABELS_RIGHT_MARGIN, cnvHeight - y + 6);
+
+                            ctx.setTransform(1, 0, 0, -1, 0, 0);
+                            ctx.translate(0, -cnvHeight);
+
+                        }
 
                         var lblFor = "lbl-for-" + currency.toLowerCase();
 
@@ -418,8 +350,6 @@ function drawChart(jData, cnv, parseJson, horTransl) {
             ctx.closePath();
         }
     }
-
-
 
     if (currencyLblsHandlerAssigned == false) {
         currencyLblsHandlerAssigned = true;

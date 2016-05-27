@@ -162,10 +162,10 @@ namespace CurrencyExplorer.Models
             return result;
         }
 
-        public IDictionary<CurrencyCodeEntry, ICollection<CurrencyDataEntry>> RequestPeriodData(ChartTimePeriod timePeriod, ICollection<CurrencyCodeEntry> codes)
+        public IDictionary<CurrencyCodeEntry, List<CurrencyDataEntry>> RequestPeriodData(ChartTimePeriod timePeriod, ICollection<CurrencyCodeEntry> codes)
         {
-            IDictionary<CurrencyCodeEntry, ICollection<CurrencyDataEntry>> periodCurrencyData =
-                new Dictionary<CurrencyCodeEntry, ICollection<CurrencyDataEntry>>();
+            IDictionary<CurrencyCodeEntry, List<CurrencyDataEntry>> periodCurrencyData =
+                new Dictionary<CurrencyCodeEntry, List<CurrencyDataEntry>>();
 
             DateTime beginTime = SelectWorkingDate(timePeriod.Begin, DateSelection.BeforeWeekends);
             DateTime endTime = SelectWorkingDate(timePeriod.End, DateSelection.AfterWeekends);
@@ -232,7 +232,12 @@ namespace CurrencyExplorer.Models
                 correctedEntries.Sort(
                     (d1, d2) => d1.ActualDate > d2.ActualDate ? 1 : (d1.ActualDate == d2.ActualDate ? 0 : -1));
 
-                periodCurrencyData.Add(code, correctedEntries);
+                if (!periodCurrencyData.ContainsKey(code))
+                {
+                    periodCurrencyData.Add(code, new List<CurrencyDataEntry>());
+                }
+
+                periodCurrencyData[code].AddRange(correctedEntries);
 
             }
 
@@ -322,25 +327,43 @@ namespace CurrencyExplorer.Models
 
         public ICollection<CurrencyCodeEntry> RequestAllCurrencyCodes()
         {
-            ICollection<CurrencyCodeEntry> result = null;
+            ICollection<CurrencyCodeEntry> result = GetAllCurrencyCodesFromDatabase();
 
-            IDictionary<CurrencyCodeEntry, CurrencyDataEntry> responce = RequestSingleData(DateTime.Now);
-
-            DateTime startDate = DateTime.Now;
-
-            while (responce == null)
+            if (result == null)
             {
-                responce = RequestSingleData(startDate);
-                startDate = startDate.Subtract(TimeSpan.FromDays(1));
+                // No records in database.
+                IDictionary<CurrencyCodeEntry, CurrencyDataEntry> responce = RequestSingleData(DateTime.Now);
+
+                DateTime startDate = DateTime.Now;
+
+                GetAllCurrencyCodesFromDatabase();
+
+                while (responce == null)
+                {
+                    responce = RequestSingleData(startDate);
+                    startDate = startDate.Subtract(TimeSpan.FromDays(1));
+                }
+
+                if (responce.Count != 0)
+                {
+                    // Elements are the same.
+                    result = responce.Select(p => p.Key).ToList();
+                }
+            }
+            else
+            {
+                // The records are in database.
+
+                result = GetAllCurrencyCodesFromDatabase();
             }
 
-            if (responce.Count != 0)
-            {
-                // Elements are the same.
-                result = responce.Select(p => p.Key).ToList();
-            }
 
             return result;
+        }
+
+        private ICollection<CurrencyCodeEntry> GetAllCurrencyCodesFromDatabase()
+        {
+            return _currencyRepository.GetCodeEntries().ToList();
         }
 
 

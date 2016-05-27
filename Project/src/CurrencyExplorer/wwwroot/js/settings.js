@@ -80,7 +80,7 @@ function sendSettings() {
             
             if (d.Result === "OK") {
                 loadChartData();
-                alert(d.Result);
+                //alert(d.Result);
             }
             else if (d.Result === "Refresh") {
                 location.reload();

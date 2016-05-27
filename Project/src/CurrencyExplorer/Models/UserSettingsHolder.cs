@@ -23,6 +23,8 @@ namespace CurrencyExplorer.Models
             userSettingsEntry.ChartBeginTime = userSettings.BeginDate;
             userSettingsEntry.ChartEndTime = userSettings.EndDate;
             userSettingsEntry.CookieUid = uid;
+
+            ExplorerRepository.RemoveCorrespondanceEntries(userSettingsEntry);
             //userSettingsEntry.CurrencyCodes = ExplorerRepository.GetCodeEntries().Where(x => userSettings.CurrencyValues.Contains(x.Value)).ToList();
 
             UserLanguageEntry newUserLanguageEntry = new UserLanguageEntry();

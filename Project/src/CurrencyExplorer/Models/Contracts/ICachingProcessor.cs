@@ -14,7 +14,7 @@ namespace CurrencyExplorer.Models.Contracts
             ICollection<CurrencyCodeEntry> codes,
             bool useCaching = true);
 
-        IDictionary<CurrencyCodeEntry, ICollection<CurrencyDataEntry>> RequestPeriodData(
+        IDictionary<CurrencyCodeEntry, List<CurrencyDataEntry>> RequestPeriodData(
             ChartTimePeriod timePeriod,
             ICollection<CurrencyCodeEntry> codes);
 

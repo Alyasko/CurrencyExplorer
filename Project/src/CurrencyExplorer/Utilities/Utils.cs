@@ -14,7 +14,12 @@ namespace CurrencyExplorer.Utilities
 
         public static string GetClientFormattedDateString(DateTime date)
         {
-            return $"{date.Year:0000}-{date.Month:00}-{date.Day:00}";
+            return GetClientFormattedDateString(date, "-");
+        }
+
+        public static string GetClientFormattedDateString(DateTime date, string delimiter)
+        {
+            return $"{date.Year:0000}{delimiter}{date.Month:00}{delimiter}{date.Day:00}";
         }
 
         public static IConfigurationRoot CreateConfiguration(IApplicationEnvironment appEnv, string fileName)

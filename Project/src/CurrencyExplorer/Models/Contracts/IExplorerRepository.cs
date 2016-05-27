@@ -14,5 +14,7 @@ namespace CurrencyExplorer.Models.Contracts
         /// </summary>
         /// <param name="query">The query to be executed.</param>
         void ExecuteQuery(string query);
+
+        void RemoveCorrespondanceEntries(UserSettingsEntry userSettingsEntry);
     }
 }

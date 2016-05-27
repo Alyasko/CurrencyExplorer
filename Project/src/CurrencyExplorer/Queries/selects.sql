@@ -4,6 +4,9 @@ SELECT * FROM CurrencyDataEntry  ORDER BY ActualDate;
 DELETE FROM CurrencyDataEntry;
 DELETE FROM CurrencyCodeEntry;
 
+SELECT * FROM CorrespondanceEntry;
+SELECT * FROM UserLanguageEntry;
+SELECT * FROM UserSettingsEntry;
 
 DELETE FROM CurrencyCode WHERE Id = 234;
 DELETE FROM CurrencyData WHERE ShortName = 'EUR'
