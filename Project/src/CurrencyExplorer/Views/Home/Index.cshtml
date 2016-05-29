@@ -50,13 +50,13 @@
                     <a href="#" class="no-style text-color-gray" data-name="settings">@localization.MenuSettings</a>
                 </li>
                 <li>
-                    <a href="#" class="no-style text-color-gray" data-name="explore">@localization.MenuExplore</a>
+                    <a href="#explorer" class="no-style text-color-gray" data-name="explore">@localization.MenuExplore</a>
                 </li>
                 <li>
-                    <a href="#" class="no-style text-color-gray" data-name="help">@localization.MenuHelp</a>
+                    <a href="#help" class="no-style text-color-gray" data-name="help">@localization.MenuHelp</a>
                 </li>
                 <li>
-                    <a href="#" class="no-style text-color-gray" data-name="about">@localization.MenuAbout</a>
+                    <a href="#about" class="no-style text-color-gray" data-name="about">@localization.MenuAbout</a>
                 </li>
             </ul>
         </nav>
@@ -243,19 +243,25 @@
 
                 </div>
                 <div id="export-to">
-                        <input type="submit" onclick="exportAsImage()" class="blue-button" name="export-image" value="@localization.ExportAsImage" />
-                        <br />
-                        <input type="submit" onclick="exportAsTable()" class="blue-button" name="export-table" value="@localization.ExportAsTable" />
+                    <input type="submit" onclick="exportAsImage()" class="blue-button" name="export-image" value="@localization.ExportAsImage" />
+                    <br />
+                    <input type="submit" onclick="exportAsTable()" class="blue-button" name="export-table" value="@localization.ExportAsTable" />
                 </div>
             </div>
         </div>
         <div id="about">
             <div id="about-title" class="shadowed-line">
+                @localization.AboutTheProjectTitle
+            </div>
+            <div class="section-content white-text">
                 @localization.AboutTheProject
             </div>
         </div>
         <div id="help">
             <div id="help-title" class="shadowed-line text-color-gray">
+                @localization.HelpTitle
+            </div>
+            <div class="section-content">
                 @localization.Help
             </div>
         </div>

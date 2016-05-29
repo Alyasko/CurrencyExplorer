@@ -24,10 +24,6 @@ namespace CurrencyExplorer.Models.Repositories
             return _currencyDataContext.CurrencyDataEntries;
         }
 
-        public IQueryable<CurrencyDataEntry> GetDataEntries(ChartTimePeriod timePeriod)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public IQueryable<CurrencyCodeEntry> GetCodeEntries()
         {
@@ -96,26 +92,6 @@ namespace CurrencyExplorer.Models.Repositories
             }
         }
 
-        public void RemoveDataEntries(CurrencyCodeEntry entryToRemove)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoveDataEntries(ChartTimePeriod timePeriod)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoveDataEntries(CurrencyCodeEntry entryToRemove, ChartTimePeriod timePeriod)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void ExecuteQuery(string query)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void RemoveCorrespondanceEntries(UserSettingsEntry userSettingsEntry)
         {
             var existingEnties = _currencyDataContext.CorrespondanceEntries.Where(
@@ -128,7 +104,6 @@ namespace CurrencyExplorer.Models.Repositories
 
         public void SaveUserSettings(UserSettingsEntry userSettings)
         {
-            //var all = _currencyDataContext.UserSettingsEntries.ToArray();
             var langs = _currencyDataContext.UserLanguageEntries.ToArray();
             UserSettingsEntry data = _currencyDataContext.UserSettingsEntries.FirstOrDefault(x => x.Equals(userSettings));
 
@@ -140,21 +115,9 @@ namespace CurrencyExplorer.Models.Repositories
             }
             else
             {
-                // BUG: Updating is not implemented.
-
                 string sql = $"UPDATE UserSettingsEntry SET LanguageId = {userSettings.Language.Id} WHERE Id = {data.Id}";
 
                 _currencyDataContext.Database.ExecuteSqlCommand(sql);
-
-                /*data.ChartBeginTime = userSettings.ChartBeginTime;
-                data.ChartEndTime = userSettings.ChartEndTime;
-                data.Language = userSettings.Language;
-
-                //_currencyDataContext.Entry(data).State = EntityState.Modified;
-
-                _currencyDataContext.Update(data);
-
-                _currencyDataContext.SaveChanges();*/
 
                 // DANGEROUS!
                 userSettings.Id = data.Id;
@@ -195,7 +158,6 @@ namespace CurrencyExplorer.Models.Repositories
         public void AddCorrespondenceEntry(CorrespondanceEntry correspondanceEntry)
         {
             var data = _currencyDataContext.CorrespondanceEntries.ToList().FirstOrDefault(x => x.Equals(correspondanceEntry));
-            //CorrespondanceEntry data = _currencyDataContext.CorrespondanceEntries.FirstOrDefault(x => x.Equals(correspondanceEntry));
 
             if (data == null)
             {

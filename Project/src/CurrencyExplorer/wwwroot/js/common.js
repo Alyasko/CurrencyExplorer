@@ -15,17 +15,19 @@ var isScrolledUnderMenu = false;
 var drawChartHelpers;
 
 // Chart constants
-var NORMAL_MODE_MAX_POINTS_COUNT = 200;
-var MARGIN_LEFT = 0;
-var MARGIN_RIGHT = 0;
-var MARGIN_BOTTOM = 50;
-var MARGIN_TOP = 50;
+var NORMAL_MODE_MAX_POINTS_COUNT;
+var MARGIN_LEFT;
+var MARGIN_RIGHT;
+var MARGIN_BOTTOM;
+var MARGIN_TOP;
 
-var CURRENCY_LABELS_RIGHT_MARGIN = 80;
+var CURRENCY_LABELS_RIGHT_MARGIN;
 
-var TIGHT_POINTS_THRESHOLD = 20;
+var TIGHT_POINTS_THRESHOLD;
 
 $(document).ready(function () {
+
+    resetChartConstants();
 
     $menu = $("#main-menu");
     $settings = $("#settings");
@@ -34,8 +36,11 @@ $(document).ready(function () {
     // set handlers for explorer nav buttons
 
     $("#main-menu li").click(function (e) {
-        MenuItemsClick($(this).children("a").first().attr("data-name"));
-        e.preventDefault();
+        var name = $(this).children("a").first().attr("data-name");
+        MenuItemsClick(name);
+        if (name === "settings") {
+            e.preventDefault();
+        }
     });
 
     $(".lang").click(function () {
@@ -108,7 +113,7 @@ $(document).ready(function () {
 
 function resetChartConstants() {
     NORMAL_MODE_MAX_POINTS_COUNT = 200;
-    MARGIN_LEFT = 0;
+    MARGIN_LEFT = 30;
     MARGIN_RIGHT = 0;
     MARGIN_BOTTOM = 50;
     MARGIN_TOP = 50;

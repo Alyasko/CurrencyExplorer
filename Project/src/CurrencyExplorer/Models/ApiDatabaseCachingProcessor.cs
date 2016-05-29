@@ -101,7 +101,7 @@ namespace CurrencyExplorer.Models
                 {
                     // No data in database.
                     IDictionary<CurrencyCodeEntry, CurrencyDataEntry> allCurrencyDataPerDay = null;
-                    
+
                     // Download data.
                     try
                     {
@@ -144,7 +144,7 @@ namespace CurrencyExplorer.Models
         {
             ICollection<CurrencyDataEntry> result = null;
 
-            var dbEntries = _currencyRepository.GetDataEntries().Where(data => 
+            var dbEntries = _currencyRepository.GetDataEntries().Where(data =>
                 data.ActualDate.Date >= beginTime.Date &&
                 data.ActualDate.Date <= endTime.Date &&
                 data.DbCurrencyCodeEntry.Equals(codeEntry));
@@ -211,7 +211,7 @@ namespace CurrencyExplorer.Models
                         }
 
                         // If database doesn't have record for this date.
-                        var downloadedData = RequestSingleData(iterator, new CurrencyCodeEntry[] {code}, false);
+                        var downloadedData = RequestSingleData(iterator, new CurrencyCodeEntry[] { code }, false);
 
                         if (tempSingleData == null)
                         {
@@ -242,49 +242,7 @@ namespace CurrencyExplorer.Models
             }
 
             return periodCurrencyData;
-
-/*
-            //var mData = TryGetPeriodDatabaseData(beginTime, endTime, codes.ElementAt(0)).ToList();
-
-            // Format the keys of data structure to be returned.
-            foreach (CurrencyCode code in codes)
-            {
-                periodCurrencyData.Add(code, new List<CurrencyData>());
-            }
-
-            IDictionary<CurrencyCode, CurrencyData> lastSingleData = null;
-            IDictionary<CurrencyCode, CurrencyData> tempSingleData = null;
-
-            // TODO: fix iterator to make possible to change the step of selection so that select less data in large queries.
-            for (DateTime iterator = beginTime; iterator < endTime; iterator = iterator.AddDays(1))
-            {
-                // TODO: select using one query instead of query per day.
-
-                tempSingleData = this.RequestSingleData(iterator, codes);
-
-                if (tempSingleData == null)
-                {
-                    tempSingleData = lastSingleData;
-                }
-
-                if (tempSingleData != null)
-                {
-                    foreach (var pair in tempSingleData)
-                    {
-                        periodCurrencyData[pair.Key].Add(pair.Value);
-                    }
-                }
-                else
-                {
-                    throw new Exception("Unhandled NULL reference exception. The previous data does not");
-                }
-
-
-                lastSingleData = tempSingleData;
-            }
-
-            return periodCurrencyData;*/
-            }
+        }
 
         private DateTime SelectWorkingDate(DateTime dateTime, DateSelection selectionType)
         {
@@ -329,7 +287,7 @@ namespace CurrencyExplorer.Models
         {
             ICollection<CurrencyCodeEntry> result = GetAllCurrencyCodesFromDatabase();
 
-            if (result == null)
+            if (result == null || result.Count == 0)
             {
                 // No records in database.
                 IDictionary<CurrencyCodeEntry, CurrencyDataEntry> responce = RequestSingleData(DateTime.Now);

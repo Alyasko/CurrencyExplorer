@@ -1,8 +1,14 @@
 SELECT * FROM CurrencyCodeEntry;
 SELECT * FROM CurrencyDataEntry  ORDER BY ActualDate;
 
+SELECT * FROM CurrencyCodeEntry WHERE Alias = 'RUB'
+
 DELETE FROM CurrencyDataEntry;
 DELETE FROM CurrencyCodeEntry;
+
+DELETE FROM CorrespondanceEntry;
+DELETE FROM UserLanguageEntry;
+DELETE FROM UserSettingsEntry;
 
 SELECT * FROM CorrespondanceEntry;
 SELECT * FROM UserLanguageEntry;

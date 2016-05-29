@@ -312,6 +312,15 @@ div#help {
         color: white;
     }
 
+.section-content {
+    color: #5e5e5e;
+    margin: 10px;
+}
+
+.section-content.white-text {
+    color: white;
+}
+
 footer {
     text-align: center;
     position: relative;

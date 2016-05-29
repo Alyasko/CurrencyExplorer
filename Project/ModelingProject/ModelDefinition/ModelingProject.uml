@@ -1014,7 +1014,7 @@
             isAbstract="false">
             <interfaceMoniker
               Id="47c17e87-da4d-4504-b3e3-32bc395bad94"
-              LastKnownName="ICurrencyDataConverter"
+              LastKnownName="ICurrencyExporter"
               LastKnownLocation="ModelingProject.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1276,6 +1276,45 @@
                 <memberEnd
                   Id="45ec03cb-19cc-48c7-aebf-f01837fee61b"
                   name="ICurrencyExplorerRepository"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0f57d684-7a88-44bf-a803-b8225ac42619"
+            isDerived="false"
+            sourceEndRoleName="UserSettingsHolder"
+            targetEndRoleName="IExplorerRepository"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="737524b1-23ce-49d9-9c76-bc7fb744c4c7"
+              LastKnownName="IExplorerRepository"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="600e5d23-8ea0-4f26-a807-fdae7ce6d029"
+                  name="UserSettingsHolder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2e3f248c-915c-438a-bd54-de0b7d4cdafc"
+                  name="IExplorerRepository"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1630,6 +1669,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="360a4b4e-434e-4920-ae4d-297583c88bd4"
+            isDerived="false"
+            sourceEndRoleName="CachingProcessor"
+            targetEndRoleName="IExplorerRepository"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="737524b1-23ce-49d9-9c76-bc7fb744c4c7"
+              LastKnownName="IExplorerRepository"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4361e7e5-a995-4244-bb08-fc5f92b439ed"
+                  name="CachingProcessor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="37ab4a65-6053-4167-83b8-8015a756555f"
+                  name="IExplorerRepository"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </class>
     </packageHasNamedElement>
@@ -1946,7 +2024,7 @@
     <packageHasNamedElement>
       <Interface
         Id="47c17e87-da4d-4504-b3e3-32bc395bad94"
-        name="ICurrencyDataConverter"
+        name="ICurrencyExporter"
         isAbstract="false"
         isLeaf="false">
         <appliedStereotypesInternal>
@@ -2042,7 +2120,7 @@
             Id="49fce146-1621-4887-bd3c-7c429bf39d35">
             <interfaceMoniker
               Id="47c17e87-da4d-4504-b3e3-32bc395bad94"
-              LastKnownName="ICurrencyDataConverter"
+              LastKnownName="ICurrencyExporter"
               LastKnownLocation="ModelingProject.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -2051,7 +2129,7 @@
     <packageHasNamedElement>
       <class
         Id="245606ac-18cd-437f-a3de-303f6d681d8a"
-        name="JpegDataConverter"
+        name="JpegCurrencyExporter"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -2113,7 +2191,7 @@
     <packageHasNamedElement>
       <class
         Id="566bbbcc-184b-4074-9ac9-d314de032cb4"
-        name="CsvDataConverter"
+        name="CsvCurrencyExporter"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -3135,16 +3213,16 @@
     <packageHasNamedElement>
       <class
         Id="bc355d35-8ad5-42c6-a5f2-0ba90052c256"
-        name="CurrencyExplorerRepository"
+        name="MsSqlExplorerRepository"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
         <suppliersInternal>
           <interfaceRealization
-            Id="1b36819a-ba36-44bb-94c2-ea4cd4a56456">
+            Id="21adc06e-859d-4c2a-9e23-fef04dbd8169">
             <interfaceMoniker
-              Id="97c03a2f-045e-42ef-8c0b-f3ff5cbbce84"
-              LastKnownName="ICurrencyExplorerRepository"
+              Id="737524b1-23ce-49d9-9c76-bc7fb744c4c7"
+              LastKnownName="IExplorerRepository"
               LastKnownLocation="ModelingProject.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -4191,6 +4269,61 @@
             LastKnownLocation="ModelingProject.uml" />
         </subjects>
       </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="737524b1-23ce-49d9-9c76-bc7fb744c4c7"
+        name="IExplorerRepository"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="0af92be9-7b88-4eea-9467-377e8dbd601f"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="2224f9ba-6737-47d2-a5ac-f3a222d3c19d"
+              LastKnownName="IUserSettingsRepository"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+          <generalization
+            Id="f9da319e-7ba0-45c5-ac0b-294f292491a8"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="c8a7f54a-4e9a-40ae-87ea-33c66fa669a6"
+              LastKnownName="ICurrenciesRepository"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+          <generalization
+            Id="03594585-a438-4948-8728-8e1c178c0d4b"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="b671fb73-d199-4b08-9a4d-dbcbc6a78641"
+              LastKnownName="ICorrespondenceRepository"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="c8a7f54a-4e9a-40ae-87ea-33c66fa669a6"
+        name="ICurrenciesRepository"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="2224f9ba-6737-47d2-a5ac-f3a222d3c19d"
+        name="IUserSettingsRepository"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="b671fb73-d199-4b08-9a4d-dbcbc6a78641"
+        name="ICorrespondenceRepository"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

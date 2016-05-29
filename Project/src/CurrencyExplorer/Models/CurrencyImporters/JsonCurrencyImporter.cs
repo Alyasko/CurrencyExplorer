@@ -48,10 +48,6 @@ namespace CurrencyExplorer.Models.CurrencyImporters
                 StreamReader reader = new StreamReader(resposeStream);
                 jsonStringResult = reader.ReadToEnd();
 
-                //JsonSerializerSettings jsonSettings = new JsonSerializerSettings();
-                //jsonSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat;
-                //jsonSettings.DateFormatString = "dd.mm.yyyy";
-
                 IEnumerable<JsonCurrencyData> jsonCurrencyData =
                     JsonConvert.DeserializeObject<IEnumerable<JsonCurrencyData>>(jsonStringResult);
 

@@ -13,11 +13,20 @@ namespace CurrencyExplorer.Models
     {
         private ICurrencyImporter _iCurrencyImporter;
 
+        /// <summary>
+        /// Main constructor.
+        /// </summary>
+        /// <param name="importer">Specific currency importer.</param>
         public NationalBankCurrencyProvider(ICurrencyImporter importer)
         {
             _iCurrencyImporter = importer;
         }
 
+        /// <summary>
+        /// Requests single data.
+        /// </summary>
+        /// <param name="time">The time of chart data to be received.</param>
+        /// <returns>The dictionary with data.</returns>
         public IDictionary<CurrencyCodeEntry, CurrencyDataEntry> RequestSingleCurrencyData(DateTime time)
         {
             IDictionary<CurrencyCodeEntry, JsonCurrencyData> jsonResult = _iCurrencyImporter.Import(time);

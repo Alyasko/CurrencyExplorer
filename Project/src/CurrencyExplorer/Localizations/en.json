@@ -16,7 +16,9 @@
   "ExplorerUpdateChart": "Update chart",
   "ExportAsImage": "Export as image",
   "ExportAsTable": "Export as table",
-  "AboutTheProject": "About the project",
-  "Help": "Help",
+  "AboutTheProject": "This web site allows exploring currencies correspondance to Ukraine national currency - UAH. Also it is possible to export chart to a table or an image.",
+  "AboutTheProjectTitle": "About the project",
+  "Help": "To explore currencies use currencies chart at the top of page. Under chart you can set the time period by entering proper date. To export chart into image or table press appropriate button.",
+  "HelpTitle": "Help",
   "FooterAllRightsReserved": "Alexander Yasko, All rights reserved"
 }

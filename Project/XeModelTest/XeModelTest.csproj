@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16BEB50A-DA15-4651-A97F-2605AA4746C5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XeModelTest</RootNamespace>
+    <AssemblyName>XeModelTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IConfiguration.cs" />
+    <Compile Include="Models\ApiDatabaseCachingProcessor.cs" />
+    <Compile Include="Models\Contracts\ICachingProcessor.cs" />
+    <Compile Include="Models\Contracts\ICorrespondenceRepository.cs" />
+    <Compile Include="Models\Contracts\ICurrenciesRepository.cs" />
+    <Compile Include="Models\Contracts\ICurrencyExporter.cs" />
+    <Compile Include="Models\Contracts\ICurrencyImporter.cs" />
+    <Compile Include="Models\Contracts\ICurrencyProvider.cs" />
+    <Compile Include="Models\Contracts\IExplorerRepository.cs" />
+    <Compile Include="Models\Contracts\ILocalization.cs" />
+    <Compile Include="Models\Contracts\IUserSettingsHolder.cs" />
+    <Compile Include="Models\Contracts\IUserSettingsRepository.cs" />
+    <Compile Include="Models\Converters\DateTimeJsonConverter.cs" />
+    <Compile Include="Models\Converters\StringToCodeJsonConverter.cs" />
+    <Compile Include="Models\Converters\UserLanguageJsonConverter.cs" />
+    <Compile Include="Models\CurrencyImporters\AbstractCurrencyImporter.cs" />
+    <Compile Include="Models\CurrencyImporters\JsonCurrencyImporter.cs" />
+    <Compile Include="Models\CurrencyImporters\LocalJsonCurrencyImporter.cs" />
+    <Compile Include="Models\CurrencyImporters\XmlCurrencyImporter.cs" />
+    <Compile Include="Models\CurrencyXplorer.cs" />
+    <Compile Include="Models\DataHolder.cs" />
+    <Compile Include="Models\DataPresenter.cs" />
+    <Compile Include="Models\DataProcessor.cs" />
+    <Compile Include="Models\Entities\ChartCurrencyDataPoint.cs" />
+    <Compile Include="Models\Entities\ChartDataRequest.cs" />
+    <Compile Include="Models\Entities\ChartTimePeriod.cs" />
+    <Compile Include="Models\Entities\Database\CorrespondanceEntry.cs" />
+    <Compile Include="Models\Entities\Database\CurrencyCodeEntry.cs" />
+    <Compile Include="Models\Entities\Database\CurrencyDataContext.cs" />
+    <Compile Include="Models\Entities\Database\CurrencyDataEntry.cs" />
+    <Compile Include="Models\Entities\Database\UserLanguageEntry.cs" />
+    <Compile Include="Models\Entities\Database\UserSettingsEntry.cs" />
+    <Compile Include="Models\Entities\JsonChartPointData.cs" />
+    <Compile Include="Models\Entities\JsonCurrencyData.cs" />
+    <Compile Include="Models\Entities\Point.cs" />
+    <Compile Include="Models\Entities\UserSettings.cs" />
+    <Compile Include="Models\Entities\UserSettingsRequest.cs" />
+    <Compile Include="Models\Enums\CurrencyExplorerLanguage.cs" />
+    <Compile Include="Models\Enums\CurrencyImporterType.cs" />
+    <Compile Include="Models\Enums\DateSelection.cs" />
+    <Compile Include="Models\Enums\ExportFormat.cs" />
+    <Compile Include="Models\Exporters\AbstractCurrencyDataConverter.cs" />
+    <Compile Include="Models\Exporters\CsvCurrencyExporter.cs" />
+    <Compile Include="Models\Exporters\JpegCurrencyExporter.cs" />
+    <Compile Include="Models\Localizations\AbstractLocalization.cs" />
+    <Compile Include="Models\Localizations\EnglishLocalization.cs" />
+    <Compile Include="Models\Localizations\RussianLocalization.cs" />
+    <Compile Include="Models\Localizations\UkrainianLocalization.cs" />
+    <Compile Include="Models\NationalBankCurrencyProvider.cs" />
+    <Compile Include="Models\NoItemsException.cs" />
+    <Compile Include="Models\Repositories\MsSqlExplorerRepository.cs" />
+    <Compile Include="Models\UserSettingsHolder.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\CookiesManager.cs" />
+    <Compile Include="Utilities\CurrencyDataEntryComparer.cs" />
+    <Compile Include="Utilities\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

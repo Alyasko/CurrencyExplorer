@@ -1,0 +1,12 @@
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\obj\Debug\XeModelTest.csprojResolveAssemblyReference.cache
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\XeModelTest.exe.config
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\XeModelTest.exe
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\XeModelTest.pdb
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\obj\Debug\XeModelTest.exe
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\obj\Debug\XeModelTest.pdb
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\EntityFramework.dll
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\EntityFramework.xml
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\WEB\CurrencyExplorer\Project\XeModelTest\bin\Debug\Newtonsoft.Json.xml

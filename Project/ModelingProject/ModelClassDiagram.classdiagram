@@ -240,7 +240,7 @@
         <elementDefinition Id="5bfaa6b3-2f3a-4e4c-8880-19a7d108bb45" />
         <targetEnds>
           <association Id="1908ba4b-efa6-492f-8e3d-726f58ea7b22" isDerived="false" sourceEndRoleName="DataPresenter" targetEndRoleName="ICurrencyDataConverter" isLeaf="false" isAbstract="false">
-            <interfaceMoniker Id="82e258ac-3499-4743-84d4-a02d28ac0b74" LastKnownName="ICurrencyDataConverter" />
+            <interfaceMoniker Id="82e258ac-3499-4743-84d4-a02d28ac0b74" LastKnownName="ICurrencyExporter" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="0ab4094c-5ae6-416e-9eb2-b479d723d417" name="DataPresenter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
@@ -351,21 +351,21 @@
           </interfaceRealization>
         </suppliersInternal>
         <targetEnds>
-          <association Id="fa5b291b-26a5-4bdc-9838-f243a889e786" isDerived="false" sourceEndRoleName="SettingsHolder" targetEndRoleName="ICurrencyExplorerRepository" isLeaf="false" isAbstract="false">
-            <interfaceMoniker Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" LastKnownName="ICurrencyExplorerRepository" />
+          <association Id="731eb5e3-5894-4379-8bd3-bf515b6db54d" isDerived="false" sourceEndRoleName="UserSettingsHolder" targetEndRoleName="IExplorerRepository" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="c9c24181-2c86-48c6-b1d5-e51683acbb9e" LastKnownName="IExplorerRepository" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="6687e639-b199-41d5-bd86-388700842d65" name="SettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="988af0d8-e34c-484e-9ef6-4ff16f4def9e" />
+                <memberEnd Id="4a7a2c51-c5a2-4db5-a549-13de813ec039" name="UserSettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="600e5d23-8ea0-4f26-a807-fdae7ce6d029" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="eb9eac38-adc4-4dc7-ac1c-a70f0332b09b" name="ICurrencyExplorerRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="45ec03cb-19cc-48c7-aebf-f01837fee61b" />
+                <memberEnd Id="ee52876b-b4c3-4028-82a6-61e13038fc5d" name="IExplorerRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2e3f248c-915c-438a-bd54-de0b7d4cdafc" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="fb5cc0ef-7b19-4fc9-bd4f-0236ea5bb5ba" />
+            <elementDefinition Id="0f57d684-7a88-44bf-a803-b8225ac42619" />
           </association>
         </targetEnds>
       </class>
@@ -469,21 +469,21 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="8ff0ef4a-8500-428f-a17a-953ea6ab418c" />
           </association>
-          <association Id="c6b38418-7b88-40bc-aac0-42feefa7f327" isDerived="false" sourceEndRoleName="CachingProcessor" targetEndRoleName="ICurrencyExplorerRepository" isLeaf="false" isAbstract="false">
-            <interfaceMoniker Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" LastKnownName="ICurrencyExplorerRepository" />
+          <association Id="b04940d0-a8e5-45da-878e-e7ee2a183a37" isDerived="false" sourceEndRoleName="CachingProcessor" targetEndRoleName="IExplorerRepository" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="c9c24181-2c86-48c6-b1d5-e51683acbb9e" LastKnownName="IExplorerRepository" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="3793c2f2-a324-4df2-b5bc-3d11a7af9c82" name="CachingProcessor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="84162e05-72bd-45d2-a91b-e453ee3fd464" />
+                <memberEnd Id="253e4f9f-b52c-44f3-96bd-027b65755325" name="CachingProcessor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4361e7e5-a995-4244-bb08-fc5f92b439ed" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="faf73f93-7f34-45a8-bbf6-8fe8af4ccfca" name="ICurrencyExplorerRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="36e34a46-1132-4689-978d-58d37b512240" />
+                <memberEnd Id="1c5d6cf2-ac62-4670-9c7b-83f1e9ae0bf5" name="IExplorerRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="37ab4a65-6053-4167-83b8-8015a756555f" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="e08325a4-e6a8-43e8-865a-adcba46e8d29" />
+            <elementDefinition Id="360a4b4e-434e-4920-ae4d-297583c88bd4" />
           </association>
         </targetEnds>
       </class>
@@ -591,7 +591,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="82e258ac-3499-4743-84d4-a02d28ac0b74" name="ICurrencyDataConverter" isAbstract="false" isLeaf="false">
+      <Interface Id="82e258ac-3499-4743-84d4-a02d28ac0b74" name="ICurrencyExporter" isAbstract="false" isLeaf="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="1d453e54-ddec-4410-9edd-0c132cbc4617" name="interface" profile="CSharpProfile">
             <elementDefinition Id="2a04c62e-2a04-4d78-8fe8-8cf37dfbbd3c" />
@@ -668,14 +668,14 @@
         <elementDefinition Id="e9801b17-c9b8-4a95-8c0c-dc6245949f75" />
         <suppliersInternal>
           <interfaceRealization Id="d4cbf187-2a55-4674-ac4d-7e62de913d88">
-            <interfaceMoniker Id="82e258ac-3499-4743-84d4-a02d28ac0b74" LastKnownName="ICurrencyDataConverter" />
+            <interfaceMoniker Id="82e258ac-3499-4743-84d4-a02d28ac0b74" LastKnownName="ICurrencyExporter" />
             <elementDefinition Id="49fce146-1621-4887-bd3c-7c429bf39d35" />
           </interfaceRealization>
         </suppliersInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="6c9f5ea6-7866-4a2a-bb81-02d98e89c87e" name="JpegDataConverter" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="6c9f5ea6-7866-4a2a-bb81-02d98e89c87e" name="JpegCurrencyExporter" isAbstract="false" isLeaf="false" isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="3678e5af-1c17-4ddb-accc-0bfc592a2a7d" name="class" profile="CSharpProfile">
             <elementDefinition Id="2874793d-c944-46ee-bec6-fdb6b538643c" />
@@ -723,7 +723,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="b07658d4-d8f0-40bd-8952-b0b3eb4690c9" name="CsvDataConverter" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="b07658d4-d8f0-40bd-8952-b0b3eb4690c9" name="CsvCurrencyExporter" isAbstract="false" isLeaf="false" isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="df9aa0db-f48f-4a53-9456-2b02c5ad5efb" name="class" profile="CSharpProfile">
             <elementDefinition Id="42ae02ae-e025-47d0-b34f-3ec44c9f3b0a" />
@@ -771,65 +771,12 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="4da4c5f2-5c3f-4c7b-99a7-e19dc232492b" name="JsonDataConverter" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="6c38b317-d33b-4abf-962e-ef85735289da" name="class" profile="CSharpProfile">
-            <elementDefinition Id="8f575eae-89c8-416e-9a3f-87eb774833e0" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="13f0522c-5465-4fa3-9fc5-bc9018949ed7">
-                <propertyInstance Id="dbc32b6a-1bda-46ba-97eb-16170dd59ce1" name="ClrAttributes">
-                  <elementDefinition Id="25a13cf6-8a48-45f9-aca1-9a283f53905a" />
-                </propertyInstance>
-                <elementDefinition Id="a911c060-44d2-49f3-8399-bccc814e75e4" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="ff55f4c5-737c-4e73-adcc-bc8a1461a585">
-                <propertyInstance Id="5137ce11-1681-4d05-bbf6-8fd03edd3670" name="IsPartial" value="false">
-                  <elementDefinition Id="8b393262-9c41-4ca6-8beb-70fdea195ae7" />
-                </propertyInstance>
-                <elementDefinition Id="1c4346f0-45fb-4f91-bcc4-1ed3cca83ea7" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="57967eb9-be7d-495e-ab8f-2279cf431a4d">
-                <propertyInstance Id="a6b7eb80-1542-400d-b466-bde9d83e1499" name="IsStatic" value="false">
-                  <elementDefinition Id="fdac4ce0-71eb-4a93-be4a-034881c598fa" />
-                </propertyInstance>
-                <elementDefinition Id="05b9a26c-b359-45f9-a4e0-c201b5338154" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="7d9616b8-5dba-4203-b46a-8846a271c48e">
-                <propertyInstance Id="4417e689-e18b-44b6-931f-2afc24094d5f" name="IsUnsafe" value="false">
-                  <elementDefinition Id="436a4271-169d-4005-92f4-26ce3901efdf" />
-                </propertyInstance>
-                <elementDefinition Id="9e53bd6a-527e-4f60-a8b9-6e80fd2c4f1a" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="af775a36-f389-4d91-8178-eaa2223ac0fc">
-                <propertyInstance Id="9faeb403-a0b5-4264-b4ee-8f432e7b035d" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="1183cdd3-146a-4f10-9924-fe0446ab766f" />
-                </propertyInstance>
-                <elementDefinition Id="5222b847-de3e-4c63-9bb5-60935df2ee64" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="443a68db-d6a6-46e9-9c36-32dfa24277a2" />
-        <generalsInternal>
-          <generalization Id="e3d45b6c-1ea0-4cd9-b8a9-e36e6184dcb8" isSubstitutable="false">
-            <classMoniker Id="4d1ccfbe-e8d9-4139-9467-b882ebdd472b" LastKnownName="AbstractCurrencyDataConverter" />
-            <elementDefinition Id="577c265c-cce7-4049-b8b2-855403c436df" />
-          </generalization>
-        </generalsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <Interface Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" name="ICurrencyExplorerRepository" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="97c03a2f-045e-42ef-8c0b-f3ff5cbbce84" />
-      </Interface>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="95ba0fa4-6f3e-40bf-8f48-c7579d3c4ada" name="CurrencyExplorerRepository" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="95ba0fa4-6f3e-40bf-8f48-c7579d3c4ada" name="MsSqlExplorerRepository" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="bc355d35-8ad5-42c6-a5f2-0ba90052c256" />
         <suppliersInternal>
-          <interfaceRealization Id="12e11fac-7b94-4429-bc86-7260f2ba1de4">
-            <interfaceMoniker Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" LastKnownName="ICurrencyExplorerRepository" />
-            <elementDefinition Id="1b36819a-ba36-44bb-94c2-ea4cd4a56456" />
+          <interfaceRealization Id="83a3e369-1aca-45e4-b930-1d9cfffa3c15">
+            <interfaceMoniker Id="c9c24181-2c86-48c6-b1d5-e51683acbb9e" LastKnownName="IExplorerRepository" />
+            <elementDefinition Id="21adc06e-859d-4c2a-9e23-fef04dbd8169" />
           </interfaceRealization>
         </suppliersInternal>
       </class>
@@ -892,58 +839,42 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="0e169cde-ed9e-4232-918a-69705bc4004d" />
           </association>
-          <association Id="925a0800-eed0-49a1-98a8-d0842733ee9f" isDerived="false" sourceEndRoleName="DataHolder" targetEndRoleName="IProgramSettingsHolder" isLeaf="false" isAbstract="false">
-            <interfaceMoniker Id="1fd1f238-b22b-45a3-a097-79363befc189" LastKnownName="IProgramSettingsHolder" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="b909d896-e98e-4e37-97b2-5a9975906017" name="DataHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="9c3334f9-12a8-4d11-beaa-82e6218dbde9" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="08b1e6bc-8168-4879-8497-c097a939385e" name="IProgramSettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <elementDefinition Id="8e0ff43d-8fd8-407b-93f1-ff81e6e558db" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="35166441-bcf8-4b6d-bdbc-e2e9867a9dbf" />
-          </association>
         </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="1fd1f238-b22b-45a3-a097-79363befc189" name="IProgramSettingsHolder" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="bd63bffc-ccb5-4f5f-a4fe-9bd9cc225176" />
+      <Interface Id="c9c24181-2c86-48c6-b1d5-e51683acbb9e" name="IExplorerRepository" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="737524b1-23ce-49d9-9c76-bc7fb744c4c7" />
+        <generalsInternal>
+          <generalization Id="3f32f34c-8b28-491a-8ab4-ab0729a0a246" isSubstitutable="false">
+            <interfaceMoniker Id="24f567f0-c55c-40a4-a515-48aafc39a580" LastKnownName="IUserSettingsRepository" />
+            <elementDefinition Id="0af92be9-7b88-4eea-9467-377e8dbd601f" />
+          </generalization>
+          <generalization Id="de807dc4-2695-4ed0-af11-3a538f3da01f" isSubstitutable="false">
+            <interfaceMoniker Id="32b45438-e129-4bf7-b57f-2ca0ca482019" LastKnownName="ICurrenciesRepository" />
+            <elementDefinition Id="f9da319e-7ba0-45c5-ac0b-294f292491a8" />
+          </generalization>
+          <generalization Id="af977adc-b8b2-461d-ac14-6af50ff93d5f" isSubstitutable="false">
+            <interfaceMoniker Id="6655d3fa-6552-4b39-b761-e17b5bbade04" LastKnownName="ICorrespondenceRepository" />
+            <elementDefinition Id="03594585-a438-4948-8728-8e1c178c0d4b" />
+          </generalization>
+        </generalsInternal>
       </Interface>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="9630f19d-1e34-46cb-8d2c-265166926173" name="ProgramSettingsHolder" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="ce90c200-5aec-4216-ae0f-b7dae4a8fa96" />
-        <suppliersInternal>
-          <interfaceRealization Id="972044a4-e4ba-4575-8fa5-f8adb846b4ba">
-            <interfaceMoniker Id="1fd1f238-b22b-45a3-a097-79363befc189" LastKnownName="IProgramSettingsHolder" />
-            <elementDefinition Id="45937abd-9dee-4c44-b159-46ed041f774d" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <targetEnds>
-          <association Id="0ec15cd6-aaa3-41f7-8103-35037cdd7c2b" isDerived="false" sourceEndRoleName="UserSettingsHolder" targetEndRoleName="ICurrencyExplorerRepository" isLeaf="false" isAbstract="false">
-            <interfaceMoniker Id="1240e44e-80a4-4d40-a05a-5f216a8ed6f8" LastKnownName="ICurrencyExplorerRepository" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="ac83aa65-c6de-4090-8214-9547550a672d" name="UserSettingsHolder" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="14fdee60-dbb8-45ce-8c4a-72ba2aec9c5a" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="7f2daf4a-8aa2-475d-bd86-e89b8946e8ae" name="ICurrencyExplorerRepository" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="0e517073-7043-4d26-be1a-2768e7b27b0a" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="8e837997-f41a-4fd6-8a72-c264a3b55bbe" />
-          </association>
-        </targetEnds>
-      </class>
+      <Interface Id="32b45438-e129-4bf7-b57f-2ca0ca482019" name="ICurrenciesRepository" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c8a7f54a-4e9a-40ae-87ea-33c66fa669a6" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="24f567f0-c55c-40a4-a515-48aafc39a580" name="IUserSettingsRepository" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2224f9ba-6737-47d2-a5ac-f3a222d3c19d" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="6655d3fa-6552-4b39-b761-e17b5bbade04" name="ICorrespondenceRepository" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b671fb73-d199-4b08-9a4d-dbcbc6a78641" />
+      </Interface>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="1df6b79f-8b63-4dcd-94d4-c229962e1807" name="ModelingProject">

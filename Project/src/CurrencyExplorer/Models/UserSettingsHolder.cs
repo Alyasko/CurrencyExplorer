@@ -16,6 +16,11 @@ namespace CurrencyExplorer.Models
             ExplorerRepository = _explorerRepository;
         }
 
+        /// <summary>
+        /// Saves user settings.
+        /// </summary>
+        /// <param name="uid">The uid of user.</param>
+        /// <param name="userSettings">The user settings to be saved.</param>
         public void SaveSettings(long uid, UserSettingsRequest userSettings)
         {
             UserSettingsEntry userSettingsEntry = new UserSettingsEntry();
@@ -48,6 +53,11 @@ namespace CurrencyExplorer.Models
             }
         }
 
+        /// <summary>
+        /// Loads user settings.
+        /// </summary>
+        /// <param name="uid">The uid of user.</param>
+        /// <returns>User settings for specified user uid.</returns>
         public UserSettings LoadSettings(long uid)
         {
             UserSettings userSettings = null;

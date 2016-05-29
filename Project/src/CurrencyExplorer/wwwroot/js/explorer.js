@@ -16,6 +16,8 @@ var mousePosition = new Object();
 var chartScrollingValue;
 var totalChartWidth;
 
+var chartHorTranslation;
+
 $(document).ready(function () {
     updateCanvasWidth(CANVAS_ID);
     loadChartData();
@@ -23,6 +25,7 @@ $(document).ready(function () {
     isScrollBarDragging = false;
     scrollBarPosDifference = 0;
     drawChartHelpers = false;
+    chartHorTranslation = 0;
 
     chartScrollingValue = 0;
 
@@ -166,15 +169,9 @@ function loadChartData() {
 
                         if (drawChartHelpers === true) {
 
-                            NORMAL_MODE_MAX_POINTS_COUNT = 200;
-                            MARGIN_LEFT = 0;
-                            MARGIN_RIGHT = 0;
-                            MARGIN_BOTTOM = 50;
-                            MARGIN_TOP = 50;
+                            MARGIN_RIGHT = 60;
 
-                            CURRENCY_LABELS_RIGHT_MARGIN = 80;
-
-                            TIGHT_POINTS_THRESHOLD = 0;
+                            TIGHT_POINTS_THRESHOLD = 1;
 
                             drawChart(data, CANVAS_ID, true, 0);
 
@@ -211,7 +208,7 @@ function getDrawingObject(jData) {
 }
 
 function drawChart(jData, cnv, parseJson, horTransl) {
-    if (parseJson == true) {
+    if (parseJson === true) {
         parsedChartJsonData = jData;
     }
     var data = parsedChartJsonData;
@@ -234,6 +231,7 @@ function drawChart(jData, cnv, parseJson, horTransl) {
 
     // For scrolling.
     var horTranslation = horTransl;
+    chartHorTranslation = horTransl;
 
     $("#bar").text(horTranslation);
 
@@ -250,16 +248,37 @@ function drawChart(jData, cnv, parseJson, horTransl) {
     ctx.strokeStyle = "black";
     ctx.strokeWidth = 1;
 
-    ctx.font = "20px Segoe UI";
+    ctx.font = "13px Segoe UI";
+
+    var pointVStep = (cnvHeight - MARGIN_TOP - MARGIN_BOTTOM) / diffValue;
 
     // Draw the line with min and max values
 
-    //ctx.beginPath();
 
-    //ctx.moveTo(MARGIN_LEFT, MARGIN_BOTTOM);
-    //ctx.lineTo(MARGIN_LEFT, cnvHeight - MARGIN_TOP);
+    ctx.setLineDash([10]);
+    ctx.strokeStyle = "#909090";
 
-    //ctx.endPath();
+    ctx.beginPath();
+
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.translate(0, 0);
+
+    ctx.fillText(minValue.toFixed(3), 2, cnvHeight - MARGIN_BOTTOM + 4);
+    ctx.moveTo(MARGIN_LEFT + 15, cnvHeight - MARGIN_BOTTOM);
+    ctx.lineTo(cnvWidth - MARGIN_RIGHT, cnvHeight - MARGIN_BOTTOM);
+
+    ctx.fillText(maxValue.toFixed(3), 2, MARGIN_TOP + 4);
+    ctx.moveTo(cnvWidth - MARGIN_RIGHT, MARGIN_TOP);
+    ctx.lineTo(MARGIN_LEFT + 15, MARGIN_TOP);
+
+    ctx.setTransform(1, 0, 0, -1, 0, 0);
+    ctx.translate(0, -cnvHeight);
+
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.setLineDash([0]);
+    ctx.strokeStyle = "black";
 
     //
 
@@ -271,7 +290,7 @@ function drawChart(jData, cnv, parseJson, horTransl) {
             totalChartWidth = 0;
 
             var pointHStep = (cnvWidth - MARGIN_LEFT - MARGIN_RIGHT) / chartPointsCount;
-            var pointVStep = (cnvHeight - MARGIN_TOP - MARGIN_BOTTOM) / diffValue;
+
 
             if (pointHStep < TIGHT_POINTS_THRESHOLD) {
                 // If points are too tight.
@@ -293,7 +312,7 @@ function drawChart(jData, cnv, parseJson, horTransl) {
 
                 totalChartWidth += pointHStep;
 
-                if (x > 0 && x < cnvWidth) {
+                if ((x > MARGIN_LEFT) && (x < cnvWidth - MARGIN_RIGHT)) {
 
                     if (j !== chartPointsCount - 1) {
                         ctx.lineTo(x, y);
@@ -310,7 +329,7 @@ function drawChart(jData, cnv, parseJson, horTransl) {
                             ctx.translate(0, 0);
 
                             ctx.font = "20px Arial";
-                            ctx.fillText(currency, cnvWidth - CURRENCY_LABELS_RIGHT_MARGIN, cnvHeight - y + 6);
+                            ctx.fillText(currency, cnvWidth - 50, cnvHeight - y + 6);
 
                             ctx.setTransform(1, 0, 0, -1, 0, 0);
                             ctx.translate(0, -cnvHeight);

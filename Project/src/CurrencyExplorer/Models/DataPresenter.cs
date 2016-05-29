@@ -11,6 +11,10 @@ namespace CurrencyExplorer.Models
 {
     public class DataPresenter
     {
+        /// <summary>
+        /// Exports currency chart as image.
+        /// </summary>
+        /// <returns>The string pointing to the file.</returns>
         public string ExportAsImage()
         {
             if (InputPoints == null)
@@ -25,6 +29,10 @@ namespace CurrencyExplorer.Models
             return result;
         }
 
+        /// <summary>
+        /// Exports currency chart as table.
+        /// </summary>
+        /// <returns>The string pointing to the file.</returns>
         public string ExportAsTable()
         {
             if (InputPoints == null)
@@ -39,6 +47,12 @@ namespace CurrencyExplorer.Models
             return result;
         }
 
+        /// <summary>
+        /// Common method for chart exporting.
+        /// </summary>
+        /// <typeparam name="TResult">The type of result.</typeparam>
+        /// <param name="exporter">Specific exporter.</param>
+        /// <returns></returns>
         private TResult ExportData<TResult>(ICurrencyExporter<TResult> exporter)
         {
             if (exporter == null)
